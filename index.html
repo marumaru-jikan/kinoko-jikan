@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1F3A2A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="蕈時間">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>蕈時間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* Layout: one calm phone-width column in a night forest, views swapped in place, a fixed bottom tab bar (海月時間シリーズと同じ骨組み) */
+:root{
+  --bg:#EEF2EA; --bg-top:#D9E5D2; --surface:#FFFFFF; --sunk:#E3EADD; --ink:#16231A; --muted:#55665A; --line:#C9D5C3;
+  --teal:#2E6A45; --teal-soft:#DCEBDF; --accent:#B98A3E; --accent-soft:#F5EAD6; --accent-ink:#4A3410;
+  --good:#23845A; --good-bg:#DCF1E6; --bad:#B9503A; --bad-bg:#F8E1DA;
+  --night1:#1F3A2A; --night2:#122219; --night3:#07100B; --star:#C6F28A; --night-ink:#E7F0DC; --night-muted:#A9BFAE;
+  --f-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","BIZ UDPGothic",sans-serif;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A120D; --bg-top:#142319; --surface:#111C15; --sunk:#0D1711; --ink:#E4EFE0; --muted:#9DB2A1; --line:#22342A;
+  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5;
+  --good:#6CCB94; --good-bg:#14332A; --bad:#E8826A; --bad-bg:#3A201A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A120D; --bg-top:#142319; --surface:#111C15; --sunk:#0D1711; --ink:#E4EFE0; --muted:#9DB2A1; --line:#22342A;
+  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5;
+  --good:#6CCB94; --good-bg:#14332A; --bad:#E8826A; --bad-bg:#3A201A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg) linear-gradient(180deg,var(--bg-top) 0,var(--bg) 360px) no-repeat;min-height:100%;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px calc(96px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.35}
+h1{font-size:1.6rem;font-weight:900}
+h2{font-size:1.25rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num{font-variant-numeric:tabular-nums}
+
+.top{display:flex;align-items:center;gap:10px;min-height:52px}
+.back{border:0;background:none;padding:8px 10px 8px 0;font-size:1rem;color:var(--teal);font-weight:700;white-space:nowrap;flex:none}
+.top .ttl{font-family:var(--f-display);font-weight:700;font-size:1.05rem;min-width:0}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.hello{padding-block:10px 4px}
+.hello .eyebrow{font-size:.8rem;letter-spacing:.08em;color:var(--teal);font-weight:700}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.stat b{display:block;font-family:var(--f-display);font-size:1.5rem;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-size:.78rem;color:var(--muted)}
+
+.continue{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;background:linear-gradient(120deg,var(--night1),var(--night2));color:var(--night-ink);border:0;border-radius:14px;padding:16px 18px}
+.continue small{display:block;opacity:.85;font-size:.8rem}
+.continue strong{font-family:var(--f-display);font-size:1.1rem}
+.continue .go{font-size:1.4rem;color:var(--star)}
+
+.subjects{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.subjects .subj:last-child:nth-child(odd){grid-column:1/-1}
+.subj{display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;min-height:92px}
+.subj .k{font-family:var(--f-display);font-size:1.6rem;font-weight:900;line-height:1;color:var(--teal)}
+.subj b{font-family:var(--f-display);font-size:1.05rem}
+.subj .small{line-height:1.45}
+
+.list{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:0;background:none;padding:14px 16px;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.item[disabled]{opacity:.5;cursor:default}
+.item .body{flex:1;min-width:0}
+.item .chev{color:var(--muted)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.tag.done{background:var(--good-bg);color:var(--good)}
+.tag.mid{background:var(--accent-soft);color:var(--accent-ink)}
+.lid{flex:none;min-width:44px;height:30px;padding:0 8px;border-radius:99px;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal);font-weight:700;font-family:var(--f-display);font-variant-numeric:tabular-nums;font-size:.9rem}
+.lid.done{background:var(--teal);color:var(--surface)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+
+.btn{border:0;border-radius:12px;padding:13px 18px;font-weight:700;background:var(--teal);color:var(--surface)}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn.warm{background:var(--accent);color:#2B1F00}
+.btn.wide{width:100%}
+.btn.again{background:var(--teal-soft);color:var(--teal);border:2px solid var(--teal)}
+.btn[disabled]{opacity:.45;cursor:default}
+.btn:focus-visible,.item:focus-visible,.subj:focus-visible,.choice:focus-visible,.card:focus-visible,.tab:focus-visible,.rflip:focus-visible,.continue:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* lesson */
+.lesson section{display:flex;flex-direction:column;gap:10px}
+.rule{background:var(--accent-soft);color:var(--accent-ink);border-radius:12px;padding:12px 14px;font-weight:700;line-height:1.75}
+.ex{font-family:var(--f-display);font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums}
+.fx{background:var(--sunk);border-radius:10px;padding:10px 14px;font-family:var(--f-display);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.8}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.chain span{background:var(--teal-soft);color:var(--teal);border-radius:8px;padding:4px 10px;font-weight:700;font-size:.92rem}
+.chain i{font-style:normal;color:var(--muted)}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{border-top:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.tbl th{font-weight:700;color:var(--muted);font-size:.8rem}
+.tbl tr:first-child th,.tbl tr:first-child td{border-top:0}
+.scroll{overflow-x:auto}
+.fig{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}
+.fig text{font-family:var(--f-body);font-size:12px;fill:var(--ink)}
+.fig .lb{font-weight:700}
+.fig .ch{fill:var(--teal-soft);stroke:var(--teal);stroke-width:1.5}
+.fig .chL{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
+.fig .mu{fill:var(--muted);font-size:10.5px}
+.fig .ac{fill:var(--accent)}
+.fig .grid{stroke:var(--line);stroke-width:1}
+.note{background:var(--sunk);border-radius:12px;padding:12px 14px;font-size:.9rem}
+
+/* cards */
+.card{position:relative;width:100%;min-height:230px;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;text-align:center}
+.card .side{font-size:.75rem;letter-spacing:.1em;color:var(--teal);font-weight:700}
+.card .term{font-family:var(--f-display);font-size:1.7rem;font-weight:900}
+.card .def{font-size:1.02rem;line-height:1.8;max-width:30em}
+.card.flipped{background:var(--teal-soft)}
+.meter{height:8px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--teal);border-radius:99px;transition:width .3s}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.qbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
+.qbox .prompt{color:var(--muted);font-size:.92rem}
+.qbox .expr{font-family:var(--f-display);font-size:1.6rem;font-weight:900;margin-top:6px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;line-height:1.5}
+.qbox .expr.long{font-size:1.12rem;font-weight:700;line-height:1.7;text-align:left}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:14px 8px;font-family:var(--f-display);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.choices.words{grid-template-columns:1fr}
+.choices.words .choice{font-size:1.02rem;padding:12px;text-align:left}
+.choice.ok{border-color:var(--good);background:var(--good-bg);color:var(--good)}
+.choice.ng{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.choice[disabled]{cursor:default}
+.feedback{border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.feedback.ok{background:var(--good-bg)}
+.feedback.ng{background:var(--bad-bg)}
+.feedback .verdict{font-family:var(--f-display);font-weight:900;font-size:1.15rem}
+.feedback.ok .verdict{color:var(--good)} .feedback.ng .verdict{color:var(--bad)}
+.hint{background:var(--accent-soft);color:var(--accent-ink);border-radius:12px;padding:12px 14px;font-size:.95rem}
+.linkbtn{border:0;background:none;color:var(--teal);font-weight:700;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.result{text-align:center;padding:24px 16px}
+.result .big{font-family:var(--f-display);font-size:3rem;font-weight:900;font-variant-numeric:tabular-nums;color:var(--teal);line-height:1.1}
+
+/* record */
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{aspect-ratio:1;max-width:100%;border-radius:8px;background:var(--sunk);display:grid;place-items:center;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.day.on{background:var(--teal);color:var(--surface);font-weight:700}
+.kv{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.kv:first-child{border-top:0}
+input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+input[type=text]:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+.status{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok::before{background:var(--good)}
+.status.wait::before{background:var(--accent)}
+
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.tabs .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{border:0;background:none;padding:10px 4px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.75rem;color:var(--muted);font-weight:700}
+.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round}
+.tab.on{color:var(--teal)}
+
+@keyframes pop{0%{transform:scale(.96);opacity:.4}100%{transform:none;opacity:1}}
+.pop{animation:pop .25s ease-out}
+
+/* night sky hero */
+.sky{position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(175deg,var(--night1) 0%,var(--night2) 55%,var(--night3) 100%);color:var(--night-ink);padding:22px 18px 20px;min-height:176px;display:flex;align-items:flex-end}
+.sky .art{position:absolute;inset:0;width:100%;height:100%}
+.sky .txt{position:relative;z-index:1;max-width:64%;display:flex;flex-direction:column;gap:4px}
+.sky .name{font-family:var(--f-display);font-weight:900;font-size:1.05rem;letter-spacing:.2em;color:var(--star)}
+.sky h1{color:#F1F8EC;font-size:1.45rem}
+.sky p{color:var(--night-muted);font-size:.88rem}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.35}}
+.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes shoot{0%,78%{opacity:0;transform:translate(0,0)}82%{opacity:1}100%{opacity:0;transform:translate(-120px,60px)}}
+.shoot{animation:shoot 9s ease-in infinite}
+
+/* reward card */
+.rcard{display:flex;flex-direction:column;align-items:center;gap:12px;padding:6px 0 4px}
+.rlead{font-family:var(--f-display);font-weight:700;color:var(--teal);text-align:center}
+.rflip{border:0;padding:0;background:none;width:min(100%,300px);max-width:100%;aspect-ratio:3/4;perspective:1200px;cursor:pointer}
+.rflip[disabled]{cursor:default}
+.rinner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.rcard.open .rinner{transform:rotateY(180deg)}
+.rback,.rfront{position:absolute;inset:0;border-radius:18px;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 12px 30px rgba(5,15,10,.35)}
+.rback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(120% 80% at 50% 0%,#2E5A3C 0%,#15281D 55%,#08120D 100%);border:3px solid #D9B26A;color:#F2E7C6}
+.rback svg{width:56%;height:auto}
+.rhint{font-family:var(--f-display);font-weight:700;letter-spacing:.12em;font-size:.95rem;padding:6px 14px;border-radius:99px;background:rgba(217,178,106,.18)}
+.rcard:not(.open) .rflip{animation:nudge 2.6s ease-in-out 1s infinite}
+@keyframes nudge{0%,86%,100%{transform:none}90%{transform:rotate(-2deg)}94%{transform:rotate(2deg)}}
+.rfront{transform:rotateY(180deg);background:#0A1510;border:3px solid #9DD3A9}
+.rfront img,.rfront svg{display:block;width:100%;height:100%;object-fit:cover}
+.rcap,.viewer figcaption{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.rcap{transition:opacity .4s ease .55s}
+.rcard:not(.open) .rcap{opacity:0;visibility:hidden}
+.rno{font-size:.8rem;letter-spacing:.06em;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
+.rno em{font-style:normal;background:var(--accent);color:#2B1F00;border-radius:99px;padding:0 9px;font-size:.72rem;font-weight:700;letter-spacing:.08em}
+.rname{font-family:var(--f-display);font-size:1.35rem;font-weight:700}
+.rnote{font-size:.9rem;color:var(--muted)}
+.rcount{font-size:.76rem;color:var(--muted);margin-top:4px}
+.coll{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.coll>*{aspect-ratio:3/4;max-width:100%;border-radius:8px;background:var(--sunk);overflow:hidden;display:grid;place-items:center;color:var(--muted);font-size:.8rem;border:0;padding:0}
+.coll button{cursor:pointer;box-shadow:inset 0 0 0 1px var(--line)}
+.coll img,.coll svg{width:100%;height:100%;object-fit:cover;display:block}
+.rfront img.zimg,.coll img.zimg{object-fit:contain;background:#2B2019}
+.viewer{position:fixed;inset:0;z-index:20;background:rgba(4,10,7,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px));color:#E7F0DC}
+.viewer figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px;max-width:420px;width:100%}
+.viewer img,.viewer .vsvg{max-width:100%;max-height:66vh;border-radius:14px;object-fit:contain;display:block}
+.viewer .vsvg{width:min(100%,46vh)}
+.viewer .vsvg svg{width:100%;height:auto;display:block;border-radius:14px}
+.viewer .rno,.viewer .rnote{color:#A9BFAE}
+
+/* grow a star */
+.skybox{border-radius:22px;overflow:hidden;background:linear-gradient(175deg,#1F3A2A 0%,#122219 58%,#07100B 100%);color:#E7F0DC}
+.skybox .night{display:block;width:100%;height:auto}
+.skycount{display:flex;justify-content:space-between;padding:8px 16px 12px;font-size:.82rem;color:#B5C9B9}
+.skycount b{color:#fff;font-size:1rem}
+.night .tw{animation-duration:4s}
+.stg{width:150px;max-width:42%;height:auto;flex:none;background:linear-gradient(175deg,#1F3A2A,#122219);border-radius:16px}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.stg .bob{animation:breathe 4s ease-in-out infinite;transform-origin:110px 85px}
+.growtop{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.growtop>div{min-width:0}
+.grow{display:flex;flex-direction:column;gap:10px}
+.shard{width:20px;height:20px;fill:var(--accent);stroke:var(--accent-ink);stroke-width:1;flex:none}
+.shardbal{display:flex;align-items:center;gap:6px;font-weight:700}
+.shardbal b{font-size:1.15rem;color:var(--teal)}
+.skymsg{margin:0;color:var(--teal);font-weight:700}
+.born{display:flex;gap:12px;align-items:center;background:linear-gradient(175deg,#1F3A2A,#122219);color:#E7F0DC;border:0}
+.born h3{color:#fff;margin:2px 0}.born .muted{color:#B5C9B9}
+.bsv{width:104px;height:104px;flex:none}
+.zukan{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.zk{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:8px 4px;border-radius:12px;background:linear-gradient(175deg,#1F3A2A,#122219);color:#E7F0DC;min-width:0}
+.zk svg{width:56px;height:56px}.zk b{font-size:.8rem}.zk span{font-size:.66rem;line-height:1.4;color:#B5C9B9}
+.zk.no{background:var(--sunk);color:var(--muted)}
+.shardget{display:flex;align-items:center;gap:10px}.shardget>div{flex:1;min-width:0}.shardget .shard{width:28px;height:28px}
+
+/* PDF */
+.ladder{display:flex;flex-direction:column;gap:10px}
+.rung{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.rung .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.stage{flex:none;width:46px;height:46px;fill:var(--accent-soft);stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sname{font-family:var(--f-display);font-size:1.1rem}
+.pdfbar{display:flex;gap:8px;align-items:center}
+.pdfseg{display:flex;flex:1;background:var(--surface);border-radius:999px;padding:3px;border:1px solid var(--line)}
+.pdfseg button{flex:1;border:0;background:none;padding:8px 6px;border-radius:999px;font-size:.9rem}
+.pdfseg button.on{background:var(--teal);color:var(--surface);font-weight:700}
+.pdfzoom{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 12px;font-size:.85rem;white-space:nowrap}
+.pdfpages{display:flex;flex-direction:column;gap:12px;overflow-x:auto;min-height:200px}
+.pdfpage{background:#fff;border-radius:6px;box-shadow:0 1px 6px rgba(0,0,0,.15);flex:none}
+.pdfbtn{padding:9px 14px;font-size:.9rem}
+
+
+/* clear: 木の葉が降ってきて、裏にメッセージ */
+.leaves{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}
+.leaf{position:absolute;top:-90px;opacity:0;will-change:transform,opacity;animation:leafdown var(--d) linear var(--dl) forwards}
+.leaf svg{display:block;width:100%;height:auto;filter:drop-shadow(0 3px 5px rgba(0,0,0,.18))}
+@keyframes leafdown{0%{transform:translate(0,0) rotate(var(--r0));opacity:0}8%{opacity:1}25%{transform:translate(var(--sw),28vh) rotate(calc(var(--r0) + 60deg))}50%{transform:translate(calc(var(--sw) * -1),56vh) rotate(calc(var(--r0) + 140deg))}75%{transform:translate(var(--sw),84vh) rotate(calc(var(--r0) + 220deg));opacity:1}100%{transform:translate(0,118vh) rotate(var(--r1));opacity:.85}}
+.bigleaf{position:fixed;left:50%;top:0;width:min(74vw,280px);margin-left:calc(min(74vw,280px) / -2);pointer-events:auto;border:0;background:none;padding:0;cursor:pointer;z-index:31;perspective:900px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:bigfall 3s ease-out forwards;color:inherit;font:inherit}
+@keyframes bigfall{0%{transform:translate(-40px,-30vh) rotate(-24deg)}28%{transform:translate(46px,10vh) rotate(16deg)}52%{transform:translate(-34px,22vh) rotate(-11deg)}76%{transform:translate(14px,30vh) rotate(5deg)}100%{transform:translate(0,33vh) rotate(0)}}
+.bl-in{display:block;position:relative;width:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.bigleaf.open .bl-in{transform:rotateY(180deg)}
+.bl-f,.bl-b{display:block;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.bl-f svg,.bl-b svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.25))}
+.bl-b{position:absolute;inset:0;transform:rotateY(180deg)}
+.bl-b span{position:absolute;inset:0;display:grid;place-items:center;padding:0 13% 0 15%;text-align:center;text-wrap:balance;word-break:keep-all;overflow-wrap:anywhere;font-family:var(--f-display);font-weight:900;font-size:clamp(1rem,4.6vw,1.2rem);line-height:1.5;color:#2A3424}
+.bl-hint{font-size:.8rem;font-weight:700;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:3px 12px;opacity:0;animation:hintin .4s ease 2.8s forwards}
+@keyframes hintin{to{opacity:1}}
+.bigleaf:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:12px}
+.bigleaf.bye{transition:opacity .5s, transform .5s;opacity:0}
+.leaves.still .leaf{display:none}
+.leaves.still .bigleaf{animation:none;transform:translateY(33vh)}
+.leaves.still .bl-hint{animation:none;opacity:1}
+@media (prefers-reduced-motion: reduce){.pop,.tw,.shoot,.stg .bob,.rcard .rflip{animation:none!important}.rinner,.rcap,.meter i{transition:none}}
+</style>
+</head><body>
+
+
+<div class="wrap" id="app"></div>
+<nav class="tabs" aria-label="メニュー"><div class="in">
+  <button class="tab" data-tab="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>ホーム</button>
+  <button class="tab" data-tab="sky"><svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 7.5 0 0 1 17 0z"/><path d="M10 12v6.5a2 2 0 0 0 4 0V12"/></svg>森</button>
+  <button class="tab" data-tab="record"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 2v4M16 2v4M4 10h16"/></svg>記録</button>
+  <button class="tab" data-tab="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>設定</button>
+</div></nav>
+
+<script>
+(() => {
+/* ===== 設定（GitHubに置くときにここを書きかえます） ===== */
+// 先生用スプレッドシートの送信先（Apps Script のウェブアプリURL）。空のままだと送信しません。
+const GAS_URL = '';
+// 単元をクリアしたときにめくるきのこカード。写真は cards フォルダへ。
+// t は a（山歩き＝自分で撮った写真）か h（きのこの作品）。note は日付や場所（空でもOK）。
+// 例：{ t:'a', src:'cards/a05.jpg', name:'ヤコウタケ', note:'2026.6　八丈島' },
+// ここに書いた写真は、蕈図鑑のカードと一緒に届くカードになります。
+const KINOKO_CARDS = [
+  { t:'a', src:'cards/a01.jpg', name:'シイタケ', note:'' },
+  { t:'a', src:'cards/a02.jpg', name:'キヌガサタケ', note:'' },
+  { t:'a', src:'cards/a03.jpg', name:'ウスキキヌガサタケ', note:'' },
+  { t:'a', src:'cards/a04.jpg', name:'キツネノハナガサ', note:'' },
+];
+
+// 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
+const PDF = {
+  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''},
+};
+
+/* ===== 学籍番号（学校の記号＋学年＋番号　例：P101） ===== */
+const CODE_RE = /^[A-Z][1-9][0-9]{2}$/;
+const normCode = v => String(v).trim().replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0)-0xFEE0)).toUpperCase();
+
+/* ===== 保存（この端末の中） ===== */
+const KEY = 'kinoko-jikan.v1';
+const fresh = () => ({ name:'', code:'', days:[], answered:0, correct:0, lessons:{}, known:{}, cards:[], outbox:[], sky:null, lastUnit:'' });
+let R = fresh();
+try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) R = Object.assign(fresh(), s); } catch(e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(R)); } catch(e) {} };
+const dkey = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const today = () => dkey(new Date());
+const markDay = () => { const t = today(); if (!R.days.includes(t)) { R.days.push(t); save(); } };
+const streak = () => { const set=new Set(R.days); let n=0; const d=new Date(); if(!set.has(today())) d.setDate(d.getDate()-1);
+  while(set.has(dkey(d))){ n++; d.setDate(d.getDate()-1); } return n; };
+
+/* ===== 先生への送信（届かなければ次に開いたときに再送） ===== */
+function report(item){ R.outbox.push(Object.assign({ app:'蕈時間', code:R.code, name:R.name, at:new Date().toISOString() }, item)); save(); flush(); }
+function flush(){
+  if (!GAS_URL || !R.outbox.length || navigator.onLine === false) return;
+  const batch = R.outbox.slice();
+  fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify({ items:batch }) })
+    .then(() => { R.outbox = R.outbox.slice(batch.length); save(); if (S.view==='settings') render(); })
+    .catch(() => {});
+}
+window.addEventListener('online', flush);
+
+/* ===== 道具 ===== */
+const ri = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
+const shuffle = a => { for (let i=a.length-1;i>0;i--){const j=ri(0,i);[a[i],a[j]]=[a[j],a[i]];} return a; };
+const pick = a => a[ri(0,a.length-1)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nf = n => { const r=Math.round(n*1000)/1000; return String(r).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+const nfx = n => String(Math.round(n*1000)/1000);
+// 数の選択肢：正解＋よくある間違い、足りなければ近い数で4つに
+function numChoices(ans, cands, unit=''){
+  const out=[ans], seen=new Set([nfx(ans)]);
+  for (const c of cands){ if(out.length>=4) break; if(c>0 && isFinite(c) && !seen.has(nfx(c))){ seen.add(nfx(c)); out.push(c);} }
+  const step = ans>=20 ? Math.max(1,Math.round(ans/10)) : ans>=2 ? 1 : 0.1; let k=1;
+  while(out.length<4){ for(const c of [ans+step*k, ans-step*k]){ const v=Math.round(c*1000)/1000; if(out.length<4 && v>0 && !seen.has(nfx(v))){ seen.add(nfx(v)); out.push(v);} } k++; }
+  return shuffle(out.map(v=>nf(v)+unit));
+}
+const nq = (prompt, expr, ans, wrongs, unit, hint, explain) => ({ prompt, expr, answer:nf(ans)+unit, choices:numChoices(ans,wrongs,unit), hint, explain });
+
+/* ===== 知識問題（[問いの見出し, 問題文, 正解, [まちがい], 解説]） ===== */
+const POOL = {
+  ans:[
+    ['交感神経の節後線維','交感神経の節後線維の主な神経伝達物質は？','ノルアドレナリン',['アセチルコリン','ドパミン','セロトニン'],'交感神経の節後線維はノルアドレナリン。ただし汗腺に分布する交感神経はアセチルコリンです。'],
+    ['節前線維','交感・副交感神経の節前線維が放出する伝達物質は？','アセチルコリン',['ノルアドレナリン','アドレナリン','GABA'],'節前線維はどちらもアセチルコリン。自律神経節のニコチン受容体（NN）に作用します。'],
+    ['汗腺','交感神経の支配なのに、アセチルコリンで伝達されるのは？','汗腺（エクリン腺）',['心臓','血管平滑筋','瞳孔散大筋'],'汗腺の交感神経節後線維はコリン作動性で、ムスカリン受容体に作用します。'],
+    ['副腎髄質','交感神経の節前線維が直接分布し、アドレナリンを分泌する器官は？','副腎髄質',['副腎皮質','甲状腺','膵臓'],'副腎髄質は交感神経節のなかま。節前線維の刺激で主にアドレナリンを血中に出します。'],
+    ['効果器の受容体','副交感神経の節後線維が作用する、効果器側の受容体は？','ムスカリン受容体',['ニコチン受容体（NN）','α1受容体','β1受容体'],'効果器側はムスカリン受容体（M1〜M5）。Gタンパク質共役型です。'],
+    ['神経節の受容体','自律神経節にある受容体は？','ニコチン受容体（NN）',['ムスカリン受容体','α2受容体','β2受容体'],'自律神経節はニコチン受容体（NN）。骨格筋の神経筋接合部はNMです。'],
+    ['交感神経が優位','交感神経が優位になると起こるのは？','散瞳・心拍数増加・気管支拡張',['縮瞳・心拍数減少・気管支収縮','唾液分泌増加・腸の運動亢進','排尿筋収縮・膀胱括約筋弛緩'],'交感神経は「闘争か逃走か」。副交感神経はその逆の「休息と消化」です。'],
+  ],
+  adr:[
+    ['α1受容体','α1受容体の刺激で起こるのは？','血管収縮',['気管支拡張','心拍数増加','脂肪分解'],'α1受容体はGq共役。血管平滑筋や瞳孔散大筋を収縮させます。'],
+    ['α2受容体','シナプス前のα2受容体を刺激すると？','ノルアドレナリンの遊離が抑えられる',['ノルアドレナリンの遊離が増える','心筋の収縮力が上がる','気管支が拡張する'],'α2はGi共役。シナプス前で負のフィードバックをかけます。'],
+    ['β1受容体','β1受容体の刺激で起こるのは？','心拍数・心収縮力の増加',['気管支拡張','血管収縮','排尿筋弛緩'],'β1は心臓と腎臓（レニン分泌）に多い受容体です。'],
+    ['β2受容体','β2受容体の刺激で起こるのは？','気管支平滑筋の弛緩',['心拍数の増加','血管収縮','縮瞳'],'β2は気管支拡張、子宮弛緩、骨格筋の血管拡張などを起こします。'],
+    ['β3受容体','β3受容体の刺激で起こるのは？','膀胱排尿筋の弛緩',['膀胱排尿筋の収縮','気管支収縮','散瞳'],'β3は排尿筋の弛緩や脂肪分解に関わります。過活動膀胱の薬の標的です。'],
+    ['レニン','腎臓の傍糸球体細胞からレニン分泌を促す受容体は？','β1受容体',['α1受容体','β2受容体','M3受容体'],'β1刺激でレニン分泌が増えます。β遮断薬の降圧作用の一因です。'],
+    ['共役するGタンパク質','β受容体（β1〜β3）が共役するGタンパク質は？','Gs（cAMP増加）',['Gi（cAMP減少）','Gq（IP₃・DAG増加）','イオンチャネル内蔵型'],'β受容体はどれもGs共役。アデニル酸シクラーゼを活性化してcAMPを増やします。'],
+  ],
+  sym:[
+    ['フェニレフリン','フェニレフリンが主に刺激する受容体は？','α1受容体',['β1受容体','β2受容体','α2受容体'],'選択的α1作動薬。血管収縮による昇圧や、点眼での散瞳に使います。'],
+    ['クロニジン','中枢のα2受容体を刺激して血圧を下げる薬は？','クロニジン',['ドブタミン','フェニレフリン','イソプレナリン'],'中枢のα2刺激で交感神経の活動が下がり、降圧します。'],
+    ['ドブタミン','急性心不全で心収縮力を高めるために使うβ1作動薬は？','ドブタミン',['サルブタモール','クロニジン','ミラベグロン'],'ドブタミンは主にβ1刺激。心拍数より心収縮力を強く上げます。'],
+    ['サルブタモール','気管支喘息の発作に使うβ2作動薬は？','サルブタモール',['プロプラノロール','フェニレフリン','ドブタミン'],'短時間作用型β2作動薬（SABA）。吸入で発作を和らげます。'],
+    ['ミラベグロン','過活動膀胱に使うβ3作動薬は？','ミラベグロン',['タムスロシン','ベタネコール','クロニジン'],'β3刺激で排尿筋を弛緩させ、膀胱にためられる量を増やします。'],
+    ['混合型','受容体への直接作用と、ノルアドレナリン遊離の間接作用をあわせもつ薬は？','エフェドリン',['フェニレフリン','ドブタミン','クロニジン'],'エフェドリンは混合型。マオウ（麻黄）に含まれるアルカロイドです。'],
+  ],
+  syb:[
+    ['プラゾシン','選択的α1遮断薬はどれ？','プラゾシン',['プロプラノロール','アテノロール','クロニジン'],'α1遮断で血管を広げて降圧します。初回投与時の起立性低血圧に注意。'],
+    ['タムスロシン','前立腺肥大症に伴う排尿障害に使う、α1A遮断薬は？','タムスロシン',['ミラベグロン','ベタネコール','アテノロール'],'前立腺・尿道のα1A受容体を選択的に遮断し、尿を出しやすくします。'],
+    ['喘息に禁忌','気管支喘息の患者に禁忌なのは？','プロプラノロール',['ビソプロロール','プラゾシン','タムスロシン'],'非選択的β遮断薬はβ2も遮断して気管支を収縮させるため、喘息に禁忌です。'],
+    ['β1選択性','β1選択的遮断薬はどれ？','ビソプロロール',['プロプラノロール','カルベジロール','ラベタロール'],'ビソプロロールやアテノロールはβ1選択的です。'],
+    ['αβ遮断','α1とβの両方を遮断し、慢性心不全にも使われる薬は？','カルベジロール',['アテノロール','プラゾシン','クロニジン'],'カルベジロールはαβ遮断薬。心不全では少量から始めてゆっくり増やします。'],
+    ['β遮断薬の注意','β遮断薬を糖尿病の患者に使うときの注意は？','低血糖の症状が出にくくなる',['頻脈が起こりやすくなる','血糖値が上がりにくくなる','散瞳しやすくなる'],'β遮断で、低血糖時の動悸・ふるえなどの症状が隠れてしまいます。'],
+  ],
+  para:[
+    ['ベタネコール','術後や神経因性膀胱の排尿困難に使うムスカリン作動薬は？','ベタネコール',['アトロピン','タムスロシン','チオトロピウム'],'コリンエステラーゼで分解されにくく、膀胱や消化管に作用します。'],
+    ['ピロカルピン','緑内障の治療で縮瞳させ、眼房水の流出を促す薬は？','ピロカルピン',['アトロピン','フェニレフリン','トロピカミド'],'ムスカリン作動で毛様体筋と瞳孔括約筋を収縮させます。'],
+    ['ネオスチグミン','重症筋無力症の治療に使うコリンエステラーゼ阻害薬は？','ネオスチグミン',['アトロピン','プラリドキシム','ベタネコール'],'AChの分解を抑えて、神経筋接合部での伝達を高めます。'],
+    ['アトロピンの作用','アトロピンで起こるのは？','散瞳・頻脈・口渇',['縮瞳・徐脈・唾液分泌増加','気管支収縮','排尿の促進'],'ムスカリン受容体の遮断で、副交感神経の作用がなくなります。'],
+    ['抗コリン薬の禁忌','抗コリン薬が禁忌なのは？','閉塞隅角緑内障',['高血圧','低血糖','気管支喘息'],'散瞳で隅角がせまくなり眼圧が上がるため。前立腺肥大による排尿障害にも禁忌です。'],
+    ['有機リン中毒','有機リン系農薬中毒の治療に使う組み合わせは？','アトロピン＋プラリドキシム',['ネオスチグミン＋アトロピン','ベタネコール＋ピロカルピン','ナロキソン＋フルマゼニル'],'アトロピンでムスカリン症状を抑え、プラリドキシム（PAM）でコリンエステラーゼを再活性化します。'],
+    ['チオトロピウム','COPDに使う長時間作用型の抗コリン薬（LAMA）は？','チオトロピウム',['サルブタモール','ピロカルピン','ベタネコール'],'M3受容体の遮断で気管支を広げます。吸入薬です。'],
+  ],
+  inf:[
+    ['サルモネラ','鶏卵や食肉が原因になりやすい、感染型の細菌は？','サルモネラ属菌',['黄色ブドウ球菌','ボツリヌス菌','セレウス菌'],'加熱不十分な卵・肉が原因に。発熱をともなう胃腸炎を起こします。'],
+    ['腸炎ビブリオ','好塩性で、生の魚介類が原因になる細菌は？','腸炎ビブリオ',['カンピロバクター','ウェルシュ菌','腸管出血性大腸菌'],'塩分を好み、夏の海水で増えます。真水で洗う・低温で保存するのが予防の基本。'],
+    ['カンピロバクター','鶏肉の生食や加熱不足が原因になり、ギラン・バレー症候群との関連があるのは？','カンピロバクター',['サルモネラ属菌','腸炎ビブリオ','ノロウイルス'],'微好気性で、少ない菌数でも感染します。潜伏期間は2〜7日と長め。'],
+    ['腸管出血性大腸菌','ベロ毒素をつくり、溶血性尿毒症症候群（HUS）を起こすことがあるのは？','腸管出血性大腸菌（O157など）',['腸炎ビブリオ','黄色ブドウ球菌','セレウス菌'],'ベロ毒素（志賀毒素）が腎臓などを傷つけます。三類感染症です。'],
+    ['ウェルシュ菌','カレーやシチューの作り置きで増える、嫌気性の芽胞菌は？','ウェルシュ菌',['カンピロバクター','サルモネラ属菌','腸炎ビブリオ'],'加熱しても芽胞が生き残り、ゆっくり冷める間に増えます。小分けして早く冷ますのが予防。'],
+    ['予防の三原則','食中毒予防の三原則は？','つけない・増やさない・やっつける',['洗う・干す・しまう','見る・嗅ぐ・味わう','冷やす・温める・混ぜる'],'菌をつけない（清潔）、増やさない（低温）、やっつける（加熱）です。'],
+  ],
+  tox:[
+    ['黄色ブドウ球菌','手指の傷から食品に入り、耐熱性のエンテロトキシンをつくるのは？','黄色ブドウ球菌',['ボツリヌス菌','ウェルシュ菌','カンピロバクター'],'おにぎりなどが原因に。毒素は加熱しても壊れにくいのが特徴です。'],
+    ['潜伏期間','潜伏期間が最も短い（平均約3時間）食中毒は？','黄色ブドウ球菌',['カンピロバクター','腸管出血性大腸菌','サルモネラ属菌'],'食品の中ですでにできた毒素を食べるので、30分〜6時間で嘔吐が始まります。'],
+    ['ボツリヌス毒素','ボツリヌス毒素の作用は？','アセチルコリンの放出を阻害する',['アセチルコリンエステラーゼを阻害する','Na⁺チャネルを開く','RNAポリメラーゼを阻害する'],'神経終末からのACh放出を止め、複視・嚥下障害・呼吸麻痺などの弛緩性麻痺を起こします。'],
+    ['乳児ボツリヌス症','1歳未満の乳児に与えてはいけない食品は？','はちみつ',['牛乳','米がゆ','バナナ'],'はちみつにボツリヌス菌の芽胞が含まれることがあり、乳児の腸内で増えて毒素をつくります。'],
+    ['セレウス菌','チャーハンやピラフが原因になりやすく、耐熱性の嘔吐毒（セレウリド）をつくる菌は？','セレウス菌',['腸炎ビブリオ','ウェルシュ菌','サルモネラ属菌'],'米飯や麺類で増えます。嘔吐型の毒素は加熱に強い。'],
+  ],
+  vir:[
+    ['ノロウイルス','冬に多く、食中毒の患者数が最も多い病因物質は？','ノロウイルス',['アニサキス','カンピロバクター','黄色ブドウ球菌'],'少ない量でも感染し、二枚貝や調理する人の手指を通じて広がります。'],
+    ['消毒','ノロウイルスで汚れた場所の消毒に適しているのは？','次亜塩素酸ナトリウム',['消毒用エタノール','逆性石けん','クロルヘキシジン'],'エンベロープがないので、アルコールが効きにくいウイルスです。'],
+    ['加熱の目安','ノロウイルスを失活させる加熱の目安は？','中心温度85〜90℃で90秒以上',['60℃で1分','75℃で1分','100℃で1秒'],'カキなどの二枚貝は、中心部までしっかり加熱します。'],
+    ['アニサキス','サバやイカの生食で激しい腹痛を起こす寄生虫は？','アニサキス',['回虫','トキソプラズマ','クリプトスポリジウム'],'幼虫が胃壁などに刺さって、激しい痛みを起こします。'],
+    ['アニサキスの予防','アニサキスの予防になるのは？','−20℃で24時間以上の冷凍',['酢でしめる','わさび・しょうゆをつける','4℃で冷蔵する'],'冷凍か加熱で死にます。酢やしょうゆ、わさびでは死にません。'],
+  ],
+  nat:[
+    ['フグ毒','フグ毒テトロドトキシンの作用は？','電位依存性Na⁺チャネルの遮断',['K⁺チャネルの遮断','ACh放出の阻害','RNAポリメラーゼⅡの阻害'],'神経の興奮が伝わらなくなり、しびれから呼吸麻痺に進みます。'],
+    ['麻痺性貝毒','ホタテなどが有毒プランクトンを食べてためる、Na⁺チャネル遮断作用をもつ毒は？','サキシトキシン',['オカダ酸','テトロドトキシン','シガトキシン'],'麻痺性貝毒の代表。オカダ酸は下痢性貝毒です。'],
+    ['ジャガイモ','ジャガイモの芽や緑色の皮に多い毒は？','ソラニン・チャコニン',['アミグダリン','リコリン','コルヒチン'],'グリコアルカロイド。腹痛・嘔吐などを起こします。'],
+    ['ツキヨタケ','シイタケとまちがえやすいツキヨタケの主な症状は？','嘔吐・下痢などの消化器症状',['幻覚','溶血','呼吸麻痺'],'原因物質はイルジンS。食後まもなく消化器症状が出ます。'],
+    ['ドクツルタケ','ドクツルタケの毒α-アマニチンの作用は？','RNAポリメラーゼⅡの阻害',['Na⁺チャネルの遮断','アセチルコリンエステラーゼの阻害','ACh放出の阻害'],'タンパク質合成が止まり、遅れて重い肝・腎障害が起こります。'],
+    ['スイセン','葉がニラとまちがえやすく、リコリンを含む植物は？','スイセン',['トリカブト','イヌサフラン','ジャガイモ'],'葉はニラ、球根はタマネギに似ています。嘔吐などを起こします。'],
+  ],
+  myc:[
+    ['アフラトキシン','アフラトキシンをつくるカビは？','Aspergillus flavus',['Penicillium expansum','Fusarium graminearum','Claviceps purpurea'],'ナッツ類・トウモロコシ・香辛料などの汚染が問題になります。'],
+    ['アフラトキシンB₁','アフラトキシンB₁の主な毒性は？','肝がん（強い発がん性）',['腎障害','神経麻痺','溶血'],'CYPでエポキシ化されてDNAと結合し、強い肝発がん性を示します。'],
+    ['パツリン','りんご果汁で規格基準が設けられているカビ毒は？','パツリン',['アフラトキシンB₁','デオキシニバレノール','オクラトキシンA'],'Penicillium expansum などがつくります。'],
+    ['デオキシニバレノール','小麦の赤かび病の原因菌がつくるカビ毒は？','デオキシニバレノール',['パツリン','アフラトキシンM₁','シトリニン'],'Fusarium属がつくり、嘔吐などを起こします。'],
+    ['アフラトキシンM₁','乳牛がB₁を含むえさを食べたとき、牛乳に出てくるのは？','アフラトキシンM₁',['アフラトキシンB₂','パツリン','オクラトキシンA'],'B₁が体内で水酸化されたもので、乳に移ります。'],
+    ['オクラトキシンA','主に腎毒性を示すカビ毒は？','オクラトキシンA',['アフラトキシンB₁','パツリン','デオキシニバレノール'],'Aspergillus属やPenicillium属がつくり、腎臓を傷つけます。'],
+  ],
+  pkk:[
+    ['定常状態','くり返し投与で、定常状態にほぼ到達する目安は？','消失半減期の4〜5倍の時間',['消失半減期と同じ時間','消失半減期の半分の時間','投与回数が10回をこえたとき'],'半減期の4倍で約94%、5倍で約97%に達します。'],
+    ['一次消失','一次速度過程で消失する薬の半減期は？','血中濃度に関係なく一定',['濃度が高いほど長い','濃度が高いほど短い','投与量に比例する'],'一次消失では、一定時間ごとに同じ割合が減っていきます。'],
+    ['分布容積','分布容積が大きい薬の特徴は？','組織へ移行しやすい',['血漿タンパク結合率が高い','腎排泄されやすい','血漿中にとどまりやすい'],'組織に多く分布すると血中濃度が低くなり、見かけの分布容積は大きくなります。'],
+    ['線形','線形の薬で投与速度を2倍にすると、定常状態の平均血中濃度は？','2倍になる',['4倍になる','変わらない','半分になる'],'Css ＝ 投与速度 ÷ CL なので、投与速度に比例します。'],
+    ['負荷投与','負荷投与（ローディングドーズ）の目的は？','早く目標濃度に近づける',['副作用を減らす','半減期を長くする','分布容積を小さくする'],'負荷投与量 ＝ 目標濃度 × 分布容積。半減期の長い薬で使います。'],
+    ['GFR','GFRの測定に最も適した物質は？','イヌリン',['パラアミノ馬尿酸','グルコース','アルブミン'],'イヌリンは糸球体でろ過され、分泌も再吸収もされないので、クリアランス＝GFRになります。'],
+    ['Cockcroft-Gault式','Cockcroft-Gault式に含まれないのは？','身長',['年齢','体重','血清クレアチニン値'],'CCr＝(140−年齢)×体重 ÷ (72×血清Cr)。女性は×0.85。'],
+    ['腎機能低下','腎排泄型の薬で、腎機能が低下したときの対応は？','減量または投与間隔をのばす',['増量する','投与間隔を短くする','そのままでよい'],'CLが下がると半減期がのび、同じ投与では血中濃度が上がりすぎます。'],
+  ],
+};
+const fq = it => ({ prompt:it[0], expr:it[1], answer:it[2], choices:shuffle([it[2],...it[3]]), words:true, explain:it[4], hint:'説明のページのまとめを思い出してみよう。' });
+
+/* ===== 計算問題（薬物動態） ===== */
+const r1 = x => Math.round(x*10)/10, r3 = x => Math.round(x*1000)/1000;
+const G = {
+  kel(){ const t=pick([2,3,4,5,6,7,8,10,12]), k=r3(0.693/t);
+    return nq('消失速度定数を求めよう', `消失半減期 ${t} 時間の薬物。消失速度定数 k は？（ln2 ＝ 0.693）`, k, [r3(t/0.693),r3(0.693*t),r3(1/t)], ' /h', 'k ＝ 0.693 ÷ t½', `0.693 ÷ ${t} ＝ ${nf(k)} /h です。`); },
+  half(){ const C=pick([40,80,120,160,200,320]), t=pick([2,4,6,8]), n=pick([2,3,4]), a=C/2**n;
+    return nq('残っている濃度は？', `血中濃度 ${C} μg/mL の薬物（t½ ${t} 時間）。一次消失で ${t*n} 時間後の濃度は？`, a, [C/(2*n),C/n,C/2**(n+1)], ' μg/mL', `${t*n} 時間は半減期の何回分かを考えよう`, `${t*n} ÷ ${t} ＝ ${n} 回半分になるので、${C} ÷ ${2**n} ＝ ${nf(a)} μg/mL です。`); },
+  vd(){ const C=pick([2,4,5,10,20]), V=pick([10,20,25,40,50]), D=C*V;
+    return nq('分布容積を求めよう', `${D} mg を静注した直後の血中濃度（C₀）が ${C} μg/mL。分布容積は？`, V, [D*C,V*10,V/10], ' L', 'Vd ＝ 投与量 ÷ C₀（1 μg/mL ＝ 1 mg/L）', `${C} μg/mL ＝ ${C} mg/L。${D} ÷ ${C} ＝ ${V} L です。`); },
+  dose0(){ const V=pick([20,30,40,50]), C=pick([2,5,10,15]);
+    return nq('投与量を求めよう', `分布容積 ${V} L の薬物。静注直後の血中濃度を ${C} μg/mL にするには何 mg？`, V*C, [V/C,V*C*10,V+C], ' mg', '投与量 ＝ C₀ × Vd', `${C} mg/L × ${V} L ＝ ${V*C} mg です。`); },
+  cl(){ const k=pick([0.05,0.1,0.2,0.25]), V=pick([20,40,50,60]), c=r3(k*V);
+    return nq('クリアランスを求めよう', `消失速度定数 ${nf(k)} /h、分布容積 ${V} L の薬物。全身クリアランスは？`, c, [r3(V/k),r3(k/V),r3(k*V*60)], ' L/h', 'CL ＝ k × Vd', `${nf(k)} × ${V} ＝ ${nf(c)} L/h です。`); },
+  thalf(){ const V=pick([20,30,40,50,60,70]), C=pick([2,3,4,5,7]), t=r1(0.693*V/C);
+    return nq('半減期を求めよう', `分布容積 ${V} L、全身クリアランス ${C} L/h の薬物。消失半減期は？（小数第1位まで）`, t, [r1(V/C),r1(0.693*C/V),r1(V*C*0.693)], ' 時間', 't½ ＝ 0.693 × Vd ÷ CL', `0.693 × ${V} ÷ ${C} ＝ ${nf(t)} 時間です。`); },
+  css(){ const C=pick([2,4,5,8,10]), Cs=pick([2,3,4,5,10]), R=C*Cs;
+    return nq('定常状態の濃度は？', `全身クリアランス ${C} L/h の薬物を ${R} mg/h で点滴静注。定常状態の血中濃度は？`, Cs, [R*C,r1(C/R),Cs*2], ' μg/mL', 'Css ＝ 投与速度 ÷ CL', `${R} ÷ ${C} ＝ ${Cs} mg/L ＝ ${Cs} μg/mL です。`); },
+  load(){ const Cs=pick([5,10,15,20]), V=pick([20,30,40,50]);
+    return nq('負荷投与量を求めよう', `目標の血中濃度 ${Cs} μg/mL、分布容積 ${V} L。負荷投与量は？`, Cs*V, [Cs/V*1000,Cs+V,Cs*V*10], ' mg', '負荷投与量 ＝ 目標濃度 × Vd', `${Cs} mg/L × ${V} L ＝ ${Cs*V} mg です。`); },
+  cg(){ const age=pick([40,50,60,70,80]), wt=pick([45,50,54,60,72]), scr=pick([0.8,1,1.2,1.5,2]), fem=Math.random()<.4, raw=(140-age)*wt/(72*scr)*(fem?.85:1), a=Math.round(raw);
+    return nq('クレアチニンクリアランスを推定しよう', `${age}歳 ${fem?'女性':'男性'}、体重 ${wt} kg、血清Cr ${nf(scr)} mg/dL。Cockcroft-Gault式で CCr は？（整数）`, a, [Math.round((140-age)*wt/scr*(fem?.85:1)/10),Math.round(raw*(fem?1/.85:.85)),Math.round((140-age)/(72*scr)*100)], ' mL/分', 'CCr ＝ (140−年齢) × 体重 ÷ (72 × 血清Cr)　女性は ×0.85', `(140−${age}) × ${wt} ÷ (72 × ${nf(scr)})${fem?' × 0.85':''} ＝ ${nf(r1(raw))} → 約 ${a} mL/分 です。`); },
+};
+const makeQs = plan => { const used={}; return plan.map(k=>{ if(G[k]) return G[k](); const P=POOL[k]; used[k]=used[k]||shuffle(P.map((_,i)=>i)); if(!used[k].length) used[k]=shuffle(P.map((_,i)=>i)); return fq(P[used[k].pop()]); }); };
+
+/* ===== 説明ページの部品 ===== */
+const rule = s => `<div class="rule">${s}</div>`;
+const chain = a => `<div class="chain">${a.map(x=>`<span>${x}</span>`).join('<i>→</i>')}</div>`;
+const tbl = (head, rows) => `<div class="scroll"><table class="tbl"><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?'<b>'+c+'</b>':c}</td>`).join('')}</tr>`).join('')}</table></div>`;
+const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-label="自律神経の節前線維と節後線維、伝達物質と受容体">
+  <text class="lb" x="8" y="34">交感</text><text class="lb" x="8" y="94">副交感</text><text class="lb" x="8" y="136">副腎髄質</text>
+  <line class="wl" x1="64" y1="30" x2="140" y2="30"/><circle class="ac" cx="146" cy="30" r="5"/><line class="wl" x1="152" y1="30" x2="262" y2="30" style="stroke-dasharray:6 4"/>
+  <text class="mu" x="102" y="20" text-anchor="middle">ACh → NN</text><text class="mu" x="210" y="20" text-anchor="middle">NA → α・β</text>
+  <line class="wl" x1="64" y1="90" x2="214" y2="90"/><circle class="ac" cx="220" cy="90" r="5"/><line class="wl" x1="226" y1="90" x2="262" y2="90" style="stroke-dasharray:6 4"/>
+  <text class="mu" x="140" y="80" text-anchor="middle">ACh → NN</text><text class="mu" x="246" y="80" text-anchor="middle">ACh → M</text>
+  <line class="wl" x1="84" y1="132" x2="150" y2="132"/><rect class="chL" x="152" y="120" width="48" height="24" rx="6"/><text class="mu" x="118" y="124" text-anchor="middle">ACh → NN</text><text class="mu" x="248" y="136" text-anchor="middle">→ アドレナリン</text>
+  <text class="lb" x="292" y="34" text-anchor="middle">効果器</text><text class="lb" x="292" y="94" text-anchor="middle">効果器</text></svg>`;
+
+/* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
+const ANS_LESSONS = [
+  { id:'1-1', t:'自律神経のしくみ', sub:'伝達物質と受容体', plan:['ans','ans','ans','ans','ans'], body:()=>`
+    <section class="panel"><h3>2つの神経と伝達物質</h3>${ansFig()}
+    ${rule('節前線維はどちらも ACh（神経節のニコチン受容体 NN）<br>節後線維：交感 ＝ NA、副交感 ＝ ACh（ムスカリン受容体）')}
+    <p class="small muted">例外：汗腺の交感神経は ACh。副腎髄質は節前線維が直接届き、アドレナリンを血中に出します。</p></section>
+    <section class="panel"><h3>はたらきのちがい</h3>${tbl(['','交感神経','副交感神経'],[['瞳孔','散瞳','縮瞳'],['心臓','心拍数↑ 収縮力↑','心拍数↓'],['気管支','拡張','収縮'],['消化管','運動↓','運動↑ 分泌↑'],['膀胱','排尿筋弛緩','排尿筋収縮']])}</section>` },
+  { id:'1-2', t:'アドレナリン受容体', sub:'α1・α2・β1・β2・β3', plan:['adr','adr','adr','adr','adr'], body:()=>`
+    <section class="panel"><h3>受容体ごとの作用</h3>${tbl(['受容体','共役','主な作用'],[['α1','Gq','血管収縮、散瞳（瞳孔散大筋）'],['α2','Gi','シナプス前でNA遊離を抑える'],['β1','Gs','心拍数・収縮力↑、レニン分泌↑'],['β2','Gs','気管支拡張、子宮弛緩'],['β3','Gs','膀胱排尿筋の弛緩、脂肪分解']])}
+    ${rule('β はすべて Gs → cAMP↑')}</section>` },
+  { id:'1-3', t:'交感神経作用薬', sub:'受容体ごとの代表薬', plan:['sym','sym','sym','sym','sym'], body:()=>`
+    <section class="panel"><h3>受容体と代表薬</h3>${tbl(['刺激する受容体','代表薬','使いみち'],[['α1','フェニレフリン','昇圧、散瞳'],['α2（中枢）','クロニジン','降圧'],['β1','ドブタミン','急性心不全'],['β2','サルブタモール','喘息発作'],['β3','ミラベグロン','過活動膀胱']])}
+    <p class="small muted">エフェドリンは直接作用とNA遊離の間接作用をもつ混合型。生薬マオウの成分です。</p></section>` },
+  { id:'1-4', t:'交感神経遮断薬', sub:'α遮断薬とβ遮断薬', plan:['syb','syb','syb','syb','syb'], body:()=>`
+    <section class="panel"><h3>代表薬</h3>${tbl(['分類','代表薬','ポイント'],[['α1遮断','プラゾシン','初回の起立性低血圧'],['α1A遮断','タムスロシン','前立腺肥大の排尿障害'],['非選択的β遮断','プロプラノロール','喘息に禁忌'],['β1選択的遮断','ビソプロロール','心不全・高血圧'],['αβ遮断','カルベジロール','慢性心不全は少量から']])}
+    ${rule('β遮断薬 × 糖尿病 → 低血糖の症状（動悸・ふるえ）が隠れる')}</section>` },
+  { id:'1-5', t:'副交感神経系の薬', sub:'作動薬・ChE阻害薬・抗コリン薬', plan:['para','para','para','para','para'], body:()=>`
+    <section class="panel"><h3>代表薬</h3>${tbl(['分類','代表薬','使いみち'],[['M作動','ベタネコール','排尿困難'],['M作動','ピロカルピン','緑内障（縮瞳）'],['ChE阻害','ネオスチグミン','重症筋無力症'],['M遮断','アトロピン','徐脈、有機リン中毒'],['M遮断（吸入）','チオトロピウム','COPD']])}
+    ${rule('抗コリン薬の禁忌：閉塞隅角緑内障、前立腺肥大による排尿障害')}
+    <p class="small muted">有機リン中毒には、アトロピン＋プラリドキシム（PAM）。</p></section>` },
+  { id:'1-6', t:'まとめテスト', sub:'自律神経系の薬の10問', test:true, plan:['ans','ans','adr','adr','sym','sym','syb','syb','para','para'], body:()=>`
+    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。問題の順番は毎回かわります。わからなかった問題は、あとで見直せます。</p></section>` },
+];
+const FP_LESSONS = [
+  { id:'1-1', t:'細菌性食中毒（感染型）', sub:'菌が体の中で増える', plan:['inf','inf','inf','inf','inf'], body:()=>`
+    <section class="panel"><h3>代表的な菌</h3>${tbl(['菌','原因になりやすい食品','ポイント'],[['サルモネラ属菌','鶏卵・食肉','発熱をともなう'],['腸炎ビブリオ','生の魚介類','好塩性・夏'],['カンピロバクター','鶏肉','ギラン・バレー症候群'],['腸管出血性大腸菌','牛肉・野菜','ベロ毒素・HUS'],['ウェルシュ菌','カレーの作り置き','嫌気性・芽胞']])}
+    ${rule('予防の三原則：つけない・増やさない・やっつける')}</section>` },
+  { id:'1-2', t:'細菌性食中毒（毒素型）', sub:'食品の中でできた毒素', plan:['tox','tox','tox','tox','tox'], body:()=>`
+    <section class="panel"><h3>毒素型の3つ</h3>${tbl(['菌','毒素','ポイント'],[['黄色ブドウ球菌','エンテロトキシン（耐熱性）','潜伏期間 約3時間、おにぎり'],['ボツリヌス菌','ボツリヌス毒素','ACh放出阻害、弛緩性麻痺'],['セレウス菌（嘔吐型）','セレウリド（耐熱性）','チャーハン・ピラフ']])}
+    ${rule('1歳未満の乳児に、はちみつを与えない（乳児ボツリヌス症）')}</section>` },
+  { id:'1-3', t:'ウイルスと寄生虫', sub:'ノロウイルスとアニサキス', plan:['vir','vir','vir','vir','vir'], body:()=>`
+    <section class="panel"><h3>ノロウイルス</h3><p>冬に多く、食中毒の<b>患者数が最も多い</b>病因物質。二枚貝や、調理する人の手指から広がります。</p>
+    ${rule('消毒は次亜塩素酸ナトリウム（アルコールは効きにくい）<br>加熱は中心温度 85〜90℃ で 90 秒以上')}</section>
+    <section class="panel"><h3>アニサキス</h3><p>サバ・イカなどの生食で激しい腹痛。<b>−20℃で24時間以上の冷凍</b>か加熱で死にます。酢・しょうゆ・わさびでは死にません。</p></section>` },
+  { id:'1-4', t:'自然毒', sub:'動物・植物・きのこの毒', plan:['nat','nat','nat','nat','nat'], body:()=>`
+    <section class="panel"><h3>覚えたい自然毒</h3>${tbl(['もとになるもの','毒','作用・症状'],[['フグ','テトロドトキシン','Na⁺チャネル遮断'],['二枚貝','サキシトキシン（麻痺性）','Na⁺チャネル遮断'],['ジャガイモの芽','ソラニン・チャコニン','腹痛・嘔吐'],['スイセン','リコリン','嘔吐（ニラとまちがえる）'],['ツキヨタケ','イルジンS','嘔吐・下痢'],['ドクツルタケ','α-アマニチン','RNAポリメラーゼⅡ阻害']])}</section>` },
+  { id:'1-5', t:'カビ毒', sub:'マイコトキシン', plan:['myc','myc','myc','myc','myc'], body:()=>`
+    <section class="panel"><h3>代表的なカビ毒</h3>${tbl(['カビ毒','つくるカビ','ポイント'],[['アフラトキシンB₁','Aspergillus flavus','強い肝発がん性'],['アフラトキシンM₁','（B₁の代謝物）','牛乳に出てくる'],['パツリン','Penicillium expansum','りんご果汁'],['デオキシニバレノール','Fusarium属','小麦の赤かび病'],['オクラトキシンA','Aspergillus・Penicillium属','腎毒性']])}</section>` },
+  { id:'1-6', t:'まとめテスト', sub:'食中毒の10問', test:true, plan:['inf','inf','tox','tox','vir','vir','nat','nat','myc','myc'], body:()=>`
+    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。問題の順番は毎回かわります。</p></section>` },
+];
+const PK_LESSONS = [
+  { id:'1-1', t:'半減期と消失速度定数', sub:'k ＝ 0.693 ÷ t½', plan:['kel','kel','half','half','pkk'], body:()=>`
+    <section class="panel"><h3>一次消失</h3><p>多くの薬は、一定時間ごとに<b>同じ割合</b>ずつ減っていきます（一次速度過程）。半減期は濃度に関係なく一定です。</p>
+    ${rule('k ＝ 0.693 ÷ t½　　t½ ＝ 0.693 ÷ k')}
+    <div class="fx">例：t½ 4 時間 → k ＝ 0.693 ÷ 4 ≒ 0.173 /h<br>80 μg/mL が 12 時間後（3回半分）→ 10 μg/mL</div></section>` },
+  { id:'1-2', t:'分布容積', sub:'Vd ＝ 投与量 ÷ C₀', plan:['vd','vd','dose0','dose0','pkk'], body:()=>`
+    <section class="panel"><h3>見かけの分布容積</h3>${rule('Vd ＝ 投与量 ÷ 静注直後の血中濃度（C₀）')}
+    <p>単位に注意：<b>1 μg/mL ＝ 1 mg/L</b>。</p>
+    <div class="fx">例：500 mg 静注で C₀ ＝ 10 μg/mL<br>500 ÷ 10 ＝ 50 L</div>
+    <p class="small muted">組織によく移る薬ほど血中濃度が低くなり、Vd は大きくなります。</p></section>` },
+  { id:'1-3', t:'クリアランス', sub:'CL ＝ k × Vd', plan:['cl','cl','thalf','thalf','pkk'], body:()=>`
+    <section class="panel"><h3>3つの式をつなげる</h3>${rule('CL ＝ k × Vd<br>t½ ＝ 0.693 × Vd ÷ CL')}
+    <div class="fx">例：Vd 40 L、CL 4 L/h<br>t½ ＝ 0.693 × 40 ÷ 4 ≒ 6.9 時間</div>
+    <p class="small muted">CL が下がる（腎機能低下など）と、半減期はのびます。</p></section>` },
+  { id:'1-4', t:'定常状態と負荷投与', sub:'Css と ローディングドーズ', plan:['css','css','load','load','pkk'], body:()=>`
+    <section class="panel"><h3>定常状態</h3>${rule('Css ＝ 投与速度 ÷ CL')}
+    <p>到達までの目安は<b>半減期の4〜5倍</b>。線形の薬なら、投与速度を2倍にすると Css も2倍です。</p></section>
+    <section class="panel"><h3>負荷投与量</h3>${rule('負荷投与量 ＝ 目標濃度 × Vd')}<p class="small muted">半減期が長い薬で、早く目標濃度にするために使います。</p></section>` },
+  { id:'1-5', t:'腎機能の推定', sub:'Cockcroft-Gault式', plan:['cg','cg','cg','pkk','pkk'], body:()=>`
+    <section class="panel"><h3>Cockcroft-Gault式</h3>${rule('CCr（mL/分）＝ (140 − 年齢) × 体重 ÷ (72 × 血清Cr)<br>女性は × 0.85')}
+    <div class="fx">例：70歳男性、60 kg、血清Cr 1.0<br>70 × 60 ÷ 72 ≒ 58 mL/分</div>
+    <p class="small muted">身長は使いません。GFRの正確な測定にはイヌリンクリアランスを使います。腎排泄型の薬は、腎機能に合わせて減量や投与間隔の延長をします。</p></section>` },
+  { id:'1-6', t:'まとめテスト', sub:'薬物動態の計算10問', test:true, plan:['kel','half','vd','dose0','cl','thalf','css','load','cg','pkk'], body:()=>`
+    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。計算用紙を用意して、式を書いてから選ぼう。</p></section>` },
+];
+
+/* ===== 用語カード ===== */
+const TERMS = {
+  ans:[['ムスカリン受容体','副交感神経の節後線維が作用する効果器側の受容体。Gタンパク質共役型。'],['ニコチン受容体（NN）','自律神経節にある受容体。イオンチャネル内蔵型。'],['α1受容体','Gq共役。血管収縮・散瞳。'],['β2受容体','Gs共役。気管支拡張・子宮弛緩。'],['タムスロシン','α1A遮断薬。前立腺肥大症に伴う排尿障害。'],['ネオスチグミン','コリンエステラーゼ阻害薬。重症筋無力症。'],['プラリドキシム（PAM）','有機リン中毒でコリンエステラーゼを再活性化する。']],
+  fp:[['感染型','菌が体の中で増えて起こる食中毒。サルモネラ、腸炎ビブリオなど。'],['毒素型','食品中でできた毒素を食べて起こる食中毒。黄色ブドウ球菌、ボツリヌス菌。'],['エンテロトキシン','黄色ブドウ球菌の耐熱性毒素。'],['ベロ毒素','腸管出血性大腸菌がつくる毒素。HUSの原因。'],['テトロドトキシン','フグ毒。Na⁺チャネルを遮断する。'],['アフラトキシンB₁','Aspergillus flavus がつくる。強い肝発がん性。'],['パツリン','りんご果汁で基準があるカビ毒。']],
+  pk:[['消失半減期','血中濃度が半分になるまでの時間。t½ ＝ 0.693 ÷ k。'],['消失速度定数','k ＝ 0.693 ÷ t½。単位は /h。'],['分布容積','Vd ＝ 投与量 ÷ C₀。'],['全身クリアランス','CL ＝ k × Vd。単位は L/h など。'],['定常状態濃度','Css ＝ 投与速度 ÷ CL。半減期の4〜5倍で到達。'],['負荷投与量','目標濃度 × Vd。'],['Cockcroft-Gault式','CCr ＝ (140−年齢) × 体重 ÷ (72 × 血清Cr)、女性 ×0.85。']],
+};
+
+/* ===== 単元とコース ===== */
+const UNITS = {
+  ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:1, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
+  fp: { no:'衛1', title:'食中毒', subject:'衛生', course:'hyg', subj:0, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
+  pk: { no:'剤1', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:0, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
+};
+const U = (...t) => t.map(x => typeof x === 'string' ? { t:x } : x);
+const CATALOG = [
+  { group:'科目', courses:[
+    { id:'phys', name:'物理', k:'物', note:'物理化学・分析', subjects:[
+      { name:'物質の構造', k:'構', units:U('原子・分子と化学結合','放射線と放射性医薬品') },
+      { name:'エネルギーと平衡', k:'平', units:U('熱力学','化学平衡と相平衡','反応速度') },
+      { name:'化学物質の分析', k:'分', units:U('定量分析と容量分析','クロマトグラフィー','分光分析','臨床分析') } ] },
+    { id:'chem', name:'化学', k:'化', note:'有機化学・天然物', subjects:[
+      { name:'有機化合物の性質', k:'有', units:U('立体化学','官能基の性質と反応','酸・塩基と反応性') },
+      { name:'医薬品の化学', k:'医', units:U('医薬品の構造と作用','生体分子の化学') },
+      { name:'天然物', k:'天', units:U('生薬由来の化合物','微生物由来の医薬品') } ] },
+    { id:'bio', name:'生物', k:'生', note:'細胞・人体・免疫・生薬', subjects:[
+      { name:'生命の基礎', k:'基', units:U('細胞と遺伝子','代謝','情報伝達') },
+      { name:'人体の成り立ち', k:'体', units:U('神経・感覚器','循環器・呼吸器','消化器・腎臓') },
+      { name:'生体防御', k:'免', units:U('免疫','微生物') },
+      { name:'生薬', k:'薬', units:U('薬用植物と生薬','漢方処方') } ] },
+    { id:'hyg', name:'衛生', k:'衛', note:'食品・疫学・環境', subjects:[
+      { name:'栄養と食品', k:'食', units:U({ t:'食中毒', ready:'fp' },'栄養素と代謝','食品の変質と添加物') },
+      { name:'社会と健康', k:'社', units:U('保健統計と疫学','感染症の予防') },
+      { name:'環境', k:'環', units:U('化学物質の毒性','環境保全と水・大気') } ] },
+    { id:'pharm', name:'薬理', k:'理', note:'薬の作用と作用機序', subjects:[
+      { name:'薬理の基本', k:'基', units:U('受容体と用量反応') },
+      { name:'神経系', k:'神', units:U({ t:'自律神経系の薬', ready:'ans' },'中枢神経系の薬','麻酔薬・鎮痛薬') },
+      { name:'臓器別', k:'臓', units:U('循環器の薬','呼吸器・消化器の薬','腎・泌尿器の薬') },
+      { name:'化学療法・免疫', k:'化', units:U('抗菌薬','抗ウイルス薬・抗真菌薬','抗がん薬','免疫抑制薬') } ] },
+    { id:'ther', name:'病態・薬物治療', k:'治', note:'薬治', subjects:[
+      { name:'疾患と治療', k:'疾', units:U('精神疾患','神経疾患','循環器疾患','内分泌・代謝疾患','感染症','がん') },
+      { name:'情報と評価', k:'評', units:U('医薬品情報','臨床統計') } ] },
+    { id:'pmcy', name:'薬剤', k:'剤', note:'薬物動態・製剤', subjects:[
+      { name:'薬物動態', k:'動', units:U({ t:'薬物動態の計算', ready:'pk' },'吸収・分布・代謝・排泄','TDM') },
+      { name:'製剤', k:'製', units:U('製剤と剤形','日本薬局方の試験') } ] },
+    { id:'law', name:'法規・制度・倫理', k:'法', note:'法制倫', subjects:[
+      { name:'法規', k:'法', units:U('薬機法','薬剤師法','麻薬・向精神薬') },
+      { name:'制度と倫理', k:'倫', units:U('医療保険制度','医療倫理と患者の権利') } ] },
+    { id:'prac', name:'実務', k:'実', note:'調剤・服薬指導・在宅', subjects:[
+      { name:'薬局・病院の業務', k:'業', units:U('調剤','疑義照会','服薬指導') },
+      { name:'地域の医療', k:'地', units:U('在宅医療','セルフメディケーション') } ] } ] },
+];
+
+const allCourses = () => CATALOG.flatMap(g => g.courses);
+const courseById = id => allCourses().find(c => c.id === id);
+const readyCount = c => c.subjects.reduce((n, s) => n + s.units.filter(u => u.ready).length, 0);
+const unitCount = c => c.subjects.reduce((n, s) => n + s.units.length, 0);
+const lkey = (uid,id) => uid+':'+id;
+const doneCount = uid => UNITS[uid].lessons.filter(l=>R.lessons[lkey(uid,l.id)]).length;
+const nextOf = uid => { const u=UNITS[uid]; return u.lessons.find(l=>!R.lessons[lkey(uid,l.id)]) || u.lessons[u.lessons.length-1]; };
+const unitDone = uid => doneCount(uid) === UNITS[uid].lessons.length;
+
+/* ===== きのこカード ===== */
+/* 蕈図鑑カード（zukan フォルダの画像。名前・生息地・説明は画像の中に入っています） */
+// [図鑑の番号, 名前, 区分]　画像は zukan/z001.jpg のように番号3けた。カードができたら行を足していきます。
+const ZUKAN = [
+  [1,'ハラタケ','食'],[2,'アガリクス・クサントデルムス','毒'],[3,'コタマゴテングタケ','毒'],[4,'テングタケ','毒'],
+  [5,'タマゴテングタケ','猛毒'],[6,'シロタマゴテングタケ','猛毒'],[7,'ガンタケ','注意'],[8,'ベニテングタケ','毒'],
+  [9,'ワタゲナラタケ','食'],[10,'ウラベニイロガワリ','注意'],[12,'ハナイグチ','食'],[14,'ヌメリイグチ','食'],
+  [15,'ヤマドリタケ','食'],[16,'マッシュルーム','食'],[17,'アンズタケ','食'],[18,'アカカゴタケ','不食'],
+  [19,'ハイイロシメジ','毒'],[20,'アオイヌシメジ','注意'],
+  [21,'ヒカゲウラベニタケ','不食'],[22,'メガコルリビア・プラティフィラ','注意'],[23,'コルリビア・フシペス','不食'],[24,'ササクレヒトヨタケ','食'],
+  [25,'キララタケ','不食'],[26,'ムラサキフウセンタケ','注意'],[27,'イッポンシメジ','毒'],[28,'カンゾウタケ','食'],
+  [29,'ナガエノスギタケ','不食'],[30,'ノボリリュウ','注意'],[31,'カノシタ','食'],[32,'シシタケ','食'],
+  [33,'シモフリヌメリガサ','食'],[34,'アカヤマタケ','毒'],[35,'ヒーグロキベー・コンラディ','不食'],[36,'オオサクラシメジ','食'],
+  [37,'サクラシメジ','食'],[38,'ニガクリタケ','毒'],[39,'キツネタケ','食'],[40,'ムジナタケ','食'],[41,'チチタケ','食'],
+  [42,'カラハツタケ','毒'],[43,'ラクターリウス・デーリキオースス','食'],[44,'ツチカブリ','不食'],[46,'カイガラタケ','不食'],
+  [47,'カラカサタケ','注意'],[49,'シロカラカサタケ','注意'],[50,'シバフタケ','食'],[51,'アミガサタケ','食'],
+  [52,'トガリアミガサタケ','食'],[53,'ユキワリ','食'],[56,'セイヨウタマゴタケ','食'],[57,'ヒダハタケ','毒'],
+  [58,'ウラスジチャワンタケ','不食'],[59,'スッポンタケ','不食'],[60,'エリンギ','食'],[61,'シロタモギタケ','食'],
+  [62,'マイタケ','食'],[63,'カンバタケ','不食'],
+  [64,'カワリハツ','食'],[65,'ニシキタケ','食'],[66,'ドクベニタケ','毒'],[67,'クサハツ','毒'],
+  [68,'ルッスーラ・グリセア','注意'],[71,'アイタケ','食'],[72,'モエギタケ','不食'],[73,'サマツモドキ','毒'],
+  [74,'キシメジ','毒'],[76,'クロラッパタケ','食'],[77,'セイヨウショウロ','食'],[78,'ホコリタケ','食'],[79,'シロフクロタケ','注意'],
+  [80,'ドクツルタケ','猛毒'],[81,'カエンタケ','猛毒'],[82,'ツキヨタケ','毒'],[83,'クサウラベニタケ','毒'],
+  [84,'ニセクロハツ','猛毒'],[85,'タマゴタケ','食'],[86,'マツタケ','食'],[87,'シイタケ','食'],[88,'ナメコ','食'],[89,'ヤコウタケ','発光'],
+].map(([no,name,kind])=>{ const n=String(no).padStart(3,'0'); return { key:'z'+n, t:'z', no, src:'zukan/z'+n+'.jpg', name, note:kind }; });
+const ALLC = KINOKO_CARDS.map(c=>Object.assign({key:c.src},c)).concat(ZUKAN);
+// お試し公開：蕈図鑑からランダムにこの枚数を、記録タブで開いた状態にします（生徒に配るときは 0 に）。
+const PREVIEW_OPEN = 0;
+const PREVIEW_KEYS = (() => { const r=seeded(42); return ZUKAN.map(z=>[r(),z.key]).sort((a,b)=>a[0]-b[0]).slice(0,PREVIEW_OPEN).map(x=>x[1]); })();
+const CTYPE = { z:'蕈図鑑', a:'山歩き', p:'きのこ写真', h:'きのこ作品', i:'きのこイラスト' };
+const cardNo = i => ALLC[i].no || ALLC.slice(0,i+1).filter(c=>c.t===ALLC[i].t).length;
+const cardLabel = i => `${CTYPE[ALLC[i].t]}　No.${cardNo(i)}`;
+function seeded(n){ let s=n*9301+49297; return () => (s=(s*233280+49297)%2147483647)/2147483647; }
+
+/* きのこを1本描く。sp：cap（傘の色）・stem（柄の色）・shape（dome/flat/cone/spot）・glow（光る） */
+function mushG(sp,x,y,k){
+  x=+x; y=+y; const c=sp.cap, st=sp.stem||'#EDE6D6', h=24*k, w=(sp.shape==='flat'?24:sp.shape==='cone'?13:19)*k, top=y-h;
+  let cap;
+  if(sp.shape==='flat') cap=`<path d="M${x-w} ${top+2*k} Q${x} ${top-11*k} ${x+w} ${top+2*k} Q${x} ${top+6*k} ${x-w} ${top+2*k}Z" fill="${c}"/>`;
+  else if(sp.shape==='cone') cap=`<path d="M${x-w} ${top+3*k} Q${x-w*.6} ${top-20*k} ${x} ${top-24*k} Q${x+w*.6} ${top-20*k} ${x+w} ${top+3*k}Z" fill="${c}"/>`+(sp.net?`<path d="M${x-w*.5} ${top-4*k} L${x+w*.5} ${top-14*k} M${x-w*.5} ${top-14*k} L${x+w*.5} ${top-4*k}" stroke="rgba(0,0,0,.25)" stroke-width="${1.4*k}"/>`:'');
+  else cap=`<path d="M${x-w} ${top+3*k} C${x-w} ${top-17*k} ${x+w} ${top-17*k} ${x+w} ${top+3*k}Z" fill="${c}"/>`;
+  const spots = sp.shape==='spot' ? [[-9,-6],[2,-10],[10,-3],[-2,-2]].map(([dx,dy])=>`<circle cx="${x+dx*k}" cy="${top+dy*k}" r="${2*k}" fill="#FFF8EC"/>`).join('') : '';
+  const glow = sp.glow ? `<ellipse cx="${x}" cy="${top-2*k}" rx="${w*1.9}" ry="${16*k}" fill="${sp.glowC||c}" opacity=".18"/><ellipse cx="${x}" cy="${top}" rx="${w*1.3}" ry="${10*k}" fill="${sp.glowC||c}" opacity=".22"/>` : '';
+  const gills = sp.gills ? `<path d="M${x-w*.8} ${top+3*k} Q${x} ${top+7*k} ${x+w*.8} ${top+3*k}" stroke="${sp.gills}" stroke-width="${2*k}" fill="none"/>` : '';
+  return `${glow}<path d="M${x-3.4*k} ${y} Q${x-4*k} ${top+12*k} ${x-3*k} ${top+2*k} L${x+3*k} ${top+2*k} Q${x+4*k} ${top+12*k} ${x+3.4*k} ${y}Z" fill="${st}"/>${cap}${gills}${spots}`;
+}
+function illusSVG(id){
+  const v=+id.slice(1), rnd=seeded(v*17+3);
+  const SC=[
+    {bg:['#0A1A14','#10261D','#173527'], m:[{cap:'#C6F28A',glow:1,shape:'dome'},{cap:'#C6F28A',glow:1,shape:'dome'},{cap:'#B5EC74',glow:1,shape:'dome'}], moon:0, fire:1},
+    {bg:['#0B1424','#14223A','#1C3048'], m:[{cap:'#8A6A4E',shape:'flat',glow:1,glowC:'#DFFFD0',gills:'#E9FFDA'},{cap:'#7E6046',shape:'flat',glow:1,glowC:'#DFFFD0',gills:'#E9FFDA'}], moon:1},
+    {bg:['#2C4A3E','#3F6656','#6E8F7C'], m:[{cap:'#E0482E',shape:'dome',stem:'#F2D27A'},{cap:'#E8573A',shape:'dome',stem:'#F2D27A'}], rain:1},
+    {bg:['#16251C','#24392A','#3A5440'], m:[{cap:'#D93A2B',shape:'spot'},{cap:'#E04A30',shape:'spot'},{cap:'#C9352A',shape:'spot'}]},
+    {bg:['#1B2A20','#2A3E2E','#3B5240'], m:[{cap:'#C97A2C',shape:'dome'},{cap:'#D4892F',shape:'dome'},{cap:'#C47426',shape:'dome'},{cap:'#CF8430',shape:'dome'}], log:1},
+    {bg:['#1A1410','#2A1F18','#3C2C20'], m:[{cap:'#7A2E1E',shape:'flat',stem:'#5A2416'},{cap:'#8E3A22',shape:'flat',stem:'#5A2416'}], fire:1},
+    {bg:['#3C5A46','#5C7F62','#9EB68A'], m:[{cap:'#B08A5A',shape:'cone',net:1},{cap:'#A47E50',shape:'cone',net:1}]},
+    {bg:['#203B3A','#5C7A6A','#E4B98A'], m:[{cap:'#C6F28A',glow:1,shape:'dome'},{cap:'#C97A2C',shape:'dome'},{cap:'#D93A2B',shape:'spot'}], sun:1},
+  ][(v-1)%8];
+  let deco='';
+  for(let i=0;i<5;i++){ const x=20+i*62+rnd()*20; deco+=`<path d="M${x} 400 L${x} ${120+rnd()*60}" stroke="#06100B" stroke-width="${10+rnd()*10}" opacity=".55"/>`; }
+  if(SC.moon) deco+=`<circle cx="220" cy="80" r="26" fill="#FFF6D8"/><circle cx="220" cy="80" r="48" fill="#FFF6D8" opacity=".08"/>`;
+  if(SC.sun) deco+=`<circle cx="150" cy="230" r="40" fill="#FFD9A0" opacity=".5"/>`;
+  if(SC.fire) for(let i=0;i<14;i++) deco+=`<circle cx="${(rnd()*300).toFixed(1)}" cy="${(60+rnd()*220).toFixed(1)}" r="${(1+rnd()*1.6).toFixed(1)}" fill="#E6FFB0" opacity="${(.4+rnd()*.5).toFixed(2)}"/>`;
+  if(SC.rain) for(let i=0;i<30;i++){ const x=rnd()*300, y=rnd()*260; deco+=`<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${(x-4).toFixed(1)}" y2="${(y+14).toFixed(1)}" stroke="#DDEFE6" stroke-width="1" opacity=".4"/>`; }
+  if(SC.log) deco+=`<rect x="20" y="318" width="260" height="34" rx="17" fill="#4A3424"/><circle cx="270" cy="335" r="14" fill="#7A5A3E"/>`;
+  const ground=`<path d="M0 340 Q80 320 150 336 T300 330 V400 H0Z" fill="#0E1A12"/><path d="M0 370 Q90 356 170 368 T300 362 V400 H0Z" fill="#07100B"/>`;
+  const n=SC.m.length; let ms='';
+  SC.m.forEach((sp,i)=>{ const x=70+(n>1?i*(160/(n-1)):80), y=SC.log?322:350-(i%2)*8, k=(i===0?2.1:1.5)-(i%2)*.2; ms+=mushG(sp,x.toFixed(1),y,k); });
+  return `<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g${v}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${SC.bg[0]}"/><stop offset=".6" stop-color="${SC.bg[1]}"/><stop offset="1" stop-color="${SC.bg[2]}"/></linearGradient></defs><rect width="300" height="400" fill="url(#g${v})"/>${deco}${ground}${ms}</svg>`;
+}
+const cardFace = (i, lazy) => { const c=ALLC[i]; return c.t==='i' ? illusSVG(c.id) : `<img src="${esc(c.src)}" alt="${esc(c.name)}"${c.t==='z'?' class="zimg"':''}${lazy?' loading="lazy"':''}>`; };
+const CARD_BACK = `<svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="#D9B26A" stroke-width="2.2" stroke-linejoin="round"><path d="M28 64 C28 30 92 30 92 64 Z" fill="rgba(217,178,106,.16)"/><path d="M52 64 Q50 84 54 96 L66 96 Q70 84 68 64"/><circle cx="60" cy="60" r="50" opacity=".35"/></g><g fill="#F2E7C6"><circle cx="44" cy="50" r="3"/><circle cx="64" cy="44" r="2.4"/><circle cx="76" cy="54" r="2"/><circle cx="18" cy="28" r="1.8"/><circle cx="102" cy="22" r="2.2"/><circle cx="96" cy="100" r="1.6"/><circle cx="22" cy="96" r="2"/></g></svg>`;
+function drawReward(){
+  const has=new Set(R.cards), unseen=ALLC.map((_,i)=>i).filter(i=>!has.has(ALLC[i].key));
+  const i = unseen.length ? pick(unseen) : ri(0,ALLC.length-1), isNew=!has.has(ALLC[i].key);
+  if(isNew){ R.cards.push(ALLC[i].key); save(); } return { i, isNew };
+}
+function rewardCard(rw){ const c=ALLC[rw.i];
+  return `<div class="rcard pop"><p class="rlead">${rw.title?esc(rw.title)+'を':''}ぜんぶクリア！ きのこカードが1まい届きました</p>
+  <button class="rflip" data-act="openReward" aria-label="カードをめくる"><span class="rinner"><span class="rback">${CARD_BACK}<span class="rhint">タップしてめくる</span></span><span class="rfront">${cardFace(rw.i)}</span></span></button>
+  <div class="rcap"><span class="rno">${cardLabel(rw.i)}${rw.isNew?'<em>NEW</em>':''}</span><b class="rname">${esc(c.name)}</b>${c.note?`<span class="rnote">${esc(c.note)}</span>`:''}<span class="rcount num">集めたカード ${ALLC.filter(x=>R.cards.includes(x.key)).length} / ${ALLC.length}</span></div></div>`;
+}
+
+/* ===== きのこを育てる（胞子をあげて、きのこを生やす） ===== */
+const SKY_NEED = 30;
+const GROW = [ {n:'胞子', at:0, d:'森の土に、小さな胞子がおちました。'}, {n:'菌糸', at:8, d:'土の中で、白い糸がのびはじめました。'}, {n:'幼菌', at:15, d:'地面から、小さな頭が顔を出しました。'}, {n:'若いきのこ', at:23, d:'傘がひらいてきました。もうすぐです。'} ];
+const SP = [
+  {id:'yakou', name:'ヤコウタケ', cap:'#C6F28A', shape:'dome', glow:1, note:'八丈島などに生える、黄緑色に光る小さなきのこ。'},
+  {id:'tsukiyo', name:'ツキヨタケ', cap:'#8A6A4E', shape:'flat', glow:1, glowC:'#DFFFD0', gills:'#E9FFDA', note:'ひだが暗いところで光る毒きのこ。シイタケとまちがえやすい。'},
+  {id:'shiitake', name:'シイタケ', cap:'#7A4E2E', shape:'dome', note:'干すとビタミンDがふえる。うまみ成分はグアニル酸。'},
+  {id:'tamago', name:'タマゴタケ', cap:'#E0482E', stem:'#F2D27A', shape:'dome', note:'白いつぼから赤い傘が出る、食べられるテングタケのなかま。'},
+  {id:'beni', name:'ベニテングタケ', cap:'#D93A2B', shape:'spot', note:'赤い傘に白いいぼ。イボテン酸・ムスシモールを含む毒きのこ。'},
+  {id:'enoki', name:'エノキタケ', cap:'#EEE4CC', shape:'dome', note:'お店のものは白くて細い。野生のものは茶色い傘。'},
+  {id:'nameko', name:'ナメコ', cap:'#C97A2C', shape:'dome', note:'傘のぬめりが特徴。ブナの倒木などに生える。'},
+  {id:'reishi', name:'マンネンタケ', cap:'#7A2E1E', stem:'#5A2416', shape:'flat', note:'生薬名は霊芝（レイシ）。つやのある傘。'},
+  {id:'eringi', name:'エリンギ', cap:'#C9B79A', stem:'#F3EEE2', shape:'flat', note:'地中海沿岸などが原産。日本では栽培品が中心。'},
+  {id:'hitoyo', name:'ヒトヨタケ', cap:'#D8D2C4', shape:'cone', note:'一晩で傘がとけて黒い液になる。お酒と一緒に食べると悪酔いの症状が出る。'},
+  {id:'amigasa', name:'アミガサタケ', cap:'#B08A5A', shape:'cone', net:1, note:'春に出る、網目もようの傘。フランス料理ではモリーユ。'},
+  {id:'matsutake', name:'マツタケ', cap:'#9A7448', shape:'dome', note:'アカマツ林に生える。香りの成分はマツタケオール。'},
+];
+const spOf = id => SP.find(x=>x.id===id) || SP[0];
+function skyInit(){
+  if(!R.sky){ const n=Object.keys(R.lessons||{}).length; R.sky={ shards:n, total:n, fed:0, sp:null, born:[] }; }
+  if(!R.sky.sp) R.sky.sp=skyNextSp(); return R.sky;
+}
+function skyNextSp(){ const got=new Set((R.sky&&R.sky.born||[]).map(t=>t.sp)); const rest=SP.filter(x=>!got.has(x.id)); return pick(rest.length?rest:SP).id; }
+const growOf = fed => { let g=GROW[0]; for(const s of GROW) if(fed>=s.at) g=s; return g; };
+function stageSVG(fed){
+  const g=growOf(fed).n, x=110, y=132, rnd=seeded(5); let s='';
+  const soil=`<path d="M0 132 Q60 122 110 130 T220 128 V170 H0Z" fill="#0E1A12"/>`;
+  if(g==='胞子'){ for(let i=0;i<10;i++) s+=`<circle cx="${(x-40+rnd()*80).toFixed(1)}" cy="${(70+rnd()*55).toFixed(1)}" r="${(1.2+rnd()*2).toFixed(1)}" fill="#C6F28A" opacity="${(.4+rnd()*.5).toFixed(2)}"/>`; }
+  else if(g==='菌糸'){ for(let i=0;i<9;i++){ const a=rnd()*3.14, l=30+rnd()*40; s+=`<path d="M${x} 136 q${(Math.cos(a)*l/2).toFixed(1)} ${(8+rnd()*10).toFixed(1)} ${(Math.cos(a)*l).toFixed(1)} ${(14+rnd()*14).toFixed(1)}" stroke="#EDE6D6" stroke-width="1.4" fill="none" opacity=".85"/>`; } s+=`<circle cx="${x}" cy="134" r="4" fill="#C6F28A"/>`; }
+  else if(g==='幼菌') s=mushG({cap:'#A7D46F',shape:'dome'},x,y,1.1);
+  else s=mushG({cap:'#B9E47C',shape:'dome',glow:1},x,y,1.9);
+  return `<svg class="stg" viewBox="0 0 220 170" role="img" aria-label="${g}">${soil}<g class="bob">${s}</g></svg>`;
+}
+function nightSVG(born){
+  const n=born.length, rnd=seeded(11); let bg='';
+  for(let i=0;i<7;i++){ const x=10+i*55+rnd()*20; bg+=`<path d="M${x} 230 L${x} ${30+rnd()*50}" stroke="#06100B" stroke-width="${8+rnd()*10}" opacity=".6"/>`; }
+  for(let i=0;i<24;i++) bg+=`<circle class="${i%3===0?'tw':''}" cx="${(rnd()*360).toFixed(1)}" cy="${(rnd()*150).toFixed(1)}" r="${(.6+rnd()*1.2).toFixed(2)}" fill="#E6FFB0" opacity="${(.25+rnd()*.5).toFixed(2)}"/>`;
+  const show=born.slice(-30), k=n>16?.7:n>8?.85:1; let st='';
+  show.forEach((t,i)=>{ const r=seeded(i*31+7), x=24+r()*312, y=180+r()*36; st+=`<g>${mushG(spOf(t.sp),x.toFixed(1),y.toFixed(1),k)}</g>`; });
+  return `<svg class="night" viewBox="0 0 360 230" role="img" aria-label="森　きのこ ${n} 本">${bg}<path d="M0 178 Q70 166 140 176 T280 172 T360 176 V230 H0Z" fill="#0E1A12"/>${st}${n?'':`<text x="180" y="110" text-anchor="middle" fill="#A9BFAE" font-size="13">まだ生えたきのこはありません</text>`}</svg>`;
+}
+const SHARD_I = `<svg class="shard" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="7" r="1.6"/><circle cx="18" cy="19" r="1.8"/></svg>`;
+function skyFeed(arg){
+  const s=skyInit(), before=growOf(s.fed).n, n=Math.min(arg==='all'?s.shards:1, s.shards, SKY_NEED-s.fed); if(n<=0) return;
+  s.shards-=n; s.fed+=n; S.born=null; S.skyMsg='';
+  if(s.fed>=SKY_NEED){ s.born.push({ sp:s.sp, d:today() }); S.born=s.sp; s.fed=0; s.sp=skyNextSp(); }
+  else if(growOf(s.fed).n!==before) S.skyMsg=`${growOf(s.fed).n}に育ちました！`;
+  else S.skyMsg=`胞子を ${n} つあげました。`;
+  save();
+}
+
+/* ===== 画面 ===== */
+const S = { view: R.code ? 'home' : 'setup', stack:[], uid:'ans', quiz:null, deck:null, flipped:false, lessonStart:0, reward:null, viewCard:null };
+const CU = () => UNITS[S.uid];
+const LX = id => CU().lessons.find(l=>l.id===id);
+const app = document.getElementById('app'), tabs = document.querySelector('.tabs');
+const go = (v, push=true) => { if (push) S.stack.push(S.view); S.view=v; render(); window.scrollTo(0,0); };
+const back = () => { S.view = S.stack.pop() || 'home'; render(); window.scrollTo(0,0); };
+const top = t => `<div class="top"><button class="back" data-act="back" aria-label="戻る">‹ 戻る</button><span class="ttl">${t}</span></div>`;
+const greet = () => { const h=new Date().getHours(); return h<10?'おはよう':h<17?'こんにちは':'こんばんは'; };
+const lTag = (uid,id) => { const s=R.lessons[lkey(uid,id)]; if(!s) return '<span class="tag">未学習</span>'; return `<span class="tag ${s.best===s.total?'done':'mid'}">${s.best}/${s.total}</span>`; };
+
+function heroArt(){
+  const rnd=seeded(2); let st='';
+  for(let i=0;i<30;i++){ const x=rnd()*360, y=rnd()*120, r=.6+rnd()*1.2; st+=`<circle class="${i%3===0?'tw':''}" style="animation-delay:${(-rnd()*3).toFixed(2)}s" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" fill="#E6FFB0" opacity="${(.35+rnd()*.55).toFixed(2)}"/>`; }
+  let tr=''; for(let i=0;i<6;i++){ const x=150+i*40+rnd()*16; tr+=`<path d="M${x} 176 L${x} ${10+rnd()*40}" stroke="rgba(4,12,8,.7)" stroke-width="${8+rnd()*10}"/>`; }
+  return `<svg class="art" viewBox="0 0 360 176" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">${tr}${st}
+  <circle cx="214" cy="36" r="13" fill="#FFF3CC"/><circle cx="214" cy="36" r="26" fill="#FFF3CC" opacity=".1"/>
+  <path d="M0 148 Q70 132 140 144 T280 136 T360 142 V176 H0Z" fill="rgba(4,12,8,.9)"/>
+  ${mushG({cap:'#C6F28A',shape:'dome',glow:1},262,150,1.5)}${mushG({cap:'#B5EC74',shape:'dome',glow:1},296,152,1)}${mushG({cap:'#C6F28A',shape:'dome',glow:1},322,149,.7)}</svg>`;
+}
+function vSetup(){
+  return `<div class="stack" style="padding-top:24px"><div class="sky" style="min-height:150px">${heroArt()}<div class="txt"><span class="name">蕈時間</span></div></div><div class="hello"><div class="eyebrow">はじめまして</div><h1>蕈時間へ ようこそ</h1><p class="muted small">薬学生のための、1つ5分の学習アプリです。</p></div>
+  <div class="panel stack"><label for="su-code"><b>学籍番号</b><br><span class="small muted">学校の記号＋学年＋番号（先生から受け取った番号）</span></label><input type="text" id="su-code" maxlength="6" placeholder="例：P101" autocomplete="off" inputmode="latin" style="text-transform:uppercase">
+  <label for="su-name"><b>呼び名</b><br><span class="small muted">先生にも表示されます（ニックネームでOK）</span></label><input type="text" id="su-name" maxlength="12" placeholder="例：みお" autocomplete="off">
+  <p class="small" id="su-err" style="color:var(--bad)" hidden>学籍番号は「P101」のように、アルファベット1文字と数字3けたで入力してください。</p>
+  <button class="btn wide" data-act="setupDone">始める</button></div></div>`;
+}
+function vHome(){
+  const acc=R.answered?Math.round(R.correct/R.answered*100):0, uid=UNITS[R.lastUnit]?R.lastUnit:'ans', u=UNITS[uid], n=nextOf(uid);
+  return `<div class="stack" style="padding-top:8px"><div class="sky">${heroArt()}<div class="txt"><span class="name">蕈時間</span><h1>${greet()}${R.name?'、'+esc(R.name)+'さん':''}</h1><p>今日も五分だけ。<br>ゆっくり成長中。</p></div></div>
+  <div class="stats"><div class="stat"><b>${R.days.length}</b><span>学習した日</span></div><div class="stat"><b>${streak()}</b><span>連続した日</span></div><div class="stat"><b>${R.answered}</b><span>解いた問題${R.answered?'（'+acc+'%）':''}</span></div></div>
+  <button class="continue" data-act="lesson" data-arg="${n.id}" data-uid="${uid}"><span><small>続きから　${u.subject}・${u.title}（${doneCount(uid)}/${u.lessons.length}）</small><strong>${n.id}　${n.t}</strong></span><span class="go" aria-hidden="true">→</span></button>
+  ${CATALOG.map(g=>`<h2>${g.group}</h2><div class="subjects">${g.courses.map(c=>{ const r=readyCount(c);
+    return `<button class="subj" data-act="course" data-arg="${c.id}"><span class="k">${c.k}</span><b>${c.name}</b><span class="small muted">${c.note||c.subjects.map(x=>x.name).join('・')}</span><span class="small ${r?'':'muted'}">${r?'公開中 '+r+'単元':'準備中'}</span></button>`; }).join('')}</div>`).join('')}
+  <button class="item panel" data-act="go" data-arg="install"><span class="body"><b>ホーム画面に追加</b><br><span class="small muted">アプリのようにアイコンから開けます</span></span><span class="chev">›</span></button></div>`;
+}
+function vCourse(){
+  const c=courseById(S.course);
+  return `${top(c.name)}<div class="stack"><p class="muted small">${c.subjects.length}項目・${unitCount(c)}章</p><div class="list">
+  ${c.subjects.map((sb,i)=>{ const r=sb.units.filter(u=>u.ready).length;
+    return `<button class="item" data-act="subject" data-arg="${i}"><span class="lid">${sb.k}</span><span class="body"><b>${sb.name}</b><br><span class="small muted">${sb.units.length}章</span></span><span class="tag ${r?'mid':''}">${r?'公開中 '+r:'準備中'}</span><span class="chev">›</span></button>`; }).join('')}</div></div>`;
+}
+function vSubject(){
+  const c=courseById(S.course), sb=c.subjects[S.subj];
+  return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。項目の章をぜんぶ終えると、森から木の葉が降ってきます。</p><div class="list">
+  ${sb.units.map((un,i)=>{ const u=un.ready&&UNITS[un.ready];
+    if(u){ const d=doneCount(un.ready), n=u.lessons.length;
+      return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
+    return `<button class="item" disabled><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
+}
+function vUnit(){
+  const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
+  return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${u.lessons.length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアするときのこカードが1まい届きます。</p><div class="list">
+  ${u.lessons.map(l=>`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
+  ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
+  </div>${T.length?`<div class="list"><button class="item" data-act="cards"><span class="body"><b>用語カード</b><br><span class="small muted">用語の確認 ${T.length}枚</span></span><span class="tag ${kn===T.length?'done':kn?'mid':''}">${kn}/${T.length}</span><span class="chev">›</span></button></div>`:''}</div>`;
+}
+function vLesson(){
+  const l=LX(S.lid);
+  return `${top(l.id+'　'+l.t)}<div class="stack lesson">
+  <div class="chips"><span class="tag">約5分</span><span class="tag">${l.test?'テスト':'説明 → 練習'} ${l.plan.length}問</span>${R.lessons[lkey(S.uid,l.id)]?'<span class="tag done">クリア済み</span>':''}</div>
+  ${l.body()}<button class="btn wide" data-act="quiz">${l.test?'テストを始める':'練習を始める（'+l.plan.length+'問）'}</button></div>`;
+}
+const terms = () => TERMS[CU().cards]||[];
+const knownList = () => (R.known[S.uid] = R.known[S.uid] || []);
+function deckNext(){ const left=terms().map((_,i)=>i).filter(i=>!knownList().includes(i)); return left.length?left[0]:-1; }
+function vCards(){
+  const T=terms(), d=S.deck, known=knownList().length;
+  if (d.cur===-1) return `${top('用語カード')}<div class="stack"><div class="panel result pop"><div class="big">${T.length}/${T.length}</div><h2>全部覚えました</h2><p class="muted">ときどき見直すと、忘れにくくなります。</p></div><button class="btn ghost wide" data-act="cardsReset">最初から見直す</button></div>`;
+  const [term,def]=T[d.cur];
+  return `${top('用語カード')}<div class="stack"><div class="row" style="justify-content:space-between"><span class="small muted">覚えた ${known} / ${T.length}</span><span class="small muted">タップで裏返す</span></div>
+  <div class="meter"><i style="width:${Math.round(known/T.length*100)}%"></i></div>
+  <button class="card ${S.flipped?'flipped':''} pop" data-act="flip" aria-label="カードを裏返す">${S.flipped?`<span class="side">意味</span><span class="term" style="font-size:1.2rem">${term}</span><span class="def">${def}</span>`:`<span class="side">用語</span><span class="term">${term}</span><span class="small muted">意味を思い出してからタップ</span>`}</button>
+  <div class="two"><button class="btn ghost" data-act="cardLater">もう一回</button><button class="btn" data-act="cardKnown">覚えた</button></div></div>`;
+}
+function startQuiz(list){
+  const l=LX(S.lid), plan=l.test?shuffle([...l.plan]):[...l.plan];
+  S.quiz={ qs:list||makeQs(plan), i:0, score:0, picked:null, hint:false, wrong:[], retry:!!list };
+  if (!list) S.lessonStart=Date.now();
+  go('quiz');
+}
+function vQuiz(){
+  const Q=S.quiz, q=Q.qs[Q.i], n=Q.qs.length, ans=Q.picked!==null, ok=ans&&Q.picked===q.answer, l=LX(S.lid);
+  const longExpr = q.expr.length>14;
+  return `${top(Q.retry?'間違えた問題':l.id+'　'+l.t)}<div class="stack">
+  <div class="qhead"><span class="num small muted">${Q.i+1} / ${n}</span><span class="num small muted">正解 ${Q.score}</span></div>
+  <div class="meter"><i style="width:${Math.round(Q.i/n*100)}%"></i></div>
+  <div class="qbox pop"><div class="prompt">${q.prompt}</div><div class="expr ${longExpr?'long':''}">${q.expr}</div></div>
+  <div class="choices ${q.words||q.choices.some(c=>c.length>9)?'words':''}">${q.choices.map(c=>{ let cls=''; if(ans){ if(c===q.answer) cls='ok'; else if(c===Q.picked) cls='ng'; } return `<button class="choice ${cls}" data-act="pick" data-arg="${esc(c)}" ${ans?'disabled':''}>${esc(c)}</button>`; }).join('')}</div>
+  ${!ans?(Q.hint?`<div class="hint">${q.hint}</div>`:`<button class="linkbtn" data-act="hint">ヒントを見る</button>`):`
+  <div class="feedback ${ok?'ok':'ng'} pop"><span class="verdict">${ok?'正解！':'惜しい！ 答えは '+esc(q.answer)}</span><p>${q.explain}</p></div>
+  <button class="btn wide" data-act="next">${Q.i+1<n?'次の問題 →':'結果を見る'}</button>`}</div>`;
+}
+
+/* ===== クリアの演出：木の葉が降ってきて、1まいの裏にメッセージ ===== */
+// 葉っぱの裏に書くメッセージ。自由に足したり変えたりできます。
+const LEAF_MSG = [
+  '疲れたら一休み。','今日も来てくれてありがとう。','ゆっくりでいいよ。','ここまでできたね。',
+  '深呼吸を一回しよう。','お水を一杯のもう。','明日もまた会おうね。','がんばりすぎないでね。',
+  '昨日の自分より、一歩前へ。','5分、おつかれさま。',
+];
+function leafColors(){ const m=new Date().getMonth()+1;
+  if(m>=3&&m<=5) return ['#A8D46F','#C2E07E','#8CC45E','#D7EBA0'];
+  if(m>=6&&m<=8) return ['#4E9B5A','#6DB36A','#3F8650','#7FBF6E'];
+  if(m>=9&&m<=11) return ['#D9542E','#E8A33A','#C7402B','#E6C04A'];
+  return ['#9A6B44','#B8865A','#7E5A3A','#C9A06E']; }
+const LEAF_SHAPES = [
+  (c)=>`<svg viewBox="0 0 100 60"><path d="M3 30 C22 2 70 -2 97 30 C70 62 22 58 3 30Z" fill="${c}"/><path d="M3 30 L92 30 M30 30 L44 14 M30 30 L44 46 M55 30 L68 14 M55 30 L68 46" stroke="rgba(0,0,0,.18)" stroke-width="1.6" fill="none"/></svg>`,
+  (c)=>`<svg viewBox="0 0 100 100"><path d="M50 96 L50 70 L20 80 L28 62 L4 52 L26 44 L16 22 L38 30 L50 4 L62 30 L84 22 L74 44 L96 52 L72 62 L80 80 L50 70Z" fill="${c}"/><path d="M50 96 L50 30 M50 66 L26 46 M50 66 L74 46" stroke="rgba(0,0,0,.18)" stroke-width="1.6" fill="none"/></svg>`,
+  (c)=>`<svg viewBox="0 0 100 90"><path d="M50 86 L50 60 C20 62 4 36 10 12 C26 22 40 18 50 6 C60 18 74 22 90 12 C96 36 80 62 50 60Z" fill="${c}"/><path d="M50 86 L50 14 M50 50 L22 26 M50 50 L78 26" stroke="rgba(0,0,0,.16)" stroke-width="1.6" fill="none"/></svg>`,
+];
+const BIG_LEAF = (c, back) => `<svg viewBox="0 0 120 70"><path d="M0 35 L10 35" stroke="${c}" stroke-width="3" stroke-linecap="round"/><path d="M8 35 C28 3 84 -1 117 35 C84 71 28 67 8 35Z" fill="${c}"/>${back?`<path d="M8 35 C28 3 84 -1 117 35 C84 71 28 67 8 35Z" fill="#FFF9EC" opacity=".72"/>`:`<path d="M10 35 L110 35 M36 35 L52 16 M36 35 L52 54 M64 35 L80 17 M64 35 L80 53" stroke="rgba(0,0,0,.18)" stroke-width="1.8" fill="none"/>`}</svg>`;
+// 項目（例：薬理の「神経系」）の章がぜんぶ終わったか
+function itemDone(uid){ const u=UNITS[uid], c=courseById(u.course), sb=c&&c.subjects[u.subj]; return !!sb && sb.units.every(x=>x.ready&&UNITS[x.ready]&&unitDone(x.ready)); }
+function clearLeaves(){ document.querySelectorAll('.leaves').forEach(e=>e.remove()); }
+function leafBurst(){
+  try{
+    clearLeaves();
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cols=leafColors(), box=document.createElement('div'); box.className='leaves'+(reduce?' still':'');
+    const W=window.innerWidth||400; let html='';
+    for(let i=0;i<16;i++){ const c=pick(cols), w=ri(24,48);
+      html+=`<div class="leaf" aria-hidden="true" style="left:${ri(-10,W-20)}px;width:${w}px;--d:${(4.5+Math.random()*3).toFixed(2)}s;--dl:${(Math.random()*2.2).toFixed(2)}s;--sw:${ri(18,60)}px;--r0:${ri(-60,60)}deg;--r1:${ri(200,420)}deg">${pick(LEAF_SHAPES)(c)}</div>`; }
+    const bc=pick(cols);
+    html+=`<button class="bigleaf" data-act="leafFlip" aria-label="葉っぱをめくる"><span class="bl-in"><span class="bl-f">${BIG_LEAF(bc,false)}</span><span class="bl-b">${BIG_LEAF(bc,true)}<span>${esc(pick(LEAF_MSG))}</span></span></span><span class="bl-hint">タップしてうらを見る</span></button>`;
+    box.innerHTML=html; document.body.appendChild(box);
+    setTimeout(()=>box.querySelectorAll('.leaf').forEach(l=>l.remove()), 10000);
+  }catch(e){}
+}
+function vResult(){
+  const Q=S.quiz, n=Q.qs.length, u=CU(), l=LX(S.lid), idx=u.lessons.indexOf(l), nx=u.lessons[idx+1];
+  const msg = Q.score===n?'全問正解。よく頑張りました。':Q.score>=n*0.6?'あと少し。間違えた問題を見直せば完璧です。':'大丈夫。間違えた問題こそ、伸びるところです。';
+  return `${top('結果')}<div class="stack">
+  <div class="panel result pop"><div class="big">${Q.score}/${n}</div><h2>${Q.retry?'見直し完了':l.id+'　'+l.t}</h2><p class="muted">${msg}</p></div>
+  ${S.reward?rewardCard(S.reward):''}
+  ${S.gotShard?`<div class="panel shardget pop">${SHARD_I}<div><b>胞子が1つたまりました</b><br><span class="small muted">もっている胞子 ${R.sky.shards}　育てているきのこにあげよう</span></div><button class="btn" data-act="toSky">あげる →</button></div>`:''}
+  ${Q.wrong.length?`<button class="btn warm wide" data-act="retry">間違えた ${Q.wrong.length}問 をもう一度</button>`:''}
+  ${nx&&!Q.retry?`<button class="btn wide" data-act="lessonNext" data-arg="${nx.id}">次へ　${nx.id} ${nx.t} →</button>`:''}
+  <button class="btn again wide" data-act="again">新しい問題でもう一度</button>
+  <button class="btn ghost wide" data-act="tounit">胞子の一覧へ</button></div>`;
+}
+function vRecord(){
+  const acc=R.answered?Math.round(R.correct/R.answered*100):0, set=new Set(R.days); let cells='';
+  for(let i=27;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); cells+=`<div class="day ${set.has(dkey(d))?'on':''}">${d.getDate()}</div>`; }
+  const has=new Set([...R.cards, ...PREVIEW_KEYS, ...(PREVIEW_OPEN?KINOKO_CARDS.filter(c=>c.t==='a').map(c=>c.src):[])]);
+  const coll = `<div class="panel stack"><h3>きのこカード　<span class="num">${ALLC.filter(c=>has.has(c.key)).length} / ${ALLC.length}</span></h3>${Object.keys(CTYPE).map(t=>{ const idx=ALLC.map((c,i)=>c.t===t?i:-1).filter(i=>i>=0); if(!idx.length) return ''; const got=idx.filter(i=>has.has(ALLC[i].key)).length;
+    return `<div class="stack" style="gap:6px"><p class="small"><b>${CTYPE[t]}</b>　<span class="muted num">${got} / ${idx.length}</span></p><div class="coll">${idx.map(i=>has.has(ALLC[i].key)?`<button data-act="viewCard" data-arg="${i}" aria-label="${esc(cardLabel(i)+'　'+ALLC[i].name)}">${cardFace(i,true)}</button>`:`<div class="num">${cardNo(i)}</div>`).join('')}</div></div>`; }).join('')}<p class="small muted">1つの単元の胞子をぜんぶクリアすると、カードを1まいめくれます。まだ持っていないカードから出てきます。集めたカードはタップで大きく見られます。</p></div>`;
+  const vc = S.viewCard!=null && ALLC[S.viewCard] && has.has(ALLC[S.viewCard].key) ? ALLC[S.viewCard] : null;
+  const viewer = vc ? `<div class="viewer" data-act="closeCard" role="dialog" aria-label="${esc(vc.name)}"><figure>${vc.t==='i'?`<div class="vsvg">${illusSVG(vc.id)}</div>`:`<img src="${esc(vc.src)}" alt="${esc(vc.name)}">`}<figcaption><span class="rno">${cardLabel(S.viewCard)}</span><b class="rname">${esc(vc.name)}</b>${vc.note?`<span class="rnote">${esc(vc.note)}</span>`:''}</figcaption></figure><button class="btn ghost" data-act="closeCard">閉じる</button></div>` : '';
+  const units = Object.entries(UNITS).filter(([uid])=>doneCount(uid)>0);
+  return `<div class="stack"><div class="hello"><div class="eyebrow">記録</div><h1>学習の記録</h1></div>
+  <div class="panel stack"><h3>この4週間</h3><div class="days">${cells}</div></div>
+  <div class="panel"><div class="kv"><span>解いた問題</span><b class="num">${R.answered}問</b></div><div class="kv"><span>正答率</span><b class="num">${acc}%</b></div><div class="kv"><span>連続した日</span><b class="num">${streak()}日</b></div></div>
+  ${coll}${viewer}
+  ${units.length?units.map(([uid,u])=>`<div class="panel"><h3 style="margin-bottom:6px">${u.subject}　${u.no}　${u.title}</h3>${u.lessons.map(l=>`<div class="kv"><span>${l.id}　${l.t}</span>${lTag(uid,l.id)}</div>`).join('')}</div>`).join(''):'<p class="small muted">胞子（5分の学習）を終えると、ここに記録が並びます。</p>'}</div>`;
+}
+function vSky(){
+  const s=skyInit(), g=growOf(s.fed), got=new Set(s.born.map(t=>t.sp)), b=S.born?spOf(S.born):null, nextG=GROW.find(x=>x.at>s.fed);
+  return `<div class="stack"><div class="hello"><div class="eyebrow">森</div><h1>胞子を飛ばして蕈を育てよう</h1></div>
+  <div class="skybox">${nightSVG(s.born)}<div class="skycount"><span>森のきのこ <b class="num">${s.born.length}</b> 本</span><span>きのこ図鑑 <b class="num">${got.size}</b> / ${SP.length}</span></div></div>
+  ${b?`<div class="panel born pop"><svg viewBox="0 0 120 120" class="bsv">${mushG(b,60,104,2.6)}</svg><div><p class="small muted">きのこが生えました！</p><h3>${b.name}</h3><p class="small">${b.note}</p></div></div>`:''}
+  <div class="panel grow"><div class="growtop"><div><p class="small muted">いま育てているきのこ</p><h3>${g.n}</h3><p class="small">${g.d}</p></div>${stageSVG(s.fed)}</div>
+    <div class="meter"><i style="width:${s.fed/SKY_NEED*100}%"></i></div>
+    <p class="small muted">${nextG?`あと <b class="num">${nextG.at-s.fed}</b> 胞子で${nextG.n}、`:''}あと <b class="num">${SKY_NEED-s.fed}</b> 胞子できのこが生えます。どのきのこになるかは、お楽しみ。</p>
+    <div class="shardbal">${SHARD_I}<span>もっている胞子 <b class="num">${s.shards}</b></span></div>
+    ${S.skyMsg?`<p class="skymsg pop">${S.skyMsg}</p>`:''}
+    <div class="two"><button class="btn" data-act="feed" data-arg="1" ${s.shards?'':'disabled'}>1つあげる</button><button class="btn ghost" data-act="feed" data-arg="all" ${s.shards?'':'disabled'}>まとめてあげる</button></div>
+    ${s.shards?'':'<p class="small muted">まだクリアしていない小単元（5分の学習）を1つクリアすると、胞子が1つたまります。</p>'}</div>
+  <div class="panel"><h3>きのこ図鑑</h3><div class="zukan" style="margin-top:10px">${SP.map(sp=>got.has(sp.id)?`<div class="zk"><svg viewBox="0 0 60 60">${mushG(sp,30,54,1.3)}</svg><b>${sp.name}</b><span>${sp.note}</span></div>`:`<div class="zk no"><svg viewBox="0 0 60 60"><path d="M14 34 C14 14 46 14 46 34 Z M26 34 L25 50 L35 50 L34 34Z" fill="currentColor" opacity=".18"/></svg><b>？？？</b></div>`).join('')}</div></div></div>`;
+}
+function vSettings(){
+  const send = !GAS_URL ? `<span class="status">送信先がまだ設定されていません</span>` : R.outbox.length ? `<span class="status wait">送信待ち ${R.outbox.length}件（つながったら送ります）</span>` : `<span class="status ok">先生に送信済み</span>`;
+  return `<div class="stack"><div class="hello"><div class="eyebrow">設定</div><h1>学生情報と記録</h1></div>
+  <div class="panel stack"><label for="st-code"><b>学籍番号</b></label><input type="text" id="st-code" value="${esc(R.code)}" maxlength="6" autocomplete="off" style="text-transform:uppercase"><p class="small muted">学校の記号＋学年＋番号（例：P101）</p>
+  <label for="st-name"><b>呼び名</b></label><input type="text" id="st-name" value="${esc(R.name)}" maxlength="12" autocomplete="off"></div>
+  <div class="panel stack"><h3>先生への記録</h3><p class="small">${send}</p><p class="small muted">小単元（5分の学習）を終えるたびに、学籍番号・呼び名・点数・かかった時間が先生に届きます。</p></div></div>`;
+}
+function vInstall(){
+  return `${top('ホーム画面に追加')}<div class="stack">
+  <div class="panel stack"><h3>iPhone・iPad（Safari）</h3><ol class="steps"><li>下の共有ボタン（□に↑）をタップ</li><li>「ホーム画面に追加」を選ぶ</li><li>右上の「追加」をタップ</li></ol></div>
+  <div class="panel stack"><h3>Android（Chrome）</h3><ol class="steps"><li>右上の「︙」メニューをタップ</li><li>「ホーム画面に追加」または「アプリをインストール」を選ぶ</li></ol></div></div>`;
+}
+
+/* ===== 演習問題（PDF） ===== */
+const STAGES = [
+  { lv:1, name:'胞子', desc:'基礎問題', icon:'<circle cx="24" cy="24" r="6"/><circle cx="12" cy="14" r="2.5"/><circle cx="36" cy="16" r="2"/><circle cx="34" cy="36" r="2.4"/>' },
+  { lv:2, name:'菌糸', desc:'標準問題', icon:'<path d="M24 24 q-8 6 -16 8 M24 24 q8 6 16 9 M24 24 q-2 8 -6 14 M24 24 q4 8 10 13"/><circle cx="24" cy="22" r="3"/>' },
+  { lv:3, name:'幼菌', desc:'定期試験対策', icon:'<path d="M14 28 C14 16 34 16 34 28 Z"/><path d="M21 28 v12 h6 v-12"/>' },
+  { lv:4, name:'成菌', desc:'国家試験レベル', icon:'<path d="M6 24 C6 6 42 6 42 24 Z"/><path d="M20 24 v16 h8 v-16"/>' },
+  { lv:5, name:'光るきのこ', desc:'国家試験・応用', icon:'<path d="M8 24 C8 8 40 8 40 24 Z"/><path d="M20 24 v16 h8 v-16"/><path d="M4 10 l4 3 M44 10 l-4 3 M24 2 v4"/>' },
+];
+function vDrill(){
+  const u=CU();
+  return `${top(u.no+'　'+u.title+'　演習問題')}<div class="stack"><p class="small muted">この単元の演習問題（PDF）です。印刷しても、画面で解いても大丈夫です。きのこが育つのと同じように、Lv1から順にレベルが上がります。</p>
+  <div class="ladder">${STAGES.map(s=>{ const p=PDF[u.drill+'-lv'+s.lv]||{};
+    return `<div class="rung"><svg class="stage" viewBox="0 0 48 48" aria-hidden="true">${s.icon}</svg><div class="body"><div class="row" style="gap:8px"><span class="tag">Lv${s.lv}</span><b class="sname">${s.name}</b></div><p class="small">${s.desc}</p>
+    ${p.q?`<div class="row"><button class="btn pdfbtn" data-act="pdf" data-arg="${s.lv}|0">問題を開く</button><button class="btn ghost pdfbtn" data-act="pdf" data-arg="${s.lv}|1">解答・解説</button></div>`:'<span class="small muted">準備中</span>'}</div></div>`; }).join('')}</div></div>`;
+}
+const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+let pdfLibP=null;
+const loadScript = src => new Promise((ok,ng)=>{ const s=document.createElement('script'); s.src=src; s.onload=ok; s.onerror=ng; document.head.appendChild(s); });
+function pdfLib(){ if(!pdfLibP) pdfLibP=loadScript(PDFJS+'pdf.min.js').then(()=>{ pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS+'pdf.worker.min.js'; return pdfjsLib; }).catch(e=>{ pdfLibP=null; throw e; }); return pdfLibP; }
+function openPdf(arg){ const [lv,i]=arg.split('|'), u=CU(), st=STAGES.find(s=>s.lv===+lv), p=PDF[u.drill+'-lv'+lv]||{};
+  S.pdf={ title:`Lv${lv} ${st.name}`, list:[{label:'問題',url:p.q},{label:'解答・解説',url:p.a}], i:+i, z:1, tok:0 }; go('pdf'); }
+function vPdf(){ const P=S.pdf;
+  return `${top(CU().title+'　'+P.title)}<div class="stack"><div class="pdfbar"><div class="pdfseg">${P.list.map((x,i)=>`<button class="${i===P.i?'on':''}" data-act="pdfTab" data-arg="${i}">${x.label}</button>`).join('')}</div>
+  <button class="pdfzoom" data-act="pdfZoom">${P.z>1?'－ 縮小':'＋ 拡大'}</button></div><div id="pdfpages" class="pdfpages"><p class="small muted" style="padding:24px;text-align:center">読みこみ中…</p></div>
+  <a class="btn ghost wide pdfbtn" style="text-align:center;text-decoration:none" href="${esc(P.list[P.i].url||'')}" target="_blank" rel="noopener">PDFを別の画面で開く（印刷用）</a></div>`; }
+async function renderPdf(){ const P=S.pdf, box=document.getElementById('pdfpages'); if(!box) return; const tok=++P.tok;
+  try{ const lib=await pdfLib(), r=await fetch(P.list[P.i].url); if(!r.ok) throw 0; const data=await r.arrayBuffer(); if(tok!==P.tok) return;
+    const doc=await lib.getDocument({ data, isEvalSupported:false }).promise; if(tok!==P.tok) return; box.innerHTML='';
+    const W=Math.floor(box.clientWidth*P.z), dpr=Math.min(Math.max(window.devicePixelRatio||1,2)*1.5,4);
+    for(let n=1;n<=doc.numPages;n++){ const pg=await doc.getPage(n); if(tok!==P.tok) return; const v0=pg.getViewport({scale:1}), vp=pg.getViewport({scale:W/v0.width*dpr}), cv=document.createElement('canvas');
+      cv.width=vp.width; cv.height=vp.height; cv.className='pdfpage'; cv.style.width=W+'px'; box.appendChild(cv); await pg.render({ canvasContext:cv.getContext('2d'), viewport:vp }).promise; } }
+  catch(e){ if(tok===P.tok) box.innerHTML='<p class="small muted" style="padding:24px;text-align:center">PDFを読みこめませんでした。下のボタンから開いてください。</p>'; } }
+
+const VIEWS={ setup:vSetup, home:vHome, course:vCourse, subject:vSubject, unit:vUnit, lesson:vLesson, cards:vCards, quiz:vQuiz, result:vResult, record:vRecord, settings:vSettings, install:vInstall, drill:vDrill, pdf:vPdf, sky:vSky };
+function render(){
+  if(S.view!=='result') clearLeaves();
+  app.innerHTML=VIEWS[S.view]();
+  tabs.hidden = S.view==='setup';
+  const tabFor={record:'record',settings:'settings',sky:'sky'}[S.view]||'home';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===tabFor));
+  const c=document.getElementById('st-code'), n=document.getElementById('st-name');
+  if(c) c.addEventListener('change',e=>{ const v=normCode(e.target.value); if(CODE_RE.test(v)){ R.code=v; save(); } e.target.value=R.code; });
+  if(n) n.addEventListener('input',e=>{ R.name=e.target.value.trim(); save(); });
+  if (S.view==='pdf') renderPdf();
+}
+function answerQ(picked){
+  const Q=S.quiz, q=Q.qs[Q.i], ok=picked===q.answer; Q.picked=picked; R.answered++;
+  if(ok){ Q.score++; R.correct++; } else Q.wrong.push(q);
+  markDay(); save(); render();
+}
+
+document.addEventListener('click', e=>{
+  const tab=e.target.closest('[data-tab]');
+  if(tab){ S.stack=[]; S.viewCard=null; S.born=null; S.skyMsg=''; S.view=tab.dataset.tab; render(); window.scrollTo(0,0); return; }
+  const b=e.target.closest('[data-act]'); if(!b||b.disabled) return;
+  const a=b.dataset.act, arg=b.dataset.arg;
+  if(a==='back') back();
+  else if(a==='leafFlip'){ if(!b.classList.contains('open')){ b.classList.add('open'); const h=b.querySelector('.bl-hint'); if(h) h.textContent='タップでとじる'; } else { b.classList.add('bye'); setTimeout(clearLeaves,500); } }
+  else if(a==='openReward'){ const rc=b.closest('.rcard'); if(rc) rc.classList.add('open'); b.disabled=true; }
+  else if(a==='viewCard'){ S.viewCard=+arg; render(); }
+  else if(a==='closeCard'){ S.viewCard=null; render(); }
+  else if(a==='go') go(arg);
+  else if(a==='pdf') openPdf(arg);
+  else if(a==='pdfTab'){ S.pdf.i=+arg; render(); }
+  else if(a==='pdfZoom'){ S.pdf.z=S.pdf.z>1?1:1.8; render(); }
+  else if(a==='course'){ S.course=arg; go('course'); }
+  else if(a==='subject'){ S.subj=+arg; go('subject'); }
+  else if(a==='unit'){ S.uid=arg; go('unit'); }
+  else if(a==='setupDone'){ const code=normCode(document.getElementById('su-code').value); if(!CODE_RE.test(code)){ document.getElementById('su-err').hidden=false; return; }
+    R.code=code; R.name=document.getElementById('su-name').value.trim(); save(); S.stack=[]; S.view='home'; render(); }
+  else if(a==='lesson'){ if(b.dataset.uid) S.uid=b.dataset.uid; S.lid=arg; go('lesson'); }
+  else if(a==='lessonNext'){ const u=CU(); S.lid=arg; S.course=u.course; S.subj=u.subj; S.stack=['home','course','subject','unit']; S.view='lesson'; render(); window.scrollTo(0,0); }
+  else if(a==='quiz') startQuiz();
+  else if(a==='cards'){ S.deck={cur:deckNext()}; S.flipped=false; markDay(); go('cards'); }
+  else if(a==='flip'){ S.flipped=!S.flipped; render(); }
+  else if(a==='cardKnown'){ const k=knownList(); if(!k.includes(S.deck.cur)) k.push(S.deck.cur); save(); S.deck.cur=deckNext(); S.flipped=false; render(); }
+  else if(a==='cardLater'){ const left=terms().map((_,i)=>i).filter(i=>!knownList().includes(i)); S.deck.cur=left[(left.indexOf(S.deck.cur)+1)%left.length]; S.flipped=false; render(); }
+  else if(a==='cardsReset'){ R.known[S.uid]=[]; save(); S.deck.cur=deckNext(); S.flipped=false; render(); }
+  else if(a==='hint'){ S.quiz.hint=true; render(); }
+  else if(a==='pick') answerQ(arg);
+  else if(a==='next'){ const Q=S.quiz;
+    if(Q.i+1<Q.qs.length){ Q.i++; Q.picked=null; Q.hint=false; render(); window.scrollTo(0,0); return; }
+    S.reward=null; S.gotShard=false; let leafNow=false;
+    if(!Q.retry){ skyInit(); const u=CU(), l=LX(S.lid), k=lkey(S.uid,l.id), first=!R.lessons[k], wasDone=unitDone(S.uid), wasItem=itemDone(S.uid), n=Q.qs.length, s=R.lessons[k]||{best:0,tries:0,total:n};
+      s.tries++; s.best=Math.max(s.best,Q.score); s.total=n; R.lessons[k]=s; R.lastUnit=S.uid; save();
+      report({ subject:u.subject, unit:u.no+' '+u.title, lesson:l.id, title:l.t, score:Q.score, total:n, sec:Math.round((Date.now()-S.lessonStart)/1000) });
+      if(!wasDone&&unitDone(S.uid)){ S.reward=drawReward(); S.reward.title=u.title; }
+      if(first){ R.sky.shards++; R.sky.total++; S.gotShard=true; save(); }
+      leafNow = !wasItem && itemDone(S.uid); }
+    S.view='result'; render(); window.scrollTo(0,0); if(leafNow) leafBurst(); }
+  else if(a==='retry'){ const list=S.quiz.wrong.map(q=>Object.assign({},q,{choices:shuffle([...q.choices])})); S.view=S.stack.pop()||'lesson'; startQuiz(list); }
+  else if(a==='again'){ S.view=S.stack.pop()||'lesson'; startQuiz(); }
+  else if(a==='feed'){ skyFeed(arg); render(); }
+  else if(a==='toSky'){ S.stack=[]; S.born=null; S.skyMsg=''; S.view='sky'; render(); window.scrollTo(0,0); }
+  else if(a==='tounit'){ const u=CU(); S.course=u.course; S.subj=u.subj; S.stack=['home','course','subject']; S.view='unit'; render(); window.scrollTo(0,0); }
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && S.viewCard!=null){ S.viewCard=null; render(); } });
+
+render(); flush();
+if('serviceWorker' in navigator && document.querySelector('link[rel="manifest"]')) navigator.serviceWorker.register('sw.js').catch(()=>{});
+})();
+</script>
+</body></html>
