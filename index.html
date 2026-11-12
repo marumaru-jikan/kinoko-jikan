@@ -130,6 +130,10 @@ p{margin:0}
 .frac>span{display:block;text-align:center;padding:0 .3em;white-space:nowrap}.frac>span:first-child{border-bottom:1.5px solid currentColor}
 .fxs{display:flex;flex-direction:column;gap:12px;font-size:.92rem;overflow-x:auto}.fxs>div{display:flex;align-items:center;gap:5px;white-space:nowrap}.fxs .fn{min-width:6em}
 .rule.steps{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}.rule.steps b{margin-bottom:4px}.rule.steps i{font-style:normal;line-height:1.2}
+.idx{margin:0;display:flex;flex-direction:column;gap:4px}.idx dt{font-weight:700;color:var(--teal);margin-top:8px}.idx dt:first-child{margin-top:0}.idx dd{margin:0;line-height:1.75}
+.fxl{background:var(--sunk);border-radius:10px;padding:8px 10px;margin-top:6px;font-weight:700;overflow-x:auto;font-size:.92rem;display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.fig .wa{stroke:var(--accent);stroke-width:2}.fig .wm{stroke:var(--muted);stroke-width:2}.fig path.ah{stroke:none;fill:var(--teal)}.fig path.ah.wa{fill:var(--accent)}.fig path.ah.wm{fill:var(--muted)}
+.fig.period{max-width:420px}
 .fig .grid{stroke:var(--line);stroke-width:1}
 .note{background:var(--sunk);border-radius:12px;padding:12px 14px;font-size:.9rem}
 
@@ -886,11 +890,41 @@ const HS_LESSONS = [
     <p class="small"><b>※ 倍加年数とは</b><br>高齢化率が <b>7% から 14%</b> になるまでにかかった年数。高齢化の速さを表します。</p>
     ${tbl(['国','倍加年数'],[['日本','<b>24年</b>（1970年 → 1994年）'],['ドイツ','40年'],['スウェーデン','85年'],['フランス','115年']])}
     <p class="small muted">日本は欧米よりずっと速いスピードで高齢化が進みました。</p></div></section>` },
-  { id:'2-6', t:'人口動態統計', sub:'出生・死亡・死産・婚姻・離婚', plan:['vit','vit','vit','vit','vit'], body:()=>`
-    <section class="panel"><h3>人口動態統計とは</h3><p>1年間（1月1日〜12月31日）に起きた<b>出生・死亡・死産・婚姻・離婚</b>の5つを、届出をもとに<b>厚生労働省</b>が集計した統計です。</p>
+  { id:'2-6', t:'人口動態統計', sub:'出生・死亡・死産・婚姻・離婚', plan:['vit','vit','vit','mch','peri'], body:()=>`
+    <section class="panel"><h3>人口動態統計とは</h3><p>ある<b>一定の期間内</b>（1月1日〜12月31日）に起きた事象を調べた統計です。人口の増減に影響する <b>出生・死亡・婚姻・離婚・死産</b> の5つを、届出をもとに<b>厚生労働省</b>がまとめます。</p>
     ${chain(['届出（市区町村）','保健所','都道府県','厚生労働省'])}</section>
-    <section class="panel"><h3>出生の指標</h3>${tbl(['指標','意味'],[['粗出生率','出生数 ÷ 人口 × 1,000'],['合計特殊出生率','15〜49歳女性の年齢別出生率の合計'],['総再生産率','合計特殊出生率のうち女児だけ'],['純再生産率','総再生産率に母親世代の生存率を考えたもの（1で人口維持）']])}
-    <p class="small muted">人口置換水準はおよそ2.07。日本はこれを大きく下回っています。</p></section>` },
+    <section class="panel"><h3>出生の指標</h3>
+    <dl class="idx">
+      <dt>出生率（粗出生率）</dt><dd>人口千人あたりの1年間の出生数。<div class="fxl">${fracHTML('出生数 ÷ 人口 × 1,000')}</div></dd>
+      <dt>再生産率</dt><dd>母親の世代が、次の世代の母親をどれだけ生み出しているか（人口が置き換わる力）を表す指標のなかま。もとになるのは年齢別出生率です。<div class="fxl">年齢別出生率 ＝ <span class="frac"><span>母の年齢別出生数</span><span>年齢別女性人口</span></span></div></dd>
+      <dt>合計特殊出生率</dt><dd>15〜49歳の女性の年齢別出生率を合計したもの。1人の女性が一生のあいだに産む子どもの数の平均にあたる。</dd>
+      <dt>総再生産率</dt><dd>合計特殊出生率のうち、<b>女児だけ</b>について計算したもの（母親の死亡は考えない）。<div class="fxl">総再生産率 ＝ 合計特殊出生率 × <span class="frac"><span>女児出生数</span><span>総出生数</span></span></div></dd>
+      <dt>純再生産率</dt><dd>総再生産率に、<b>母親の世代の死亡</b>（生命表の生存率）を考えたもの。<b>1</b>で人口が維持され、1を下回ると将来は人口が減る。</dd>
+    </dl><p class="small muted">人口置換水準（人口が増えも減りもしない合計特殊出生率）はおよそ2.07。</p></section>
+    <section class="panel"><h3>死亡の指標</h3>
+    <dl class="idx">
+      <dt>粗死亡率</dt><dd>人口千人あたりの1年間の死亡数。高齢者の多い集団ほど高く出る。<div class="fxl">${fracHTML('死亡数 ÷ 人口 × 1,000')}</div></dd>
+      <dt>年齢調整死亡率</dt><dd>年齢構成のちがう集団を比べられるように、基準人口（平成27年モデル人口）の年齢構成にそろえて計算した死亡率。</dd>
+      <dt>50歳以上死亡割合（PMI）</dt><dd>全死亡のうち50歳以上の死亡が占める割合。高いほど健康水準が高い。<div class="fxl">${fracHTML('50歳以上の死亡数 ÷ 全死亡数 × 100')}</div></dd>
+    </dl></section>
+    <section class="panel"><h3>母子保健の指標</h3>
+    <dl class="idx">
+      <dt>乳児死亡率</dt><dd>生後1年未満の死亡。<div class="fxl">${fracHTML('乳児死亡数 ÷ 出生数 × 1,000')}</div></dd>
+      <dt>新生児死亡率</dt><dd>生後4週（28日）未満の死亡。<div class="fxl">${fracHTML('新生児死亡数 ÷ 出生数 × 1,000')}</div></dd>
+      <dt>早期新生児死亡率</dt><dd>生後1週未満の死亡。<div class="fxl">${fracHTML('早期新生児死亡数 ÷ 出生数 × 1,000')}</div></dd>
+    </dl>
+    <div class="note-box panel"><p class="small"><b>※</b> 早期新生児 ▶ 生後〜1週未満<br>新生児 ▶ 生後〜4週未満<br>乳児 ▶ 生後〜1年未満</p></div>
+    <dl class="idx">
+      <dt>周産期死亡率</dt><dd>妊娠満22週以後の死産と早期新生児死亡を合わせたもの。<div class="fxl">${fracHTML('(満22週以後の死産数＋早期新生児死亡数) ÷ (出生数＋満22週以後の死産数) × 1,000')}</div></dd>
+    </dl>
+    <div class="note-box panel"><p class="small"><b>※</b> 周産期 ▶ 妊娠満22週以降（妊娠後期）＋ 生後1週未満（早期新生児）</p></div>
+    <dl class="idx">
+      <dt>死産率</dt><dd>妊娠満12週以後の死児の出産。分母は出産（出生＋死産）。<div class="fxl">${fracHTML('死産数 ÷ (出生数＋死産数) × 1,000')}</div></dd>
+      <dt>妊産婦死亡率</dt><dd>妊娠中または分娩後42日未満の女性の死亡。数が少ないので10万対。<div class="fxl">${fracHTML('妊産婦死亡数 ÷ (出生数＋死産数) × 100,000')}</div></dd>
+    </dl>
+    <div class="note-box panel"><p class="small"><b>※</b> 妊産婦 ▶ 妊娠中 ＋ 分娩後42日未満の女性</p></div></section>
+    <section class="panel"><h3>※ 母子保健統計における期間の定義</h3><svg class="fig period" viewBox="0 0 345 200" role="img" aria-label="母子保健統計の期間の定義。妊産婦は妊娠から分娩後42日未満、周産期は妊娠満22週から生後1週未満、死産は妊娠満12週以後、早期新生児は生後1週未満、新生児は4週未満、乳児は1年未満"><line x1="18" x2="18" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="66" x2="66" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="114" x2="114" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="166" x2="166" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="204" x2="204" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="246" x2="246" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="288" x2="288" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line x1="330" x2="330" y1="38" y2="194" stroke="var(--line)" stroke-width="1"/><line class="tl" x1="10" x2="336" y1="38" y2="38"/><line class="tl" x1="18" x2="18" y1="30" y2="38"/><text class="mu" x="18" y="24" text-anchor="middle">妊娠</text><line class="tl" x1="66" x2="66" y1="30" y2="38"/><text class="mu" x="66" y="14" text-anchor="middle">満12週</text><line class="tl" x1="114" x2="114" y1="30" y2="38"/><text class="mu" x="114" y="24" text-anchor="middle">満22週</text><line class="tl" x1="166" x2="166" y1="30" y2="38"/><text class="mu" x="166" y="14" text-anchor="middle">出生</text><line class="tl" x1="204" x2="204" y1="30" y2="38"/><text class="mu" x="204" y="24" text-anchor="middle">1週</text><line class="tl" x1="246" x2="246" y1="30" y2="38"/><text class="mu" x="246" y="14" text-anchor="middle">4週</text><line class="tl" x1="288" x2="288" y1="30" y2="38"/><text class="mu" x="288" y="24" text-anchor="middle">42日</text><line class="tl" x1="330" x2="330" y1="30" y2="38"/><text class="mu" x="330" y="14" text-anchor="middle">1年</text><line class="wa" x1="18" x2="283" y1="58" y2="58"/><path class="ah wa" d="M288 58 l-7 -4 v8z"/><text class="lb" x="21" y="53" style="font-size:11px">妊産婦</text><line class="wa" x1="114" x2="199" y1="84" y2="84" style="stroke-dasharray:4 3"/><path class="ah wa" d="M204 84 l-7 -4 v8z"/><text class="lb" x="117" y="79" style="font-size:11px">周産期</text><line class="wm" x1="66" x2="161" y1="110" y2="110"/><path class="ah wm" d="M166 110 l-7 -4 v8z"/><text class="lb" x="69" y="105" style="font-size:11px">死産</text><line class="wl" x1="166" x2="199" y1="136" y2="136"/><path class="ah wl" d="M204 136 l-7 -4 v8z"/><text class="lb" x="169" y="131" style="font-size:11px">早期新生児</text><line class="wl" x1="166" x2="241" y1="162" y2="162"/><path class="ah wl" d="M246 162 l-7 -4 v8z"/><text class="lb" x="169" y="157" style="font-size:11px">新生児</text><line class="wl" x1="166" x2="325" y1="188" y2="188"/><path class="ah wl" d="M330 188 l-7 -4 v8z"/><text class="lb" x="169" y="183" style="font-size:11px">乳児</text></svg>
+    ${rule('死産は「満12週以後」、周産期の死産は「満22週以後」')}</section>` },
   { id:'2-7', t:'人口予測', sub:'日本の将来推計人口', plan:['proj','proj','proj','proj','pyr'], body:()=>`
     <section class="panel"><h3>将来推計人口</h3><p><b>国立社会保障・人口問題研究所</b>が、国勢調査の人口をもとに、出生・死亡・国際人口移動について<b>中位・高位・低位</b>の仮定をおいて推計します（5年ごと）。</p>
     ${rule('2023年推計（出生中位・死亡中位）：2070年に総人口 約8,700万人、65歳以上 約4割')}</section>` },
@@ -1143,7 +1177,7 @@ const S = { view: (R.code||R.done) ? 'home' : 'setup', stack:[], uid:'ans', quiz
 const CU = () => UNITS[S.uid];
 const LX = id => CU().lessons.find(l=>l.id===id);
 // 「A ÷ B × 100」のような式を分数で表示する
-const FRX = /(\([^()]+\)|[^\s＝、。（）()<>]+) ÷ (\([^()]+\)|[^\s＝、。（）()×<>]+) × (100|1,000|10万)/g;
+const FRX = /(\([^()]+\)|[^\s＝、。（）()<>]+) ÷ (\([^()]+\)|[^\s＝、。（）()×<>]+) × (100,000|100|1,000|10万)/g;
 const fracHTML = s => String(s).replace(FRX, (m,a,b,k)=>`<span class="frac"><span>${a.replace(/^\((.*)\)$/,'$1')}</span><span>${b.replace(/^\((.*)\)$/,'$1')}</span></span> × ${k}`);
 const fx = s => fracHTML(esc(s));
 // 画面に出す名前：まとめテストは番号をつけない
