@@ -153,6 +153,7 @@ p{margin:0}
 .choice{border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:14px 8px;font-family:var(--f-display);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .choices.words{grid-template-columns:1fr}
 .choices.words .choice{font-size:1.02rem;padding:12px;text-align:left}
+.choice .frac{font-size:.95em}
 .choice.ok{border-color:var(--good);background:var(--good-bg);color:var(--good)}
 .choice.ng{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
 .choice[disabled]{cursor:default}
@@ -1141,6 +1142,10 @@ function skyFeed(arg){
 const S = { view: (R.code||R.done) ? 'home' : 'setup', stack:[], uid:'ans', quiz:null, deck:null, flipped:false, lessonStart:0, reward:null, viewCard:null };
 const CU = () => UNITS[S.uid];
 const LX = id => CU().lessons.find(l=>l.id===id);
+// 「A ÷ B × 100」のような式を分数で表示する
+const FRX = /(\([^()]+\)|[^\s＝、。（）()<>]+) ÷ (\([^()]+\)|[^\s＝、。（）()×<>]+) × (100|1,000|10万)/g;
+const fracHTML = s => String(s).replace(FRX, (m,a,b,k)=>`<span class="frac"><span>${a.replace(/^\((.*)\)$/,'$1')}</span><span>${b.replace(/^\((.*)\)$/,'$1')}</span></span> × ${k}`);
+const fx = s => fracHTML(esc(s));
 // 画面に出す名前：まとめテストは番号をつけない
 const LN = l => l.test ? l.t : l.id+'　'+l.t;
 const app = document.getElementById('app'), tabs = document.querySelector('.tabs');
@@ -1227,9 +1232,9 @@ function vQuiz(){
   <div class="qhead"><span class="num small muted">${Q.i+1} / ${n}</span><span class="num small muted">正解 ${Q.score}</span></div>
   <div class="meter"><i style="width:${Math.round(Q.i/n*100)}%"></i></div>
   <div class="qbox pop"><div class="prompt">${q.prompt}</div><div class="expr ${longExpr?'long':''}">${q.expr}</div></div>
-  <div class="choices ${q.words||q.choices.some(c=>c.length>9)?'words':''}">${q.choices.map(c=>{ let cls=''; if(ans){ if(c===q.answer) cls='ok'; else if(c===Q.picked) cls='ng'; } return `<button class="choice ${cls}" data-act="pick" data-arg="${esc(c)}" ${ans?'disabled':''}>${esc(c)}</button>`; }).join('')}</div>
-  ${!ans?(Q.hint?`<div class="hint">${q.hint}</div>`:`<button class="linkbtn" data-act="hint">ヒントを見る</button>`):`
-  <div class="feedback ${ok?'ok':'ng'} pop"><span class="verdict">${ok?'正解！':'惜しい！ 答えは '+esc(q.answer)}</span><p>${q.explain}</p></div>
+  <div class="choices ${q.words||q.choices.some(c=>c.length>9)?'words':''}">${q.choices.map(c=>{ let cls=''; if(ans){ if(c===q.answer) cls='ok'; else if(c===Q.picked) cls='ng'; } return `<button class="choice ${cls}" data-act="pick" data-arg="${esc(c)}" ${ans?'disabled':''}>${fx(c)}</button>`; }).join('')}</div>
+  ${!ans?(Q.hint?`<div class="hint">${fracHTML(q.hint)}</div>`:`<button class="linkbtn" data-act="hint">ヒントを見る</button>`):`
+  <div class="feedback ${ok?'ok':'ng'} pop"><span class="verdict">${ok?'正解！':'惜しい！ 答えは '+fx(q.answer)}</span><p>${fracHTML(q.explain)}</p></div>
   <button class="btn wide" data-act="next">${Q.i+1<n?'次の問題 →':'結果を見る'}</button>`}</div>`;
 }
 
