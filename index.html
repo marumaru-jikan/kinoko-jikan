@@ -312,12 +312,9 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''},
 };
 
-/* ===== 学籍番号（学校の記号＋学年＋番号　例：P101） ===== */
-const CODE_RE = /^[A-Z][1-9][0-9]{2}$/;
-const normCode = v => String(v).trim().replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0)-0xFEE0)).toUpperCase();
 
 /* ===== 保存（この端末の中） ===== */
 const KEY = 'kinoko-jikan.v1';
@@ -605,15 +602,30 @@ const kdTable = k => tbl(['一般名','商品名','ポイント'], KD[k].drugs.m
 const KD_LESSONS = [
   ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name, sub:KD[k].drugs.map(d=>d[0]).slice(0,3).join('・')+' など', plan:Array(5).fill('kd_'+k), body:()=>`
     <section class="panel"><h3>${KD[k].name}のしくみ</h3><p>${KD[k].mech}</p>${rule(KD[k].rule)}</section>
-    <section class="panel"><h3>引き出しの中の薬</h3>${kdTable(k)}</section>
-    <section class="panel"><h3>覚え方（ゴロ）</h3>${goroList(KD[k].goro)}</section>` })),
+    <section class="panel"><h3>引き出しの中の薬</h3>${kdTable(k)}</section>` })),
   { id:'1-6', t:'まとめテスト', sub:'降圧薬の10問', test:true, plan:['kd_ace','kd_ace','kd_arb','kd_arb','kd_ca','kd_ca','kd_diu','kd_diu','kd_bb','kd_bb'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 の薬から10問。分類・商品名・特徴をまぜて出します。</p></section>
+    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 の薬から10問。分類・商品名・特徴をまぜて出します。</p></section>` },
+];
+
+
+/* ===== 覚え方（ゴロ集） ===== */
+function goroQ(k){
+  const g=pick(KD[k].goro), all=Object.values(KD).flatMap(x=>x.goro).filter(x=>x!==g);
+  if(Math.random()<.5) return { prompt:'このゴロで覚えるのは？', expr:`「${g[0]}」`, answer:g[1], choices:shuffle([g[1],...shuffle([...all]).slice(0,3).map(x=>x[1])]), words:true, hint:`${KD[k].name}のゴロです。`, explain:`「${g[0]}」→ ${g[1]}。` };
+  return { prompt:'これを覚えるゴロは？', expr:g[1], answer:`「${g[0]}」`, choices:shuffle([`「${g[0]}」`,...shuffle([...all]).slice(0,3).map(x=>`「${x[0]}」`)]), words:true, hint:`${KD[k].name}のゴロです。`, explain:`「${g[0]}」→ ${g[1]}。` };
+}
+Object.keys(KD).forEach(k=>{ G['gr_'+k]=()=>goroQ(k); });
+const GR_LESSONS = [
+  ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name+'のゴロ', sub:KD[k].goro[0][0], plan:Array(5).fill('gr_'+k), body:()=>`
+    <section class="panel"><h3>${KD[k].name}のゴロ</h3>${goroList(KD[k].goro)}</section>
+    <section class="panel"><h3>薬の一覧</h3>${kdTable(k)}<p class="small muted">くわしくは「薬箪笥 › 循環器 › 降圧薬」で。</p></section>` })),
+  { id:'1-6', t:'まとめテスト', sub:'降圧薬のゴロ10問', test:true, plan:['gr_ace','gr_ace','gr_arb','gr_arb','gr_ca','gr_ca','gr_diu','gr_diu','gr_bb','gr_bb'], body:()=>`
     <section class="panel"><h3>ゴロ集（降圧薬）</h3>${Object.values(KD).map(g=>`<p class="small muted" style="margin-top:6px">${g.name}</p>${goroList(g.goro)}`).join('')}</section>` },
 ];
 
 /* ===== 用語カード ===== */
 const TERMS = {
+  gr: Object.values(KD).flatMap(g=>g.goro.map(x=>[x[0], x[1]])),
   kd: KD_ALL.map(d=>[`${d[0]}（${d[1]}）`, `${d[2]}。${d[3]}。`]),
   ans:[['ムスカリン受容体','副交感神経の節後線維が作用する効果器側の受容体。Gタンパク質共役型。'],['ニコチン受容体（NN）','自律神経節にある受容体。イオンチャネル内蔵型。'],['α1受容体','Gq共役。血管収縮・散瞳。'],['β2受容体','Gs共役。気管支拡張・子宮弛緩。'],['タムスロシン','α1A遮断薬。前立腺肥大症に伴う排尿障害。'],['ネオスチグミン','コリンエステラーゼ阻害薬。重症筋無力症。'],['プラリドキシム（PAM）','有機リン中毒でコリンエステラーゼを再活性化する。']],
   fp:[['感染型','菌が体の中で増えて起こる食中毒。サルモネラ、腸炎ビブリオなど。'],['毒素型','食品中でできた毒素を食べて起こる食中毒。黄色ブドウ球菌、ボツリヌス菌。'],['エンテロトキシン','黄色ブドウ球菌の耐熱性毒素。'],['ベロ毒素','腸管出血性大腸菌がつくる毒素。HUSの原因。'],['テトロドトキシン','フグ毒。Na⁺チャネルを遮断する。'],['アフラトキシンB₁','Aspergillus flavus がつくる。強い肝発がん性。'],['パツリン','りんご果汁で基準があるカビ毒。']],
@@ -625,6 +637,7 @@ const UNITS = {
   ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:1, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
   fp: { no:'衛1', title:'食中毒', subject:'衛生', course:'hyg', subj:0, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   pk: { no:'剤1', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:0, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
+  gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:0, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   kd: { no:'箪1', title:'降圧薬', subject:'薬箪笥', course:'drawer', subj:0, lessons:KD_LESSONS, cards:'kd', drill:'kd' },
 };
 const U = (...t) => t.map(x => typeof x === 'string' ? { t:x } : x);
@@ -670,7 +683,12 @@ const CATALOG = [
       { name:'代謝・内分泌', k:'代', units:U('糖尿病の薬','骨粗鬆症の薬','甲状腺の薬') },
       { name:'感染症', k:'感', units:U('抗菌薬','抗ウイルス薬','抗真菌薬') },
       { name:'消化器・呼吸器', k:'消', units:U('胃腸の薬','喘息・COPDの薬') },
-      { name:'がん・免疫', k:'免', units:U('抗がん薬','免疫抑制薬・生物学的製剤') } ] } ] },
+      { name:'がん・免疫', k:'免', units:U('抗がん薬','免疫抑制薬・生物学的製剤') } ] },
+    { id:'goro', name:'覚え方', k:'覚', note:'ゴロ集', subjects:[
+      { name:'循環器', k:'循', units:U({ t:'降圧薬のゴロ', ready:'gr' },'抗不整脈薬のゴロ','抗血栓薬のゴロ','脂質異常症の薬のゴロ') },
+      { name:'中枢神経', k:'中', units:U('抗精神病薬のゴロ','抗うつ薬のゴロ','抗てんかん薬のゴロ') },
+      { name:'感染症', k:'感', units:U('抗菌薬のゴロ') },
+      { name:'衛生・法規', k:'衛', units:U('食中毒のゴロ','法規の数字のゴロ') } ] } ] },
 ];
 
 const allCourses = () => CATALOG.flatMap(g => g.courses);
@@ -817,7 +835,7 @@ function skyFeed(arg){
 }
 
 /* ===== 画面 ===== */
-const S = { view: R.code ? 'home' : 'setup', stack:[], uid:'ans', quiz:null, deck:null, flipped:false, lessonStart:0, reward:null, viewCard:null };
+const S = { view: (R.code||R.done) ? 'home' : 'setup', stack:[], uid:'ans', quiz:null, deck:null, flipped:false, lessonStart:0, reward:null, viewCard:null };
 const CU = () => UNITS[S.uid];
 const LX = id => CU().lessons.find(l=>l.id===id);
 const app = document.getElementById('app'), tabs = document.querySelector('.tabs');
@@ -838,9 +856,8 @@ function heroArt(){
 }
 function vSetup(){
   return `<div class="stack" style="padding-top:24px"><div class="sky" style="min-height:150px">${heroArt()}<div class="txt"><span class="name">蕈時間</span></div></div><div class="hello"><div class="eyebrow">はじめまして</div><h1>蕈時間へ ようこそ</h1><p class="muted small">薬学生のための、1つ5分の学習アプリです。</p></div>
-  <div class="panel stack"><label for="su-code"><b>学籍番号</b><br><span class="small muted">学校の記号＋学年＋番号（先生から受け取った番号）</span></label><input type="text" id="su-code" maxlength="6" placeholder="例：P101" autocomplete="off" inputmode="latin" style="text-transform:uppercase">
-  <label for="su-name"><b>呼び名</b><br><span class="small muted">アプリの中で呼びかけに使います（ニックネームでOK）</span></label><input type="text" id="su-name" maxlength="12" placeholder="例：みお" autocomplete="off">
-  <p class="small" id="su-err" style="color:var(--bad)" hidden>学籍番号は「P101」のように、アルファベット1文字と数字3けたで入力してください。</p>
+  <div class="panel stack"><label for="su-name"><b>呼び名</b><br><span class="small muted">アプリの中で呼びかけに使います（ニックネームでOK）</span></label><input type="text" id="su-name" maxlength="12" placeholder="例：みお" autocomplete="off">
+  <p class="small" id="su-err" style="color:var(--bad)" hidden>呼び名を入力してください。</p>
   <button class="btn wide" data-act="setupDone">始める</button></div></div>`;
 }
 function vHome(){
@@ -987,9 +1004,8 @@ function vSky(){
   <div class="panel"><h3>きのこ図鑑</h3><div class="zukan" style="margin-top:10px">${SP.map(sp=>got.has(sp.id)?`<div class="zk"><svg viewBox="0 0 60 60">${mushG(sp,30,54,1.3)}</svg><b>${sp.name}</b><span>${sp.note}</span></div>`:`<div class="zk no"><svg viewBox="0 0 60 60"><path d="M14 34 C14 14 46 14 46 34 Z M26 34 L25 50 L35 50 L34 34Z" fill="currentColor" opacity=".18"/></svg><b>？？？</b></div>`).join('')}</div></div></div>`;
 }
 function vSettings(){
-  return `<div class="stack"><div class="hello"><div class="eyebrow">設定</div><h1>学生情報と記録</h1></div>
-  <div class="panel stack"><label for="st-code"><b>学籍番号</b></label><input type="text" id="st-code" value="${esc(R.code)}" maxlength="6" autocomplete="off" style="text-transform:uppercase"><p class="small muted">学校の記号＋学年＋番号（例：P101）</p>
-  <label for="st-name"><b>呼び名</b></label><input type="text" id="st-name" value="${esc(R.name)}" maxlength="12" autocomplete="off"></div></div>`;
+  return `<div class="stack"><div class="hello"><div class="eyebrow">設定</div><h1>呼び名</h1></div>
+  <div class="panel stack"><label for="st-name"><b>呼び名</b></label><input type="text" id="st-name" value="${esc(R.name)}" maxlength="12" autocomplete="off"></div></div>`;
 }
 function vInstall(){
   return `${top('ホーム画面に追加')}<div class="stack">
@@ -1037,8 +1053,7 @@ function render(){
   tabs.hidden = S.view==='setup';
   const tabFor={record:'record',settings:'settings',sky:'sky'}[S.view]||'home';
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===tabFor));
-  const c=document.getElementById('st-code'), n=document.getElementById('st-name');
-  if(c) c.addEventListener('change',e=>{ const v=normCode(e.target.value); if(CODE_RE.test(v)){ R.code=v; save(); } e.target.value=R.code; });
+  const n=document.getElementById('st-name');
   if(n) n.addEventListener('input',e=>{ R.name=e.target.value.trim(); save(); });
   if (S.view==='pdf') renderPdf();
 }
@@ -1065,8 +1080,8 @@ document.addEventListener('click', e=>{
   else if(a==='course'){ S.course=arg; go('course'); }
   else if(a==='subject'){ S.subj=+arg; go('subject'); }
   else if(a==='unit'){ S.uid=arg; go('unit'); }
-  else if(a==='setupDone'){ const code=normCode(document.getElementById('su-code').value); if(!CODE_RE.test(code)){ document.getElementById('su-err').hidden=false; return; }
-    R.code=code; R.name=document.getElementById('su-name').value.trim(); save(); S.stack=[]; S.view='home'; render(); }
+  else if(a==='setupDone'){ const nm=document.getElementById('su-name').value.trim(); if(!nm){ document.getElementById('su-err').hidden=false; return; }
+    R.done=true; R.name=nm; save(); S.stack=[]; S.view='home'; render(); }
   else if(a==='lesson'){ if(b.dataset.uid) S.uid=b.dataset.uid; S.lid=arg; go('lesson'); }
   else if(a==='lessonNext'){ const u=CU(); S.lid=arg; S.course=u.course; S.subj=u.subj; S.stack=['home','course','subject','unit']; S.view='lesson'; render(); window.scrollTo(0,0); }
   else if(a==='quiz') startQuiz();
