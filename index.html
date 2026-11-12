@@ -117,6 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
+.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .fig .grid{stroke:var(--line);stroke-width:1}
 .note{background:var(--sunk);border-radius:12px;padding:12px 14px;font-size:.9rem}
 
@@ -828,13 +829,20 @@ Object.assign(G, {
   peri(){ const b=pick([8000,9000,10000,12000]), d=ri(12,24), e=ri(4,10), v=Math.round((d+e)/(b+d)*10000)/10;
     return nq('周産期死亡率を求めよう', `出生数 ${nf(b)}、妊娠満22週以後の死産 ${d}、早期新生児死亡 ${e}。周産期死亡率は？（小数第1位まで）`, v, [Math.round((d+e)/b*100000)/100+0.3,Math.round(e/b*10000)/10,Math.round(d/(b+d)*10000)/10], '', '（22週以後の死産＋早期新生児死亡）÷（出生＋22週以後の死産）× 1,000', `(${d}＋${e}) ÷ (${nf(b)}＋${d}) × 1,000 ≒ ${nf(v)} です。`); },
 });
+const hsTree = () => `<svg class="fig" viewBox="0 0 340 236" role="img" aria-label="保健統計の種類の樹形図。保健統計は人口統計と疾病統計に分かれ、人口統計は人口静態統計と人口動態統計に分かれる">
+  <path class="tl" d="M78 118 H92 M92 67 V199 M92 67 H104 M92 199 H104 M176 67 H188 M188 36 V102 M188 36 H198 M188 102 H198"/>
+  <rect class="ch" x="4" y="100" width="74" height="36" rx="8"/><text class="lb" x="41" y="123" text-anchor="middle">保健統計</text>
+  <rect class="ch" x="104" y="51" width="72" height="32" rx="8"/><text class="lb" x="140" y="72" text-anchor="middle">人口統計</text>
+  <rect class="chL" x="198" y="10" width="138" height="52" rx="8"/><text class="lb" x="267" y="31" text-anchor="middle">人口静態統計</text><text class="mu" x="267" y="50" text-anchor="middle">ある時点・国勢調査など</text>
+  <rect class="chL" x="198" y="76" width="138" height="52" rx="8"/><text class="lb" x="267" y="97" text-anchor="middle">人口動態統計</text><text class="mu" x="267" y="116" text-anchor="middle">期間の変化・出生率など</text>
+  <rect class="chL" x="104" y="172" width="232" height="54" rx="8"/><text class="lb" x="220" y="194" text-anchor="middle">疾病（傷病）統計</text><text class="mu" x="220" y="213" text-anchor="middle">患者調査など・病気のかかり方や死因</text></svg>`;
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean','hsmean','hsmean','hsmean'], body:()=>`
     <section class="panel"><h3>なぜ保健統計が必要か</h3><p>病気を防ぎ、健康を守るには、個人だけでなく<b>地域や国などの集団</b>の健康状態を知る必要があります。保健統計は、集団の<b>健康水準</b>をはかり、健康を守る施策を決めるときの土台になります。</p>
     ${tbl(['知りたいこと','使う統計'],[['集団の性別・年齢構成','人口静態統計、人口動態統計'],['病気や死亡の状況','死亡統計、疾病統計']])}
     <p class="small muted">人口：国や一定の地域に住む人の総数。</p></section>` },
   { id:'2-2', t:'保健統計の種類', sub:'人口統計と疾病統計', plan:['hstype','hstype','hstype','hstype','hstype'], body:()=>`
-    <section class="panel"><h3>保健統計の種類</h3>${chain(['保健統計','人口統計','人口静態統計（ある時点）'])}${chain(['人口統計','人口動態統計（ある期間）'])}${chain(['保健統計','疾病（傷病）統計'])}
+    <section class="panel"><h3>保健統計の種類</h3>${hsTree()}
     ${tbl(['種類','とらえるもの','例'],[['人口静態統計','ある一時点の人口のすがた','国勢調査'],['人口動態統計','一定期間の人口の変化','出生率、死亡率'],['疾病（傷病）統計','病気のかかり方、死因','患者調査']])}
     ${rule('静態 ＝ 写真（ある瞬間）、動態 ＝ 動画（1年間の変化）')}</section>` },
   { id:'2-3', t:'人口静態統計', sub:'ある時点の人口のすがた', plan:['hsstat','hsstat','hsstat','hsstat','hstype'], body:()=>`
