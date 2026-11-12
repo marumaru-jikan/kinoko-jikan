@@ -684,7 +684,7 @@ const TERMS = {
 /* ===== 単元とコース ===== */
 const UNITS = {
   ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:1, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
-  fp: { no:'衛1', title:'食中毒', subject:'衛生', course:'hyg', subj:0, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
+  fp: { no:'衛3', title:'食中毒と食品汚染', subject:'衛生', course:'hyg', subj:2, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   pk: { no:'剤1', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:0, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:0, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
@@ -706,10 +706,12 @@ const CATALOG = [
       { name:'人体の成り立ち', k:'体', units:U('神経・感覚器','循環器・呼吸器','消化器・腎臓') },
       { name:'生体防御', k:'免', units:U('免疫','微生物') },
       { name:'生薬', k:'薬', units:U('薬用植物と生薬','漢方処方') } ] },
-    { id:'hyg', name:'衛生', k:'衛', note:'食品・疫学・環境', subjects:[
-      { name:'栄養と食品', k:'食', units:U({ t:'食中毒', ready:'fp' },'栄養素と代謝','食品の変質と添加物') },
-      { name:'社会と健康', k:'社', units:U('保健統計と疫学','感染症の予防') },
-      { name:'環境', k:'環', units:U('化学物質の毒性','環境保全と水・大気') } ] },
+    { id:'hyg', name:'衛生', k:'衛', note:'健康・予防・栄養・環境', subjects:[
+      { name:'社会・集団と健康', k:'1', units:U('健康と疾病の概念','保健統計','疫学') },
+      { name:'疾病の予防', k:'2', units:U('疾病の予防とは','感染症とその予防','生活習慣病とその予防','母子保健','労働衛生') },
+      { name:'栄養と健康', k:'3', units:U('栄養','食品機能と食品衛生',{ t:'食中毒と食品汚染', ready:'fp' }) },
+      { name:'化学物質・放射線の生体への影響', k:'4', units:U('化学物質の毒性','化学物質の安全性評価と適正使用','化学物質による発がん','放射線の生体への影響') },
+      { name:'生活環境と健康', k:'5', units:U('地球環境と生態系','環境保全と法的規制','水環境','大気環境','室内環境','廃棄物') } ] },
     { id:'pharm', name:'薬理', k:'理', note:'薬の作用と作用機序', subjects:[
       { name:'薬理の基本', k:'基', units:U('受容体と用量反応') },
       { name:'神経系', k:'神', units:U({ t:'自律神経系の薬', ready:'ans' },'中枢神経系の薬','麻酔薬・鎮痛薬') },
