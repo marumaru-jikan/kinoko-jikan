@@ -880,7 +880,11 @@ const HS_LESSONS = [
     <div class="note-box panel"><p class="small"><b>※ 人口転換とは</b><br>社会の発展にともなって、人口のパターンが <b>多産多死 → 多産少死 → 少産少死</b> へと移り変わること。医療や衛生がよくなってまず死亡が減り、少しおくれて出生も減ります。日本は戦後、短い期間でこの転換が進みました。</p></div></section>
     <section class="panel"><h3>年齢三区分と人口指数</h3>${tbl(['区分','年齢'],[['年少人口','0〜14歳'],['生産年齢人口','15〜64歳'],['老年人口','65歳以上']])}
     <div class="fx fxs"><div><span class="fn">年少人口指数</span><span>＝</span><span class="frac"><span>年少人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">老年人口指数</span><span>＝</span><span class="frac"><span>老年人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">従属人口指数</span><span>＝</span><span class="frac"><span>年少人口＋老年人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">老年化指数</span><span>＝</span><span class="frac"><span>老年人口</span><span>年少人口</span></span><span>× 100</span></div></div>
-    <div class="rule steps"><b>高齢化率</b><span>7%　高齢化社会</span><i>⬇</i><span>14%　高齢社会</span><i>⬇</i><span>21%　超高齢社会</span></div></section>` },
+    <div class="rule steps"><b>高齢化率</b><span>7%　高齢化社会</span><i>⬇</i><span>14%　高齢社会</span><i>⬇</i><span>21%　超高齢社会</span></div>
+    <div class="note-box panel"><p class="small"><b>※ 高齢化の原因</b><br>・老年人口の増加（寿命がのびた）<br>・年少人口の減少（出生率が下がった）</p>
+    <p class="small"><b>※ 倍加年数とは</b><br>高齢化率が <b>7% から 14%</b> になるまでにかかった年数。高齢化の速さを表します。</p>
+    ${tbl(['国','倍加年数'],[['日本','<b>24年</b>（1970年 → 1994年）'],['ドイツ','40年'],['スウェーデン','85年'],['フランス','115年']])}
+    <p class="small muted">日本は欧米よりずっと速いスピードで高齢化が進みました。</p></div></section>` },
   { id:'2-6', t:'人口動態統計', sub:'出生・死亡・死産・婚姻・離婚', plan:['vit','vit','vit','vit','vit'], body:()=>`
     <section class="panel"><h3>人口動態統計とは</h3><p>1年間（1月1日〜12月31日）に起きた<b>出生・死亡・死産・婚姻・離婚</b>の5つを、届出をもとに<b>厚生労働省</b>が集計した統計です。</p>
     ${chain(['届出（市区町村）','保健所','都道府県','厚生労働省'])}</section>
