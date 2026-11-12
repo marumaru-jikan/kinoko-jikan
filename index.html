@@ -312,7 +312,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''},
 };
 
 
@@ -623,8 +623,57 @@ const GR_LESSONS = [
     <section class="panel"><h3>ゴロ集（降圧薬）</h3>${Object.values(KD).map(g=>`<p class="small muted" style="margin-top:6px">${g.name}</p>${goroList(g.goro)}`).join('')}</section>` },
 ];
 
+
+/* ===== 計算（濃度と希釈） ===== */
+Object.assign(G, {
+  cunit(){ const k=ri(0,3);
+    if(k===0){ const v=pick([0.05,0.1,0.25,0.5,1.5,2]); return nq('単位をそろえよう', `${nf(v)} g ＝ □ mg`, v*1000, [v*100,v*10,v*10000], ' mg', '1 g ＝ 1,000 mg', `${nf(v)} × 1,000 ＝ ${nf(v*1000)} mg です。`); }
+    if(k===1){ const m=pick([20,50,125,250,500,1500]); return nq('単位をそろえよう', `${nf(m)} mg ＝ □ g`, m/1000, [m/100,m/10,m*1000], ' g', 'mg → g は ÷1,000', `${nf(m)} ÷ 1,000 ＝ ${nf(m/1000)} g です。`); }
+    if(k===2){ const v=pick([0.1,0.125,0.25,0.5,2.5]); return nq('単位をそろえよう', `${nf(v)} mg ＝ □ μg`, v*1000, [v*100,v*10,v*10000], ' μg', '1 mg ＝ 1,000 μg', `${nf(v)} × 1,000 ＝ ${nf(v*1000)} μg です。`); }
+    const c=pick([1,2,5,10,20]); return nq('単位をそろえよう', `${c} μg/mL ＝ □ mg/L`, c, [c*1000,c/1000,c*10], ' mg/L', '1 μg/mL ＝ 1 mg/L', `μg→mg で ÷1,000、mL→L で ×1,000。だから ${c} μg/mL ＝ ${c} mg/L です。`); },
+  cpct(){ if(Math.random()<.5){ const c=pick([0.1,0.5,1,2,5,10]); return nq('％を mg/mL に', `${nf(c)}%（w/v）の液 1 mL に含まれる薬は？`, c*10, [c,c*100,c/10], ' mg', '1%（w/v）＝ 100 mL に 1 g ＝ 1 mL に 10 mg', `${nf(c)} × 10 ＝ ${nf(c*10)} mg です。`); }
+    const [c,lab]=pick([[0.9,'生理食塩液（0.9%）'],[5,'5% ブドウ糖液'],[10,'10% ブドウ糖液'],[50,'50% ブドウ糖液'],[8.4,'8.4% 炭酸水素ナトリウム液']]), V=pick([20,100,250,500]), a=Math.round(c*V/100*1000)/1000;
+    return nq('溶けている量は？', `${lab} ${V} mL に含まれる溶質は何 g？`, a, [c*V/10,c*V/1000,c*V], ' g', '溶質（g）＝ 濃度（%）× 液量（mL）÷ 100', `${nf(c)} × ${V} ÷ 100 ＝ ${nf(a)} g です。`); },
+  cdil(){ const [C1,C2]=pick([[10,2],[10,1],[20,5],[50,10],[5,1],[70,50],[25,5]]), V2=pick([100,200,250,500,1000]), V1=C2*V2/C1;
+    return nq('うすめる量を求めよう', `${C1}% の液から ${C2}% の液を ${V2} mL 作る。${C1}% の液は何 mL 必要？`, V1, [C1*V2/C2,V2-V1,V1*2], ' mL', 'C₁ × V₁ ＝ C₂ × V₂（薬の量は変わらない）', `${C1} × V₁ ＝ ${C2} × ${V2} → V₁ ＝ ${nf(V1)} mL。残り ${nf(V2-V1)} mL は水などでうすめます。`); },
+  cbai(){ const r=pick([10,100]), dose=pick(r===10?[5,10,20,30,50]:[0.5,1,2,3]), times=pick([2,3]), days=pick([5,7,14]), total=dose*times*days, g=total*r/1000;
+    if(Math.random()<.4){ const want=pick(r===10?[50,100,200]:[5,10,20]); return nq('倍散の量は？', `${r}倍散で、主薬 ${want} mg を量るには倍散を何 g？`, want*r/1000, [want/r/1000,want*r,want/1000], ' g', `${r}倍散 ＝ 1 g の中に主薬 ${1000/r} mg`, `主薬 ${want} mg × ${r} ＝ ${want*r} mg ＝ ${nf(want*r/1000)} g です。`); }
+    return nq('全量を求めよう', `主薬 1回 ${nf(dose)} mg、1日 ${times} 回、${days} 日分。${r}倍散で調剤すると全量は何 g？`, g, [total/1000,g/times,g*10], ' g', `主薬の全量を出してから ×${r}`, `主薬の全量 ${nf(dose)} × ${times} × ${days} ＝ ${nf(total)} mg。×${r} で ${nf(total*r)} mg ＝ ${nf(g)} g です。`); },
+  cmol(){ const k=ri(0,2);
+    if(k===0){ const [nm,M]=pick([['NaOH',40],['NaCl',58.5],['グルコース',180]]), mol=pick([0.1,0.2,0.5,1]), V=pick([0.5,1]), g=Math.round(M*mol*V*100)/100;
+      return nq('モル濃度は？', `${nm}（分子量 ${M}）${nf(g)} g を水にとかして ${nf(V*1000)} mL にした。モル濃度は？`, mol, [g/M,mol*10,mol/10], ' mol/L', 'mol ＝ g ÷ 分子量、mol/L ＝ mol ÷ L', `${nf(g)} ÷ ${M} ＝ ${nf(mol*V)} mol。÷ ${nf(V)} L ＝ ${nf(mol)} mol/L です。`); }
+    if(k===1){ const g=pick([0.75,1.5,3]), mEq=Math.round(g/74.6*1000);
+      return nq('mEq に換算しよう', `KCl（式量 74.6）${nf(g)} g に含まれる K⁺ は何 mEq？（整数）`, mEq, [Math.round(g/39.1*1000),Math.round(mEq/2),mEq*2], ' mEq', 'mEq ＝ mg ÷ 式量 × 価数', `${nf(g*1000)} mg ÷ 74.6 × 1 ≒ ${mEq} mEq です。`); }
+    const V=pick([500,1000]), mEq=Math.round(0.9*V/100/58.5*1000);
+    return nq('mEq に換算しよう', `生理食塩液（0.9% NaCl、式量 58.5）${V} mL に含まれる Na⁺ は何 mEq？（整数）`, mEq, [Math.round(mEq/2*3),Math.round(0.9*V/100/23*1000),Math.round(mEq*10)], ' mEq', 'まず NaCl が何 g かを求める', `NaCl ${nf(0.9*V/100)} g ＝ ${nf(9*V)} mg。÷ 58.5 ≒ ${mEq} mEq です。`); },
+});
+const CALC_LESSONS = [
+  { id:'1-1', t:'単位の換算', sub:'g・mg・μg と μg/mL', plan:['cunit','cunit','cunit','cunit','cunit'], body:()=>`
+    <section class="panel"><h3>1,000倍ずつ</h3>${rule('1 g ＝ 1,000 mg ＝ 1,000,000 μg<br>1 L ＝ 1,000 mL')}
+    <p>大きい単位 → 小さい単位は <b>×1,000</b>、小さい → 大きいは <b>÷1,000</b>。</p>
+    <div class="fx">1 μg/mL ＝ 1 mg/L（血中濃度でよく使う）</div></section>` },
+  { id:'1-2', t:'％濃度', sub:'w/v％ と mg/mL', plan:['cpct','cpct','cpct','cpct','cpct'], body:()=>`
+    <section class="panel"><h3>％（w/v）の意味</h3>${rule('1%（w/v）＝ 100 mL に 1 g ＝ 1 mL に 10 mg')}
+    <div class="fx">溶質（g）＝ 濃度（%）× 液量（mL）÷ 100</div>
+    <p class="small muted">例：5% ブドウ糖液 500 mL → 25 g。生理食塩液は 0.9%（500 mL に 4.5 g）。</p></section>` },
+  { id:'1-3', t:'希釈', sub:'C₁V₁ ＝ C₂V₂', plan:['cdil','cdil','cdil','cdil','cdil'], body:()=>`
+    <section class="panel"><h3>うすめても薬の量は同じ</h3>${rule('C₁ × V₁ ＝ C₂ × V₂')}
+    <div class="fx">例：10% 液から 2% 液を 500 mL<br>10 × V₁ ＝ 2 × 500 → V₁ ＝ 100 mL（水 400 mL を加える）</div>
+    <p class="small muted">消毒用エタノール（約 76.9〜81.4 vol%）を無水エタノールから作る問題も同じ考え方です。</p></section>` },
+  { id:'1-4', t:'倍散の計算', sub:'10倍散・100倍散', plan:['cbai','cbai','cbai','cbai','cbai'], body:()=>`
+    <section class="panel"><h3>倍散とは</h3>${rule('10倍散 ＝ 主薬を10倍にうすめた散剤（1 g 中 主薬 100 mg）<br>100倍散 ＝ 1 g 中 主薬 10 mg')}
+    <div class="fx">倍散の量 ＝ 主薬の量 × 倍数<br>例：主薬 1回 10 mg・1日3回・7日分を10倍散で<br>10 × 3 × 7 ＝ 210 mg → ×10 ＝ 2.1 g</div></section>` },
+  { id:'1-5', t:'モル濃度と mEq', sub:'mol/L・mEq の換算', plan:['cmol','cmol','cmol','cmol','cmol'], body:()=>`
+    <section class="panel"><h3>モル濃度</h3>${rule('mol ＝ 質量（g）÷ 分子量<br>モル濃度（mol/L）＝ mol ÷ 体積（L）')}</section>
+    <section class="panel"><h3>当量（mEq）</h3>${rule('mEq ＝ mg ÷ 式量 × 価数')}
+    <div class="fx">例：KCl 1.5 g → 1,500 ÷ 74.6 ≒ 20 mEq の K⁺<br>生理食塩液 1 L → NaCl 9 g ≒ 154 mEq の Na⁺</div></section>` },
+  { id:'1-6', t:'まとめテスト', sub:'濃度と希釈の10問', test:true, plan:['cunit','cunit','cpct','cpct','cdil','cdil','cbai','cbai','cmol','cmol'], body:()=>`
+    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。計算用紙を用意して、式を書いてから選ぼう。</p></section>` },
+];
+
 /* ===== 用語カード ===== */
 const TERMS = {
+  calc:[['1%（w/v）','100 mL に 1 g。1 mL に 10 mg。'],['1 μg/mL','1 mg/L と同じ。'],['希釈の式','C₁ × V₁ ＝ C₂ × V₂'],['10倍散','1 g 中に主薬 100 mg。'],['100倍散','1 g 中に主薬 10 mg。'],['モル濃度','mol ÷ L。mol ＝ g ÷ 分子量。'],['mEq','mg ÷ 式量 × 価数。']],
   gr: Object.values(KD).flatMap(g=>g.goro.map(x=>[x[0], x[1]])),
   kd: KD_ALL.map(d=>[`${d[0]}（${d[1]}）`, `${d[2]}。${d[3]}。`]),
   ans:[['ムスカリン受容体','副交感神経の節後線維が作用する効果器側の受容体。Gタンパク質共役型。'],['ニコチン受容体（NN）','自律神経節にある受容体。イオンチャネル内蔵型。'],['α1受容体','Gq共役。血管収縮・散瞳。'],['β2受容体','Gs共役。気管支拡張・子宮弛緩。'],['タムスロシン','α1A遮断薬。前立腺肥大症に伴う排尿障害。'],['ネオスチグミン','コリンエステラーゼ阻害薬。重症筋無力症。'],['プラリドキシム（PAM）','有機リン中毒でコリンエステラーゼを再活性化する。']],
@@ -638,6 +687,7 @@ const UNITS = {
   fp: { no:'衛1', title:'食中毒', subject:'衛生', course:'hyg', subj:0, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   pk: { no:'剤1', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:0, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:0, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
+  calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
   kd: { no:'箪1', title:'降圧薬', subject:'薬箪笥', course:'drawer', subj:0, lessons:KD_LESSONS, cards:'kd', drill:'kd' },
 };
 const U = (...t) => t.map(x => typeof x === 'string' ? { t:x } : x);
@@ -688,7 +738,12 @@ const CATALOG = [
       { name:'循環器', k:'循', units:U({ t:'降圧薬のゴロ', ready:'gr' },'抗不整脈薬のゴロ','抗血栓薬のゴロ','脂質異常症の薬のゴロ') },
       { name:'中枢神経', k:'中', units:U('抗精神病薬のゴロ','抗うつ薬のゴロ','抗てんかん薬のゴロ') },
       { name:'感染症', k:'感', units:U('抗菌薬のゴロ') },
-      { name:'衛生・法規', k:'衛', units:U('食中毒のゴロ','法規の数字のゴロ') } ] } ] },
+      { name:'衛生・法規', k:'衛', units:U('食中毒のゴロ','法規の数字のゴロ') } ] },
+    { id:'calc', name:'計算', k:'計', note:'調剤・物理化学・統計の計算', subjects:[
+      { name:'調剤の計算', k:'調', units:U({ t:'濃度と希釈', ready:'calc' },'散剤・水剤の調剤量','輸液と点滴','小児の投与量') },
+      { name:'物理化学の計算', k:'物', units:U('pHと緩衝液','浸透圧','反応速度') },
+      { name:'薬物動態の計算', k:'動', units:U('血中濃度と投与設計','腎機能と投与量') },
+      { name:'衛生・統計の計算', k:'統', units:U('疫学の指標','検査の感度・特異度','栄養の計算') } ] } ] },
 ];
 
 const allCourses = () => CATALOG.flatMap(g => g.courses);
