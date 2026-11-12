@@ -299,8 +299,6 @@ ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
 <script>
 (() => {
 /* ===== 設定（GitHubに置くときにここを書きかえます） ===== */
-// 先生用スプレッドシートの送信先（Apps Script のウェブアプリURL）。空のままだと送信しません。
-const GAS_URL = '';
 // 単元をクリアしたときにめくるきのこカード。写真は cards フォルダへ。
 // t は a（山歩き＝自分で撮った写真）か h（きのこの作品）。note は日付や場所（空でもOK）。
 // 例：{ t:'a', src:'cards/a05.jpg', name:'ヤコウタケ', note:'2026.6　八丈島' },
@@ -323,7 +321,7 @@ const normCode = v => String(v).trim().replace(/[Ａ-Ｚａ-ｚ０-９]/g, ch =>
 
 /* ===== 保存（この端末の中） ===== */
 const KEY = 'kinoko-jikan.v1';
-const fresh = () => ({ name:'', code:'', days:[], answered:0, correct:0, lessons:{}, known:{}, cards:[], outbox:[], sky:null, lastUnit:'' });
+const fresh = () => ({ name:'', code:'', days:[], answered:0, correct:0, lessons:{}, known:{}, cards:[], sky:null, lastUnit:'' });
 let R = fresh();
 try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) R = Object.assign(fresh(), s); } catch(e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(R)); } catch(e) {} };
@@ -333,16 +331,6 @@ const markDay = () => { const t = today(); if (!R.days.includes(t)) { R.days.pus
 const streak = () => { const set=new Set(R.days); let n=0; const d=new Date(); if(!set.has(today())) d.setDate(d.getDate()-1);
   while(set.has(dkey(d))){ n++; d.setDate(d.getDate()-1); } return n; };
 
-/* ===== 先生への送信（届かなければ次に開いたときに再送） ===== */
-function report(item){ R.outbox.push(Object.assign({ app:'蕈時間', code:R.code, name:R.name, at:new Date().toISOString() }, item)); save(); flush(); }
-function flush(){
-  if (!GAS_URL || !R.outbox.length || navigator.onLine === false) return;
-  const batch = R.outbox.slice();
-  fetch(GAS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:JSON.stringify({ items:batch }) })
-    .then(() => { R.outbox = R.outbox.slice(batch.length); save(); if (S.view==='settings') render(); })
-    .catch(() => {});
-}
-window.addEventListener('online', flush);
 
 /* ===== 道具 ===== */
 const ri = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
@@ -851,7 +839,7 @@ function heroArt(){
 function vSetup(){
   return `<div class="stack" style="padding-top:24px"><div class="sky" style="min-height:150px">${heroArt()}<div class="txt"><span class="name">蕈時間</span></div></div><div class="hello"><div class="eyebrow">はじめまして</div><h1>蕈時間へ ようこそ</h1><p class="muted small">薬学生のための、1つ5分の学習アプリです。</p></div>
   <div class="panel stack"><label for="su-code"><b>学籍番号</b><br><span class="small muted">学校の記号＋学年＋番号（先生から受け取った番号）</span></label><input type="text" id="su-code" maxlength="6" placeholder="例：P101" autocomplete="off" inputmode="latin" style="text-transform:uppercase">
-  <label for="su-name"><b>呼び名</b><br><span class="small muted">先生にも表示されます（ニックネームでOK）</span></label><input type="text" id="su-name" maxlength="12" placeholder="例：みお" autocomplete="off">
+  <label for="su-name"><b>呼び名</b><br><span class="small muted">アプリの中で呼びかけに使います（ニックネームでOK）</span></label><input type="text" id="su-name" maxlength="12" placeholder="例：みお" autocomplete="off">
   <p class="small" id="su-err" style="color:var(--bad)" hidden>学籍番号は「P101」のように、アルファベット1文字と数字3けたで入力してください。</p>
   <button class="btn wide" data-act="setupDone">始める</button></div></div>`;
 }
@@ -999,11 +987,9 @@ function vSky(){
   <div class="panel"><h3>きのこ図鑑</h3><div class="zukan" style="margin-top:10px">${SP.map(sp=>got.has(sp.id)?`<div class="zk"><svg viewBox="0 0 60 60">${mushG(sp,30,54,1.3)}</svg><b>${sp.name}</b><span>${sp.note}</span></div>`:`<div class="zk no"><svg viewBox="0 0 60 60"><path d="M14 34 C14 14 46 14 46 34 Z M26 34 L25 50 L35 50 L34 34Z" fill="currentColor" opacity=".18"/></svg><b>？？？</b></div>`).join('')}</div></div></div>`;
 }
 function vSettings(){
-  const send = !GAS_URL ? `<span class="status">送信先がまだ設定されていません</span>` : R.outbox.length ? `<span class="status wait">送信待ち ${R.outbox.length}件（つながったら送ります）</span>` : `<span class="status ok">先生に送信済み</span>`;
   return `<div class="stack"><div class="hello"><div class="eyebrow">設定</div><h1>学生情報と記録</h1></div>
   <div class="panel stack"><label for="st-code"><b>学籍番号</b></label><input type="text" id="st-code" value="${esc(R.code)}" maxlength="6" autocomplete="off" style="text-transform:uppercase"><p class="small muted">学校の記号＋学年＋番号（例：P101）</p>
-  <label for="st-name"><b>呼び名</b></label><input type="text" id="st-name" value="${esc(R.name)}" maxlength="12" autocomplete="off"></div>
-  <div class="panel stack"><h3>先生への記録</h3><p class="small">${send}</p><p class="small muted">小単元（5分の学習）を終えるたびに、学籍番号・呼び名・点数・かかった時間が先生に届きます。</p></div></div>`;
+  <label for="st-name"><b>呼び名</b></label><input type="text" id="st-name" value="${esc(R.name)}" maxlength="12" autocomplete="off"></div></div>`;
 }
 function vInstall(){
   return `${top('ホーム画面に追加')}<div class="stack">
@@ -1096,7 +1082,6 @@ document.addEventListener('click', e=>{
     S.reward=null; S.gotShard=false; let leafNow=false;
     if(!Q.retry){ skyInit(); const u=CU(), l=LX(S.lid), k=lkey(S.uid,l.id), first=!R.lessons[k], wasDone=unitDone(S.uid), wasItem=itemDone(S.uid), n=Q.qs.length, s=R.lessons[k]||{best:0,tries:0,total:n};
       s.tries++; s.best=Math.max(s.best,Q.score); s.total=n; R.lessons[k]=s; R.lastUnit=S.uid; save();
-      report({ subject:u.subject, unit:u.no+' '+u.title, lesson:l.id, title:l.t, score:Q.score, total:n, sec:Math.round((Date.now()-S.lessonStart)/1000) });
       if(!wasDone&&unitDone(S.uid)){ S.reward=drawReward(); S.reward.title=u.title; }
       if(first){ R.sky.shards++; R.sky.total++; S.gotShard=true; save(); }
       leafNow = !wasItem && itemDone(S.uid); }
@@ -1109,7 +1094,7 @@ document.addEventListener('click', e=>{
 });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape' && S.viewCard!=null){ S.viewCard=null; render(); } });
 
-render(); flush();
+render();
 if('serviceWorker' in navigator && document.querySelector('link[rel="manifest"]')) navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
 </script>
