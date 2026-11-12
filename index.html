@@ -129,6 +129,7 @@ p{margin:0}
 .frac{display:inline-flex;flex-direction:column;align-items:stretch;vertical-align:middle;line-height:1.35;font-size:.92em}
 .frac>span{display:block;text-align:center;padding:0 .3em;white-space:nowrap}.frac>span:first-child{border-bottom:1.5px solid currentColor}
 .fxs{display:flex;flex-direction:column;gap:12px;font-size:.92rem;overflow-x:auto}.fxs>div{display:flex;align-items:center;gap:5px;white-space:nowrap}.fxs .fn{min-width:6em}
+.rule.steps{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}.rule.steps b{margin-bottom:4px}.rule.steps i{font-style:normal;line-height:1.2}
 .fig .grid{stroke:var(--line);stroke-width:1}
 .note{background:var(--sunk);border-radius:12px;padding:12px 14px;font-size:.9rem}
 
@@ -879,7 +880,7 @@ const HS_LESSONS = [
     <div class="note-box panel"><p class="small"><b>※ 人口転換とは</b><br>社会の発展にともなって、人口のパターンが <b>多産多死 → 多産少死 → 少産少死</b> へと移り変わること。医療や衛生がよくなってまず死亡が減り、少しおくれて出生も減ります。日本は戦後、短い期間でこの転換が進みました。</p></div></section>
     <section class="panel"><h3>年齢三区分と人口指数</h3>${tbl(['区分','年齢'],[['年少人口','0〜14歳'],['生産年齢人口','15〜64歳'],['老年人口','65歳以上']])}
     <div class="fx fxs"><div><span class="fn">年少人口指数</span><span>＝</span><span class="frac"><span>年少人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">老年人口指数</span><span>＝</span><span class="frac"><span>老年人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">従属人口指数</span><span>＝</span><span class="frac"><span>年少人口＋老年人口</span><span>生産年齢人口</span></span><span>× 100</span></div><div><span class="fn">老年化指数</span><span>＝</span><span class="frac"><span>老年人口</span><span>年少人口</span></span><span>× 100</span></div></div>
-    ${rule('高齢化率 7% 高齢化社会 → 14% 高齢社会 → 21% 超高齢社会')}</section>` },
+    <div class="rule steps"><b>高齢化率</b><span>7%　高齢化社会</span><i>⬇</i><span>14%　高齢社会</span><i>⬇</i><span>21%　超高齢社会</span></div></section>` },
   { id:'2-6', t:'人口動態統計', sub:'出生・死亡・死産・婚姻・離婚', plan:['vit','vit','vit','vit','vit'], body:()=>`
     <section class="panel"><h3>人口動態統計とは</h3><p>1年間（1月1日〜12月31日）に起きた<b>出生・死亡・死産・婚姻・離婚</b>の5つを、届出をもとに<b>厚生労働省</b>が集計した統計です。</p>
     ${chain(['届出（市区町村）','保健所','都道府県','厚生労働省'])}</section>
