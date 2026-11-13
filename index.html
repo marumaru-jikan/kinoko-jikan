@@ -319,7 +319,7 @@ ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
 <script>
 (() => {
 /* ===== 設定（GitHubに置くときにここを書きかえます） ===== */
-// 単元をクリアしたときにめくるきのこカード。写真は cards フォルダへ。
+// 項目（章をぜんぶ）をクリアしたときにめくるきのこカード。写真は cards フォルダへ。
 // t は a（山歩き＝自分で撮った写真）か h（きのこの作品）。note は日付や場所（空でもOK）。
 // 例：{ t:'a', src:'cards/a05.jpg', name:'ヤコウタケ', note:'2026.6　八丈島' },
 // ここに書いた写真は、蕈図鑑のカードと一緒に届くカードになります。
@@ -1210,7 +1210,7 @@ function vCourse(){
 }
 function vSubject(){
   const c=courseById(S.course), sb=c.subjects[S.subj];
-  return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。項目の章をぜんぶ終えると、森から木の葉が降ってきます。</p><div class="list">
+  return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。この項目の章をぜんぶ終えると、きのこカードが1まい届きます。</p><div class="list">
   ${sb.units.map((un,i)=>{ const u=un.ready&&UNITS[un.ready];
     if(u){ const d=doneCount(un.ready), n=QL(un.ready).length;
       return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
@@ -1218,7 +1218,7 @@ function vSubject(){
 }
 function vUnit(){
   const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
-  return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアするときのこカードが1まい届きます。</p><div class="list">
+  return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
   ${u.lessons.map(l=>l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">コラム</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
   </div>${T.length?`<div class="list"><button class="item" data-act="cards"><span class="body"><b>用語カード</b><br><span class="small muted">用語の確認 ${T.length}枚</span></span><span class="tag ${kn===T.length?'done':kn?'mid':''}">${kn}/${T.length}</span><span class="chev">›</span></button></div>`:''}</div>`;
@@ -1431,9 +1431,11 @@ document.addEventListener('click', e=>{
     S.reward=null; S.gotShard=false; let leafNow=false;
     if(!Q.retry){ skyInit(); const u=CU(), l=LX(S.lid), k=lkey(S.uid,l.id), first=!R.lessons[k], wasDone=unitDone(S.uid), wasItem=itemDone(S.uid), n=Q.qs.length, s=R.lessons[k]||{best:0,tries:0,total:n};
       s.tries++; s.best=Math.max(s.best,Q.score); s.total=n; R.lessons[k]=s; R.lastUnit=S.uid; save();
-      if(!wasDone&&unitDone(S.uid)){ S.reward=drawReward(); S.reward.title=u.title; }
+      // 項目（章をぜんぶ）クリアできのこカード
+      if(!wasItem&&itemDone(S.uid)){ const sb=courseById(u.course).subjects[u.subj]; S.reward=drawReward(); S.reward.title=sb.name; }
       if(first){ R.sky.shards++; R.sky.total++; S.gotShard=true; save(); }
-      leafNow = !wasItem && itemDone(S.uid); }
+      // 章クリアで木の葉のメッセージ
+      leafNow = !wasDone && unitDone(S.uid); }
     S.view='result'; render(); window.scrollTo(0,0); if(leafNow) leafBurst(); }
   else if(a==='retry'){ const list=S.quiz.wrong.map(q=>Object.assign({},q,{choices:shuffle([...q.choices])})); S.view=S.stack.pop()||'lesson'; startQuiz(list); }
   else if(a==='again'){ S.view=S.stack.pop()||'lesson'; startQuiz(); }
