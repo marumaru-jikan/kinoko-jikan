@@ -118,7 +118,7 @@ p{margin:0}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
 .fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
-.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
+.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:6px}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .note-box{background:var(--sunk);border-color:transparent;display:flex;flex-direction:column;gap:10px}
@@ -370,29 +370,29 @@ const nq = (prompt, expr, ans, wrongs, unit, hint, explain) => ({ prompt, expr, 
 /* ===== 知識問題（[問いの見出し, 問題文, 正解, [まちがい], 解説]） ===== */
 const POOL = {
   b1ag:[
-    ['β1刺激薬','β1受容体刺激薬はどれ？','ドブタミン',['プロプラノロール','ミルリノン','ジゴキシン'],'ドブタミンはおもにβ1受容体を刺激して心収縮力を高めます。'],
-    ['経口のβ1刺激薬','経口で使える選択的β1受容体刺激薬は？','デノパミン',['ドブタミン','イソプレナリン','サルブタモール'],'デノパミンは経口の選択的β1受容体刺激薬です。'],
-    ['プロドラッグ','ドパミンのプロドラッグはどれ？','ドカルパミン',['デノパミン','レボドパ','ドブタミン'],'ドカルパミンは経口投与後、体内でドパミンに変わります。'],
-    ['共役するG蛋白','β1受容体が共役するGタンパク質は？','Gs',['Gi','Gq','G12/13'],'β受容体はGsと共役し、アデニル酸シクラーゼを活性化します。'],
-    ['活性化する酵素','β1受容体刺激で活性化される酵素は？','アデニル酸シクラーゼ',['ホスホリパーゼC','ホスホジエステラーゼⅢ','グアニル酸シクラーゼ'],'Gs → アデニル酸シクラーゼが活性化し、ATPからcAMPがつくられます。'],
-    ['増えるもの','β1受容体刺激で心筋細胞内に増えるセカンドメッセンジャーは？','cAMP',['cGMP','IP₃','DAG'],'アデニル酸シクラーゼがATPをcAMPに変えます。'],
-    ['ドパミン低用量','ドパミンを低用量で使ったときにおもに起こる作用は？','腎血管拡張による尿量増加',['強い血管収縮','気管支拡張','心拍数の著しい低下'],'低用量ではD1受容体を刺激し、腎血管を広げます。'],
-    ['ドパミン高用量','ドパミンを高用量で使ったときに強くなる作用は？','α1刺激による血管収縮',['D1刺激による腎血管拡張','β2刺激による気管支拡張','M受容体遮断'],'高用量ではα1受容体刺激が強まり、血管が収縮して血圧が上がります。'],
-    ['ドカルパミン','ドカルパミンが腎血管を広げるのは、ドパミンがどの受容体を刺激するため？','D1受容体',['α1受容体','β2受容体','D2受容体'],'体内でドパミンになり、腎血管のD1受容体を刺激します。'],
+    ['β1刺激薬','β1受容体刺激薬はどれ？','ドブタミン',['プロプラノロール','ミルリノン','ジゴキシン'],'ドブタミン：β1刺激 → 心収縮力↑。'],
+    ['経口のβ1刺激薬','経口の選択的β1受容体刺激薬は？','デノパミン',['ドブタミン','イソプレナリン','サルブタモール'],'デノパミン：経口のβ1刺激薬。'],
+    ['プロドラッグ','ドパミンのプロドラッグは？','ドカルパミン',['デノパミン','レボドパ','ドブタミン'],'ドカルパミン：経口 → 体内でドパミンに。'],
+    ['共役するG蛋白','β1受容体が共役するGタンパク質は？','Gs',['Gi','Gq','G12/13'],'β1 → Gs → アデニル酸シクラーゼ活性化。'],
+    ['活性化する酵素','β1受容体刺激で活性化される酵素は？','アデニル酸シクラーゼ',['ホスホリパーゼC','ホスホジエステラーゼⅢ','グアニル酸シクラーゼ'],'Gs → アデニル酸シクラーゼ → ATPからcAMP。'],
+    ['増えるもの','β1受容体刺激で心筋細胞内に増えるのは？','cAMP',['cGMP','IP₃','DAG'],'アデニル酸シクラーゼ：ATP → cAMP。'],
+    ['ドパミン低用量','ドパミン低用量でおもに起こる作用は？','腎血管拡張による尿量増加',['強い血管収縮','気管支拡張','心拍数の著しい低下'],'低用量：D1刺激 → 腎血管拡張。'],
+    ['ドパミン高用量','ドパミン高用量で強くなる作用は？','α1刺激による血管収縮',['D1刺激による腎血管拡張','β2刺激による気管支拡張','M受容体遮断'],'高用量：α1刺激 → 血管収縮・血圧↑。'],
+    ['ドカルパミン','ドカルパミンが腎血管を拡張させる受容体は？','D1受容体',['α1受容体','β2受容体','D2受容体'],'ドパミンになり、腎血管のD1を刺激。'],
   ],
   cgly:[
-    ['強心配糖体の構造','強心配糖体のステロイド骨格の17位に結合しているのは？','ラクトン環',['糖','カルボキシ基','アミノ基'],'17位にラクトン環、3位に糖が結合しています。'],
-    ['アグリコン','強心配糖体のアグリコン（非糖部）にあたるのは？','ステロイド骨格＋ラクトン環',['糖＋ステロイド骨格','糖＋ラクトン環','糖のみ'],'ステロイド骨格とラクトン環をあわせてアグリコンといいます。'],
-    ['作用点','ジゴキシンが阻害する分子は？','Na⁺,K⁺-ATPase',['Na⁺-Ca²⁺交換系','L型Ca²⁺チャネル','ホスホジエステラーゼⅢ'],'Na⁺ポンプを阻害して細胞内Na⁺を増やし、Na⁺-Ca²⁺交換系を介して細胞内Ca²⁺を増やします。'],
-    ['陽性変力作用','ジゴキシンで心筋収縮力が高まるのは、細胞内の何が増えるため？','Ca²⁺',['K⁺','cAMP','cGMP'],'Na⁺の増加 → Na⁺-Ca²⁺交換系でCa²⁺が出にくくなる → 細胞内Ca²⁺↑。'],
-    ['心電図の変化','ジゴキシンの陰性変伝導作用で起こりやすい心電図の変化は？','PR間隔の延長',['QT間隔の延長','PR間隔の短縮','QRS幅の短縮'],'房室結節の伝導が遅くなるため、PR間隔が延びます。'],
-    ['心拍数','強心配糖体の心拍数への作用は？','減少させる（陰性変時作用）',['増加させる（陽性変時作用）','変化させない','頻脈と徐脈をくり返す'],'反射性の迷走神経刺激と交感神経抑制により、心拍数が減ります。'],
-    ['嘔吐','ジゴキシンによる悪心・嘔吐のしくみは？','延髄CTZのD₂受容体刺激',['胃粘膜の直接刺激','5-HT₃受容体遮断','H₁受容体刺激'],'CTZのD₂受容体を刺激して、延髄の嘔吐中枢を興奮させます。'],
-    ['重い副作用','ジギタリス中毒で特に注意する不整脈は？','心室性不整脈',['洞性頻脈','心房粗動','WPW症候群'],'心室側の特殊心筋の自動性が高まり、心室性期外収縮などが起こります。'],
-    ['相互作用','ジゴキシンの副作用を起こしやすくする電解質の異常は？','低K⁺血症',['高K⁺血症','低Ca²⁺血症','高Na⁺血症'],'K⁺が少ないとジギタリスがNa⁺,K⁺-ATPaseに結合しやすくなり、効きすぎます。'],
-    ['併用注意','ジゴキシンとの併用で、低K⁺血症からジギタリス中毒を起こしやすいのは？','フロセミド',['スピロノラクトン','トリアムテレン','カンデサルタン'],'ループ利尿薬・チアジド系利尿薬は低K⁺血症を起こしやすい。スピロノラクトンなどはK⁺保持性です。'],
-    ['腎排泄','腎機能が低下した患者で血中濃度が上がりやすい強心配糖体は？','ジゴキシン',['ドブタミン','ミルリノン','ピモベンダン'],'ジゴキシンはおもに腎臓から未変化体で排泄されます。'],
-    ['注射剤','強心配糖体のうち、注射で急性期に使われるのは？','デスラノシド',['メチルジゴキシン','ピモベンダン','カルペリチド'],'デスラノシドは注射剤で効き始めが速い強心配糖体です。'],
+    ['強心配糖体の構造','強心配糖体のステロイド骨格17位に結合しているのは？','ラクトン環',['糖','カルボキシ基','アミノ基'],'17位：ラクトン環、3位：糖。'],
+    ['アグリコン','強心配糖体のアグリコンは？','ステロイド骨格＋ラクトン環',['糖＋ステロイド骨格','糖＋ラクトン環','糖のみ'],'アグリコン＝ステロイド骨格＋ラクトン環。'],
+    ['作用点','ジゴキシンが阻害するのは？','Na⁺,K⁺-ATPase',['Na⁺-Ca²⁺交換系','L型Ca²⁺チャネル','ホスホジエステラーゼⅢ'],'Na⁺ポンプ阻害 → Na⁺↑ → Ca²⁺↑。'],
+    ['陽性変力作用','ジゴキシンで心筋細胞内に増え、収縮力を高めるのは？','Ca²⁺',['K⁺','cAMP','cGMP'],'Na⁺↑ → Na⁺-Ca²⁺交換系 → Ca²⁺↑。'],
+    ['心電図の変化','ジゴキシンの陰性変伝導作用で起こる心電図の変化は？','PR間隔の延長',['QT間隔の延長','PR間隔の短縮','QRS幅の短縮'],'房室伝導遅延 → PR間隔延長。'],
+    ['心拍数','強心配糖体の心拍数への作用は？','減少（陰性変時作用）',['増加（陽性変時作用）','変化なし','頻脈と徐脈をくり返す'],'迷走神経刺激＋交感神経抑制 → 心拍数↓。'],
+    ['嘔吐','ジゴキシンによる悪心・嘔吐のしくみは？','延髄CTZのD₂受容体刺激',['胃粘膜の直接刺激','5-HT₃受容体遮断','H₁受容体刺激'],'CTZのD₂刺激 → 嘔吐中枢興奮。'],
+    ['重い副作用','ジギタリス中毒で注意する不整脈は？','心室性不整脈',['洞性頻脈','心房粗動','WPW症候群'],'心室側の特殊心筋の自動性↑。'],
+    ['相互作用','ジゴキシンの副作用を起こしやすくする電解質異常は？','低K⁺血症',['高K⁺血症','低Ca²⁺血症','高Na⁺血症'],'低K⁺血症 → 心筋の感受性↑。'],
+    ['併用注意','ジゴキシンとの併用で、低K⁺血症からジギタリス中毒を起こしやすいのは？','フロセミド',['スピロノラクトン','トリアムテレン','カンデサルタン'],'ループ・チアジド系 → 低K⁺血症。'],
+    ['腎排泄','腎機能低下で血中濃度が上がりやすい強心配糖体は？','ジゴキシン',['ドブタミン','ミルリノン','ピモベンダン'],'ジゴキシン：腎排泄。'],
+    ['注射剤','注射で急性期に使う強心配糖体は？','デスラノシド',['メチルジゴキシン','ピモベンダン','カルペリチド'],'デスラノシド：注射・速効性。'],
   ],
   ans:[
     ['交感神経の節後線維','交感神経の節後線維の主な神経伝達物質は？','ノルアドレナリン',['アセチルコリン','ドパミン','セロトニン'],'交感神経の節後線維はノルアドレナリン。ただし汗腺に分布する交感神経はアセチルコリンです。'],
@@ -527,33 +527,16 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
 
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
 /* ===== 理8 心不全治療薬 ===== */
+const ktbl = rows => `<div class="scroll"><table class="tbl ktbl">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table></div>`;
+const kdrug = (n,p) => `<div class="kdrug"><span class="dg">${n}</span><span class="small muted">${p}</span></div>`;
 const HF_LESSONS = [
   { id:'1-0', lid:'1-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'心不全' }, t:'心不全について', sub:'病態・薬物治療 › 10 循環器疾患 › 1 心不全', plan:[], body:()=>'' },
   { id:'1-1', t:'急性心不全治療薬①', sub:'強心薬 › 強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
-    <section class="panel"><h3>〇 強心薬</h3><p>弱った心臓の<b>収縮力を高める</b>薬です。強心配糖体のほか、カテコールアミン系（β1刺激薬）やPDEⅢ阻害薬があります。</p></section>
-    <section class="panel"><h3>〇 強心配糖体：基本構造</h3><p>ステロイド骨格の17位にラクトン環がつき、3位に糖が結合した配糖体です。ジギタリス（ケジギタリスなど）の葉から得られます。</p>
-    <svg class="fig" viewBox="0 0 330 205" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖が結合。ステロイド骨格とラクトン環をあわせてアグリコンという"><g transform="translate(52,0)">
-<polygon class="bd" points="60.0,92.0 77.3,102.0 77.3,122.0 60.0,132.0 42.7,122.0 42.7,102.0"/><polygon class="bd" points="94.6,92.0 112.0,102.0 112.0,122.0 94.6,132.0 77.3,122.0 77.3,102.0"/><polygon class="bd" points="112.0,62.0 129.3,72.0 129.3,92.0 112.0,102.0 94.6,92.0 94.6,72.0"/><polygon class="bd" points="129.3,72.0 148.3,65.8 160.1,82.0 148.3,98.2 129.3,92.0"/>
-<line class="bd" x1="148.3" y1="65.8" x2="165.3" y2="53.5"/>
-<polygon class="bd" points="165.3,53.5 171.1,34.3 191.0,33.8 197.7,52.7 181.8,64.8"/>
-<line class="bd" x1="168.5" y1="52.3" x2="181.7" y2="61.4"/>
-<line class="bd" x1="197.7" y1="52.7" x2="209.9" y2="56.3"/>
-<line class="bd" x1="200.3" y1="51.5" x2="212.5" y2="55.1"/>
-<circle cx="191.0" cy="33.8" r="6" class="bg"/><text class="at" x="191.0" y="37.8" text-anchor="middle">O</text>
-<circle cx="212.9" cy="56.3" r="6" class="bg"/><text class="at" x="212.9" y="60.3" text-anchor="middle">O</text>
-<line class="bd" x1="42.7" y1="122.0" x2="31.7" y2="128.0"/>
-<text class="at" x="26.7" y="133.0" text-anchor="middle">O</text>
-<line class="bd" x1="20.7" y1="131.0" x2="8.7" y2="131.0"/>
-<rect class="sg" x="-21.3" y="121.0" width="30" height="20" rx="5"/><text class="lb" x="-6.3" y="135.0" text-anchor="middle">糖</text>
-<line class="bd" x1="129.3" y1="92.0" x2="129.3" y2="104.0"/><text class="at" x="129.3" y="116.0" text-anchor="middle">OH</text>
-<text class="mu" x="49.7" y="120.0">3</text><text class="mu" x="116.3" y="94.0">14</text><text class="mu" x="142.3" y="79.8">17</text>
-<line class="tl" x1="-21.3" y1="150" x2="14.7" y2="150"/><line class="tl" x1="-21.3" y1="145" x2="-21.3" y2="155"/><line class="tl" x1="14.7" y1="145" x2="14.7" y2="155"/><text class="lb" x="-3.3" y="166" text-anchor="middle">糖</text><line class="tl" x1="18.7" y1="150" x2="160.1" y2="150"/><line class="tl" x1="18.7" y1="145" x2="18.7" y2="155"/><line class="tl" x1="160.1" y1="145" x2="160.1" y2="155"/><text class="lb" x="89.4" y="166" text-anchor="middle">ステロイド骨格</text><line class="tl" x1="164.1" y1="150" x2="205.7" y2="150"/><line class="tl" x1="164.1" y1="145" x2="164.1" y2="155"/><line class="tl" x1="205.7" y1="145" x2="205.7" y2="155"/><text class="lb" x="184.9" y="166" text-anchor="middle">ラクトン環</text><line class="tl" x1="18.7" y1="176" x2="205.7" y2="176"/><line class="tl" x1="18.7" y1="171" x2="18.7" y2="181"/><line class="tl" x1="205.7" y1="171" x2="205.7" y2="181"/><text class="lb" x="112.2" y="192" text-anchor="middle">アグリコン（非糖部）</text></g></svg><p class="small muted" style="text-align:center">糖 ＋ アグリコン ＝ <b>配糖体</b></p>
-    ${rule('ステロイド骨格 ＋ ラクトン環 ＝ アグリコン<br>アグリコン ＋ 糖 ＝ 強心配糖体')}</section>
-    <section class="panel"><h3>〇 強心配糖体：薬物</h3>${tbl(['薬物名','ポイント'],[['<span class="dg">ジゴキシン</span>','経口・注射。おもに腎臓から排泄されるので、腎機能が落ちると血中濃度が上がる。TDM対象'],['<span class="dg">メチルジゴキシン</span>','経口。ジゴキシンのメチル化体で、消化管からの吸収がよい'],['<span class="dg">デスラノシド</span>','注射。効き始めが速く、急性期に使う']])}</section>
-    <section class="panel"><h3>作用機序</h3>
-    <p><b>① 心筋収縮力の増強（陽性変力作用）</b></p>
-    ${chain(['Na⁺,K⁺-ATPase（Na⁺ポンプ）阻害','細胞内 Na⁺ ↑','Na⁺-Ca²⁺交換系で Ca²⁺ が出にくい','細胞内 Ca²⁺ ↑','収縮力 ↑'])}
-    <svg class="fig" viewBox="0 0 330 200" role="img" aria-label="Na+,K+-ATPaseが阻害されると細胞内Na+が増え、Na+-Ca2+交換系でCa2+が細胞外に出にくくなり、細胞内Ca2+が増える">
+    <section class="panel"><h3>〇 強心薬</h3><p>弱った心筋の収縮力を高める。</p></section>
+    <section class="panel"><h3>〇 強心配糖体</h3><p><b>基本構造</b></p><svg class="fig" viewBox="27 24 317 215" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖。ステロイド骨格とラクトン環でアグリコン、糖とアグリコンで配糖体"><polygon class="bd" points="118.0,96.0 138.8,108.0 138.8,132.0 118.0,144.0 97.2,132.0 97.2,108.0"/><polygon class="bd" points="159.6,96.0 180.4,108.0 180.4,132.0 159.6,144.0 138.8,132.0 138.8,108.0"/><polygon class="bd" points="180.4,60.0 201.1,72.0 201.1,96.0 180.4,108.0 159.6,96.0 159.6,72.0"/><polygon class="bd" points="201.1,72.0 224.0,64.6 238.1,84.0 224.0,103.4 201.1,96.0"/><text class="nm" x="118.0" y="108.0" text-anchor="middle">1</text><text class="nm" x="105.0" y="115.5" text-anchor="middle">2</text><text class="nm" x="105.0" y="130.5" text-anchor="middle">3</text><text class="nm" x="118.0" y="138.0" text-anchor="middle">4</text><text class="nm" x="131.0" y="130.5" text-anchor="middle">5</text><text class="nm" x="131.0" y="115.5" text-anchor="middle">10</text><text class="nm" x="159.6" y="138.0" text-anchor="middle">6</text><text class="nm" x="172.6" y="130.5" text-anchor="middle">7</text><text class="nm" x="172.6" y="115.5" text-anchor="middle">8</text><text class="nm" x="159.6" y="108.0" text-anchor="middle">9</text><text class="nm" x="167.4" y="79.5" text-anchor="middle">11</text><text class="nm" x="180.4" y="72.0" text-anchor="middle">12</text><text class="nm" x="193.3" y="79.5" text-anchor="middle">13</text><text class="nm" x="193.3" y="94.5" text-anchor="middle">14</text><text class="nm" x="221.2" y="76.1" text-anchor="middle">17</text><text class="nm" x="229.1" y="87.0" text-anchor="middle">16</text><text class="nm" x="221.2" y="97.9" text-anchor="middle">15</text><line class="bd" x1="138.8" y1="108.0" x2="138.8" y2="94.0"/><text class="at" x="138.8" y="91.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="72.0" x2="201.1" y2="58.0"/><text class="at" x="201.1" y="55.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="96.0" x2="201.1" y2="109.0"/><text class="at" x="201.1" y="121.0" text-anchor="middle">OH</text><line class="bd" x1="138.8" y1="132.0" x2="138.8" y2="144.0"/><text class="at" x="138.8" y="155.0" text-anchor="middle">H</text><line class="bd" x1="224.0" y1="64.6" x2="263.1" y2="56.9"/><polygon class="bd" points="263.1,56.9 270.5,34.1 294.5,34.1 301.9,56.9 282.5,71.0"/><line class="bd" x1="266.9" y1="55.6" x2="282.5" y2="66.9"/><line class="bd" x1="301.1" y1="59.2" x2="314.5" y2="63.5"/><line class="bd" x1="302.6" y1="54.6" x2="315.9" y2="59.0"/><circle cx="294.5" cy="34.1" r="6.5" class="bg"/><text class="at" x="294.5" y="38.1" text-anchor="middle">O</text><circle cx="320.0" cy="62.8" r="6.5" class="bg"/><text class="at" x="320.0" y="66.8" text-anchor="middle">O</text><line class="bd" x1="97.2" y1="132.0" x2="86.2" y2="138.0"/><text class="at" x="81.2" y="145.0" text-anchor="middle">O</text><line class="bd" x1="75.2" y1="141.0" x2="65.2" y2="141.0"/><rect class="sg" x="35.2" y="131.0" width="30" height="20" rx="5"/><text class="lb" x="50.2" y="145.5" text-anchor="middle">糖</text><line class="tl" x1="82.7" y1="169.0" x2="82.7" y2="181.0"/><line class="tl" x1="240.6" y1="169.0" x2="240.6" y2="181.0"/><line class="tl" x1="83.7" y1="175.0" x2="119.1" y2="175.0"/><line class="tl" x1="204.1" y1="175.0" x2="239.6" y2="175.0"/><path class="ah" d="M84.2 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M239.1 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="161.6" y="179.0" text-anchor="middle" style="font-size:11px">ステロイド骨格</text><line class="tl" x1="243.6" y1="169.0" x2="243.6" y2="181.0"/><line class="tl" x1="328.0" y1="169.0" x2="328.0" y2="181.0"/><line class="tl" x1="244.6" y1="175.0" x2="254.3" y2="175.0"/><line class="tl" x1="317.3" y1="175.0" x2="327.0" y2="175.0"/><path class="ah" d="M245.1 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="285.8" y="179.0" text-anchor="middle" style="font-size:11px">ラクトン環</text><line class="tl" x1="35.2" y1="195.0" x2="35.2" y2="207.0"/><line class="tl" x1="79.7" y1="195.0" x2="79.7" y2="207.0"/><line class="tl" x1="36.2" y1="201.0" x2="48.0" y2="201.0"/><line class="tl" x1="67.0" y1="201.0" x2="78.7" y2="201.0"/><path class="ah" d="M36.7 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M78.2 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="57.5" y="205.0" text-anchor="middle" style="font-size:11px">糖</text><line class="tl" x1="82.7" y1="195.0" x2="82.7" y2="207.0"/><line class="tl" x1="328.0" y1="195.0" x2="328.0" y2="207.0"/><line class="tl" x1="83.7" y1="201.0" x2="173.8" y2="201.0"/><line class="tl" x1="236.8" y1="201.0" x2="327.0" y2="201.0"/><path class="ah" d="M84.2 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="205.3" y="205.0" text-anchor="middle" style="font-size:11px">アグリコン</text><line class="tl" x1="35.2" y1="221.0" x2="35.2" y2="233.0"/><line class="tl" x1="328.0" y1="221.0" x2="328.0" y2="233.0"/><line class="tl" x1="36.2" y1="227.0" x2="161.1" y2="227.0"/><line class="tl" x1="202.1" y1="227.0" x2="327.0" y2="227.0"/><path class="ah" d="M36.7 227.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 227.0 l-6 -3.2 v6.4z"/><text class="lb" x="181.6" y="231.0" text-anchor="middle" style="font-size:11px">配糖体</text></svg>
+    ${ktbl([
+      ['薬物', kdrug('ジゴキシン','経口・注射。腎排泄で、腎機能低下により血中濃度↑。TDM対象。')+kdrug('メチルジゴキシン','経口。吸収がよい。')+kdrug('デスラノシド','注射。速効性。')],
+      ['作用機序', `<b>① 心筋収縮力増強（陽性変力作用）</b><br>Na⁺,K⁺-ATPase（Na⁺ポンプ）阻害 → 細胞内Na⁺↑ → Na⁺-Ca²⁺交換系を介して細胞内Ca²⁺↑ → 収縮力↑。<br>体循環の改善により、二次的に利尿作用。<svg class="fig" viewBox="0 0 330 200" role="img" aria-label="Na+,K+-ATPaseが阻害されると細胞内Na+が増え、Na+-Ca2+交換系でCa2+が細胞外に出にくくなり、細胞内Ca2+が増える">
 <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
 <rect class="cell" x="60" y="20" width="190" height="110" rx="16"/>
 <text class="mu" x="30" y="80" text-anchor="middle">細胞外</text><text class="mu" x="74" y="40">心筋細胞の中</text>
@@ -568,24 +551,20 @@ const HF_LESSONS = [
 <circle class="tp" cx="150" cy="130" r="14"/>
 <text class="mu" x="150" y="196" text-anchor="end">Na⁺-Ca²⁺交換系</text>
 </svg>
-    <p class="small muted">血液の巡りがよくなる結果、腎血流が増えて、二次的に尿量も増えます。</p>
-    <p><b>② 興奮伝導の遅延（陰性変伝導作用）</b><br>迷走神経を刺激する作用と、房室結節への直接の抑制で、房室伝導が遅くなります（心電図で <b>PR間隔延長</b>）。</p>
-    <p><b>③ 心拍数の減少（陰性変時作用）</b><br>反射性の迷走神経刺激と交感神経の抑制によります。</p>
-    ${rule('収縮力 ↑（陽性変力）、伝導 ↓・心拍数 ↓（陰性変伝導・陰性変時）')}</section>
-    <section class="panel"><h3>副作用</h3>${tbl(['副作用','しくみ'],[['心室性不整脈（ジギタリス中毒）','心室側の特殊心筋の自動性が高まる'],['悪心・嘔吐','延髄CTZのD₂受容体を刺激し、嘔吐中枢が興奮する']])}
-    <p class="small muted">有効域と中毒域が近いので、血中濃度を測りながら使います。</p></section>
-    <section class="panel"><h3>相互作用</h3>${rule('低K⁺血症 → ジギタリスが効きすぎて副作用が出やすい')}
-    <p>低K⁺血症を起こしやすい <b>チアジド系利尿薬</b>・<b>ループ利尿薬</b> と併用すると、心筋のジギタリスへの感受性が高まります。</p>
-    <p class="small muted">K⁺ は Na⁺,K⁺-ATPase でジギタリスと結合を取り合います。K⁺ が少ないとジギタリスが結合しやすくなります。</p></section>` },
+        <b>② 興奮伝導遅延（陰性変伝導作用）</b><br>迷走神経刺激と房室結節の直接抑制による。房室伝導が遅れ、PR間隔延長。<br>
+        <b>③ 心拍数減少（陰性変時作用）</b><br>反射性の迷走神経刺激と交感神経抑制による。`],
+      ['副作用', '① 心室性不整脈（ジギタリス中毒）。心室側の特殊心筋の自動性↑による。<br>② 悪心・嘔吐。延髄CTZのD₂受容体刺激による。'],
+      ['相互作用', '低K⁺血症を起こしやすい薬物（チアジド系利尿薬、ループ利尿薬）との併用で、心筋の感受性↑。副作用が出やすくなる。']
+    ])}</section>` },
   { id:'1-2', t:'急性心不全治療薬②', sub:'強心薬 › β1受容体刺激薬', plan:['b1ag','b1ag','b1ag','b1ag','b1ag'], body:()=>`
-    <section class="panel"><h3>〇 β1受容体刺激薬：薬物</h3>${tbl(['薬物名','ポイント'],[['<span class="dg">デノパミン</span>','経口。β1選択的に刺激する。慢性心不全にも使う'],['<span class="dg">ドブタミン</span>','点滴静注。β1をおもに刺激し、心拍数をあまり上げずに収縮力を高める。急性心不全に'],['<span class="dg">ドパミン</span>','点滴静注。量で作用が変わる（下の表）'],['<span class="dg">ドカルパミン</span>','経口。ドパミンのプロドラッグ。体内でドパミンになり、心筋のβ1刺激で収縮力↑、腎血管のD1刺激で腎血管を広げる']])}
-    <p><b><span class="dg">ドパミン</span> の用量と作用</b></p>${tbl(['用量','おもに刺激する受容体','作用'],[['低用量','D1','腎血管拡張 → 尿量↑'],['中用量','β1','心収縮力↑'],['高用量','α1','血管収縮 → 血圧↑']])}</section>
-    <section class="panel"><h3>作用機序</h3>
-    ${chain(['心筋のβ1受容体を刺激','Gsタンパク質 活性化','アデニル酸シクラーゼ 活性化','ATP → cAMP（細胞内 cAMP ↑）','心筋収縮力 ↑'])}
-    ${rule('β1 → Gs → アデニル酸シクラーゼ → cAMP↑ → 収縮力↑')}
-    <p class="small muted">cAMPが増えるとプロテインキナーゼA（PKA）がはたらき、Ca²⁺の流入が増えて収縮が強くなります。</p></section>
+    <section class="panel"><h3>〇 β1受容体刺激薬</h3>
+    ${ktbl([
+      ['薬物', kdrug('デノパミン','経口。')+kdrug('ドブタミン','点滴静注。')+kdrug('ドパミン','点滴静注。用量で作用が変わる。')+kdrug('ドカルパミン','経口。ドパミンのプロドラッグ。心筋のβ1刺激で収縮力↑、腎血管のD1刺激で腎血管拡張。')],
+      ['作用機序', 'β1受容体刺激 → Gs活性化 → アデニル酸シクラーゼ活性化 → ATPからcAMP生成（細胞内cAMP↑） → 心筋収縮力↑。']
+    ])}
+    <p><b><span class="dg">ドパミン</span> の用量と作用</b></p>${tbl(['用量','受容体','作用'],[['低用量','D1','腎血管拡張。尿量↑。'],['中用量','β1','心収縮力↑。'],['高用量','α1','血管収縮。血圧↑。']])}</section>
     <section class="panel"><h3>覚え方</h3><img class="goro-img" src="goro/b1.png" alt="β1受容体刺激薬の覚え方。出歯のドブタはバイバイし。出歯＝デノパミン、ドブタ＝ドブタミン、バイ＝β1、し＝刺激" loading="lazy">
-    ${tbl(['ゴロ','意味'],[['出歯（でば）','デノパミン'],['ドブタ','ドブタミン'],['バイバイ','β1'],['し','刺激']])}</section>` },
+    ${tbl(['ゴロ','意味'],[['出歯','デノパミン'],['ドブタ','ドブタミン'],['バイバイ','β1'],['し','刺激']])}</section>` },
 ];
 const ANS_LESSONS = [
   { id:'1-1', t:'自律神経のしくみ', sub:'伝達物質と受容体', plan:['ans','ans','ans','ans','ans'], body:()=>`
