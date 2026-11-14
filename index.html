@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -375,6 +375,16 @@ const POOL = {
     ['第3相','心室筋の活動電位で、第3相（再分極）のおもなイオンの動きは？','K⁺流出',['Na⁺流入','Ca²⁺流入','Na⁺流出'],'第3相：K⁺流出（再分極）'],
     ['心電図との対応','心室の再分極に対応する心電図の波形は？','T波',['P波','QRS波','U波のみ'],'QRS：心室の脱分極、T波：心室の再分極'],
   ],
+  cls1:[
+    ['Ⅰa群の作用','Ⅰa群の抗不整脈薬が遮断するのは？','Na⁺チャネルとK⁺チャネル',['Na⁺チャネルのみ','Ca²⁺チャネルのみ','β受容体'],'Ⅰa：Na⁺・K⁺チャネル遮断 → APD延長'],
+    ['APD短縮','活動電位持続時間を短縮させるのは？','リドカイン',['キニジン','フレカイニド','アミオダロン'],'APDが短縮するのはⅠb群だけ'],
+    ['抗コリン作用','抗コリン作用（口渇、排尿障害など）に注意が必要なⅠa群の薬は？','ジソピラミド',['リドカイン','ピルシカイニド','メキシレチン'],'ジソピラミド：抗コリン作用'],
+    ['局所麻酔薬','局所麻酔薬としても使うⅠb群の薬は？','リドカイン',['メキシレチン','アプリンジン','プロカインアミド'],'リドカイン：局所麻酔薬'],
+    ['糖尿病神経障害','糖尿病神経障害に伴う自発痛・しびれ感の改善にも使うのは？','メキシレチン',['リドカイン','フレカイニド','キニジン'],'メキシレチン：糖尿病神経障害の自覚症状の改善'],
+    ['Ⅰc群','立ち上がりの抑制が高度で、APDが変わらないのは？','ピルシカイニド',['キニジン','リドカイン','ソタロール'],'Ⅰc：プロパフェノン・ピルシカイニド・フレカイニド'],
+    ['Ⅰb群の適応','Ⅰb群（リドカイン・メキシレチン）のおもな適応は？','心室性の頻脈性不整脈',['上室性の頻脈性不整脈のみ','徐脈性不整脈','心不全'],'Ⅰb：心室性'],
+    ['Ⅰa群の副作用','Ⅰa群で注意する、QT間隔延長による重い不整脈は？','心室細動',['心房細動','洞性徐脈','房室ブロックのみ'],'QT間隔延長 → 心室細動'],
+  ],
   vw:[
     ['クラスⅠa','クラスⅠa（活動電位持続時間延長）の抗不整脈薬は？','ジソピラミド',['リドカイン','ピルシカイニド','アミオダロン'],'Ⅰa：キニジン・ジソピラミド・プロカインアミド・シベンゾリン・ピルメノール'],
     ['クラスⅠb','クラスⅠb（活動電位持続時間短縮）の抗不整脈薬は？','リドカイン',['キニジン','フレカイニド','ソタロール'],'Ⅰb：リドカイン・メキシレチン・アプリンジン'],
@@ -630,6 +640,46 @@ const AAR_LESSONS = [
 <text class="lb" x="270" y="240" style="fill:#D2465F;font-weight:700">K⁺ 流出</text>
 </svg>
     ${tbl(['相','イオンの動き'],[['第0相','Na⁺流入（脱分極）'],['第1相','一過性のK⁺流出'],['第2相','Ca²⁺流入（プラトー相）'],['第3相','K⁺流出（再分極）'],['第4相','静止膜電位']])}</section>` },
+  { id:'2-2', t:'頻脈性不整脈治療薬②', sub:'Ⅰ群（Na⁺チャネル遮断薬）', plan:['cls1','cls1','cls1','cls1','cls1'], body:()=>`
+    <section class="panel"><h3>〇 Ⅰ群（Na⁺チャネル遮断薬）</h3>
+    <p><b>・Ⅰa群</b></p>
+    ${ktbl([
+      ['薬物', kdrug('プロカインアミド','')+kdrug('ジソピラミド','')+kdrug('キニジン','')+kdrug('シベンゾリン','')+kdrug('ピルメノール','')],
+      ['作用機序', `Na⁺チャネル遮断・K⁺チャネル遮断<br>→ 立ち上がり（第0相）の抑制：中等度<br>→ 活動電位持続時間（APD）延長<svg class="fig apf" viewBox="0 0 160 118" role="img" aria-label="Ⅰa群：立ち上がりが中等度に抑えられ、活動電位持続時間が延長する">
+<line x1="8" y1="40" x2="156" y2="40" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3"/><text class="sm2" x="152" y="36" text-anchor="end">0 mV</text>
+<path d="M8 96 H40 L44 20 L50 26 C70 28 86 30 96 36 C110 52 116 90 128 96 H156" style="fill:none;stroke:var(--ink);stroke-width:2"/>
+<path d="M8 96 H40 L50 24 L55 28 C78 30 98 32 108 38 C122 54 128 90 142 96 H156" style="fill:none;stroke:#D9534F;stroke-width:2;stroke-dasharray:5 3"/>
+<text class="sm2" x="8" y="114">実線：通常　</text><text class="sm2" x="66" y="114" style="fill:#D9534F">点線：投与後</text>
+</svg>`],
+      ['適応', '期外収縮、発作性頻拍（上室性、心室性）'],
+      ['副作用', 'ジソピラミド：抗コリン作用（口渇、便秘、眼圧上昇、排尿障害など）<br>QT間隔延長による心室細動']
+    ])}
+    <p><b>覚え方</b></p><p class="small muted">（絵を準備中）</p>
+    <p><b>・Ⅰb群</b></p>
+    ${ktbl([
+      ['薬物', kdrug('リドカイン','')+kdrug('メキシレチン','')+kdrug('アプリンジン','')],
+      ['作用機序', `Na⁺チャネル遮断<br>→ 立ち上がりの抑制：軽度<br>→ 活動電位持続時間短縮<br><span class="small muted">※活動電位持続時間が短縮するのはⅠb群だけ。</span><svg class="fig apf" viewBox="0 0 160 118" role="img" aria-label="Ⅰb群：立ち上がりが軽度に抑えられ、活動電位持続時間が短縮する">
+<line x1="8" y1="40" x2="156" y2="40" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3"/><text class="sm2" x="152" y="36" text-anchor="end">0 mV</text>
+<path d="M8 96 H40 L44 20 L50 26 C70 28 86 30 96 36 C110 52 116 90 128 96 H156" style="fill:none;stroke:var(--ink);stroke-width:2"/>
+<path d="M8 96 H40 L45 22 L51 28 C64 30 74 34 82 42 C94 60 100 90 112 96 H156" style="fill:none;stroke:#D9534F;stroke-width:2;stroke-dasharray:5 3"/>
+<text class="sm2" x="8" y="114">実線：通常　</text><text class="sm2" x="66" y="114" style="fill:#D9534F">点線：投与後</text>
+</svg>`],
+      ['適応', '発作性頻拍（心室性）<br>※リドカインは急性心筋梗塞による心室性不整脈の予防目的でも用いられる。<br>※メキシレチンは心室性の頻脈性不整脈に用いる。'],
+      ['その他', 'リドカイン：局所麻酔薬<br>メキシレチン：糖尿病神経障害に伴う自覚症状（自発痛、しびれ感）の改善']
+    ])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/ib.png" alt="Ⅰb群の覚え方。アプリでメキメキリード、1番に。アプリ＝アプリンジン、メキメキ＝メキシレチン、リード＝リドカイン、1番＝Ⅰb群" loading="lazy">
+    <p><b>・Ⅰc群</b></p>
+    ${ktbl([
+      ['薬物', kdrug('プロパフェノン','')+kdrug('ピルシカイニド','')+kdrug('フレカイニド','')],
+      ['作用機序', `Na⁺チャネル遮断<br>→ 立ち上がりの抑制：高度<br>→ 活動電位持続時間不変（K⁺チャネルの影響なし）<svg class="fig apf" viewBox="0 0 160 118" role="img" aria-label="Ⅰc群：立ち上がりが高度に抑えられ、活動電位持続時間は変わらない">
+<line x1="8" y1="40" x2="156" y2="40" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:4 3"/><text class="sm2" x="152" y="36" text-anchor="end">0 mV</text>
+<path d="M8 96 H40 L44 20 L50 26 C70 28 86 30 96 36 C110 52 116 90 128 96 H156" style="fill:none;stroke:var(--ink);stroke-width:2"/>
+<path d="M8 96 H40 L58 28 L62 30 C78 31 88 32 98 38 C110 54 116 90 128 96 H156" style="fill:none;stroke:#D9534F;stroke-width:2;stroke-dasharray:5 3"/>
+<text class="sm2" x="8" y="114">実線：通常　</text><text class="sm2" x="66" y="114" style="fill:#D9534F">点線：投与後</text>
+</svg>`],
+      ['適応', '頻脈性不整脈（上室性、心室性）<br>他の抗不整脈薬が使用できないか、又は無効の頻脈性不整脈']
+    ])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/ic.png" alt="Ⅰc群の覚え方。石のフロはピカピカ深い。石＝Ⅰc群、フロ＝プロパフェノン、ピカピカ＝ピルシカイニド、深い＝フレカイニド" loading="lazy"></section>` },
 ];
 /* ===== 理8 心不全治療薬 ===== */
 const ktbl = rows => `<div class="scroll"><table class="tbl ktbl">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table></div>`;
