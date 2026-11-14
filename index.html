@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -369,6 +369,12 @@ const nq = (prompt, expr, ans, wrongs, unit, hint, explain) => ({ prompt, expr, 
 
 /* ===== 知識問題（[問いの見出し, 問題文, 正解, [まちがい], 解説]） ===== */
 const POOL = {
+  ap:[
+    ['第0相','心室筋の活動電位で、第0相（脱分極）に流入するイオンは？','Na⁺',['K⁺','Ca²⁺','Cl⁻'],'第0相：Na⁺流入（脱分極）'],
+    ['第2相','心室筋の活動電位で、プラトー相（第2相）を形づくるのは？','Ca²⁺流入',['Na⁺流入','K⁺流入','Cl⁻流出'],'第2相：Ca²⁺流入'],
+    ['第3相','心室筋の活動電位で、第3相（再分極）のおもなイオンの動きは？','K⁺流出',['Na⁺流入','Ca²⁺流入','Na⁺流出'],'第3相：K⁺流出（再分極）'],
+    ['心電図との対応','心室の再分極に対応する心電図の波形は？','T波',['P波','QRS波','U波のみ'],'QRS：心室の脱分極、T波：心室の再分極'],
+  ],
   vw:[
     ['クラスⅠa','クラスⅠa（活動電位持続時間延長）の抗不整脈薬は？','ジソピラミド',['リドカイン','ピルシカイニド','アミオダロン'],'Ⅰa：キニジン・ジソピラミド・プロカインアミド・シベンゾリン・ピルメノール'],
     ['クラスⅠb','クラスⅠb（活動電位持続時間短縮）の抗不整脈薬は？','リドカイン',['キニジン','フレカイニド','ソタロール'],'Ⅰb：リドカイン・メキシレチン・アプリンジン'],
@@ -597,9 +603,29 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
 /* ===== 理8-2 抗不整脈薬 ===== */
 const AAR_LESSONS = [
   { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'不整脈' }, t:'不整脈について', sub:'病態・薬物治療 › 10 循環器疾患 › 2 不整脈', plan:[], body:()=>'' },
-  { id:'2-1', t:'頻脈性不整脈治療薬①', sub:'ヴォーン・ウィリアムズ分類', plan:['vw','vw','vw','vw','vw'], body:()=>`
+  { id:'2-1', t:'頻脈性不整脈治療薬①', sub:'ヴォーン・ウィリアムズ分類 › 活動電位', plan:['vw','vw','vw','ap','ap'], body:()=>`
     <section class="panel"><h3>〇 ヴォーン・ウィリアムズ分類</h3>
-    ${tbl(['クラス','作用','薬物'],[['Ⅰa','Na⁺チャネル遮断<br>活動電位持続時間 延長','<span class="dg">キニジン</span><br><span class="dg">ジソピラミド</span><br><span class="dg">プロカインアミド</span><br><span class="dg">シベンゾリン</span><br><span class="dg">ピルメノール</span>'],['Ⅰb','Na⁺チャネル遮断<br>活動電位持続時間 短縮','<span class="dg">リドカイン</span><br><span class="dg">メキシレチン</span><br><span class="dg">アプリンジン</span>'],['Ⅰc','Na⁺チャネル遮断<br>活動電位持続時間 不変','<span class="dg">プロパフェノン</span><br><span class="dg">ピルシカイニド</span><br><span class="dg">フレカイニド</span>'],['Ⅱ','β受容体遮断','<span class="dg">プロプラノロール</span><br><span class="dg">ナドロール</span>'],['Ⅲ','K⁺チャネル遮断<br>不応期延長','<span class="dg">アミオダロン</span><br><span class="dg">ソタロール</span><br><span class="dg">ニフェカラント</span>'],['Ⅳ','Ca²⁺チャネル遮断','<span class="dg">ベラパミル</span><br><span class="dg">ジルチアゼム</span><br><span class="dg">ベプリジル</span>']])}</section>` },
+    ${tbl(['クラス','作用','薬物'],[['Ⅰa','Na⁺チャネル遮断<br>活動電位持続時間 延長','<span class="dg">キニジン</span><br><span class="dg">ジソピラミド</span><br><span class="dg">プロカインアミド</span><br><span class="dg">シベンゾリン</span><br><span class="dg">ピルメノール</span>'],['Ⅰb','Na⁺チャネル遮断<br>活動電位持続時間 短縮','<span class="dg">リドカイン</span><br><span class="dg">メキシレチン</span><br><span class="dg">アプリンジン</span>'],['Ⅰc','Na⁺チャネル遮断<br>活動電位持続時間 不変','<span class="dg">プロパフェノン</span><br><span class="dg">ピルシカイニド</span><br><span class="dg">フレカイニド</span>'],['Ⅱ','β受容体遮断','<span class="dg">プロプラノロール</span><br><span class="dg">ナドロール</span>'],['Ⅲ','K⁺チャネル遮断<br>不応期延長','<span class="dg">アミオダロン</span><br><span class="dg">ソタロール</span><br><span class="dg">ニフェカラント</span>'],['Ⅳ','Ca²⁺チャネル遮断','<span class="dg">ベラパミル</span><br><span class="dg">ジルチアゼム</span><br><span class="dg">ベプリジル</span>']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/vw.png" alt="抗不整脈薬の覚え方。なべかりっか。な＝Ⅰ Na⁺チャネル、べ＝Ⅱ β遮断、かり＝Ⅲ K⁺チャネル、か＝Ⅳ Ca²⁺チャネル" loading="lazy"></section>
+    <section class="panel"><h3>〇 心筋細胞と心電図・活動電位</h3><svg class="fig" viewBox="0 0 360 340" role="img" aria-label="心電図と心室筋の活動電位とイオンの流れ。QRSのころに第0相でNa⁺が流入して脱分極、第1相、第2相でCa²⁺が流入してプラトー、T波のころに第3相でK⁺が流出して再分極し、第4相で静止膜電位にもどる">
+<text class="mu" x="8" y="16">心電図</text>
+<path d="M20 70 H60 Q75 52 90 70 H122 L126 77 L132 12 L140 84 L146 70 H190 Q220 42 250 70 H350" style="fill:none;stroke:#D9534F;stroke-width:2"/>
+<text class="lb" x="75" y="50" text-anchor="middle">P</text><text class="lb" x="119" y="92" text-anchor="middle">Q</text><text class="lb" x="132" y="10" text-anchor="end" dx="-4">R</text><text class="lb" x="146" y="96" text-anchor="middle">S</text><text class="lb" x="220" y="40" text-anchor="middle">T</text>
+<text class="mu" x="8" y="112">心室筋の活動電位</text>
+<path d="M20 214 H128 L134 122 L140 132 C170 134 190 134 205 138 C228 150 238 200 258 214 H350" style="fill:none;stroke:var(--ink);stroke-width:2.2"/>
+<line x1="131" y1="70" x2="131" y2="250" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3"/>
+<text class="sm2" x="125" y="176" text-anchor="end">第0相</text><text class="sm2" x="144" y="124">第1相</text><text class="sm2" x="182" y="150" text-anchor="middle">第2相</text><text class="sm2" x="250" y="170">第3相</text><text class="sm2" x="66" y="230" text-anchor="middle">第4相</text><text class="sm2" x="318" y="206" text-anchor="middle">第4相</text>
+<text class="lb" x="96" y="150" text-anchor="end" style="font-weight:700">脱分極</text><text class="lb" x="300" y="160" text-anchor="middle" style="font-weight:700">再分極</text>
+<path d="M190 250 C205 250 212 222 232 222 C250 222 258 246 266 250 Z" style="fill:#E4677F;opacity:.85"/>
+<rect x="20" y="250" width="330" height="14" style="fill:#F2A7B4"/><text class="sm2" x="24" y="261" style="fill:#5A2A33">細胞膜</text>
+<text class="sm2" x="10" y="244">外</text><text class="sm2" x="10" y="282">内</text>
+<path d="M132 264 C132 290 134 326 138 326 C142 326 140 290 140 264 Z" style="fill:#2E8BC9"/>
+<path d="M140 264 C150 290 170 294 185 294 C205 294 212 272 222 264 Z" style="fill:#F2C12E;opacity:.9"/>
+<text class="lb" x="126" y="318" text-anchor="end" style="fill:#2E8BC9;font-weight:700">Na⁺ 流入</text>
+<text class="lb" x="190" y="312" text-anchor="middle" style="fill:#C99700;font-weight:700">Ca²⁺ 流入</text>
+<text class="lb" x="270" y="240" style="fill:#D2465F;font-weight:700">K⁺ 流出</text>
+</svg>
+    ${tbl(['相','イオンの動き'],[['第0相','Na⁺流入（脱分極）'],['第1相','一過性のK⁺流出'],['第2相','Ca²⁺流入（プラトー相）'],['第3相','K⁺流出（再分極）'],['第4相','静止膜電位']])}</section>` },
 ];
 /* ===== 理8 心不全治療薬 ===== */
 const ktbl = rows => `<div class="scroll"><table class="tbl ktbl">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table></div>`;
