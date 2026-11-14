@@ -567,7 +567,7 @@ const PK_LESSONS = [
 ];
 
 
-/* ===== 薬箪笥（医薬品単語集） ===== */
+/* ===== 医薬品棚（医薬品単語集） ===== */
 // [一般名, 主な商品名, 分類, 特徴（国試のポイント）]
 const KD = {
   ace:{ goro:[['名前の終わりが「〜プリル」','エナラプリル・イミダプリル・カプトプリル…はみんなACE阻害薬'],['エースがプリプリ、コンコン空咳','ACE（エース）阻害薬＝〜プリル。ブラジキニンがたまって空咳'],['カプトでカプッ、味がしない','カプトプリルはSH基をもち、味覚障害'],['エースは妊婦さんの前に出ない','ACE阻害薬は妊婦に禁忌']], name:'ACE阻害薬', mech:'アンジオテンシン変換酵素を阻害し、アンジオテンシンⅡの生成を減らす。ブラジキニンの分解も抑える。', drugs:[
@@ -622,7 +622,7 @@ const kdTable = k => tbl(['一般名','商品名','ポイント'], KD[k].drugs.m
 const KD_LESSONS = [
   ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name, sub:KD[k].drugs.map(d=>d[0]).slice(0,3).join('・')+' など', plan:Array(5).fill('kd_'+k), body:()=>`
     <section class="panel"><h3>${KD[k].name}のしくみ</h3><p>${KD[k].mech}</p>${rule(KD[k].rule)}</section>
-    <section class="panel"><h3>引き出しの中の薬</h3>${kdTable(k)}</section>` })),
+    <section class="panel"><h3>棚の薬</h3>${kdTable(k)}</section>` })),
   { id:'1-6', t:'まとめテスト', sub:'降圧薬の10問', test:true, plan:['kd_ace','kd_ace','kd_arb','kd_arb','kd_ca','kd_ca','kd_diu','kd_diu','kd_bb','kd_bb'], body:()=>`
     <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 の薬から10問。分類・商品名・特徴をまぜて出します。</p></section>` },
 ];
@@ -638,7 +638,7 @@ Object.keys(KD).forEach(k=>{ G['gr_'+k]=()=>goroQ(k); });
 const GR_LESSONS = [
   ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name+'のゴロ', sub:KD[k].goro[0][0], plan:Array(5).fill('gr_'+k), body:()=>`
     <section class="panel"><h3>${KD[k].name}のゴロ</h3>${goroList(KD[k].goro)}</section>
-    <section class="panel"><h3>薬の一覧</h3>${kdTable(k)}<p class="small muted">くわしくは「薬箪笥 › 循環器 › 降圧薬」で。</p></section>` })),
+    <section class="panel"><h3>薬の一覧</h3>${kdTable(k)}<p class="small muted">くわしくは「医薬品棚 › 循環器 › 降圧薬」で。</p></section>` })),
   { id:'1-6', t:'まとめテスト', sub:'降圧薬のゴロ10問', test:true, plan:['gr_ace','gr_ace','gr_arb','gr_arb','gr_ca','gr_ca','gr_diu','gr_diu','gr_bb','gr_bb'], body:()=>`
     <section class="panel"><h3>ゴロ集（降圧薬）</h3>${Object.values(KD).map(g=>`<p class="small muted" style="margin-top:6px">${g.name}</p>${goroList(g.goro)}`).join('')}</section>` },
 ];
@@ -1037,7 +1037,7 @@ const UNITS = {
   nx_pr: { no:'必7', title:'調剤と服薬指導', subject:'必須問題', course:'hissu', subj:6, lessons:NX_PR_LESSONS, cards:'nx_pr', drill:'nx_pr' },
   cog: { no:'検5-1', title:'認知機能の検査', subject:'検査室', course:'lab', subj:4, lessons:COG_LESSONS, cards:'cog', drill:'cog' },
   phy: { no:'検5-2', title:'身体機能・ADLの評価', subject:'検査室', course:'lab', subj:4, lessons:PHY_LESSONS, cards:'phy', drill:'phy' },
-  kd: { no:'箪1', title:'降圧薬', subject:'薬箪笥', course:'drawer', subj:0, lessons:KD_LESSONS, cards:'kd', drill:'kd' },
+  kd: { no:'棚1', title:'降圧薬', subject:'医薬品棚', course:'drawer', subj:0, lessons:KD_LESSONS, cards:'kd', drill:'kd' },
 };
 const U = (...t) => t.map(x => typeof x === 'string' ? { t:x } : x);
 const CATALOG = [
@@ -1093,7 +1093,7 @@ const CATALOG = [
       { name:'画像検査', k:'4', units:U('X線・CT','MRI','超音波','核医学') },
       { name:'評価スケール', k:'5', units:U({ t:'認知機能の検査', ready:'cog' },{ t:'身体機能・ADLの評価', ready:'phy' },'意識レベル（JCS・GCS）','栄養・嚥下の評価','こころの評価（うつ・不安）','痛みの評価') },
       { name:'その他', k:'6', units:U('呼吸機能検査','内視鏡','病理・細胞診') } ] },
-    { id:'drawer', name:'薬箪笥', k:'箪', note:'医薬品単語集', subjects:[
+    { id:'drawer', name:'医薬品棚', k:'棚', note:'医薬品単語集', subjects:[
       { name:'循環器', k:'循', units:U({ t:'降圧薬', ready:'kd' },'抗不整脈薬','心不全・狭心症の薬','抗血栓薬','脂質異常症の薬') },
       { name:'中枢神経', k:'中', units:U('抗精神病薬','抗うつ薬','抗てんかん薬','睡眠薬・抗不安薬','パーキンソン病の薬','認知症の薬') },
       { name:'代謝・内分泌', k:'代', units:U('糖尿病の薬','骨粗鬆症の薬','甲状腺の薬') },
