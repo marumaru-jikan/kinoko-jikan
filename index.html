@@ -1920,7 +1920,7 @@ function vUnit(){
   return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
   ${u.lessons.map(l=>l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">コラム</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
-  </div>${T.length?`<div class="list"><button class="item" data-act="cards"><span class="body"><b>用語カード</b><br><span class="small muted">用語の確認 ${T.length}枚</span></span><span class="tag ${kn===T.length?'done':kn?'mid':''}">${kn}/${T.length}</span><span class="chev">›</span></button></div>`:''}</div>`;
+  </div></div>`;
 }
 function vLesson(){
   const l=LX(S.lid);
