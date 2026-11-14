@@ -18,7 +18,7 @@
 /* Layout: one calm phone-width column in a night forest, views swapped in place, a fixed bottom tab bar (海月時間シリーズと同じ骨組み) */
 :root{
   --bg:#EEF2EA; --bg-top:#D9E5D2; --surface:#FFFFFF; --sunk:#E3EADD; --ink:#16231A; --muted:#55665A; --line:#C9D5C3;
-  --teal:#2E6A45; --teal-soft:#DCEBDF; --accent:#B98A3E; --accent-soft:#F5EAD6; --accent-ink:#4A3410;
+  --teal:#2E6A45; --teal-soft:#DCEBDF; --accent:#B98A3E; --accent-soft:#F5EAD6; --accent-ink:#4A3410; --red:#C23B2E;
   --good:#23845A; --good-bg:#DCF1E6; --bad:#B9503A; --bad-bg:#F8E1DA;
   --night1:#1F3A2A; --night2:#122219; --night3:#07100B; --star:#C6F28A; --night-ink:#E7F0DC; --night-muted:#A9BFAE;
   --f-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","BIZ UDPGothic",sans-serif;
@@ -26,11 +26,11 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0A120D; --bg-top:#142319; --surface:#111C15; --sunk:#0D1711; --ink:#E4EFE0; --muted:#9DB2A1; --line:#22342A;
-  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5;
+  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5; --red:#FF8B7B;
   --good:#6CCB94; --good-bg:#14332A; --bad:#E8826A; --bad-bg:#3A201A; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0A120D; --bg-top:#142319; --surface:#111C15; --sunk:#0D1711; --ink:#E4EFE0; --muted:#9DB2A1; --line:#22342A;
-  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5;
+  --teal:#9DD3A9; --teal-soft:#1A2F22; --accent:#D9A86C; --accent-soft:#3A2B14; --accent-ink:#F4DDB5; --red:#FF8B7B;
   --good:#6CCB94; --good-bg:#14332A; --bad:#E8826A; --bad-bg:#3A201A; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -117,6 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.fig .dg{fill:var(--red);font-weight:700}
 .fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -332,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -368,6 +369,20 @@ const nq = (prompt, expr, ans, wrongs, unit, hint, explain) => ({ prompt, expr, 
 
 /* ===== 知識問題（[問いの見出し, 問題文, 正解, [まちがい], 解説]） ===== */
 const POOL = {
+  cgly:[
+    ['強心配糖体の構造','強心配糖体のステロイド骨格の17位に結合しているのは？','ラクトン環',['糖','カルボキシ基','アミノ基'],'17位にラクトン環、3位に糖が結合しています。'],
+    ['アグリコン','強心配糖体のアグリコン（非糖部）にあたるのは？','ステロイド骨格＋ラクトン環',['糖＋ステロイド骨格','糖＋ラクトン環','糖のみ'],'ステロイド骨格とラクトン環をあわせてアグリコンといいます。'],
+    ['作用点','ジゴキシンが阻害する分子は？','Na⁺,K⁺-ATPase',['Na⁺-Ca²⁺交換系','L型Ca²⁺チャネル','ホスホジエステラーゼⅢ'],'Na⁺ポンプを阻害して細胞内Na⁺を増やし、Na⁺-Ca²⁺交換系を介して細胞内Ca²⁺を増やします。'],
+    ['陽性変力作用','ジゴキシンで心筋収縮力が高まるのは、細胞内の何が増えるため？','Ca²⁺',['K⁺','cAMP','cGMP'],'Na⁺の増加 → Na⁺-Ca²⁺交換系でCa²⁺が出にくくなる → 細胞内Ca²⁺↑。'],
+    ['心電図の変化','ジゴキシンの陰性変伝導作用で起こりやすい心電図の変化は？','PR間隔の延長',['QT間隔の延長','PR間隔の短縮','QRS幅の短縮'],'房室結節の伝導が遅くなるため、PR間隔が延びます。'],
+    ['心拍数','強心配糖体の心拍数への作用は？','減少させる（陰性変時作用）',['増加させる（陽性変時作用）','変化させない','頻脈と徐脈をくり返す'],'反射性の迷走神経刺激と交感神経抑制により、心拍数が減ります。'],
+    ['嘔吐','ジゴキシンによる悪心・嘔吐のしくみは？','延髄CTZのD₂受容体刺激',['胃粘膜の直接刺激','5-HT₃受容体遮断','H₁受容体刺激'],'CTZのD₂受容体を刺激して、延髄の嘔吐中枢を興奮させます。'],
+    ['重い副作用','ジギタリス中毒で特に注意する不整脈は？','心室性不整脈',['洞性頻脈','心房粗動','WPW症候群'],'心室側の特殊心筋の自動性が高まり、心室性期外収縮などが起こります。'],
+    ['相互作用','ジゴキシンの副作用を起こしやすくする電解質の異常は？','低K⁺血症',['高K⁺血症','低Ca²⁺血症','高Na⁺血症'],'K⁺が少ないとジギタリスがNa⁺,K⁺-ATPaseに結合しやすくなり、効きすぎます。'],
+    ['併用注意','ジゴキシンとの併用で、低K⁺血症からジギタリス中毒を起こしやすいのは？','フロセミド',['スピロノラクトン','トリアムテレン','カンデサルタン'],'ループ利尿薬・チアジド系利尿薬は低K⁺血症を起こしやすい。スピロノラクトンなどはK⁺保持性です。'],
+    ['腎排泄','腎機能が低下した患者で血中濃度が上がりやすい強心配糖体は？','ジゴキシン',['ドブタミン','ミルリノン','ピモベンダン'],'ジゴキシンはおもに腎臓から未変化体で排泄されます。'],
+    ['注射剤','強心配糖体のうち、注射で急性期に使われるのは？','デスラノシド',['メチルジゴキシン','ピモベンダン','カルペリチド'],'デスラノシドは注射剤で効き始めが速い強心配糖体です。'],
+  ],
   ans:[
     ['交感神経の節後線維','交感神経の節後線維の主な神経伝達物質は？','ノルアドレナリン',['アセチルコリン','ドパミン','セロトニン'],'交感神経の節後線維はノルアドレナリン。ただし汗腺に分布する交感神経はアセチルコリンです。'],
     ['節前線維','交感・副交感神経の節前線維が放出する伝達物質は？','アセチルコリン',['ノルアドレナリン','アドレナリン','GABA'],'節前線維はどちらもアセチルコリン。自律神経節のニコチン受容体（NN）に作用します。'],
@@ -500,6 +515,62 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
   <text class="lb" x="292" y="34" text-anchor="middle">効果器</text><text class="lb" x="292" y="94" text-anchor="middle">効果器</text></svg>`;
 
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
+/* ===== 理8 心不全治療薬 ===== */
+const HF_LESSONS = [
+  { id:'1-0', lid:'1-0', col:true, t:'心不全について', sub:'病態・薬物治療 › 10 循環器疾患 › 1 心不全', plan:[], body:()=>`
+    <section class="panel"><h3>心不全とは</h3><p>心臓のポンプ機能が落ちて、全身が必要とする血液を送り出せなくなった状態です。</p>
+    ${tbl(['','左心不全','右心不全'],[['うっ血する場所','肺','体循環（全身の静脈）'],['おもな症状','呼吸困難、起座呼吸、肺水腫','浮腫、頸静脈怒張、肝腫大']])}
+    ${rule('急性心不全：まず症状をとる（強心・利尿・血管拡張）<br>慢性心不全：心臓を休ませて予後をよくする')}</section>
+    <section class="panel note-box"><p class="small">病態と治療の流れは「<b>病態・薬物治療 › 10 循環器疾患 › 1 心不全</b>」でまとめます。</p></section>` },
+  { id:'1-1', t:'急性心不全治療薬', sub:'強心薬 › 強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
+    <section class="panel"><h3>〇 強心薬</h3><p>弱った心臓の<b>収縮力を高める</b>薬です。強心配糖体のほか、カテコールアミン系（β1刺激薬）やPDEⅢ阻害薬があります。</p></section>
+    <section class="panel"><h3>〇 強心配糖体：基本構造</h3><p>ステロイド骨格の17位にラクトン環がつき、3位に糖が結合した配糖体です。ジギタリス（ケジギタリスなど）の葉から得られます。</p>
+    <svg class="fig" viewBox="0 0 330 205" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖が結合。ステロイド骨格とラクトン環をあわせてアグリコンという"><g transform="translate(52,0)">
+<polygon class="bd" points="60.0,92.0 77.3,102.0 77.3,122.0 60.0,132.0 42.7,122.0 42.7,102.0"/><polygon class="bd" points="94.6,92.0 112.0,102.0 112.0,122.0 94.6,132.0 77.3,122.0 77.3,102.0"/><polygon class="bd" points="112.0,62.0 129.3,72.0 129.3,92.0 112.0,102.0 94.6,92.0 94.6,72.0"/><polygon class="bd" points="129.3,72.0 148.3,65.8 160.1,82.0 148.3,98.2 129.3,92.0"/>
+<line class="bd" x1="148.3" y1="65.8" x2="165.3" y2="53.5"/>
+<polygon class="bd" points="165.3,53.5 171.1,34.3 191.0,33.8 197.7,52.7 181.8,64.8"/>
+<line class="bd" x1="168.5" y1="52.3" x2="181.7" y2="61.4"/>
+<line class="bd" x1="197.7" y1="52.7" x2="209.9" y2="56.3"/>
+<line class="bd" x1="200.3" y1="51.5" x2="212.5" y2="55.1"/>
+<circle cx="191.0" cy="33.8" r="6" class="bg"/><text class="at" x="191.0" y="37.8" text-anchor="middle">O</text>
+<circle cx="212.9" cy="56.3" r="6" class="bg"/><text class="at" x="212.9" y="60.3" text-anchor="middle">O</text>
+<line class="bd" x1="42.7" y1="122.0" x2="31.7" y2="128.0"/>
+<text class="at" x="26.7" y="133.0" text-anchor="middle">O</text>
+<line class="bd" x1="20.7" y1="131.0" x2="8.7" y2="131.0"/>
+<rect class="sg" x="-21.3" y="121.0" width="30" height="20" rx="5"/><text class="lb" x="-6.3" y="135.0" text-anchor="middle">糖</text>
+<line class="bd" x1="129.3" y1="92.0" x2="129.3" y2="104.0"/><text class="at" x="129.3" y="116.0" text-anchor="middle">OH</text>
+<text class="mu" x="49.7" y="120.0">3</text><text class="mu" x="116.3" y="94.0">14</text><text class="mu" x="142.3" y="79.8">17</text>
+<line class="tl" x1="-21.3" y1="150" x2="14.7" y2="150"/><line class="tl" x1="-21.3" y1="145" x2="-21.3" y2="155"/><line class="tl" x1="14.7" y1="145" x2="14.7" y2="155"/><text class="lb" x="-3.3" y="166" text-anchor="middle">糖</text><line class="tl" x1="18.7" y1="150" x2="160.1" y2="150"/><line class="tl" x1="18.7" y1="145" x2="18.7" y2="155"/><line class="tl" x1="160.1" y1="145" x2="160.1" y2="155"/><text class="lb" x="89.4" y="166" text-anchor="middle">ステロイド骨格</text><line class="tl" x1="164.1" y1="150" x2="205.7" y2="150"/><line class="tl" x1="164.1" y1="145" x2="164.1" y2="155"/><line class="tl" x1="205.7" y1="145" x2="205.7" y2="155"/><text class="lb" x="184.9" y="166" text-anchor="middle">ラクトン環</text><line class="tl" x1="18.7" y1="176" x2="205.7" y2="176"/><line class="tl" x1="18.7" y1="171" x2="18.7" y2="181"/><line class="tl" x1="205.7" y1="171" x2="205.7" y2="181"/><text class="lb" x="112.2" y="192" text-anchor="middle">アグリコン（非糖部）</text></g></svg><p class="small muted" style="text-align:center">糖 ＋ アグリコン ＝ <b>配糖体</b></p>
+    ${rule('ステロイド骨格 ＋ ラクトン環 ＝ アグリコン<br>アグリコン ＋ 糖 ＝ 強心配糖体')}</section>
+    <section class="panel"><h3>〇 強心配糖体：薬物</h3>${tbl(['薬物名','ポイント'],[['<span class="dg">ジゴキシン</span>','経口・注射。おもに腎臓から排泄されるので、腎機能が落ちると血中濃度が上がる。TDM対象'],['<span class="dg">メチルジゴキシン</span>','経口。ジゴキシンのメチル化体で、消化管からの吸収がよい'],['<span class="dg">デスラノシド</span>','注射。効き始めが速く、急性期に使う']])}</section>
+    <section class="panel"><h3>作用機序</h3>
+    <p><b>① 心筋収縮力の増強（陽性変力作用）</b></p>
+    ${chain(['Na⁺,K⁺-ATPase（Na⁺ポンプ）阻害','細胞内 Na⁺ ↑','Na⁺-Ca²⁺交換系で Ca²⁺ が出にくい','細胞内 Ca²⁺ ↑','収縮力 ↑'])}
+    <svg class="fig" viewBox="0 0 330 200" role="img" aria-label="Na+,K+-ATPaseが阻害されると細胞内Na+が増え、Na+-Ca2+交換系でCa2+が細胞外に出にくくなり、細胞内Ca2+が増える">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
+<rect class="cell" x="60" y="20" width="190" height="110" rx="16"/>
+<text class="mu" x="30" y="80" text-anchor="middle">細胞外</text><text class="mu" x="74" y="40">心筋細胞の中</text>
+<path class="ar" d="M222 50 L284 38"/><text class="lb" x="290" y="40">Na⁺</text>
+<path class="ar" d="M286 74 L228 64"/><text class="lb" x="290" y="80">K⁺</text>
+<circle class="tp" cx="250" cy="55" r="14"/><line class="xx" x1="241" y1="46" x2="259" y2="64"/><line class="xx" x1="259" y1="46" x2="241" y2="64"/>
+<text class="mu" x="292" y="104" text-anchor="middle">Na⁺,K⁺-ATPase</text><text class="dg" x="292" y="118" text-anchor="middle" style="font-size:11px">阻害</text>
+<text class="dg" x="200" y="62" text-anchor="end">Na⁺ ↑</text>
+<text class="dg" x="150" y="96" text-anchor="middle">Ca²⁺ ↑ → 収縮力 ↑</text>
+<path class="ar" d="M126 168 L136 142"/><text class="lb" x="120" y="174" text-anchor="end">Na⁺</text>
+<path class="ar" d="M164 142 L174 168" style="stroke-dasharray:3 3"/><text class="lb" x="180" y="174">Ca²⁺</text><text class="dg" x="180" y="189" style="font-size:11px">出にくい</text>
+<circle class="tp" cx="150" cy="130" r="14"/>
+<text class="mu" x="150" y="196" text-anchor="end">Na⁺-Ca²⁺交換系</text>
+</svg>
+    <p class="small muted">血液の巡りがよくなる結果、腎血流が増えて、二次的に尿量も増えます。</p>
+    <p><b>② 興奮伝導の遅延（陰性変伝導作用）</b><br>迷走神経を刺激する作用と、房室結節への直接の抑制で、房室伝導が遅くなります（心電図で <b>PR間隔延長</b>）。</p>
+    <p><b>③ 心拍数の減少（陰性変時作用）</b><br>反射性の迷走神経刺激と交感神経の抑制によります。</p>
+    ${rule('収縮力 ↑（陽性変力）、伝導 ↓・心拍数 ↓（陰性変伝導・陰性変時）')}</section>
+    <section class="panel"><h3>副作用</h3>${tbl(['副作用','しくみ'],[['心室性不整脈（ジギタリス中毒）','心室側の特殊心筋の自動性が高まる'],['悪心・嘔吐','延髄CTZのD₂受容体を刺激し、嘔吐中枢が興奮する']])}
+    <p class="small muted">有効域と中毒域が近いので、血中濃度を測りながら使います。</p></section>
+    <section class="panel"><h3>相互作用</h3>${rule('低K⁺血症 → ジギタリスが効きすぎて副作用が出やすい')}
+    <p>低K⁺血症を起こしやすい <b>チアジド系利尿薬</b>・<b>ループ利尿薬</b> と併用すると、心筋のジギタリスへの感受性が高まります。</p>
+    <p class="small muted">K⁺ は Na⁺,K⁺-ATPase でジギタリスと結合を取り合います。K⁺ が少ないとジギタリスが結合しやすくなります。</p></section>` },
+];
 const ANS_LESSONS = [
   { id:'1-1', t:'自律神経のしくみ', sub:'伝達物質と受容体', plan:['ans','ans','ans','ans','ans'], body:()=>`
     <section class="panel"><h3>2つの神経と伝達物質</h3>${ansFig()}
@@ -1570,6 +1641,7 @@ const TERMS = {
 
 /* ===== 単元とコース ===== */
 const UNITS = {
+  hf:{ no:'理8', title:'心不全治療薬', subject:'薬理', course:'pharm', subj:7, lessons:HF_LESSONS, cards:'hf', drill:'hf' },
   ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:2, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
   fp: { no:'衛3', title:'食中毒と食品汚染', subject:'衛生', course:'hyg', subj:2, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   pk: { no:'剤1', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:0, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
@@ -1622,7 +1694,7 @@ const CATALOG = [
       { name:'中枢神経系に作用する薬', k:'5', units:U('全身麻酔薬','催眠薬・抗不安薬','抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬','パーキンソン病治療薬','認知症治療薬','オピオイド鎮痛薬','片頭痛治療薬') },
       { name:'抗炎症薬', k:'6', units:U('ステロイド性抗炎症薬','非ステロイド性抗炎症薬（NSAIDs）','抗アレルギー薬') },
       { name:'骨・関節に作用する薬', k:'7', units:U('骨粗鬆症治療薬','関節リウマチ治療薬','痛風・高尿酸血症治療薬') },
-      { name:'循環器系に作用する薬', k:'8', units:U('降圧薬','心不全治療薬','狭心症治療薬','抗不整脈薬') },
+      { name:'循環器系に作用する薬', k:'8', units:U({ t:'心不全治療薬', ready:'hf' },'降圧薬','狭心症治療薬','抗不整脈薬') },
       { name:'血液系・造血器系に作用する薬', k:'9', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子') },
       { name:'泌尿器系に作用する薬', k:'10', units:U('利尿薬','排尿障害治療薬') },
       { name:'生殖器系に作用する薬', k:'11', units:U('性ホルモン関連薬','子宮に作用する薬','勃起不全治療薬') },
@@ -1918,13 +1990,13 @@ function vSubject(){
 function vUnit(){
   const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
   return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
-  ${u.lessons.map(l=>l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">コラム</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
+  ${u.lessons.map(l=>l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
   </div></div>`;
 }
 function vLesson(){
   const l=LX(S.lid);
-  if(l.col) return `${top('コラム')}<div class="stack lesson">${l.body()}<button class="btn ghost wide" data-act="back">もどる</button></div>`;
+  if(l.col) return `${top(l.lid?l.lid+'　'+l.t:'コラム')}<div class="stack lesson">${l.body()}<button class="btn ghost wide" data-act="back">もどる</button></div>`;
   return `${top(LN(l))}<div class="stack lesson">
   <div class="chips"><span class="tag">約5分</span><span class="tag">${l.test?'テスト':'説明 → 練習'} ${l.plan.length}問</span>${R.lessons[lkey(S.uid,l.id)]?'<span class="tag done">クリア済み</span>':''}</div>
   ${l.body()}<button class="btn wide" data-act="quiz">${l.test?'テストを始める':'練習を始める（'+l.plan.length+'問）'}</button></div>`;
