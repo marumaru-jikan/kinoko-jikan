@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -369,6 +369,17 @@ const nq = (prompt, expr, ans, wrongs, unit, hint, explain) => ({ prompt, expr, 
 
 /* ===== 知識問題（[問いの見出し, 問題文, 正解, [まちがい], 解説]） ===== */
 const POOL = {
+  b1ag:[
+    ['β1刺激薬','β1受容体刺激薬はどれ？','ドブタミン',['プロプラノロール','ミルリノン','ジゴキシン'],'ドブタミンはおもにβ1受容体を刺激して心収縮力を高めます。'],
+    ['経口のβ1刺激薬','経口で使える選択的β1受容体刺激薬は？','デノパミン',['ドブタミン','イソプレナリン','サルブタモール'],'デノパミンは経口の選択的β1受容体刺激薬です。'],
+    ['プロドラッグ','ドパミンのプロドラッグはどれ？','ドカルパミン',['デノパミン','レボドパ','ドブタミン'],'ドカルパミンは経口投与後、体内でドパミンに変わります。'],
+    ['共役するG蛋白','β1受容体が共役するGタンパク質は？','Gs',['Gi','Gq','G12/13'],'β受容体はGsと共役し、アデニル酸シクラーゼを活性化します。'],
+    ['活性化する酵素','β1受容体刺激で活性化される酵素は？','アデニル酸シクラーゼ',['ホスホリパーゼC','ホスホジエステラーゼⅢ','グアニル酸シクラーゼ'],'Gs → アデニル酸シクラーゼが活性化し、ATPからcAMPがつくられます。'],
+    ['増えるもの','β1受容体刺激で心筋細胞内に増えるセカンドメッセンジャーは？','cAMP',['cGMP','IP₃','DAG'],'アデニル酸シクラーゼがATPをcAMPに変えます。'],
+    ['ドパミン低用量','ドパミンを低用量で使ったときにおもに起こる作用は？','腎血管拡張による尿量増加',['強い血管収縮','気管支拡張','心拍数の著しい低下'],'低用量ではD1受容体を刺激し、腎血管を広げます。'],
+    ['ドパミン高用量','ドパミンを高用量で使ったときに強くなる作用は？','α1刺激による血管収縮',['D1刺激による腎血管拡張','β2刺激による気管支拡張','M受容体遮断'],'高用量ではα1受容体刺激が強まり、血管が収縮して血圧が上がります。'],
+    ['ドカルパミン','ドカルパミンが腎血管を広げるのは、ドパミンがどの受容体を刺激するため？','D1受容体',['α1受容体','β2受容体','D2受容体'],'体内でドパミンになり、腎血管のD1受容体を刺激します。'],
+  ],
   cgly:[
     ['強心配糖体の構造','強心配糖体のステロイド骨格の17位に結合しているのは？','ラクトン環',['糖','カルボキシ基','アミノ基'],'17位にラクトン環、3位に糖が結合しています。'],
     ['アグリコン','強心配糖体のアグリコン（非糖部）にあたるのは？','ステロイド骨格＋ラクトン環',['糖＋ステロイド骨格','糖＋ラクトン環','糖のみ'],'ステロイド骨格とラクトン環をあわせてアグリコンといいます。'],
@@ -517,12 +528,8 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
 /* ===== 理8 心不全治療薬 ===== */
 const HF_LESSONS = [
-  { id:'1-0', lid:'1-0', col:true, t:'心不全について', sub:'病態・薬物治療 › 10 循環器疾患 › 1 心不全', plan:[], body:()=>`
-    <section class="panel"><h3>心不全とは</h3><p>心臓のポンプ機能が落ちて、全身が必要とする血液を送り出せなくなった状態です。</p>
-    ${tbl(['','左心不全','右心不全'],[['うっ血する場所','肺','体循環（全身の静脈）'],['おもな症状','呼吸困難、起座呼吸、肺水腫','浮腫、頸静脈怒張、肝腫大']])}
-    ${rule('急性心不全：まず症状をとる（強心・利尿・血管拡張）<br>慢性心不全：心臓を休ませて予後をよくする')}</section>
-    <section class="panel note-box"><p class="small">病態と治療の流れは「<b>病態・薬物治療 › 10 循環器疾患 › 1 心不全</b>」でまとめます。</p></section>` },
-  { id:'1-1', t:'急性心不全治療薬', sub:'強心薬 › 強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
+  { id:'1-0', lid:'1-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'心不全' }, t:'心不全について', sub:'病態・薬物治療 › 10 循環器疾患 › 1 心不全', plan:[], body:()=>'' },
+  { id:'1-1', t:'急性心不全治療薬①', sub:'強心薬 › 強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
     <section class="panel"><h3>〇 強心薬</h3><p>弱った心臓の<b>収縮力を高める</b>薬です。強心配糖体のほか、カテコールアミン系（β1刺激薬）やPDEⅢ阻害薬があります。</p></section>
     <section class="panel"><h3>〇 強心配糖体：基本構造</h3><p>ステロイド骨格の17位にラクトン環がつき、3位に糖が結合した配糖体です。ジギタリス（ケジギタリスなど）の葉から得られます。</p>
     <svg class="fig" viewBox="0 0 330 205" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖が結合。ステロイド骨格とラクトン環をあわせてアグリコンという"><g transform="translate(52,0)">
@@ -570,6 +577,15 @@ const HF_LESSONS = [
     <section class="panel"><h3>相互作用</h3>${rule('低K⁺血症 → ジギタリスが効きすぎて副作用が出やすい')}
     <p>低K⁺血症を起こしやすい <b>チアジド系利尿薬</b>・<b>ループ利尿薬</b> と併用すると、心筋のジギタリスへの感受性が高まります。</p>
     <p class="small muted">K⁺ は Na⁺,K⁺-ATPase でジギタリスと結合を取り合います。K⁺ が少ないとジギタリスが結合しやすくなります。</p></section>` },
+  { id:'1-2', t:'急性心不全治療薬②', sub:'強心薬 › β1受容体刺激薬', plan:['b1ag','b1ag','b1ag','b1ag','b1ag'], body:()=>`
+    <section class="panel"><h3>〇 β1受容体刺激薬：薬物</h3>${tbl(['薬物名','ポイント'],[['<span class="dg">デノパミン</span>','経口。β1選択的に刺激する。慢性心不全にも使う'],['<span class="dg">ドブタミン</span>','点滴静注。β1をおもに刺激し、心拍数をあまり上げずに収縮力を高める。急性心不全に'],['<span class="dg">ドパミン</span>','点滴静注。量で作用が変わる（下の表）'],['<span class="dg">ドカルパミン</span>','経口。ドパミンのプロドラッグ。体内でドパミンになり、心筋のβ1刺激で収縮力↑、腎血管のD1刺激で腎血管を広げる']])}
+    <p><b><span class="dg">ドパミン</span> の用量と作用</b></p>${tbl(['用量','おもに刺激する受容体','作用'],[['低用量','D1','腎血管拡張 → 尿量↑'],['中用量','β1','心収縮力↑'],['高用量','α1','血管収縮 → 血圧↑']])}</section>
+    <section class="panel"><h3>作用機序</h3>
+    ${chain(['心筋のβ1受容体を刺激','Gsタンパク質 活性化','アデニル酸シクラーゼ 活性化','ATP → cAMP（細胞内 cAMP ↑）','心筋収縮力 ↑'])}
+    ${rule('β1 → Gs → アデニル酸シクラーゼ → cAMP↑ → 収縮力↑')}
+    <p class="small muted">cAMPが増えるとプロテインキナーゼA（PKA）がはたらき、Ca²⁺の流入が増えて収縮が強くなります。</p></section>
+    <section class="panel"><h3>覚え方</h3><img class="goro-img" src="goro/b1.png" alt="β1受容体刺激薬の覚え方。出歯のドブタはバイバイし。出歯＝デノパミン、ドブタ＝ドブタミン、バイ＝β1、し＝刺激" loading="lazy">
+    ${tbl(['ゴロ','意味'],[['出歯（でば）','デノパミン'],['ドブタ','ドブタミン'],['バイバイ','β1'],['し','刺激']])}</section>` },
 ];
 const ANS_LESSONS = [
   { id:'1-1', t:'自律神経のしくみ', sub:'伝達物質と受容体', plan:['ans','ans','ans','ans','ans'], body:()=>`
@@ -1987,10 +2003,14 @@ function vSubject(){
       return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
     return `<button class="item" disabled><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
 }
+// 別の科目の章へ飛ぶ行（飛び先ができるまでは「準備中」）
+const refItem = l => { const c=CATALOG.find(x=>x.id===l.ref.c), s=c&&c.subjects.find(x=>x.name===l.ref.s), un=s&&s.units.find(x=>x.t===l.ref.u);
+  return un&&un.ready ? `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid col">${l.lid}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`
+    : `<button class="item" disabled><span class="lid col">${l.lid}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}（準備中）</span></span></button>`; };
 function vUnit(){
   const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
   return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
-  ${u.lessons.map(l=>l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
+  ${u.lessons.map(l=>l.ref?refItem(l):l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
   </div></div>`;
 }
