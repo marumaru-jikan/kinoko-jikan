@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -423,6 +423,27 @@ const POOL = {
     ['Ⅰc群','立ち上がりの抑制が高度で、APDが変わらないのは？','ピルシカイニド',['キニジン','リドカイン','ソタロール'],'Ⅰc：プロパフェノン・ピルシカイニド・フレカイニド'],
     ['Ⅰb群の適応','Ⅰb群（リドカイン・メキシレチン）のおもな適応は？','心室性の頻脈性不整脈',['上室性の頻脈性不整脈のみ','徐脈性不整脈','心不全'],'Ⅰb：心室性'],
     ['Ⅰa群の副作用','Ⅰa群で注意する、QT間隔延長による重い不整脈は？','心室細動',['心房細動','洞性徐脈','房室ブロックのみ'],'QT間隔延長 → 心室細動'],
+  ],
+  preg:[
+    ['絶対過敏期','催奇形性が最も問題となる絶対過敏期は？','妊娠4〜7週',['妊娠0〜3週','妊娠13〜16週','妊娠28週以降'],'器官形成期。最も危険'],
+    ['無影響期','妊娠0〜3週の薬の影響は？','ほとんど影響なし（all or none）',['最も危険','かなり危険','胎児毒性が最も強い'],'影響があれば流産、なければ完全に修復'],
+    ['相対過敏期','相対過敏期にあたるのは？','妊娠8〜12週',['妊娠0〜3週','妊娠4〜7週','妊娠17週以降'],'かなり危険'],
+    ['潜在過敏期','妊娠17週以降で注意するのは？','胎児毒性',['催奇形性が最も強い','all or none','器官形成'],'催奇形性はないが、胎児の発育・機能への影響'],
+  ],
+  pregx:[
+    ['ACE阻害薬','妊婦に投与禁忌なのは？','カプトプリル',['ヒドララジン','メチルドパ','ラベタロール'],'ACE阻害薬・ARB：胎児死亡例あり'],
+    ['抗凝固薬','妊婦に投与禁忌の血液凝固阻止薬は？','ワルファリン',['ヘパリン','インスリン','アセトアミノフェン'],'催奇形性。妊婦にはヘパリン'],
+    ['男性も避妊','男性も避妊する必要がある薬は？','リバビリン',['カプトプリル','炭酸リチウム','ワルファリン'],'エトレチナート・リバビリン・サリドマイド'],
+    ['子宮収縮','子宮収縮作用のため妊婦に禁忌なのは？','ミソプロストール',['プラバスタチン','トリメタジオン','ロサルタン'],'ミソプロストール・エルゴタミン'],
+    ['躁病治療薬','妊婦に投与禁忌の躁病治療薬は？','炭酸リチウム',['バルプロ酸','アセトアミノフェン','インスリン'],'催奇形性'],
+    ['ニューキノロン','妊婦に投与禁忌の抗菌薬は？','レボフロキサシン',['アモキシシリン','セファレキシン','エリスロマイシン'],'ニューキノロン系：関節障害（動物実験）'],
+  ],
+  pregok:[
+    ['糖尿病','妊婦の糖尿病に使える薬は？','インスリン',['SU薬','ピオグリタゾン','メトホルミン'],'インスリンは胎盤を通過しにくい'],
+    ['高血圧','妊婦に投与可能な高血圧治療薬は？','ヒドララジン',['カプトプリル','ロサルタン','アリスキレン'],'ヒドララジン・メチルドパ・ラベタロール'],
+    ['抗凝固','妊婦に投与可能な血液凝固阻止薬は？','ヘパリン',['ワルファリン','ダビガトラン','リバーロキサバン'],'ヘパリンは胎盤を通過しない'],
+    ['瀉下薬','妊婦の便秘で第一選択となる瀉下薬は？','酸化マグネシウム',['ルビプロストン','センノシドの大量投与','ヒマシ油の大量投与'],'酸化マグネシウム：第一選択'],
+    ['禁忌の瀉下薬','妊婦に禁忌の瀉下薬は？','ルビプロストン',['酸化マグネシウム','ピコスルファート','ラクツロース'],'動物実験で胎児喪失'],
   ],
   lsad:[
     ['FTU','1FTU（フィンガーチップユニット）の量は？','約0.5g',['約0.1g','約2g','約5g'],'第2指の先端から第1関節部まで押し出した量'],
@@ -807,9 +828,52 @@ const PM3_LESSONS = [
   { id:'3-2', t:'記載方法', wip:true, plan:[], body:()=>'' }
 ];
 const PM4_LESSONS = [
-  { id:'4-1', t:'妊婦', wip:true, plan:[], body:()=>'' },
-  { id:'4-2', t:'小児', wip:true, plan:[], body:()=>'' },
-  { id:'4-3', t:'高齢者', wip:true, plan:[], body:()=>'' }
+  { id:'bandA', band:'A　妊婦・授乳婦', col:true, plan:[], body:()=>'' },
+  { id:'4-1', t:'妊娠と薬', sub:'催奇形性', plan:['preg','preg','preg','preg','preg'], body:()=>`
+    <section class="panel"><h3>〇 催奇形性</h3>
+    <p>先天異常を起こす危険因子には、薬剤・胎児の発育時期・生活環境などがある。とりわけ胎児の発育時期が最も重要。</p>
+    ${tbl(['妊娠週数','時期','催奇形性の危険度'],[
+      ['0〜3週<br><span class="small muted">〜27日</span>','無影響期','ほとんど影響なし<br><span class="small muted">影響があれば流産、なければ完全に修復（all or none）。</span>'],
+      ['<span class="mk">4〜7週</span><br><span class="small muted">28〜50日</span>','絶対過敏期','最も危険<br><span class="small muted">器官形成期。</span>'],
+      ['8〜12週<br><span class="small muted">51〜84日</span>','相対過敏期','かなり危険'],
+      ['13〜16週<br><span class="small muted">85〜112日</span>','比較過敏期','やや危険'],
+      ['17週〜分娩','潜在過敏期','ほとんど影響なし<br><span class="small muted">催奇形性はないが、胎児毒性（発育・機能への影響）に注意。</span>']])}</section>` },
+  { id:'4-2', t:'妊婦に投与禁忌の医薬品', sub:'用途 › 理由', plan:['pregx','pregx','pregx','pregx','pregx'], body:()=>`
+    <section class="panel"><h3>〇 妊婦に投与禁忌の代表的な医薬品</h3>
+    ${tbl(['医薬品','用途','理由'],[
+      ['<span class="dg">カプトプリル</span>（ACE阻害薬）<br><span class="dg">ロサルタン</span>（ARB）','高血圧治療薬','胎児死亡例あり'],
+      ['<span class="dg">ワルファリン</span>','血液凝固阻止薬','催奇形性'],
+      ['<span class="dg">トリメタジオン</span>','抗てんかん薬','催奇形性'],
+      ['<span class="dg">炭酸リチウム</span>','躁病治療薬','催奇形性'],
+      ['<span class="dg">プラバスタチン</span>','高脂血症治療薬','催奇形性'],
+      ['<span class="dg">SU薬</span>、<span class="dg">ピオグリタゾン</span>','糖尿病治療薬','催奇形性'],
+      ['<span class="dg">エトレチナート</span>','角化症治療薬','催奇形性<br>※男性も避妊する'],
+      ['<span class="dg">リバビリン</span>','抗ウイルス薬','催奇形性<br>※男性も避妊する'],
+      ['<span class="dg">サリドマイド</span>','多発性骨髄腫治療薬','催奇形性<br>※男性も避妊する'],
+      ['<span class="dg">ミソプロストール</span>等のプロスタグランジン製剤<br><span class="small muted">（ジノプロスト、ジノプロストン、ゲメプロストは除く）</span>','消化性潰瘍治療薬','子宮収縮作用'],
+      ['<span class="dg">エルゴタミン</span>','片頭痛治療薬','子宮収縮作用'],
+      ['<span class="dg">アムロジピン</span>','高血圧治療薬','妊娠期間・分娩時間の延長'],
+      ['<span class="dg">レボフロキサシン</span>','ニューキノロン系抗菌薬','関節障害（動物実験）']])}
+    <p class="small muted">※アムロジピン・ニフェジピンは、2022年の添付文書改訂で妊婦への投与が禁忌から外れた（治療上の有益性が危険性を上回る場合に投与）。</p></section>` },
+  { id:'4-3', t:'妊婦に投与可能な医薬品', sub:'妊婦への瀉下薬の選択', plan:['pregok','pregok','pregok','pregok','pregok'], body:()=>`
+    <section class="panel"><h3>〇 妊婦に投与可能な代表的な医薬品</h3>
+    ${tbl(['医薬品','用途'],[
+      ['インスリン','糖尿病治療薬'],
+      ['ヒドララジン、メチルドパ、ラベタロール','高血圧治療薬'],
+      ['ヘパリン','血液凝固阻止薬'],
+      ['レボチロキシン','甲状腺機能低下症治療薬'],
+      ['ペニシリン系、セフェム系、マクロライド系','抗菌薬'],
+      ['アセトアミノフェン','解熱鎮痛薬']])}</section>
+    <section class="panel"><h3>〇 妊婦への瀉下薬の選択</h3>
+    ${tbl(['瀉下薬','妊婦への使用'],[
+      ['酸化マグネシウム','使用できる（第一選択）'],
+      ['ピコスルファート','使用できる'],
+      ['センノシド','大量服用で子宮収縮を誘発し、流早産の危険。必要最小限にとどめる'],
+      ['ルビプロストン','禁忌（動物実験で胎児喪失）']])}</section>` },
+  { id:'bandB', band:'B　小児', col:true, plan:[], body:()=>'' },
+  { id:'4-4', t:'小児', wip:true, plan:[], body:()=>'' },
+  { id:'bandC', band:'C　高齢者', col:true, plan:[], body:()=>'' },
+  { id:'4-5', t:'高齢者', wip:true, plan:[], body:()=>'' }
 ];
 const PM5_LESSONS = [
   { id:'5-1', t:'点眼剤', wip:true, plan:[], body:()=>'' },
@@ -2777,7 +2841,7 @@ const refItem = l => { const c=CATALOG.find(x=>x.id===l.ref.c), s=c&&c.subjects.
 function vUnit(){
   const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
   return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
-  ${u.lessons.map(l=>l.wip?wipItem(l):l.ref?refItem(l):l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
+  ${u.lessons.map(l=>l.band?`<div class="band">${l.band}</div>`:l.wip?wipItem(l):l.ref?refItem(l):l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
   </div></div>`;
 }
@@ -2855,7 +2919,7 @@ function leafBurst(){
   }catch(e){}
 }
 function vResult(){
-  const Q=S.quiz, n=Q.qs.length, u=CU(), l=LX(S.lid), idx=u.lessons.indexOf(l), nx=u.lessons[idx+1];
+  const Q=S.quiz, n=Q.qs.length, u=CU(), l=LX(S.lid), idx=u.lessons.indexOf(l), nx=u.lessons.slice(idx+1).find(x=>!x.band&&!x.wip&&!x.ref);
   const msg = Q.score===n?'全問正解。よく頑張りました。':Q.score>=n*0.6?'あと少し。間違えた問題を見直せば完璧です。':'大丈夫。間違えた問題こそ、伸びるところです。';
   return `${top('結果')}<div class="stack">
   <div class="panel result pop"><div class="big">${Q.score}/${n}</div><h2>${Q.retry?'見直し完了':LN(l)}</h2><p class="muted">${msg}</p></div>
