@@ -333,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'pm1-lv1':{q:'',a:''}, 'pm2-lv1':{q:'',a:''}, 'pm3-lv1':{q:'',a:''}, 'pm4-lv1':{q:'',a:''}, 'pm5-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -652,6 +652,36 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
   <text class="lb" x="292" y="34" text-anchor="middle">効果器</text><text class="lb" x="292" y="94" text-anchor="middle">効果器</text></svg>`;
 
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
+/* ===== 実15 服薬指導 ===== */
+const PM1_LESSONS = [
+  { id:'1-1', t:'服薬指導', wip:true, plan:[], body:()=>'' },
+  { id:'1-2', t:'患者接遇', wip:true, plan:[], body:()=>'' },
+  { id:'1-3', t:'服薬指導内容①', wip:true, plan:[], body:()=>'' },
+  { id:'1-4', t:'服薬指導内容②', wip:true, plan:[], body:()=>'' },
+  { id:'1-5', t:'服薬指導内容③', wip:true, plan:[], body:()=>'' },
+  { id:'1-6', t:'服薬指導内容④', wip:true, plan:[], body:()=>'' }
+];
+const PM2_LESSONS = [
+  { id:'2-1', t:'高血圧症', wip:true, plan:[], body:()=>'' },
+  { id:'2-2', t:'糖尿病', wip:true, plan:[], body:()=>'' },
+  { id:'2-3', t:'脂質異常症', wip:true, plan:[], body:()=>'' },
+  { id:'2-4', t:'禁煙指導', wip:true, plan:[], body:()=>'' },
+  { id:'2-5', t:'アトピー性皮膚炎', wip:true, plan:[], body:()=>'' }
+];
+const PM3_LESSONS = [
+  { id:'3-1', t:'記録の目的・記載内容', wip:true, plan:[], body:()=>'' },
+  { id:'3-2', t:'記載方法', wip:true, plan:[], body:()=>'' }
+];
+const PM4_LESSONS = [
+  { id:'4-1', t:'妊婦', wip:true, plan:[], body:()=>'' },
+  { id:'4-2', t:'小児', wip:true, plan:[], body:()=>'' },
+  { id:'4-3', t:'高齢者', wip:true, plan:[], body:()=>'' }
+];
+const PM5_LESSONS = [
+  { id:'5-1', t:'点眼剤', wip:true, plan:[], body:()=>'' },
+  { id:'5-2', t:'吸入剤', wip:true, plan:[], body:()=>'' },
+  { id:'5-3', t:'坐剤', wip:true, plan:[], body:()=>'' }
+];
 /* ===== 理5 中枢神経系に作用する薬 ===== */
 const CNS1_LESSONS = [
   { id:'1-1', t:'麻酔とは', wip:true, plan:[], body:()=>'' },
@@ -2155,6 +2185,11 @@ const TERMS = {
 
 /* ===== 単元とコース ===== */
 const UNITS = {
+  pm1:{ no:'実15', title:'服薬指導', subject:'実務', course:'prac', subj:14, lessons:PM1_LESSONS, cards:'pm1', drill:'pm1' },
+  pm2:{ no:'実15', title:'生活指導', subject:'実務', course:'prac', subj:14, lessons:PM2_LESSONS, cards:'pm2', drill:'pm2' },
+  pm3:{ no:'実15', title:'記録', subject:'実務', course:'prac', subj:14, lessons:PM3_LESSONS, cards:'pm3', drill:'pm3' },
+  pm4:{ no:'実15', title:'配慮が必要な患者', subject:'実務', course:'prac', subj:14, lessons:PM4_LESSONS, cards:'pm4', drill:'pm4' },
+  pm5:{ no:'実15', title:'使い方の指導が必要な剤形', subject:'実務', course:'prac', subj:14, lessons:PM5_LESSONS, cards:'pm5', drill:'pm5' },
   cns1:{ no:'理5', title:'全身麻酔薬', subject:'薬理', course:'pharm', subj:4, lessons:CNS1_LESSONS, cards:'cns1', drill:'cns1' },
   cns2:{ no:'理5', title:'催眠薬・抗不安薬', subject:'薬理', course:'pharm', subj:4, lessons:CNS2_LESSONS, cards:'cns2', drill:'cns2' },
   cns3:{ no:'理5', title:'麻薬性鎮痛薬（オピオイド）', subject:'薬理', course:'pharm', subj:4, lessons:CNS3_LESSONS, cards:'cns3', drill:'cns3' },
@@ -2289,7 +2324,7 @@ const CATALOG = [
       { name:'消毒薬', k:'12', units:U() },
       { name:'医薬品の管理', k:'13', units:U() },
       { name:'医薬品情報', k:'14', units:U() },
-      { name:'服薬指導', k:'15', units:U() },
+      { name:'服薬指導', k:'15', units:U({ t:'服薬指導', ready:'pm1' },{ t:'生活指導', ready:'pm2' },{ t:'記録', ready:'pm3' },{ t:'配慮が必要な患者', ready:'pm4' },{ t:'使い方の指導が必要な剤形', ready:'pm5' }) },
       { name:'地域', k:'16', units:U() },
       { name:'薬学的管理【がん】', k:'17', units:U() },
       { name:'薬学的管理【感染症】', k:'18', units:U() } ] },
