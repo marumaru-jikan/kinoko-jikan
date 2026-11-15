@@ -868,9 +868,9 @@ const PM4_LESSONS = [
     <p><b>覚え方</b></p><img class="goro-img" src="goro/preg_bp.png" alt="妊娠高血圧症候群に使用可能な降圧薬の覚え方。めっちゃひどい！妊娠したらアムロに逃げられた。めっちゃ＝メチルドパ、ひど＝ヒドララジン、妊娠＝妊娠高血圧症、アムロ＝アムロジピン、に＝ニフェジピン、られた＝ラベタロール" loading="lazy"><img class="goro-img" src="goro/preg_abx.png" alt="妊婦に投与可能な抗菌薬の覚え方。マグロのシリはセーフ。マグロ＝マクロライド系、シリ＝ペニシリン系、セーフ＝セフェム系" loading="lazy"></section>
     <section class="panel"><h3>〇 妊婦への瀉下薬の選択</h3>
     ${ktbl([
-      ['使用可能', kdrug('酸化マグネシウム','塩類下剤')+kdrug('パンテチン','ビタミン製剤')+kdrug('ピコスルファート','大腸刺激性下剤')],
-      ['慎重投与', kdrug('大黄甘草湯','漢方製剤・含ダイオウ')+kdrug('センノシド','大腸刺激性下剤')+'<span class="small muted">子宮収縮を誘発し、流早産の危険</span>'],
-      ['禁忌', kdrug('ルビプロストン','ClC-2活性化薬')+'<span class="small muted">動物実験で胎児喪失</span>']
+      ['使用可能', kdrug('<span class="mk">酸化マグネシウム</span>','塩類下剤')+kdrug('パンテチン','ビタミン製剤')+kdrug('<span class="mk">ピコスルファート</span>','大腸刺激性下剤')],
+      ['慎重投与', kdrug('<span class="mk">大黄甘草湯</span>','漢方製剤・含ダイオウ')+kdrug('<span class="mk">センノシド</span>','大腸刺激性下剤')+'<span class="small muted">子宮収縮を誘発し、流早産の危険</span>'],
+      ['禁忌', kdrug('<span class="mk">ルビプロストン</span>','ClC-2活性化薬')+'<span class="small muted">動物実験で胎児喪失</span>']
     ])}</section>` },
   { id:'bandB', band:'B　小児', col:true, plan:[], body:()=>'' },
   { id:'4-4', t:'小児', wip:true, plan:[], body:()=>'' },
