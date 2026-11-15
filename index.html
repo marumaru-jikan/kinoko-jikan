@@ -333,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'ana1-lv1':{q:'',a:''}, 'ana2-lv1':{q:'',a:''}, 'ana3-lv1':{q:'',a:''}, 'ana4-lv1':{q:'',a:''}, 'ana5-lv1':{q:'',a:''}, 'ana6-lv1':{q:'',a:''}, 'ana7-lv1':{q:'',a:''}, 'rad1-lv1':{q:'',a:''}, 'ana8-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'pm1-lv1':{q:'',a:''}, 'pm2-lv1':{q:'',a:''}, 'pm3-lv1':{q:'',a:''}, 'pm4-lv1':{q:'',a:''}, 'pm5-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'ana1-lv1':{q:'',a:''}, 'ana2-lv1':{q:'',a:''}, 'ana3-lv1':{q:'',a:''}, 'ana4-lv1':{q:'',a:''}, 'ana5-lv1':{q:'',a:''}, 'ana6-lv1':{q:'',a:''}, 'ana7-lv1':{q:'',a:''}, 'rad1-lv1':{q:'',a:''}, 'rad2-lv1':{q:'',a:''}, 'ana8-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'pm1-lv1':{q:'',a:''}, 'pm2-lv1':{q:'',a:''}, 'pm3-lv1':{q:'',a:''}, 'pm4-lv1':{q:'',a:''}, 'pm5-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -1230,6 +1230,10 @@ const RAD1_LESSONS = [
   { id:'1-9', t:'放射平衡', wip:true, plan:[], body:()=>'' },
   { id:'1-10', t:'放射線測定', wip:true, plan:[], body:()=>'' },
   { id:'1-11', t:'人体への影響', wip:true, plan:[], body:()=>'' }
+];
+const RAD2_LESSONS = [
+  { id:'2-1', t:'放射性医薬品とは', wip:true, plan:[], body:()=>'' },
+  { id:'2-2', t:'放射性医薬品', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 物4-7 機器分析④⑤ ===== */
 const ANA7_LESSONS = [
@@ -2923,6 +2927,7 @@ const UNITS = {
   eye3:{ no:'理16', title:'白内障治療薬', subject:'薬理', course:'pharm', subj:15, lessons:EYE3_LESSONS, cards:'eye3', drill:'eye3' },
   saf1:{ no:'理2', title:'副作用と有害事象', subject:'薬理', course:'pharm', subj:1, lessons:SAF1_LESSONS, cards:'saf1', drill:'saf1' },
   saf4:{ no:'理2', title:'薬物依存', subject:'薬理', course:'pharm', subj:1, lessons:SAF4_LESSONS, cards:'saf4', drill:'saf4' },
+  rad2:{ no:'物5', title:'放射性医薬品', subject:'物理', course:'phys', subj:4, lessons:RAD2_LESSONS, cards:'rad2', drill:'rad2' },
   rad1:{ no:'物5', title:'放射線と放射能', subject:'物理', course:'phys', subj:4, lessons:RAD1_LESSONS, cards:'rad1', drill:'rad1' },
   ana7:{ no:'物4', title:'機器分析④', subject:'物理', course:'phys', subj:3, lessons:ANA7_LESSONS, cards:'ana7', drill:'ana7' },
   ana8:{ no:'物4', title:'機器分析⑤', subject:'物理', course:'phys', subj:3, lessons:ANA8_LESSONS, cards:'ana8', drill:'ana8' },
@@ -2966,7 +2971,7 @@ const CATALOG = [
       { name:'物理化学', k:'2', units:U('気体の微視的状態と巨視的状態','エネルギー','化学平衡','相平衡','溶液の性質','電気化学') },
       { name:'反応速度論', k:'3', units:U('反応速度論') },
       { name:'分析化学', k:'4', units:U({ t:'分析の基本', ready:'ana1' },{ t:'定性分析', ready:'ana2' },{ t:'定量分析', ready:'ana3' },{ t:'機器分析①', ready:'ana4' },{ t:'機器分析②', ready:'ana5' },{ t:'機器分析③', ready:'ana6' },{ t:'機器分析④', ready:'ana7' },{ t:'機器分析⑤', ready:'ana8' },'分離分析法','臨床における分析技術') },
-      { name:'放射化学', k:'5', units:U({ t:'放射線と放射能', ready:'rad1' },'放射性医薬品','臨床における放射線技術') },
+      { name:'放射化学', k:'5', units:U({ t:'放射線と放射能', ready:'rad1' },{ t:'放射性医薬品', ready:'rad2' },'臨床における放射線技術') },
       { name:'基本事項', k:'6', units:U('薬学計算','物理計算') } ] },
     { id:'chem', name:'化学', k:'化', note:'有機化学・天然物', subjects:[
       { name:'有機化合物の性質', k:'有', units:U('立体化学','官能基の性質と反応','酸・塩基と反応性') },
