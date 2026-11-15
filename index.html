@@ -448,6 +448,15 @@ const POOL = {
     ['水銀','妊婦が食べる量に注意する魚は？','キンメダイ・メカジキなどの大型の魚',['サケ','アジ','ツナ缶'],'メチル水銀が胎児の神経の発達に影響'],
     ['カルシウム','妊娠中のカルシウムに付加量がない理由は？','腸管からの吸収率が上がるため',['胎児に必要ないため','骨から出なくなるため','過剰症が多いため'],'ふだんどおりの推奨量をとる'],
   ],
+  qual2:[
+    ['ホウ酸塩','H₂SO₄とCH₃OHを加えて点火すると、緑色の炎を上げて燃えるのは？','ホウ酸塩',['リン酸塩','硫酸塩','シュウ酸塩'],'ホウ酸メチルが燃える'],
+    ['クルクマ紙','ホウ酸塩をクルクマ紙で確認したときの色（微塩酸酸性）は？','赤色',['黄色','緑色','青色'],'アルカリ性では灰青〜青黒色'],
+    ['リン酸塩','七モリブデン酸六アンモニウム試液で黄色の沈殿を生じるのは？','リン酸塩',['ホウ酸塩','硫酸塩','チオ硫酸塩'],'沈殿（黄色）'],
+    ['チオ硫酸塩','HClを加えると白濁し、二酸化硫黄のにおいを発するのは？','チオ硫酸塩',['硫酸塩','亜硫酸塩','過酸化物'],'白濁○、SO₂○'],
+    ['亜硫酸塩','HClを加えると白濁しないが、二酸化硫黄のにおいを発するのは？','亜硫酸塩',['硫酸塩','チオ硫酸塩','リン酸塩'],'白濁×、SO₂○'],
+    ['過マンガン酸塩','硫酸酸性で過酸化水素試液を加えると、泡立って脱色するのは？','過マンガン酸塩',['シュウ酸塩','硫酸塩','ホウ酸塩'],'O₂ガス発生'],
+    ['シュウ酸塩','硫酸酸性でKMnO₄試液を加えると、泡立たずに脱色するのは？','シュウ酸塩',['過酸化物','過マンガン酸塩','チオ硫酸塩'],'過酸化物は泡立ち脱色'],
+  ],
   qual:[
     ['AgCl','Cl⁻にAgNO₃試液を加えたときの沈殿の色は？','白色',['淡黄色','黄色','青色'],'AgCl：白、AgBr：淡黄、AgI：黄'],
     ['AgI','I⁻にAgNO₃試液を加えたときの沈殿の色は？','黄色',['白色','淡黄色','赤褐色'],'Cl → Br → I で色が濃くなる'],
@@ -1211,7 +1220,27 @@ const ANA2_LESSONS = [
     <p>白金線に金属塩をつけて炎に入れ、炎の色を見る。</p><svg class="fig" viewBox="0 0 330 136" role="img" aria-label="炎色反応。Li赤、Na黄、K淡紫、Cu青緑、Ca黄赤、Sr紅、Ba黄緑"><g transform="translate(24 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#E8321E"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Li</text><text class="sm2" x="0" y="130" text-anchor="middle">赤</text></g><g transform="translate(70 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#F2D400"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Na</text><text class="sm2" x="0" y="130" text-anchor="middle">黄</text></g><g transform="translate(116 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#9B4FB0"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">K</text><text class="sm2" x="0" y="130" text-anchor="middle">淡紫</text></g><g transform="translate(162 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#1FB890"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Cu</text><text class="sm2" x="0" y="130" text-anchor="middle">青緑</text></g><g transform="translate(208 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#F28A10"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Ca</text><text class="sm2" x="0" y="130" text-anchor="middle">黄赤（橙）</text></g><g transform="translate(254 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#E8264F"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Sr</text><text class="sm2" x="0" y="130" text-anchor="middle">紅</text></g><g transform="translate(300 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#8CC81E"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Ba</text><text class="sm2" x="0" y="130" text-anchor="middle">黄緑</text></g></svg>
     <p><b>覚え方</b></p><img class="goro-img" src="goro/flame.png" alt="炎色反応の覚え方。リアカー無きK村、動力で勝とうとするもくれない馬力。Li赤、Na黄、K紫、Cu緑（青緑）、Ca橙、Sr紅、Ba緑（黄緑）" loading="lazy"></section>` },
 
-  { id:'2-2', t:'無機イオンの定性分析②・有機酸塩の定性分析', wip:true, plan:[], body:()=>'' },];
+  { id:'2-2', t:'無機イオンの定性分析②・有機酸塩の定性分析', sub:'ホウ酸塩 › リン酸塩 › 硫黄の塩 › 過マンガン酸塩・過酸化物 › シュウ酸塩', plan:['qual2','qual2','qual2','qual2','qual2'], body:()=>`
+    <section class="panel"><h3>〇 無機イオンの定性分析②</h3>
+    <p><b>・ホウ酸塩</b></p>
+    ${ktbl([
+      ['H₂SO₄＋CH₃OH → 点火', '<span class="cm" style="background:#8EDB8E">緑色</span>の炎を上げて燃える'],
+      ['クルクマ紙<br><span class="small muted">（微塩酸酸性）</span>', '呈色（<span class="cm" style="background:#FF9A9A">赤色</span>）<br><span class="small muted">アルカリ性では</span><span class="cm" style="background:#8A9BB5">灰青〜青黒色</span><br><span class="small muted">食品中のホウ酸の検出にも使う。</span>']
+    ])}
+    <p><b>・リン酸塩</b></p>
+    <p>七モリブデン酸六アンモニウム試液 → 沈殿（<span class="cm" style="background:#FFE14D">黄色</span>）</p>
+    <p><b>・硫酸塩、チオ硫酸塩、亜硫酸塩（HClを加える）</b></p>
+    ${tbl(['','白濁','SO₂のにおい'],[['硫酸塩','×','×'],['チオ硫酸塩','○','○'],['亜硫酸塩・亜硫酸水素塩','×','○']])}
+    <p class="small muted">チオ硫酸塩はSが析出して白濁する。</p>
+    <p><b>・過マンガン酸塩、過酸化物</b></p>
+    ${ktbl([
+      ['過マンガン酸塩', '硫酸酸性溶液＋過酸化水素試液 → 泡立ち脱色（O₂ガス発生）<br><span class="small muted">MnO₄⁻（</span><span class="cm" style="background:#E58BD8">赤紫色</span><span class="small muted">、酸化剤）がH₂O₂（還元剤）で還元される。</span>'],
+      ['過酸化物', '硫酸酸性溶液＋KMnO₄試液 → 泡立ち脱色（O₂ガス発生）<br><span class="small muted">R−O−O−RからO₂ガスが出る。</span>']
+    ])}
+    <p class="small muted">どちらも「KMnO₄・硫酸酸性溶液・過酸化物」の組み合わせで、酸素が出て脱色する。</p></section>
+    <section class="panel"><h3>〇 有機酸塩の定性分析</h3>
+    ${ktbl([['シュウ酸塩', '硫酸酸性溶液＋KMnO₄試液 → 脱色<br><span class="small muted">泡立たない（O₂ガスは出ない）。</span>']])}</section>` },
+];
 /* ===== 物4 分析化学 ===== */
 const ANA1_LESSONS = [
   { id:'1-1', t:'分析に用いる器具', wip:true, plan:[], body:()=>'' },
