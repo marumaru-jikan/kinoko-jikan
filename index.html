@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.figwip{border:1.5px dashed var(--line,#ccc);border-radius:12px;padding:22px 10px;text-align:center;color:var(--muted);font-size:.85rem;margin:6px 0 12px}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -912,24 +912,15 @@ const PM4_LESSONS = [
   { id:'4-7', t:'高齢者と薬', wip:true, plan:[], body:()=>'' },
   { id:'4-8', t:'嚥下障害', sub:'嚥下障害時の対応 › 嚥下障害と薬', plan:['dysph','dysph','dysph','dysph','dysph'], body:()=>`
     <section class="panel"><h3>〇 嚥下障害</h3>
+    <div class="figwip">嚥下と誤嚥の図解（準備中）</div>
     ${ktbl([
       ['嚥下', '口の中の食べ物を飲み込み、咽頭 → 食道 → 胃へ送ること。'],
       ['嚥下障害', '食べ物や飲み物をうまく飲み込めない状態。<br><span class="small muted">高齢者、脳卒中、パーキンソン病などで起こりやすい。</span>'],
       ['誤嚥', '食べ物や唾液が、食道ではなく<span class="mk">気管</span>に入ること。<br>→ <span class="mk">誤嚥性肺炎</span>の原因になる<br><span class="small muted">むせのない誤嚥（不顕性誤嚥）もある。</span>']
     ])}</section>
     <section class="panel"><h3>〇 嚥下障害時の対応</h3>
-    <p><b>・食事形態の工夫</b></p><svg class="fig" viewBox="0 0 340 112" role="img" aria-label="食品の硬さ。軟らかい順に、とろみ水、ゼリー食、きざみ食、嚥下軟菜食">
-<defs><marker id="dah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--teal)"/></marker></defs>
-<text class="sm2" x="170" y="12" text-anchor="middle">食品の硬さ</text>
-<line x1="22" y1="22" x2="318" y2="22" style="stroke:var(--teal);stroke-width:3;marker-start:url(#dah);marker-end:url(#dah)"/>
-<text class="sm2" x="4" y="26">軟</text><text class="sm2" x="324" y="26">硬</text>
-<g transform="translate(42 60)"><path d="M-18 -14 H14 V16 Q14 22 8 22 H-12 Q-18 22 -18 16 Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.4"/><path d="M14 -6 q10 0 10 8 t-10 8" style="fill:none;stroke:var(--ink);stroke-width:1.4"/><path d="M-16 -8 H12 V14 H-16 Z" style="fill:#C9A96E;opacity:.55"/></g>
-<g transform="translate(126 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><path d="M-13 14 L-9 -10 H9 L13 14 Z" style="fill:#F0A050;stroke:#C47020;stroke-width:1.2"/></g>
-<g transform="translate(212 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><g style="fill:#E8913A;stroke:#B86418;stroke-width:.8"><rect x="-14" y="2" width="6" height="6"/><rect x="-6" y="-2" width="6" height="6"/><rect x="2" y="3" width="6" height="6"/><rect x="8" y="-1" width="6" height="6"/><rect x="-10" y="8" width="6" height="6"/><rect x="0" y="9" width="6" height="5"/></g></g>
-<g transform="translate(298 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><g style="fill:#E0862E;stroke:#B06015;stroke-width:.8"><rect x="-16" y="-2" width="14" height="14" rx="2"/><rect x="0" y="0" width="14" height="13" rx="2"/></g></g>
-<text class="sm2" x="42" y="104" text-anchor="middle">とろみ水</text><text class="sm2" x="126" y="104" text-anchor="middle">ゼリー食</text><text class="sm2" x="212" y="104" text-anchor="middle">きざみ食</text><text class="sm2" x="298" y="104" text-anchor="middle">嚥下軟菜食</text>
-</svg>
-    <p>・とろみやゼリーは、適度な弾性とまとまりがあるので飲み込みやすい。<br>・水や流動食（重湯、スープなど）は、さらさらしてまとまりがないので、かえって<span class="mk">誤嚥しやすい</span>。<br>・嚥下機能の回復に合わせ、軟らかい食品から硬い食品へ徐々に移行する。</p>
+    <p><b>・食事形態の工夫</b></p>
+    <p>・とろみやゼリーは、適度な弾性とまとまりがあるので飲み込みやすい。<br>・水や流動食（重湯、スープなど）は、さらさらしてまとまりがないので、かえって誤嚥しやすい。<br>・嚥下機能の回復に合わせ、軟らかい食品から硬い食品へ徐々に移行する。</p>
     <p><b>・姿勢</b></p><svg class="fig" viewBox="0 0 300 150" role="img" aria-label="食事中の姿勢。ベッドの背を30〜60度に起こし、下顎を軽く胸に近づける">
 <rect x="10" y="128" width="280" height="8" style="fill:var(--line,#ccc)"/>
 <path d="M30 126 H170 L240 56" style="fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/>
@@ -946,7 +937,7 @@ const PM4_LESSONS = [
     ${ktbl([
       ['工夫', '・剤形の変更：OD錠、ゼリー剤、液剤、貼付剤など<br>・<span class="mk">簡易懸濁法</span>（錠剤やカプセルをお湯で崩してから飲む）<br>・服薬補助ゼリー、とろみ剤を使う<br><span class="small muted">※徐放性製剤・腸溶性製剤は、粉砕や脱カプセルをしない。</span>'],
       ['低下させる薬', '・抗精神病薬：D₂受容体遮断 → 錐体外路症状<br>・ベンゾジアゼピン系薬：鎮静、筋弛緩<br>・抗コリン薬：唾液分泌⬇（口渇）'],
-      ['改善する薬', '・<span class="mk">ACE阻害薬</span>：サブスタンスPの分解抑制 → 咳反射・嚥下反射⬆<br>・アマンタジン：ドパミン放出⬆ → サブスタンスP⬆<br>・シロスタゾール：脳梗塞の再発予防 → 誤嚥性肺炎の予防']
+      ['改善する薬', '・ACE阻害薬：サブスタンスPの分解抑制 → 咳反射・嚥下反射⬆<br>・アマンタジン：ドパミン放出⬆ → サブスタンスP⬆<br>・シロスタゾール：脳梗塞の再発予防 → 誤嚥性肺炎の予防']
     ])}</section>` },
   { id:'bandD', band:'D　腎障害患者', col:true, plan:[], body:()=>'' },
   { id:'4-9', t:'腎機能低下による減量', wip:true, plan:[], body:()=>'' },
