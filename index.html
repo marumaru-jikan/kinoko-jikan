@@ -424,6 +424,15 @@ const POOL = {
     ['Ⅰb群の適応','Ⅰb群（リドカイン・メキシレチン）のおもな適応は？','心室性の頻脈性不整脈',['上室性の頻脈性不整脈のみ','徐脈性不整脈','心不全'],'Ⅰb：心室性'],
     ['Ⅰa群の副作用','Ⅰa群で注意する、QT間隔延長による重い不整脈は？','心室細動',['心房細動','洞性徐脈','房室ブロックのみ'],'QT間隔延長 → 心室細動'],
   ],
+  dysph:[
+    ['誤嚥','誤嚥とは？','食べ物や唾液が気管に入ること',['食べ物が胃から逆流すること','食道が狭くなること','唾液が出なくなること'],'誤嚥性肺炎の原因になる'],
+    ['誤嚥しやすいもの','嚥下障害の患者で、かえって誤嚥しやすいのは？','さらさらした水やスープ',['とろみ水','ゼリー食','嚥下軟菜食'],'まとまりがないため誤嚥しやすい'],
+    ['姿勢','嚥下障害の患者が食事をするときの一般的な姿勢は？','ベッドの傾きを30〜60°にし、下顎を軽く引く',['仰臥位で上を向く','ベッドを水平にする','首を後ろにそらす'],'個別に対応する'],
+    ['食後','食後すぐに仰臥位にならない理由は？','胃の内容物が逆流して誤嚥しやすいため',['消化が早くなりすぎるため','血圧が上がるため','眠くなるため'],'できるだけ坐位を保つ'],
+    ['改善する薬','サブスタンスPの分解を抑えて嚥下反射を改善する薬は？','ACE阻害薬',['抗精神病薬','ベンゾジアゼピン系薬','抗コリン薬'],'咳反射・嚥下反射⬆'],
+    ['低下させる薬','錐体外路症状で嚥下機能を低下させることがある薬は？','抗精神病薬',['ACE阻害薬','アマンタジン','シロスタゾール'],'D₂受容体遮断'],
+    ['簡易懸濁法','錠剤やカプセルをお湯で崩してから投与する方法は？','簡易懸濁法',['粉砕法','脱カプセル法','希釈法'],'徐放性・腸溶性製剤は粉砕しない'],
+  ],
   pregnu:[
     ['葉酸','妊娠初期に葉酸をとる目的は？','胎児の神経管閉鎖障害のリスクを下げる',['妊婦の貧血を防ぐ','胎児の骨を強くする','つわりを軽くする'],'神経管閉鎖障害（二分脊椎など）'],
     ['葉酸の量','妊娠を計画している女性がサプリメントなどからとる葉酸の量は？','1日400μg',['1日4μg','1日40mg','1日4g'],'食事に加えて1日400μg'],
@@ -899,7 +908,45 @@ const PM4_LESSONS = [
   { id:'bandB', band:'B　小児', col:true, plan:[], body:()=>'' },
   { id:'4-5', t:'小児', wip:true, plan:[], body:()=>'' },
   { id:'bandC', band:'C　高齢者', col:true, plan:[], body:()=>'' },
-  { id:'4-6', t:'高齢者', wip:true, plan:[], body:()=>'' }
+  { id:'4-6', t:'高齢者と薬', wip:true, plan:[], body:()=>'' },
+  { id:'4-7', t:'嚥下障害', sub:'嚥下障害時の対応 › 嚥下障害と薬', plan:['dysph','dysph','dysph','dysph','dysph'], body:()=>`
+    <section class="panel"><h3>〇 嚥下障害</h3>
+    ${ktbl([
+      ['嚥下', '口の中の食べ物を飲み込み、咽頭 → 食道 → 胃へ送ること。'],
+      ['嚥下障害', '食べ物や飲み物をうまく飲み込めない状態。<br><span class="small muted">高齢者、脳卒中、パーキンソン病などで起こりやすい。</span>'],
+      ['誤嚥', '食べ物や唾液が、食道ではなく<span class="mk">気管</span>に入ること。<br>→ <span class="mk">誤嚥性肺炎</span>の原因になる<br><span class="small muted">むせのない誤嚥（不顕性誤嚥）もある。</span>']
+    ])}</section>
+    <section class="panel"><h3>〇 嚥下障害時の対応</h3>
+    <p><b>・食事形態の工夫</b></p><svg class="fig" viewBox="0 0 340 112" role="img" aria-label="食品の硬さ。軟らかい順に、とろみ水、ゼリー食、きざみ食、嚥下軟菜食">
+<defs><marker id="dah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--teal)"/></marker></defs>
+<text class="sm2" x="170" y="12" text-anchor="middle">食品の硬さ</text>
+<line x1="22" y1="22" x2="318" y2="22" style="stroke:var(--teal);stroke-width:3;marker-start:url(#dah);marker-end:url(#dah)"/>
+<text class="sm2" x="4" y="26">軟</text><text class="sm2" x="324" y="26">硬</text>
+<g transform="translate(42 60)"><path d="M-18 -14 H14 V16 Q14 22 8 22 H-12 Q-18 22 -18 16 Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.4"/><path d="M14 -6 q10 0 10 8 t-10 8" style="fill:none;stroke:var(--ink);stroke-width:1.4"/><path d="M-16 -8 H12 V14 H-16 Z" style="fill:#C9A96E;opacity:.55"/></g>
+<g transform="translate(126 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><path d="M-13 14 L-9 -10 H9 L13 14 Z" style="fill:#F0A050;stroke:#C47020;stroke-width:1.2"/></g>
+<g transform="translate(212 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><g style="fill:#E8913A;stroke:#B86418;stroke-width:.8"><rect x="-14" y="2" width="6" height="6"/><rect x="-6" y="-2" width="6" height="6"/><rect x="2" y="3" width="6" height="6"/><rect x="8" y="-1" width="6" height="6"/><rect x="-10" y="8" width="6" height="6"/><rect x="0" y="9" width="6" height="5"/></g></g>
+<g transform="translate(298 62)"><ellipse cx="0" cy="16" rx="26" ry="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.2"/><g style="fill:#E0862E;stroke:#B06015;stroke-width:.8"><rect x="-16" y="-2" width="14" height="14" rx="2"/><rect x="0" y="0" width="14" height="13" rx="2"/></g></g>
+<text class="sm2" x="42" y="104" text-anchor="middle">とろみ水</text><text class="sm2" x="126" y="104" text-anchor="middle">ゼリー食</text><text class="sm2" x="212" y="104" text-anchor="middle">きざみ食</text><text class="sm2" x="298" y="104" text-anchor="middle">嚥下軟菜食</text>
+</svg>
+    <p>・とろみやゼリーは、適度な弾性とまとまりがあるので飲み込みやすい。<br>・水や流動食（重湯、スープなど）は、さらさらしてまとまりがないので、かえって<span class="mk">誤嚥しやすい</span>。<br>・嚥下機能の回復に合わせ、軟らかい食品から硬い食品へ徐々に移行する。</p>
+    <p><b>・姿勢</b></p><svg class="fig" viewBox="0 0 300 150" role="img" aria-label="食事中の姿勢。ベッドの背を30〜60度に起こし、下顎を軽く胸に近づける">
+<rect x="10" y="128" width="280" height="8" style="fill:var(--line,#ccc)"/>
+<path d="M30 126 H170 L240 56" style="fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/>
+<line x1="170" y1="126" x2="222" y2="126" style="stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 3"/>
+<path d="M58 116 H158 L208 68" style="fill:none;stroke:var(--teal);stroke-width:13;stroke-linecap:round;stroke-linejoin:round"/>
+<circle cx="214" cy="50" r="13" style="fill:#F6DCC8;stroke:var(--ink);stroke-width:1.4"/>
+<path d="M206 59 Q212 66 221 62" style="fill:none;stroke:var(--ink);stroke-width:1.2"/>
+<path d="M204 126 A34 34 0 0 0 194 102" style="fill:none;stroke:#2E8BC9;stroke-width:1.8"/>
+<text class="sm2" x="210" y="114" style="fill:#2E8BC9;font-weight:700">30〜60°</text>
+<text class="sm2" x="232" y="36">下顎を軽く</text><text class="sm2" x="232" y="50">胸に近づける</text>
+</svg>
+    <p>・嚥下に適した姿勢は、患者の状態によって異なるので個別に対応する。<br>・一般には、ベッドの傾きを<span class="mk">30〜60°</span>にし、下顎を軽く胸に近づけて飲み込む。<br>・食後は、仰臥位になると胃の内容物が逆流して誤嚥しやすいので、できるだけ<span class="mk">坐位</span>を保つ。</p></section>
+    <section class="panel"><h3>〇 嚥下障害と薬</h3>
+    ${ktbl([
+      ['工夫', '・剤形の変更：OD錠、ゼリー剤、液剤、貼付剤など<br>・<span class="mk">簡易懸濁法</span>（錠剤やカプセルをお湯で崩してから飲む）<br>・服薬補助ゼリー、とろみ剤を使う<br><span class="small muted">※徐放性製剤・腸溶性製剤は、粉砕や脱カプセルをしない。</span>'],
+      ['低下させる薬', '・抗精神病薬：D₂受容体遮断 → 錐体外路症状<br>・ベンゾジアゼピン系薬：鎮静、筋弛緩<br>・抗コリン薬：唾液分泌⬇（口渇）'],
+      ['改善する薬', '・<span class="mk">ACE阻害薬</span>：サブスタンスPの分解抑制 → 咳反射・嚥下反射⬆<br>・アマンタジン：ドパミン放出⬆ → サブスタンスP⬆<br>・シロスタゾール：脳梗塞の再発予防 → 誤嚥性肺炎の予防']
+    ])}</section>` }
 ];
 const PM5_LESSONS = [
   { id:'5-1', t:'点眼剤', wip:true, plan:[], body:()=>'' },
