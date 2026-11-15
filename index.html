@@ -459,6 +459,14 @@ const POOL = {
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
   ],
+  atom:[
+    ['質量数','質量数（A）を表すのは？','陽子数＋中性子数',['陽子数','中性子数','陽子数＋電子数'],'原子番号（Z）＝陽子数'],
+    ['原子番号','原子番号（Z）を表すのは？','陽子数',['中性子数','陽子数＋中性子数','電子数＋中性子数'],'質量数＝陽子数＋中性子数'],
+    ['同位体','同位体とは？','原子番号が同じで、質量数が異なる核種',['質量数が同じで、原子番号が異なる核種','中性子数が同じ核種','電子数が異なる核種'],'同一元素'],
+    ['¹⁴C','¹⁴Cの中性子数は？','8',['6','7','14'],'14−6＝8'],
+    ['¹¹C','β⁺線を放出する放射性同位体は？','¹¹C',['¹²C','¹³C','¹⁴C'],'¹⁴Cはβ⁻線放出'],
+    ['安定同位体','炭素の安定同位体は？','¹³C',['¹¹C','¹⁴C','¹⁵C'],'¹²C・¹³C：安定同位体'],
+  ],
   vol:[
     ['標準液','容量分析で用いる、濃度既知の溶液を何という？','標準液',['試料溶液','指示薬','緩衝液'],'容量分析法＝滴定'],
     ['終点','滴定で、反応が完結した点を何という？','終点',['等電点','融点','変色域'],'指示薬法・電気的終点検出法で検出'],
@@ -1219,7 +1227,28 @@ const SAF4_LESSONS = [
 ];
 /* ===== 物5 放射化学 ===== */
 const RAD1_LESSONS = [
-  { id:'1-1', t:'原子の構造と核種', wip:true, plan:[], body:()=>'' },
+  { id:'1-1', t:'原子の構造と核種', sub:'原子の構造・同位体', plan:['atom','atom','atom','atom','atom'], body:()=>`
+    <section class="panel"><h3>〇 原子の構造</h3>
+    <p>原子は、原子核と電子からなる。原子核は<span class="mk">陽子</span>と<span class="mk">中性子</span>からなり、これらを核子という。</p><svg class="fig" viewBox="0 0 330 140" role="img" aria-label="原子の構造（¹²C）。原子は原子核と電子からなり、原子核は陽子と中性子（核子）からなる">
+<text class="sm2" x="8" y="16">¹²C</text>
+<circle cx="60" cy="70" r="30" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="60" cy="70" r="50" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+<circle cx="60" cy="70" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="60" y="73" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="67" cy="65" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="53" cy="66" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="53" y="69" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="65" cy="76" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="54" cy="76" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="54" y="79" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="60" cy="61" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="70" cy="72" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="70" y="75" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="50" cy="71" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="62" cy="79" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="62" y="82" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="57" cy="69" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="64" cy="69" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="64" y="72" font-size="7" text-anchor="middle" fill="var(--ink)">+</text><circle cx="59" cy="74" r="5" fill="#9AA0A6" stroke="var(--ink)" stroke-width="1"/><circle cx="30.0" cy="70.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="30.0" y="73.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text><circle cx="90.0" cy="70.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="90.0" y="73.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text><circle cx="60.0" cy="20.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="60.0" y="23.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text><circle cx="110.0" cy="70.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="110.0" y="73.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text><circle cx="60.0" cy="120.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="60.0" y="123.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text><circle cx="10.0" cy="70.0" r="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/><text x="10.0" y="73.0" font-size="7" text-anchor="middle" fill="var(--ink)">e⁻</text>
+<text class="lb" x="132" y="64">原子</text>
+<path d="M170 34 Q164 34 164 44 V56 Q164 60 160 60 Q164 60 164 64 V96 Q164 106 170 106" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+<text class="lb" x="174" y="38">原子核</text><text class="lb" x="174" y="104">電子 ⊖</text>
+<path d="M226 22 Q220 22 220 30 V34 Q220 38 216 38 Q220 38 220 42 V46 Q220 54 226 54" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+<text class="lb" x="230" y="26">陽子 ⊕</text><text class="lb" x="230" y="54">中性子 ●</text>
+<path d="M292 22 Q298 22 298 30 V34 Q298 38 302 38 Q298 38 298 42 V46 Q298 54 292 54" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+<text class="sm2" x="306" y="42">核子</text>
+</svg>
+    <div style="border:2px solid #F0A060;border-radius:10px;padding:10px 12px;margin:10px 0;display:flex;align-items:center;gap:10px"><div style="flex:1;line-height:1.8"><b>質量数（A）＝ 陽子数 ＋ 中性子数</b><br><b>原子番号（Z）＝ 陽子数</b></div><div style="text-align:center;white-space:nowrap"><span style="display:inline-flex;flex-direction:column;font-size:.7em;line-height:1.1;vertical-align:middle;text-align:right"><span>A</span><span>Z</span></span><span style="font-size:1.8em;vertical-align:middle">X</span><br><span class="small muted">（元素記号：X）</span></div></div>
+    ${ktbl([
+      ['<span class="mk">同位体</span><br><span class="small muted">（アイソトープ）</span>', '原子番号が同じ（同一元素）で、質量数の異なる核種'],
+      ['<span class="mk">放射性同位体</span><br><span class="small muted">（ラジオアイソトープ、RI）</span>', '放射能をもつ（放射線を放出する）不安定な核種'],
+      ['<span class="mk">安定同位体</span><br><span class="small muted">（SI）</span>', '放射能をもたない（放射線を放出しない）安定な核種']
+    ])}</section>
+    <section class="panel"><h3>〇 同位体の種類</h3>
+    ${tbl(['','¹¹C','¹²C','¹³C','¹⁴C'],[['陽子数','6','6','6','6'],['中性子数','5','6','7','8'],['特徴','放射性同位体<br>（β⁺線放出）','安定同位体','安定同位体','放射性同位体<br>（β⁻線放出）']])}</section>` },
   { id:'1-2', t:'放射壊変・放射転移', wip:true, plan:[], body:()=>'' },
   { id:'1-3', t:'放射線の分類', wip:true, plan:[], body:()=>'' },
   { id:'1-4', t:'相互作用', wip:true, plan:[], body:()=>'' },
