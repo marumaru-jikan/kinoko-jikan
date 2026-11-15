@@ -448,6 +448,16 @@ const POOL = {
     ['水銀','妊婦が食べる量に注意する魚は？','キンメダイ・メカジキなどの大型の魚',['サケ','アジ','ツナ缶'],'メチル水銀が胎児の神経の発達に影響'],
     ['カルシウム','妊娠中のカルシウムに付加量がない理由は？','腸管からの吸収率が上がるため',['胎児に必要ないため','骨から出なくなるため','過剰症が多いため'],'ふだんどおりの推奨量をとる'],
   ],
+  valid:[
+    ['真度','測定値の偏りの程度を表し、系統誤差の影響を評価するのは？','真度',['精度','特異性','直線性'],'真度（正確さ）：偏り'],
+    ['精度','測定値のばらつきの程度を表すのは？','精度',['真度','検出限界','頑健性'],'精度（精密さ・再現性）'],
+    ['特異性','共存物の存在下で、分析対象物を正確に測定する能力は？','特異性',['直線性','範囲','真度'],'特異性（選択性）'],
+    ['検出限界','分析対象物の検出が可能な最低の量（濃度）は？','検出限界',['定量限界','範囲','直線性'],'検出限界（感度）'],
+    ['確認試験','確認試験で通例評価する必要がある分析能パラメータは？','特異性',['真度','直線性','定量限界'],'特異性はすべての試験で＋'],
+    ['限度試験','純度試験の限度試験で評価が必要なのは？','検出限界',['定量限界','直線性','範囲'],'限度試験：特異性・検出限界'],
+    ['頑健性','分析条件を小さい範囲で故意に変化させても、測定値が影響を受けにくい能力は？','頑健性',['特異性','精度','直線性'],'測定値の安定性を検討する'],
+    ['消費者危険','規格外の製品が、誤って合格と判断される確率は？','消費者危険',['生産者危険','検出限界','偶然誤差'],'生産者危険：規格内が誤って不合格'],
+  ],
   meas:[
     ['SI基本単位','SI基本単位でないのは？','N（ニュートン）',['kg（キログラム）','mol（モル）','cd（カンデラ）'],'Nは誘導（組立）単位'],
     ['絶対温度','絶対温度のSI基本単位は？','K（ケルビン）',['℃（セルシウス度）','J（ジュール）','Pa（パスカル）'],'SI基本単位は7つ'],
@@ -1183,6 +1193,24 @@ const ANA1_LESSONS = [
     ${ktbl([
       ['系統誤差<br><span class="small muted">（バイアス）</span>', '明らかな原因が存在し、繰り返し測定すると一定の方向に生じる誤差<br>・器差：測定機器の不正確さに由来<br>・方法誤差：分析法自体に原因<br>・操作誤差：分析操作の未熟さに由来<br>・個人誤差：測定者の癖により生じる'],
       ['偶然誤差<br><span class="small muted">（ばらつき）</span>', '明らかな原因が存在せず、同じ試料を繰り返し分析しても一定の傾向を示さない誤差']
+    ])}</section>` },
+  { id:'1-3', t:'バリデーション', sub:'分析法バリデーション › 分析能パラメータ › 用語', plan:['valid','valid','valid','valid','valid'], body:()=>`
+    <section class="panel"><h3>〇 分析法バリデーション</h3>
+    <p>医薬品の試験法に用いる分析法が、使う目的に合っていること（分析法の誤差による判定の誤りの確率が許容できる程度であること）を、科学的に立証すること。</p>
+    <p class="small muted">日本薬局方に新たに試験法を収載・改正するときや、新薬の申請時などに行う。「概要」「分析法」「分析法の妥当性を示す資料」が必要。</p></section>
+    <section class="panel"><h3>〇 分析能パラメータ</h3>
+    <p>分析法の妥当性を示すために評価が必要な変数。</p>
+    ${ktbl([['<span class="mk">真度</span><br><span class="small muted">（正確さ）</span>','分析法で得られる測定値の<span class="mk">偏り</span>の程度。系統誤差の影響を評価する。<br><span class="small muted">真の値と測定値の総平均との差で表す。</span>'],['<span class="mk">精度</span><br><span class="small muted">（精密さ）（再現性）</span>','均質な検体から採取した複数の試料を繰り返し分析して得られる測定値が、互いに一致する程度（<span class="mk">ばらつき</span>の程度）。<br><span class="small muted">分散、標準偏差、相対標準偏差で表す。</span>'],['<span class="mk">特異性</span><br><span class="small muted">（選択性）</span>','共存物の存在下で、試料中の分析対象物を<span class="mk">正確に測定する</span>能力。'],['<span class="mk">検出限界</span><br><span class="small muted">（感度）</span>','分析対象物の<span class="mk">検出</span>が可能な最低の量（濃度）。'],['<span class="mk">定量限界</span>','分析対象物の<span class="mk">定量</span>が可能な最低の量（濃度）。'],['直線性','分析対象物の量（濃度）に対して、直線（比例）関係にある測定値を与える能力。'],['範囲','適切な精度と真度を与える、分析対象物の下限と上限の量（濃度）に挟まれた領域。']])}
+    <p><b>評価が必要な試験</b></p>
+    ${tbl(['','確認試験','定量試験','限度試験','定量'],[['<span class="mk">真度</span>','－','＋','－','＋'],['<span class="mk">精度</span>','－','△','－','△'],['<span class="mk">特異性</span>','＋','＋','＋','＋'],['<span class="mk">検出限界</span>','－','－','＋','－'],['<span class="mk">定量限界</span>','－','＋','－','－'],['直線性','－','＋','－','＋'],['範囲','－','＋','－','＋']])}
+    <p class="small muted">定量試験・限度試験は純度試験。＋：通例評価する必要がある。－：通例評価する必要がない。△：条件による。</p>
+    <p><b>真度と精度のイメージ</b></p><svg class="fig" viewBox="0 0 340 92" role="img" aria-label="真度と精度のイメージ。真度は中心からの偏り、精度は点のばらつき"><g transform="translate(45 28)"><g><circle cx="0" cy="0" r="22" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="14" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="-2" cy="-1" r="2.2" fill="#C23B2E"/><circle cx="1" cy="1" r="2.2" fill="#C23B2E"/><circle cx="2" cy="-2" r="2.2" fill="#C23B2E"/><circle cx="-1" cy="2" r="2.2" fill="#C23B2E"/><text class="sm2" x="0" y="38" text-anchor="middle">真度：良</text><text class="sm2" x="0" y="52" text-anchor="middle">精度：良</text></g></g><g transform="translate(128 28)"><g><circle cx="0" cy="0" r="22" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="14" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="-11" cy="-6" r="2.2" fill="#C23B2E"/><circle cx="10" cy="-8" r="2.2" fill="#C23B2E"/><circle cx="8" cy="10" r="2.2" fill="#C23B2E"/><circle cx="-9" cy="9" r="2.2" fill="#C23B2E"/><circle cx="0" cy="-13" r="2.2" fill="#C23B2E"/><text class="sm2" x="0" y="38" text-anchor="middle">真度：良</text><text class="sm2" x="0" y="52" text-anchor="middle">精度：不良</text></g></g><g transform="translate(211 28)"><g><circle cx="0" cy="0" r="22" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="14" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="13" cy="-15" r="2.2" fill="#C23B2E"/><circle cx="15" cy="-12" r="2.2" fill="#C23B2E"/><circle cx="17" cy="-16" r="2.2" fill="#C23B2E"/><circle cx="14" cy="-18" r="2.2" fill="#C23B2E"/><text class="sm2" x="0" y="38" text-anchor="middle">真度：不良</text><text class="sm2" x="0" y="52" text-anchor="middle">精度：良</text></g></g><g transform="translate(294 28)"><g><circle cx="0" cy="0" r="22" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="14" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="0" cy="0" r="6" fill="none" stroke="var(--ink)" stroke-width="1.2"/><circle cx="12" cy="-20" r="2.2" fill="#C23B2E"/><circle cx="22" cy="-6" r="2.2" fill="#C23B2E"/><circle cx="18" cy="-24" r="2.2" fill="#C23B2E"/><circle cx="25" cy="-16" r="2.2" fill="#C23B2E"/><circle cx="8" cy="-25" r="2.2" fill="#C23B2E"/><text class="sm2" x="0" y="38" text-anchor="middle">真度：不良</text><text class="sm2" x="0" y="52" text-anchor="middle">精度：不良</text></g></g></svg>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/shindo.png" alt="分析パラメータ（真度）の覚え方。肩こりはしんどい。肩こり＝偏り、しんど＝真度" loading="lazy"></section>
+    <section class="panel"><h3>〇 用語</h3>
+    ${ktbl([
+      ['頑健性', '分析条件を小さい範囲で故意に変化させても、測定値が影響を受けにくい能力。<br><span class="small muted">測定値の安定性を検討する。</span>'],
+      ['生産者危険', '規格を満たしている製品が、試験により誤って<span class="mk">不合格</span>と判断される確率。'],
+      ['消費者危険', '規格外の製品が、試験により誤って<span class="mk">合格</span>と判断される確率。']
     ])}</section>` }
 ];
 /* ===== 理1 作用機序 ===== */
