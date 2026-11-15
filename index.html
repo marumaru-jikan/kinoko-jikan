@@ -2275,8 +2275,24 @@ const CATALOG = [
       { name:'法規', k:'法', units:U('薬機法','薬剤師法','麻薬・向精神薬') },
       { name:'制度と倫理', k:'倫', units:U('医療保険制度','医療倫理と患者の権利') } ] },
     { id:'prac', name:'実務', k:'実', note:'調剤・服薬指導・在宅', subjects:[
-      { name:'薬局・病院の業務', k:'業', units:U('調剤','疑義照会','服薬指導') },
-      { name:'地域の医療', k:'地', units:U('在宅医療','セルフメディケーション') } ] },
+      { name:'薬剤師の倫理', k:'1', units:U() },
+      { name:'チーム医療', k:'2', units:U() },
+      { name:'リスクマネジメント', k:'3', units:U() },
+      { name:'調剤業務の流れ', k:'4', units:U() },
+      { name:'疑義照会', k:'5', units:U() },
+      { name:'処方箋', k:'6', units:U() },
+      { name:'用法・用量', k:'7', units:U() },
+      { name:'副作用', k:'8', units:U() },
+      { name:'計数・計量調剤', k:'9', units:U() },
+      { name:'注射剤・輸液の調剤', k:'10', units:U() },
+      { name:'薬局製剤', k:'11', units:U() },
+      { name:'消毒薬', k:'12', units:U() },
+      { name:'医薬品の管理', k:'13', units:U() },
+      { name:'医薬品情報', k:'14', units:U() },
+      { name:'服薬指導', k:'15', units:U() },
+      { name:'地域', k:'16', units:U() },
+      { name:'薬学的管理【がん】', k:'17', units:U() },
+      { name:'薬学的管理【感染症】', k:'18', units:U() } ] },
     { id:'hissu', name:'必須問題', k:'必', note:'国試の必須問題レベルの一問一答', subjects:[
       { name:'物理・化学・生物', k:'物', units:U({ t:'物理・分析', ready:'nx_phy' },'化学','生物') },
       { name:'衛生', k:'衛', units:U({ t:'社会・集団と健康', ready:'nx_hyg' },'疾病の予防','栄養と健康','化学物質と環境') },
@@ -2510,7 +2526,7 @@ function vCourse(){
   const c=courseById(S.course);
   return `${top(c.name)}<div class="stack"><p class="muted small">${c.subjects.length}項目・${unitCount(c)}章</p><div class="list">
   ${c.subjects.map((sb,i)=>{ const r=sb.units.filter(u=>u.ready).length;
-    return `<button class="item" data-act="subject" data-arg="${i}"><span class="lid">${sb.k}</span><span class="body"><b>${sb.name}</b><br><span class="small muted">${sb.units.length}章</span></span><span class="tag ${r?'mid':''}">${r?'公開中 '+r:'準備中'}</span><span class="chev">›</span></button>`; }).join('')}</div></div>`;
+    return `<button class="item" data-act="subject" data-arg="${i}"><span class="lid">${sb.k}</span><span class="body"><b>${sb.name}</b><br><span class="small muted">${sb.units.length?sb.units.length+'章':'目次は準備中'}</span></span><span class="tag ${r?'mid':''}">${r?'公開中 '+r:'準備中'}</span><span class="chev">›</span></button>`; }).join('')}</div></div>`;
 }
 function vSubject(){
   const c=courseById(S.course), sb=c.subjects[S.subj];
