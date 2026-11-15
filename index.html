@@ -333,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'ana1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'pm1-lv1':{q:'',a:''}, 'pm2-lv1':{q:'',a:''}, 'pm3-lv1':{q:'',a:''}, 'pm4-lv1':{q:'',a:''}, 'pm5-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'ana1-lv1':{q:'',a:''}, 'ana2-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'som1-lv1':{q:'',a:''}, 'cns1-lv1':{q:'',a:''}, 'pm1-lv1':{q:'',a:''}, 'pm2-lv1':{q:'',a:''}, 'pm3-lv1':{q:'',a:''}, 'pm4-lv1':{q:'',a:''}, 'pm5-lv1':{q:'',a:''}, 'cns2-lv1':{q:'',a:''}, 'cns3-lv1':{q:'',a:''}, 'som2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -447,6 +447,18 @@ const POOL = {
     ['鉄','妊娠中に鉄が不足しやすい理由は？','循環血液量が増え、胎児にも鉄が送られるため',['腸管からの吸収が止まるため','尿中に大量に出るため','胎盤で分解されるため'],'鉄欠乏性貧血になりやすい'],
     ['水銀','妊婦が食べる量に注意する魚は？','キンメダイ・メカジキなどの大型の魚',['サケ','アジ','ツナ缶'],'メチル水銀が胎児の神経の発達に影響'],
     ['カルシウム','妊娠中のカルシウムに付加量がない理由は？','腸管からの吸収率が上がるため',['胎児に必要ないため','骨から出なくなるため','過剰症が多いため'],'ふだんどおりの推奨量をとる'],
+  ],
+  qual:[
+    ['AgCl','Cl⁻にAgNO₃試液を加えたときの沈殿の色は？','白色',['淡黄色','黄色','青色'],'AgCl：白、AgBr：淡黄、AgI：黄'],
+    ['AgI','I⁻にAgNO₃試液を加えたときの沈殿の色は？','黄色',['白色','淡黄色','赤褐色'],'Cl → Br → I で色が濃くなる'],
+    ['F⁻','クロム酸・硫酸試液を加えて加熱すると、液が試験管の内壁を一様にぬらさないのは？','フッ化物',['塩化物','炭酸塩','亜鉛塩'],'HFがガラスと反応する'],
+    ['炭酸水素塩','フェノールフタレイン試液で赤色を呈さない（又は極めて薄い赤色）のは？','炭酸水素塩',['炭酸塩','水酸化ナトリウム','炭酸ナトリウム'],'炭酸塩は赤色'],
+    ['Fe²⁺','第一鉄塩（Fe²⁺）の確認に用いる試液は？','ヘキサシアニド鉄（Ⅲ）酸カリウム試液',['ヘキサシアニド鉄（Ⅱ）酸カリウム試液','AgNO₃試液','フェノールフタレイン試液'],'沈殿（青色）'],
+    ['Cu²⁺','第二銅塩にヘキサシアニド鉄（Ⅱ）酸カリウム試液を加えたときの沈殿の色は？','赤褐色',['白色','青色','黄色'],'亜鉛塩は白色'],
+    ['炎色反応Na','ナトリウムの炎色反応の色は？','黄色',['赤色','淡紫色','黄緑色'],'Na：黄'],
+    ['炎色反応K','炎色反応が淡紫色になるのは？','カリウム',['ナトリウム','カルシウム','バリウム'],'K：紫'],
+    ['炎色反応Ba','炎色反応が黄緑色になるのは？','バリウム',['リチウム','ストロンチウム','カルシウム'],'Ba：黄緑'],
+    ['炎色反応Ca','カルシウムの炎色反応の色は？','黄赤色（橙）',['黄色','紅色','青緑色'],'Ca：橙'],
   ],
   jpgen:[
     ['約','日本薬局方で、採取量に「約」を付けたものの範囲は？','記載された量の±10%',['記載された量の±1%','記載された量の±5%','記載された量の±20%'],'「約」：±10%'],
@@ -1157,6 +1169,47 @@ const SAF1_LESSONS = [
 const SAF4_LESSONS = [
   { id:'4-1', t:'依存性・耐性', wip:true, plan:[], body:()=>'' },
   { id:'4-2', t:'依存性薬物', wip:true, plan:[], body:()=>'' }
+];
+/* ===== 物4-2 定性分析 ===== */
+const ANA2_LESSONS = [
+  { id:'2-1', t:'無機イオンの定性分析', sub:'確認試験', plan:['qual','qual','qual','qual','qual'], body:()=>`
+    <section class="panel"><h3>〇 定性分析とは</h3>
+    <p>試料に含まれている成分が何かを確認すること。<br><span class="small muted">日本薬局方では「確認試験」として行う。</span></p></section>
+    <section class="panel"><h3>〇 無機イオンの定性分析</h3>
+    <p><b>・<span class="mk">AgNO₃試液</span>による定性</b></p>
+    ${ktbl([
+      ['Cl⁻', 'AgCl ↓ 沈殿（白色）'],
+      ['Br⁻', 'AgBr ↓ 沈殿（淡黄色）'],
+      ['I⁻', 'AgI ↓ 沈殿（黄色）']
+    ])}
+    <p class="small muted">周期表の下（Cl → Br → I）ほど、沈殿の色が濃くなる。</p>
+    <p><b>・F⁻の定性</b></p>
+    <p>アリザリンコンプレキソン試液 → 呈色（青紫色）<br>クロム酸・硫酸試液 → 加熱 → 液は試験管の内壁を<span class="mk">一様にぬらさない</span><br><span class="small muted">H⁺とF⁻からHFができ、ガラスと反応するため。</span></p>
+    <p><b>・炭酸塩・炭酸水素塩の定性</b></p>
+    <p>フェノールフタレイン試液 →<br>炭酸塩（CO₃²⁻）：呈色（赤色）<br>炭酸水素塩（HCO₃⁻）：赤色を<span class="mk">呈さない</span>、もしくは極めて薄い赤色<br><span class="small muted">炭酸塩の方が塩基性が強い（CO₃²⁻ ＞ HCO₃⁻）。</span></p>
+    <p><b>・鉄塩の定性</b></p>
+    ${ktbl([
+      ['Fe²⁺（第一鉄塩）', '<span class="mk">ヘキサシアニド鉄（Ⅲ）酸カリウム</span>試液 → 沈殿（青色）'],
+      ['Fe³⁺（第二鉄塩）', '<span class="mk">ヘキサシアニド鉄（Ⅱ）酸カリウム</span>試液 → 沈殿（青色）']
+    ])}
+    <p class="small muted">Fe²⁺とFe³⁺とCN⁻がそろうと、青色の沈殿（ターンブル青・プルシアンブルー）ができる。</p>
+    <p><b>・フェリシアン化合物、フェロシアン化合物</b></p>
+    ${ktbl([
+      ['フェリシアン化合物<br><span class="small muted">（Fe³⁺, CN⁻）</span>', 'FeSO₄試液（Fe²⁺）→ 沈殿（青色）'],
+      ['フェロシアン化合物<br><span class="small muted">（Fe²⁺, CN⁻）</span>', 'FeCl₃試液（Fe³⁺）→ 沈殿（青色）']
+    ])}
+    <p><b>・シアン化合物</b></p>
+    ${ktbl([
+      ['シアン化合物', '硫酸鉄（Ⅱ）試液＋希塩化鉄（Ⅲ）試液 → 沈殿（青色）']
+    ])}
+    <p><b>・Cu²⁺、Zn²⁺</b></p>
+    ${ktbl([
+      ['Cu²⁺（第二銅塩）', 'ヘキサシアニド鉄（Ⅱ）酸カリウム試液 → 沈殿（<span class="mk">赤褐色</span>）'],
+      ['Zn²⁺（亜鉛塩）', 'ヘキサシアニド鉄（Ⅱ）酸カリウム試液 → 沈殿（白色）']
+    ])}
+    <p><b>・炎色反応</b></p>
+    <p>白金線に金属塩をつけて炎に入れ、炎の色を見る。</p><svg class="fig" viewBox="0 0 330 136" role="img" aria-label="炎色反応。Li赤、Na黄、K淡紫、Cu青緑、Ca黄赤、Sr紅、Ba黄緑"><g transform="translate(24 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#E8321E"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Li</text><text class="sm2" x="0" y="130" text-anchor="middle">赤</text></g><g transform="translate(70 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#F2D400"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Na</text><text class="sm2" x="0" y="130" text-anchor="middle">黄</text></g><g transform="translate(116 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#9B4FB0"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">K</text><text class="sm2" x="0" y="130" text-anchor="middle">淡紫</text></g><g transform="translate(162 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#1FB890"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Cu</text><text class="sm2" x="0" y="130" text-anchor="middle">青緑</text></g><g transform="translate(208 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#F28A10"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Ca</text><text class="sm2" x="0" y="130" text-anchor="middle">黄赤（橙）</text></g><g transform="translate(254 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#E8264F"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Sr</text><text class="sm2" x="0" y="130" text-anchor="middle">紅</text></g><g transform="translate(300 0)"><path d="M0 64 C-12 52 -10 34 0 12 C10 34 12 52 0 64 Z" fill="#8CC81E"/><path d="M0 64 C-5 58 -4 48 0 38 C4 48 5 58 0 64 Z" fill="var(--surface)" opacity=".6"/><rect x="-5" y="66" width="10" height="30" fill="var(--ink)"/><rect x="-14" y="96" width="28" height="5" fill="var(--ink)"/><text class="sm2" x="0" y="116" text-anchor="middle" style="font-weight:700">Ba</text><text class="sm2" x="0" y="130" text-anchor="middle">黄緑</text></g></svg>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/flame.png" alt="炎色反応の覚え方。リアカー無きK村、動力で勝とうとするもくれない馬力。Li赤、Na黄、K紫、Cu緑（青緑）、Ca橙、Sr紅、Ba緑（黄緑）" loading="lazy"></section>` },
 ];
 /* ===== 物4 分析化学 ===== */
 const ANA1_LESSONS = [
@@ -2659,6 +2712,7 @@ const UNITS = {
   eye3:{ no:'理16', title:'白内障治療薬', subject:'薬理', course:'pharm', subj:15, lessons:EYE3_LESSONS, cards:'eye3', drill:'eye3' },
   saf1:{ no:'理2', title:'副作用と有害事象', subject:'薬理', course:'pharm', subj:1, lessons:SAF1_LESSONS, cards:'saf1', drill:'saf1' },
   saf4:{ no:'理2', title:'薬物依存', subject:'薬理', course:'pharm', subj:1, lessons:SAF4_LESSONS, cards:'saf4', drill:'saf4' },
+  ana2:{ no:'物4', title:'定性分析', subject:'物理', course:'phys', subj:3, lessons:ANA2_LESSONS, cards:'ana2', drill:'ana2' },
   ana1:{ no:'物4', title:'分析の基本', subject:'物理', course:'phys', subj:3, lessons:ANA1_LESSONS, cards:'ana1', drill:'ana1' },
   moa1:{ no:'理1', title:'用量と作用', subject:'薬理', course:'pharm', subj:0, lessons:MOA1_LESSONS, cards:'moa1', drill:'moa1' },
   moa2:{ no:'理1', title:'受容体と情報伝達', subject:'薬理', course:'pharm', subj:0, lessons:MOA2_LESSONS, cards:'moa2', drill:'moa2' },
@@ -2693,7 +2747,7 @@ const CATALOG = [
       { name:'物質の構造', k:'1', units:U('分子間相互作用','原子・分子') },
       { name:'物理化学', k:'2', units:U('気体の微視的状態と巨視的状態','エネルギー','化学平衡','相平衡','溶液の性質','電気化学') },
       { name:'反応速度論', k:'3', units:U('反応速度論') },
-      { name:'分析化学', k:'4', units:U({ t:'分析の基本', ready:'ana1' },'定性分析','定量分析','機器分析','分離分析法','臨床における分析技術') },
+      { name:'分析化学', k:'4', units:U({ t:'分析の基本', ready:'ana1' },{ t:'定性分析', ready:'ana2' },'定量分析','機器分析','分離分析法','臨床における分析技術') },
       { name:'放射化学', k:'5', units:U('放射線と放射能','放射性医薬品','臨床における放射線技術') },
       { name:'基本事項', k:'6', units:U('薬学計算','物理計算') } ] },
     { id:'chem', name:'化学', k:'化', note:'有機化学・天然物', subjects:[
