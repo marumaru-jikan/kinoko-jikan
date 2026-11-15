@@ -333,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -652,6 +652,14 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
   <text class="lb" x="292" y="34" text-anchor="middle">効果器</text><text class="lb" x="292" y="94" text-anchor="middle">効果器</text></svg>`;
 
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
+/* ===== 理2 安全性 ===== */
+const SAF1_LESSONS = [
+  { id:'1-1', t:'副作用・有害事象', wip:true, plan:[], body:()=>'' }
+];
+const SAF4_LESSONS = [
+  { id:'4-1', t:'依存性・耐性', wip:true, plan:[], body:()=>'' },
+  { id:'4-2', t:'依存性薬物', wip:true, plan:[], body:()=>'' }
+];
 /* ===== 理1 作用機序 ===== */
 const MOA1_LESSONS = [
   { id:'1-1', t:'用量-反応曲線', wip:true, plan:[], body:()=>'' },
@@ -2062,6 +2070,8 @@ const TERMS = {
 
 /* ===== 単元とコース ===== */
 const UNITS = {
+  saf1:{ no:'理2', title:'副作用と有害事象', subject:'薬理', course:'pharm', subj:1, lessons:SAF1_LESSONS, cards:'saf1', drill:'saf1' },
+  saf4:{ no:'理2', title:'薬物依存', subject:'薬理', course:'pharm', subj:1, lessons:SAF4_LESSONS, cards:'saf4', drill:'saf4' },
   moa1:{ no:'理1', title:'用量と作用', subject:'薬理', course:'pharm', subj:0, lessons:MOA1_LESSONS, cards:'moa1', drill:'moa1' },
   moa2:{ no:'理1', title:'受容体と情報伝達', subject:'薬理', course:'pharm', subj:0, lessons:MOA2_LESSONS, cards:'moa2', drill:'moa2' },
   aar:{ no:'理8', title:'抗不整脈薬', subject:'薬理', course:'pharm', subj:7, lessons:AAR_LESSONS, cards:'aar', drill:'aar' },
@@ -2112,7 +2122,7 @@ const CATALOG = [
       { name:'生活環境と健康', k:'5', units:U('地球環境と生態系','環境保全と法的規制','水環境','大気環境','室内環境','廃棄物') } ] },
     { id:'pharm', name:'薬理', k:'理', note:'薬の作用と作用機序', subjects:[
       { name:'作用機序', k:'1', units:U({ t:'用量と作用', ready:'moa1' },{ t:'受容体と情報伝達', ready:'moa2' }) },
-      { name:'安全性', k:'2', units:U('副作用と有害事象','薬物相互作用','中毒と解毒薬','薬物依存','妊婦・授乳婦・小児・高齢者への投与') },
+      { name:'安全性', k:'2', units:U({ t:'副作用と有害事象', ready:'saf1' },'薬物相互作用','中毒と解毒',{ t:'薬物依存', ready:'saf4' },'妊婦・授乳婦・小児・高齢者への投与') },
       { name:'自律神経系に作用する薬', k:'3', units:U({ t:'自律神経系の薬', ready:'ans' }) },
       { name:'体性神経系・筋に作用する薬', k:'4', units:U('局所麻酔薬','筋弛緩薬') },
       { name:'中枢神経系に作用する薬', k:'5', units:U('全身麻酔薬','催眠薬・抗不安薬','抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬','パーキンソン病治療薬','認知症治療薬','オピオイド鎮痛薬','片頭痛治療薬') },
