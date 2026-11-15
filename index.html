@@ -117,7 +117,7 @@ p{margin:0}
 .fig .wl{fill:none;stroke:var(--teal);stroke-width:2}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
-.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
+.fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
 .ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -424,6 +424,18 @@ const POOL = {
     ['Ⅰb群の適応','Ⅰb群（リドカイン・メキシレチン）のおもな適応は？','心室性の頻脈性不整脈',['上室性の頻脈性不整脈のみ','徐脈性不整脈','心不全'],'Ⅰb：心室性'],
     ['Ⅰa群の副作用','Ⅰa群で注意する、QT間隔延長による重い不整脈は？','心室細動',['心房細動','洞性徐脈','房室ブロックのみ'],'QT間隔延長 → 心室細動'],
   ],
+  inh:[
+    ['MDIの吸入前','吸入エアゾール剤（MDI）で、吸入前にすることは？','容器をよく振る',['容器を温める','吸入口に息を吹きかける','カプセルに穴をあける'],'ボンベの中の薬を均一にする'],
+    ['DPIの吸い方','吸入粉末剤（DPI）の吸い方は？','できる限り勢いよく吸い込む',['5〜6秒以上かけてゆっくり吸う','普通の呼吸で数分間吸う','ボタンを押しながらゆっくり吸う'],'吸入速度が遅いと薬がエアロゾルにならない'],
+    ['MDIの吸い方','吸入エアゾール剤（MDI）の吸い方は？','噴霧と同時に深くゆっくり吸い込む',['できる限り勢いよく吸い込む','噴霧の前に息を止める','普通の呼吸で数分間吸う'],'5〜6秒以上かけて深くゆっくり'],
+    ['うがい','吸入ステロイド薬のあとにうがいをする目的は？','口腔カンジダ症や嗄声の防止',['薬の効果を強める','吸入回数を減らす','気管支を広げる'],'うがい → 感染症や嗄声を防止'],
+    ['スペーサー','噴霧と吸入を合わせるのが難しい人に、MDIと一緒に使うのは？','スペーサー',['ネブライザー','タービュヘイラー','レスピマット'],'スペーサー：口との間につける筒'],
+    ['SMI','ソフトミスト吸入器はどれ？','レスピマット',['ディスカス','タービュヘイラー','ハンディヘラー'],'レスピマット：吸入液剤（SMI）'],
+    ['ネブライザー','乳幼児や吸う力が弱い人に向く吸入方法は？','ネブライザー',['吸入粉末剤（DPI）','吸入エアゾール剤（MDI）のみ','ツイストヘラー'],'普通の呼吸で吸える'],
+    ['リリーバー','リリーバー（発作治療薬）はどれ？','プロカテロール塩酸塩水和物',['フルチカゾンプロピオン酸エステル','クロモグリク酸ナトリウム','サルメテロールキシナホ酸塩'],'短時間作用型β₂刺激薬：リリーバー'],
+    ['コントローラー','コントローラー（長期管理薬）の特徴は？','症状がなくても継続して使う',['発作のときだけ使う','気道狭窄を一時的に改善する','炎症は抑えない'],'長期間気道炎症を抑えて発作を予防'],
+    ['DPIの息止め','吸入粉末剤（DPI）の吸入後の息止めは？','軽く（3〜4秒）',['30〜60秒','息を止めない','1分以上'],'DPI：軽く息を止める（3〜4秒）'],
+  ],
   vw:[
     ['クラスⅠa','クラスⅠa（活動電位持続時間延長）の抗不整脈薬は？','ジソピラミド',['リドカイン','ピルシカイニド','アミオダロン'],'Ⅰa：キニジン・ジソピラミド・プロカインアミド・シベンゾリン・ピルメノール'],
     ['クラスⅠb','クラスⅠb（活動電位持続時間短縮）の抗不整脈薬は？','リドカイン',['キニジン','フレカイニド','ソタロール'],'Ⅰb：リドカイン・メキシレチン・アプリンジン'],
@@ -679,7 +691,66 @@ const PM4_LESSONS = [
 ];
 const PM5_LESSONS = [
   { id:'5-1', t:'点眼剤', wip:true, plan:[], body:()=>'' },
-  { id:'5-2', t:'吸入剤', wip:true, plan:[], body:()=>'' },
+  { id:'5-2', t:'吸入剤', sub:'吸入剤の種類と使い方 › コントローラーとリリーバー', plan:['inh','inh','inh','inh','inh'], body:()=>`
+    <section class="panel"><h3>〇 吸入剤</h3>
+    <p>薬を気道・肺に直接届ける剤形。少ない量でよく効き、全身性の副作用が少ない。</p>
+    <p><b>気管支喘息治療薬</b>（COPDにも使う）</p>
+    ${ktbl([
+      ['薬物', '<div class="kgrp">（吸入ステロイド薬：ICS）</div>'+kdrug('フルチカゾンプロピオン酸エステル','')+kdrug('ブデソニド','')+kdrug('モメタゾンフランカルボン酸エステル','')+'<div class="kgrp">（長時間作用型β₂刺激薬：LABA）</div>'+kdrug('サルメテロールキシナホ酸塩','')+kdrug('ホルモテロールフマル酸塩水和物','')+'<div class="kgrp">（短時間作用型β₂刺激薬：SABA）</div>'+kdrug('プロカテロール塩酸塩水和物','')+kdrug('サルブタモール硫酸塩','')+'<div class="kgrp">（長時間作用型抗コリン薬：LAMA）</div>'+kdrug('チオトロピウム臭化物水和物','')+'<div class="kgrp">（抗アレルギー薬）</div>'+kdrug('クロモグリク酸ナトリウム','')]
+    ])}</section>
+    <section class="panel"><h3>〇 吸入剤の種類と使い方</h3>
+    <p><b>・吸入エアゾール剤（MDI）</b><br><span class="small muted">定量噴霧式吸入器。ボンベを押すと一定量の薬が霧になって出る。</span></p><svg class="fig dev" viewBox="0 0 150 120" role="img" aria-label="吸入エアゾール（MDI）。薬の入ったボンベをL字型の本体に差し込み、ボンベを押すと一定量が噴霧される">
+<rect x="58" y="6" width="26" height="62" rx="8" style="fill:var(--accent-soft);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="71" y="40" text-anchor="middle">ボンベ</text>
+<path d="M52 30 H90 V92 H128 V112 H52 Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><rect x="120" y="94" width="8" height="16" style="fill:var(--ink)"/>
+<path d="M71 0 V8" style="stroke:var(--muted);stroke-width:1.5"/><text class="sm2" x="94" y="14">押す</text>
+<text class="sm2" x="100" y="86">吸入口</text></svg>
+    ${ktbl([
+      ['吸入前', '容器をよく振る。<br>→ ボンベの中の薬を均一にする<br>吸入直前に息を吸い込まない'],
+      ['吸入時', '噴霧と同時に、5〜6秒以上かけて深くゆっくり吸い込む。<br><span class="small muted">舌を下げ、のどを広げる。</span>'],
+      ['吸入後', '5〜10秒程度息を止める。<br>→ 肺内沈着⬆<br>できる限りゆっくり息を吐く。<br>続けて吸入する場合は、30〜60秒程度間隔をあける。<br>うがい（ステロイド等）をする。<br>→ 感染症（口腔カンジダ症）や嗄声を防止'],
+      ['デバイス', 'エアゾール（インヘラー）<br><span class="small muted">※噴霧と吸入を合わせるのが難しい場合は、スペーサー（口との間につける筒）を使う。</span>']
+    ])}
+    <p><b>・吸入粉末剤（DPI）</b><br><span class="small muted">ドライパウダー吸入器。粉末の薬を自分の吸う力で吸い込む。</span></p><svg class="fig dev" viewBox="0 0 150 120" role="img" aria-label="吸入粉末剤（DPI）。円盤型の容器に粉末の薬が入っていて、レバーで1回分をセットして自分で吸い込む">
+<circle cx="70" cy="62" r="46" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><circle cx="70" cy="62" r="20" style="fill:var(--accent-soft);stroke:var(--ink);stroke-width:1.8"/>
+<rect x="106" y="50" width="34" height="24" rx="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="123" y="44" text-anchor="middle">吸入口</text>
+<path d="M40 30 L28 18" style="stroke:var(--ink);stroke-width:4;stroke-linecap:round"/><text class="sm2" x="6" y="12">レバー</text>
+<text class="sm2" x="70" y="66" text-anchor="middle">粉末</text></svg>
+    ${ktbl([
+      ['吸入前', '確実に1回分が吸入できるようにセットする。<br>吸入前に息を吐いておく。<br><span class="small muted">吸入口に息を吹きかけない。</span>'],
+      ['吸入時', 'できる限り勢いよく吸い込む。<br><span class="small muted">吸入速度が遅いと、薬がエアロゾルにならない。</span>'],
+      ['吸入後', '軽く息を止める（3〜4秒）。<br>できる限りゆっくり息を吐く。<br>吸入動作を繰り返す場合は、間隔をあけずに続けて行ってもよい。<br>うがい（ステロイド等）をする。'],
+      ['デバイス', '<b>ディスカス</b>：フルタイド、セレベント、アドエア<br><b>ディスクヘラー</b>：フルタイドロタディスク、セレベントロタディスク<br><b>タービュヘイラー</b>：パルミコート、シムビコート<br><b>ハンディヘラー</b>：スピリーバ吸入用カプセル<br><b>ツイストヘラー</b>：アズマネックス'],
+      ['向いている人', '吸う力が十分ある人<br><span class="small muted">噴霧と吸入を合わせる必要がない。乳幼児や吸う力が弱い高齢者には向かない。</span>']
+    ])}
+    <p><b>・吸入液剤（SMI）</b><br><span class="small muted">ソフトミスト吸入器。ボタンを押すと、薬液がゆっくり出る細かい霧になる。</span></p><svg class="fig dev" viewBox="0 0 160 120" role="img" aria-label="ソフトミスト吸入器（SMI）。透明なケースを回してセットし、ボタンを押すと霧がゆっくり出る">
+<rect x="52" y="8" width="40" height="18" rx="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="98" y="20">吸入口</text>
+<rect x="48" y="26" width="48" height="50" rx="8" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><circle cx="96" cy="50" r="5" style="fill:var(--ink)"/><text class="sm2" x="104" y="54">ボタン</text>
+<rect x="50" y="76" width="44" height="38" rx="6" style="fill:var(--teal-soft);stroke:var(--ink);stroke-width:1.8;stroke-dasharray:4 2"/><text class="sm2" x="100" y="100">透明ケース</text>
+<path d="M30 92 a14 10 0 1 1 0.1 0" style="fill:none;stroke:var(--muted);stroke-width:1.5"/><text class="sm2" x="6" y="114">回す</text></svg>
+    ${ktbl([
+      ['吸入前', 'キャップを閉じたまま、透明ケースをカチッと音がするまで回す。<br>キャップを開け、息を吐いておく。'],
+      ['吸入時', '吸入口をくわえ、ゆっくり深く吸いながらボタンを押す。'],
+      ['吸入後', 'できるだけ長く（10秒程度）息を止める。<br>ゆっくり息を吐く。'],
+      ['デバイス', '<b>レスピマット</b>：スピリーバ吸入用レスピマット、スピオルトレスピマット'],
+      ['向いている人', '吸う力が弱い人（高齢者など）<br><span class="small muted">霧がゆっくり出るので、MDIより噴霧と吸入を合わせやすい。</span>']
+    ])}
+    <p><b>・吸入液剤（ネブライザー）</b><br><span class="small muted">ネブライザー。機械で薬液を霧にし、普通の呼吸で吸う。</span></p><svg class="fig dev" viewBox="0 0 150 120" role="img" aria-label="ネブライザー。本体の機械で薬液を細かい霧にし、マウスピースやマスクから普通の呼吸で吸う">
+<rect x="6" y="66" width="56" height="44" rx="6" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="34" y="92" text-anchor="middle">本体</text>
+<path d="M62 90 C80 90 84 70 92 66" style="fill:none;stroke:var(--ink);stroke-width:2"/>
+<path d="M88 40 H112 L108 72 H92 Z" style="fill:var(--accent-soft);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="100" y="86" text-anchor="middle">薬液</text>
+<rect x="110" y="36" width="34" height="12" rx="4" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.8"/><text class="sm2" x="148" y="28" text-anchor="end">マウスピース</text>
+</svg>
+    ${ktbl([
+      ['吸入前', '決められた量の薬液を薬液カップに入れる。<br>姿勢よく座る。'],
+      ['吸入時', 'マウスピース（またはマスク）から、普通の呼吸でゆっくり吸う。<br><span class="small muted">霧が出なくなるまで（数分〜15分程度）続ける。</span>'],
+      ['吸入後', 'うがい（ステロイド等）をする。マスクの場合は顔もふく。<br>器具を洗って乾かす。'],
+      ['デバイス', '<b>ジェット式、超音波式、メッシュ式</b><br>パルミコート吸入液、インタール吸入液、メプチン吸入液'],
+      ['向いている人', '乳幼児、高齢者、発作で吸う力が弱い人<br><span class="small muted">普通の呼吸で吸えるので、息止めや吸い方の練習がいらない。</span>']
+    ])}</section>
+    <section class="panel"><h3>〇 コントローラーとリリーバー</h3>
+    ${tbl(['','リリーバー（発作治療薬）','コントローラー（長期管理薬）'],[
+      ['特徴','発作を止めるための薬剤。<br>発作時の一時的な気道狭窄を改善する。気管支の炎症は改善しない。','発作を起こさせないための薬剤。<br>長期間気道炎症を抑えて発作を予防する。症状がなくても継続的に使用する必要がある。'],
+      ['分類','短時間作用型β₂刺激薬<br>（<span class="dg">プロカテロール塩酸塩水和物</span>等）','長時間作用型β₂刺激薬<br><span class="dg">副腎皮質ステロイド性薬</span><br>抗アレルギー薬（<span class="dg">クロモグリク酸ナトリウム</span>等）']])}</section>` },
   { id:'5-3', t:'坐剤', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 理5 中枢神経系に作用する薬 ===== */
