@@ -333,7 +333,7 @@ const KINOKO_CARDS = [
 
 // 演習問題PDF。pdf フォルダに入れたファイル名を書きます。空なら「準備中」と表示されます。
 const PDF = {
-  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
+  'ans-lv1':{q:'',a:''}, 'hf-lv1':{q:'',a:''}, 'aar-lv1':{q:'',a:''}, 'moa1-lv1':{q:'',a:''}, 'saf1-lv1':{q:'',a:''}, 'eye1-lv1':{q:'',a:''}, 'uro1-lv1':{q:'',a:''}, 'gen2-lv1':{q:'',a:''}, 'gen3-lv1':{q:'',a:''}, 'gen4-lv1':{q:'',a:''}, 'uro2-lv1':{q:'',a:''}, 'uro3-lv1':{q:'',a:''}, 'eye2-lv1':{q:'',a:''}, 'eye3-lv1':{q:'',a:''}, 'saf4-lv1':{q:'',a:''}, 'moa2-lv1':{q:'',a:''}, 'fp-lv1':{q:'',a:''}, 'pk-lv1':{q:'',a:''}, 'kd-lv1':{q:'',a:''}, 'gr-lv1':{q:'',a:''}, 'calc-lv1':{q:'',a:''}, 'hh-lv1':{q:'',a:''}, 'cog-lv1':{q:'',a:''}, 'lecg-lv1':{q:'',a:''}, 'larr-lv1':{q:'',a:''}, 'lisch-lv1':{q:'',a:''}, 'lqt-lv1':{q:'',a:''}, 'phy-lv1':{q:'',a:''}, 'nx_phy-lv1':{q:'',a:''}, 'nx_hyg-lv1':{q:'',a:''}, 'nx_ph-lv1':{q:'',a:''}, 'nx_pk-lv1':{q:'',a:''}, 'nx_dx-lv1':{q:'',a:''}, 'nx_law-lv1':{q:'',a:''}, 'nx_pr-lv1':{q:'',a:''}, 'hs-lv1':{q:'',a:''},
 };
 
 
@@ -652,6 +652,19 @@ const ansFig = () => `<svg class="fig" viewBox="0 0 320 150" role="img" aria-lab
   <text class="lb" x="292" y="34" text-anchor="middle">効果器</text><text class="lb" x="292" y="94" text-anchor="middle">効果器</text></svg>`;
 
 /* ===== 小単元（1つ約5分＝「胞子ひとつ」） ===== */
+/* ===== 理11 生殖器系に作用する薬 ===== */
+const GEN2_LESSONS = [
+  { id:'2-1', t:'子宮収縮薬', wip:true, plan:[], body:()=>'' },
+  { id:'2-2', t:'子宮弛緩薬', wip:true, plan:[], body:()=>'' }
+];
+const GEN3_LESSONS = [
+  { id:'3-0', lid:'3-0', col:true, ref:{ c:'ther', s:'泌尿器系疾患', u:'前立腺肥大症・過活動膀胱' }, t:'前立腺肥大症について', sub:'病態・薬物治療 › 12 泌尿器系疾患 › 3 前立腺肥大症・過活動膀胱', plan:[], body:()=>'' },
+  { id:'3-1', t:'前立腺肥大症治療薬', wip:true, plan:[], body:()=>'' }
+];
+const GEN4_LESSONS = [
+  { id:'4-0', lid:'4-0', col:true, ref:{ c:'ther', s:'生殖器系疾患', u:'勃起不全' }, t:'勃起不全について', sub:'病態・薬物治療 › 13 生殖器系疾患 › 4 勃起不全', plan:[], body:()=>'' },
+  { id:'4-1', t:'勃起不全治療薬', wip:true, plan:[], body:()=>'' }
+];
 /* ===== 理10 腎・泌尿器系に作用する薬 ===== */
 const URO1_LESSONS = [
   { id:'1-1', t:'利尿薬の作用機序', wip:true, plan:[], body:()=>'' },
@@ -2108,6 +2121,9 @@ const TERMS = {
 
 /* ===== 単元とコース ===== */
 const UNITS = {
+  gen2:{ no:'理11', title:'子宮に作用する薬', subject:'薬理', course:'pharm', subj:10, lessons:GEN2_LESSONS, cards:'gen2', drill:'gen2' },
+  gen3:{ no:'理11', title:'前立腺肥大症治療薬', subject:'薬理', course:'pharm', subj:10, lessons:GEN3_LESSONS, cards:'gen3', drill:'gen3' },
+  gen4:{ no:'理11', title:'勃起不全治療薬', subject:'薬理', course:'pharm', subj:10, lessons:GEN4_LESSONS, cards:'gen4', drill:'gen4' },
   uro1:{ no:'理10', title:'利尿薬', subject:'薬理', course:'pharm', subj:9, lessons:URO1_LESSONS, cards:'uro1', drill:'uro1' },
   uro2:{ no:'理10', title:'排尿困難治療薬', subject:'薬理', course:'pharm', subj:9, lessons:URO2_LESSONS, cards:'uro2', drill:'uro2' },
   uro3:{ no:'理10', title:'頻尿治療薬', subject:'薬理', course:'pharm', subj:9, lessons:URO3_LESSONS, cards:'uro3', drill:'uro3' },
@@ -2175,7 +2191,7 @@ const CATALOG = [
       { name:'循環器系に作用する薬', k:'8', units:U({ t:'心不全治療薬', ready:'hf' },{ t:'抗不整脈薬', ready:'aar' },'狭心症治療薬','降圧薬','肺動脈性肺高血圧症治療薬','昇圧薬') },
       { name:'血液系・造血器系に作用する薬', k:'9', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子') },
       { name:'腎・泌尿器系に作用する薬', k:'10', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' }) },
-      { name:'生殖器系に作用する薬', k:'11', units:U('性ホルモン関連薬','子宮に作用する薬','勃起不全治療薬') },
+      { name:'生殖器系に作用する薬', k:'11', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' }) },
       { name:'呼吸器系に作用する薬', k:'12', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬') },
       { name:'消化器系に作用する薬', k:'13', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬') },
       { name:'代謝系に作用する薬', k:'14', units:U('糖尿病治療薬','脂質異常症治療薬') },
@@ -2201,7 +2217,7 @@ const CATALOG = [
       { name:'循環器疾患', k:'10', units:U('心不全','不整脈','高血圧症','虚血性心疾患') },
       { name:'血液・造血器系疾患', k:'11', units:U('貧血','血栓症・DIC','白血病・リンパ腫') },
       { name:'泌尿器系疾患', k:'12', units:U('腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
-      { name:'生殖器系疾患', k:'13', units:U('子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害') },
+      { name:'生殖器系疾患', k:'13', units:U('子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
       { name:'呼吸器系疾患', k:'14', units:U('気管支喘息','COPD','間質性肺炎') },
       { name:'消化器系疾患', k:'15', units:U('消化性潰瘍・GERD','炎症性腸疾患','肝炎・肝硬変','膵炎') },
       { name:'代謝系疾患', k:'16', units:U('糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
