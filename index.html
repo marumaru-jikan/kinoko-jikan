@@ -118,7 +118,7 @@ p{margin:0}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
 .fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.figwip{border:1.5px dashed var(--line,#ccc);border-radius:12px;padding:22px 10px;text-align:center;color:var(--muted);font-size:.85rem;margin:6px 0 12px}.pfl{display:flex;flex-direction:column;gap:6px;margin:8px 0}.pfa{background:#DCEFD9;color:#24451F;border-radius:10px;padding:8px;text-align:center;font-weight:700}.pfd{text-align:center;font-weight:700;font-size:.9rem}.pfr{display:flex;align-items:stretch;gap:6px}.pfb{flex:1;background:#F6E3C6;color:#4A3410;border-radius:10px;padding:8px;font-size:.85rem;display:flex;align-items:center}.pfx{display:flex;align-items:center;font-weight:700}.pfc{flex:1.2;background:#E6DDF0;color:#3A2A55;border-radius:10px;padding:8px;font-size:.85rem}.sigfig{line-height:1.9}.sigfig ruby rt{font-size:.6em;color:var(--muted)}.sfn{font-size:1.1em;font-weight:700;letter-spacing:.05em}.cm{color:#222;border-radius:4px;padding:0 3px;white-space:nowrap}.fgs{display:block;width:104px;height:auto;margin-top:4px}.fgs[viewBox^="0 0 170"]{width:180px}.radt{font-size:.8rem;min-width:560px}.radt td,.radt th{vertical-align:top;padding:6px 6px}.radt td:first-child,.radt th:first-child{white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
-.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.knum{table-layout:fixed;width:100%}.kw td:first-child{white-space:normal;width:44%}.knum td:first-child{width:2em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
+.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}sup.iso{font-size:.62em;vertical-align:.5em;line-height:0;letter-spacing:0}.knum{table-layout:fixed;width:100%}.kw td:first-child{white-space:normal;width:44%}.knum td:first-child{width:2em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .note-box{background:var(--sunk);border-color:transparent;display:flex;flex-direction:column;gap:10px}
@@ -3628,6 +3628,18 @@ const LX = id => CU().lessons.find(l=>l.id===id);
 // 「A ÷ B × 100」のような式を分数で表示する
 const FRX = /(\([^()]+\)|[^\s＝、。（）()<>]+) ÷ (\([^()]+\)|[^\s＝、。（）()×<>]+) × (100,000|100|1,000|10万)/g;
 const fracHTML = s => String(s).replace(FRX, (m,a,b,k)=>`<span class="frac"><span>${a.replace(/^\((.*)\)$/,'$1')}</span><span>${b.replace(/^\((.*)\)$/,'$1')}</span></span> × ${k}`);
+// 上付き数字（⁴⁰Kなど）はフォントで崩れるので<sup>に置き換える
+const SUPM={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','ᵐ':'m'};
+function supFix(root){
+  const re=/[⁰¹²³⁴⁵⁶⁷⁸⁹][⁰¹²³⁴⁵⁶⁷⁸⁹ᵐ]*/g;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>/[⁰¹²³⁴⁵⁶⁷⁸⁹]/.test(n.nodeValue)&&!n.parentNode.closest('svg')?1:2});
+  const ns=[];while(w.nextNode())ns.push(w.currentNode);
+  for(const n of ns){
+    const t=n.nodeValue,f=document.createDocumentFragment();let last=0;
+    t.replace(re,(m,i)=>{f.append(t.slice(last,i));const s=document.createElement('sup');s.className='iso';s.textContent=[...m].map(c=>SUPM[c]).join('');f.append(s);last=i+m.length;});
+    f.append(t.slice(last));n.replaceWith(f);
+  }
+}
 const fx = s => fracHTML(esc(s));
 // 画面に出す名前：まとめテストは番号をつけない
 const LN = l => l.test ? l.t : l.id+'　'+l.t;
@@ -3850,6 +3862,7 @@ const VIEWS={ setup:vSetup, home:vHome, course:vCourse, subject:vSubject, unit:v
 function render(){
   if(S.view!=='result') clearLeaves();
   app.innerHTML=VIEWS[S.view]();
+  supFix(app);
   tabs.hidden = S.view==='setup';
   const tabFor={record:'record',settings:'settings',sky:'sky'}[S.view]||'home';
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===tabFor));
