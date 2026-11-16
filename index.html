@@ -459,6 +459,14 @@ const POOL = {
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
   ],
+  reff:[
+    ['確定的影響','しきい値がある影響は？','確定的影響',['確率的影響','遺伝的影響','晩発影響'],'線量の増大により重篤度が増大'],
+    ['確率的影響','確率的影響に分類されるのは？','白血病',['白内障','紅斑','不妊'],'白血病、がん、遺伝的影響'],
+    ['確定的影響','晩発影響のうち確定的影響に分類されるのは？','白内障',['白血病','がん','軟骨異常'],'しきい線量を超えると生じる'],
+    ['確率的影響','確率的影響の特徴は？','線量の増大により発生率が増加する',['線量の増大により重篤度が増大する','しきい値がある','急性影響のみ起こる'],'重篤度に影響なし'],
+    ['急性影響','急性影響はいつ出る症状？','数週間以内',['数ヶ月後','数年後','子孫の世代'],'晩発影響は数ヶ月から数年後'],
+    ['遺伝的影響','遺伝的影響に分類されるのは？','代謝異常',['白血球減少','脱毛','白内障'],'被ばくした人の子孫への影響'],
+  ],
   rbio:[
     ['自然放射線','自然放射線による年間平均被ばく（日本平均）は？','約2.1 mSv',['約2.4 mSv','約0.21 mSv','約21 mSv'],'世界平均は約2.4 mSv'],
     ['組織集積性','骨に集積する核種は？','⁹⁰Sr',['¹³¹I','¹³⁷Cs','³H'],'骨にランプするか？（Ra、P、Sr、Ca）'],
@@ -1500,7 +1508,18 @@ const RAD1_LESSONS = [
       ['<span class="mk">さらに<br>低感受性</span>', '神経、脂肪組織']
     ])}
     <p class="small muted">※組織加重係数が大きい（0.12）組織：肺、胃、結腸、赤色骨髄、乳房</p>
-    <p><b>覚え方</b></p><img class="goro-img" src="goro/xabsorb.png" alt="組織でのX線吸収率の覚え方。コツコツと金欠でも支払い。コツ＝骨、金＝筋肉、欠＝血液、支＝脂肪、払い＝肺。吸収率は骨＞筋肉＞血液＞脂肪＞肺" loading="lazy"></section>` }
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/xabsorb.png" alt="組織でのX線吸収率の覚え方。コツコツと金欠でも支払い。コツ＝骨、金＝筋肉、欠＝血液、支＝脂肪、払い＝肺。吸収率は骨＞筋肉＞血液＞脂肪＞肺" loading="lazy"></section>` },
+  { id:'1-11', t:'放射線の影響', sub:'確定的影響・確率的影響', plan:['reff','reff','reff','reff','reff'], body:()=>`
+    <section class="panel"><h3>〇 身体的影響と遺伝的影響</h3>
+    <p class="small muted">表は横にスクロールできる。</p>
+    <div class="scroll"><table class="tbl radt"><tr><th></th><th></th><th>確定的影響<br><span class="small muted">しきい線量を超える放射線に被ばくしたときに生じる。</span></th><th>確率的影響<br><span class="small muted">微量の放射線に被ばくした際でも生じる可能性がある。</span></th></tr><tr><td rowspan="2"><b>身体的影響</b><br><span class="small muted">被ばくした<br>人への影響</span></td><td>急性影響</td><td>皮膚の<span class="mk">紅斑</span>、脱毛、<span class="mk">白血球減少</span>、<span class="mk">不妊</span></td><td>—</td></tr><tr><td>晩発影響</td><td><span class="mk">白内障</span></td><td rowspan="2"><span class="mk">白血病</span>、<span class="mk">がん</span><br><br><span class="mk">代謝異常</span>、<span class="mk">軟骨異常</span></td></tr><tr><td><b>遺伝的影響</b><br><span class="small muted">被ばくした人の<br>子孫への影響</span></td><td>晩発影響</td><td>—</td></tr></table></div>
+    <p class="small muted">※急性影響：放射線を受けて数週間以内に出る症状<br>晩発影響：数ヶ月から数年後に出る症状</p></section>
+    <section class="panel"><h3>〇 確定的影響と確率的影響</h3>
+    ${ktbl([
+      ['確定的影響', '線量の増大により重篤度が増大（しきい値<sup>※</sup>あり）<br><span class="small muted">防護）しきい線量を超えないようにする。</span>'],
+      ['確率的影響', '線量の増大により発生率が増加<br>重篤度に影響なし（しきい値なし）<br><span class="small muted">防護）できるだけ被ばくを抑える。</span>']
+    ])}<svg class="fig" viewBox="0 0 340 142" role="img" aria-label="確定的影響はしきい値を超えると症状の程度が急に大きくなるS字の曲線。確率的影響はしきい値がなく、線量に比例して発生確率が増える直線"><text class="sm2" x="85" y="12" text-anchor="middle" style="font-weight:700">確定的影響</text><line x1="22" y1="22" x2="22" y2="120" stroke="var(--ink)" stroke-width="1.3"/><line x1="22" y1="120" x2="160" y2="120" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="91" y="136" text-anchor="middle">吸収線量</text><text class="sm2" x="12" y="71" text-anchor="middle" transform="rotate(-90 12 71)">症状の程度</text><path d="M22 119 L62 119 C82 119 84 50 104 40 C118 32 134 30 156 30" fill="none" stroke="#E07A8C" stroke-width="2.2"/><line x1="64" y1="72" x2="64" y2="112" stroke="var(--ink)" stroke-width="1.2"/><path d="M64 118 L60 110 L68 110 Z" fill="var(--ink)"/><text class="sm2" x="60" y="66" text-anchor="middle">しきい値</text><text class="sm2" x="261" y="12" text-anchor="middle" style="font-weight:700">確率的影響</text><line x1="198" y1="22" x2="198" y2="120" stroke="var(--ink)" stroke-width="1.3"/><line x1="198" y1="120" x2="336" y2="120" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="267" y="136" text-anchor="middle">吸収線量</text><text class="sm2" x="188" y="71" text-anchor="middle" transform="rotate(-90 188 71)">発生確率</text><line x1="198" y1="119" x2="240" y2="88" stroke="#2E8BC9" stroke-width="2.2" stroke-dasharray="4 3"/><line x1="240" y1="88" x2="330" y2="30" stroke="#2E8BC9" stroke-width="2.2"/><text class="sm2" x="290" y="96" text-anchor="middle">しきい値なし</text></svg>
+    <p class="small muted">※しきい値：障害の発生する最小の線量</p></section>` }
 ];
 const RAD2_LESSONS = [
   { id:'2-1', t:'放射性医薬品とは', wip:true, plan:[], body:()=>'' },
