@@ -459,6 +459,13 @@ const POOL = {
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
   ],
+  rcalc:[
+    ['有効半減期','物理学的半減期30年、生物学的半減期50年の核種の有効半減期は？','18.75年',['40年','80年','20年'],'30×50／（30＋50）'],
+    ['有効半減期','有効半減期は物理学的半減期・生物学的半減期と比べて？','必ず両方より短い',['必ず両方より長い','両者の平均になる','物理学的半減期と等しい'],'1/Tₑ＝1/Tₚ＋1/Tᵦ'],
+    ['半減期','半減期Tと壊変定数λの関係は？','T＝ln2／λ',['T＝λ／ln2','T＝λ・ln2','T＝ln2・λ²'],'半減期は壊変定数に反比例'],
+    ['放射能','放射能A、原子数N、壊変定数λの関係は？','A＝N・λ',['A＝N／λ','A＝λ／N','A＝N＋λ'],'放射能は速度'],
+    ['半減期','壊変定数が2倍になると半減期は？','1/2になる',['2倍になる','変わらない','4倍になる'],'反比例'],
+  ],
   repn:[
     ['¹⁴C','¹⁴Cの半減期は？','約5730年',['約12.3年','約29年','約8日'],'トレーサー実験に使用'],
     ['⁹⁹ᵐTc','⁹⁹ᵐTcの半減期は？','約6時間',['約66時間','約13.2時間','約8日'],'ミルキングで生成'],
@@ -1417,7 +1424,18 @@ const RAD1_LESSONS = [
     <div class="scroll"><table class="tbl radt" style="min-width:720px"><tr><th>核種</th><th>放出放射線<br>（エネルギー）</th><th>半減期</th><th>天然 or 人工</th><th>集積性</th><th>その他</th></tr><tr><td><b>① ³H</b></td><td>β⁻線（低）</td><td>約12.3年</td><td>天然＆人工<br>（誘導天然）</td><td>全身</td><td>トレーサー実験に使用</td></tr><tr><td><b>② ¹⁴C</b></td><td>β⁻線（低）</td><td>約5730年</td><td>天然＆人工<br>（誘導天然）</td><td>全身</td><td>トレーサー実験に使用</td></tr><tr><td><b>③ ³²P</b></td><td>β⁻線（高）</td><td>約14.3日</td><td>人工</td><td>骨</td><td>トレーサー実験に使用</td></tr><tr><td><b>④ ¹¹C</b></td><td>β⁺線</td><td>約20.4分</td><td>人工</td><td>—</td><td>PET（ポジトロンCT）に使用</td></tr><tr><td><b>⑤ ¹³N</b></td><td>β⁺線</td><td>約9.97分</td><td>人工</td><td>—</td><td>PET（ポジトロンCT）に使用</td></tr><tr><td><b>⑥ ¹⁵O</b></td><td>β⁺線</td><td>約2.04分</td><td>人工</td><td>—</td><td>PET（ポジトロンCT）に使用</td></tr><tr><td><b>⑦ ¹⁸F</b></td><td>β⁺線</td><td>約1.83時間</td><td>人工</td><td>—</td><td>PET（ポジトロンCT）に使用</td></tr><tr><td><b>⑧ ⁴⁰K</b></td><td>β⁻線（高）<br>＆γ線</td><td>約13億年</td><td>天然</td><td>—</td><td>バックグラウンドに影響</td></tr><tr><td><b>⑨ ⁶⁰Co</b></td><td>β⁻線（低）<br>＆γ線</td><td>約5.27年</td><td>人工</td><td>—</td><td>照射用γ線源に使用<br>バレイショの発芽防止</td></tr><tr><td><b>⑩ ⁹⁰Sr</b></td><td>β⁻線</td><td>約29年</td><td>人工</td><td>骨</td><td>永続平衡が成立<br>⁹⁰Sr → ⁹⁰Y → ⁹⁰Zr<br><span class="small muted">（約29年）（約64時間）</span></td></tr><tr><td><b>⑪ ⁹⁹ᵐTc</b></td><td>γ線</td><td>約6時間</td><td>ミルキングで生成</td><td>—</td><td>過渡平衡が成立<br>⁹⁹Mo → ⁹⁹ᵐTc → ⁹⁹Tc<br><span class="small muted">親（約66時間）→ 娘（約6時間）：10倍程度</span><br>診断用医薬品（SPECT）に最も多く使用</td></tr><tr><td><b>⑫ ¹²³I</b></td><td>γ線</td><td>約13.2時間</td><td>人工</td><td>甲状腺</td><td>EC後、γ線放出<br>（SPECTに使用）<br><span class="small muted">例）イオフルパン</span></td></tr><tr><td><b>⑬ ¹²⁵I</b></td><td>γ線</td><td>約60.1日</td><td>人工</td><td>甲状腺</td><td>EC後、γ線放出<br>（<span class="mk">ラジオイムノアッセイに汎用</span>）</td></tr><tr><td><b>⑭ ¹³¹I</b></td><td>β⁻線（高）<br>＆γ線</td><td>約8日</td><td>人工</td><td>甲状腺</td><td>β⁻壊変後、β⁻線とγ線放出<br>（診断用及び治療用医薬品に使用）</td></tr><tr><td><b>⑮ ¹³⁷Cs</b></td><td>β⁻線（高）<br>＆γ線</td><td>約30年</td><td>人工</td><td>筋肉<br>（全身）</td><td>永続平衡が成立<br>¹³⁷Cs → ¹³⁷ᵐBa → ¹³⁷Ba</td></tr><tr><td><b>⑯ ²²⁶Ra</b></td><td>α線＆γ線</td><td>約1620年</td><td>天然</td><td>骨</td><td>永続平衡が成立<br>²²⁶Ra → ²²²Rn → ²¹⁸Po<br><span class="small muted">（地殻）（大気中）</span></td></tr><tr><td><b>⑰ ²²²Rn</b></td><td>α線＆γ線</td><td>約3.8日</td><td>天然</td><td>—</td><td>呼吸により肺に取り込まれる</td></tr></table></div>
     <p>※⁹⁰Sr、¹³¹I、¹³⁷Csは、<span class="mk">放射性降下物</span>（核爆発や原子力事故で生じた放射性の塵）として重要である。</p>
     <p class="small muted">PET用のβ⁺線核種（¹¹C、¹³N、¹⁵O、¹⁸F）は半減期が短い。</p></section>` },
-  { id:'1-8', t:'放射能計算', wip:true, plan:[], body:()=>'' },
+  { id:'1-8', t:'放射能計算', sub:'有効半減期・壊変定数', plan:['rcalc','rcalc','rcalc','rcalc','rcalc'], body:()=>`
+    <section class="panel"><h3>〇 有効半減期</h3>
+    <p style="font-size:.88em">有効半減期＝<span class="frac"><span>（物理学的半減期）×（生物学的半減期）</span><span>（物理学的半減期）＋（生物学的半減期）</span></span></p>
+    <div style="border:2px solid #F0A060;border-radius:10px;padding:10px 4px;margin:8px 0;font-size:.82em;white-space:nowrap;text-align:center"><span class="frac"><span>1</span><span>有効半減期</span></span>＝<span class="frac"><span>1</span><span>物理学的半減期</span></span>＋<span class="frac"><span>1</span><span>生物学的半減期</span></span></div>
+    <p class="small muted">例）⁹⁰Srの物理学的半減期は約30年、生物学的半減期は約50年である。</p>
+    <p>⁹⁰Srの有効半減期＝<span class="frac"><span>30×50</span><span>30＋50</span></span>＝18.75（年）</p><svg class="fig" viewBox="0 0 340 150" role="img" aria-label="放射性核種は壊変による物理学的消失と、代謝・排泄による生物学的消失で減り、両方をあわせたものが有効半減期"><rect x="4" y="62" width="74" height="30" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="41.0" y="81.0" text-anchor="middle" style="font-weight:700">放射性核種</text><rect x="124" y="14" width="96" height="30" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="172.0" y="33.0" text-anchor="middle" style="font-weight:700">物理学的消失</text><rect x="124" y="110" width="96" height="30" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="172.0" y="129.0" text-anchor="middle" style="font-weight:700">生物学的消失</text><line x1="78" y1="70" x2="116.7" y2="36.6" stroke="var(--ink)" stroke-width="1.4"/><path d="M122 32 L119.0 39.2 L114.4 33.9 Z" fill="var(--ink)"/><line x1="78" y1="84" x2="116.7" y2="117.4" stroke="var(--ink)" stroke-width="1.4"/><path d="M122 122 L114.4 120.1 L119.0 114.8 Z" fill="var(--ink)"/><text class="sm2" x="84" y="38" text-anchor="middle">壊変 kₚ</text><text class="sm2" x="72" y="122" text-anchor="end">代謝・排泄 kₐ</text><line x1="220" y1="29" x2="251.3" y2="62.9" stroke="var(--ink)" stroke-width="1.4"/><path d="M256 68 L248.7 65.2 L253.8 60.5 Z" fill="var(--ink)"/><line x1="220" y1="125" x2="251.3" y2="91.1" stroke="var(--ink)" stroke-width="1.4"/><path d="M256 86 L253.8 93.5 L248.7 88.8 Z" fill="var(--ink)"/><rect x="258" y="58" width="78" height="34" rx="8" fill="#FCE3CC" stroke="var(--ink)" stroke-width="1.3"/><text class="sm2" x="297.0" y="79.0" text-anchor="middle" style="font-weight:700;fill:#3A2210">有効半減期 Tₑ</text></svg>
+    <p><span class="frac"><span>1</span><span>Tₑ</span></span>＝<span class="frac"><span>kₚ＋kₐ</span><span>ln2</span></span></p>
+    <p>有効半減期は、必ず物理学的半減期・生物学的半減期よりも<span class="mk">短い</span>。</p></section>
+    <section class="panel"><h3>〇 壊変定数・半減期・放射能・原子数</h3>
+    <p>T＝<span class="frac"><span>ln2</span><span>λ</span></span>　　A＝N・λ</p>
+    ${ktbl([['T','物理学的半減期'],['λ','壊変定数'],['A','放射能<br><span class="small muted">放射能は速度</span>'],['N','原子数']])}
+    <p>※半減期は壊変定数に<span class="mk">反比例</span></p></section>` },
   { id:'1-9', t:'放射平衡', wip:true, plan:[], body:()=>'' },
   { id:'1-10', t:'放射線測定', wip:true, plan:[], body:()=>'' },
   { id:'1-11', t:'人体への影響', wip:true, plan:[], body:()=>'' }
