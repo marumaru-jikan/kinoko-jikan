@@ -459,6 +459,15 @@ const POOL = {
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
   ],
+  rbio:[
+    ['自然放射線','自然放射線による年間平均被ばく（日本平均）は？','約2.1 mSv',['約2.4 mSv','約0.21 mSv','約21 mSv'],'世界平均は約2.4 mSv'],
+    ['組織集積性','骨に集積する核種は？','⁹⁰Sr',['¹³¹I','¹³⁷Cs','³H'],'骨にランプするか？（Ra、P、Sr、Ca）'],
+    ['組織集積性','甲状腺に集積する核種は？','¹³¹I',['⁹⁰Sr','³²P','¹⁴C'],'¹²³I、¹²⁵I、¹³¹I'],
+    ['組織集積性','主に筋肉中に分布する核種は？','¹³⁷Cs',['⁹⁰Sr','¹³¹I','²²⁶Ra'],'全身（主に筋肉中）'],
+    ['放射線感受性','放射線感受性が最も高い組織は？','骨髄',['神経','筋肉','脂肪組織'],'細胞分裂が盛んなものほど高い'],
+    ['放射線感受性','放射線感受性が最も低い組織は？','神経',['骨髄','皮膚','消化管'],'さらに低感受性：神経、脂肪組織'],
+    ['ベルゴニー・トリボンドー','放射線感受性が高いのは？','細胞分裂が盛んで未分化な細胞',['細胞分裂が少なく分化した細胞','脂肪を多く含む細胞','神経細胞'],'ベルゴニー・トリボンドーの法則'],
+  ],
   req:[
     ['過渡平衡','⁹⁹Mo → ⁹⁹ᵐTcで成立する放射平衡は？','過渡平衡',['永続平衡','非平衡','化学平衡'],'T_AがT_Bの10倍程度'],
     ['永続平衡','⁹⁰Sr → ⁹⁰Yで成立する放射平衡は？','永続平衡',['過渡平衡','非平衡','化学平衡'],'T_A ≫ T_B'],
@@ -1469,7 +1478,29 @@ const RAD1_LESSONS = [
     ]).replace('tbl ktbl','tbl ktbl kw')}
     <p><b>覚え方</b></p><img class="goro-img" src="goro/fluormeter.png" alt="蛍光作用を利用した測定器の覚え方。ナイル川、低いベッドは水びたし。ナイル＝NaIシンチレーションカウンタ、川＝γ線、低いベッド＝低エネルギーβ線、水びたし＝液体シンチレーションカウンタ" loading="lazy">
     <p class="small muted">※個人の外部被ばく線量の測定には、蛍光ガラス線量計（ガラスバッジ）、フィルムバッジ、OSL（光刺激ルミネッセンス）線量計などを用いる。</p></section>` },
-  { id:'1-10', t:'人体への影響', wip:true, plan:[], body:()=>'' }
+  { id:'1-10', t:'人体への影響', sub:'組織集積性・放射線感受性', plan:['rbio','rbio','rbio','rbio','rbio'], body:()=>`
+    <section class="panel"><h3>〇 自然放射線による年間平均被ばく</h3>
+    ${ktbl([['日本平均','約2.1 mSv'],['世界平均','約2.4 mSv<br><span class="small muted">2008年国連科学委員会報告</span>']])}
+    <p class="small muted">日本の内訳：大地から0.33 mSv、宇宙から0.3 mSv、空気中のラドン・トロンから0.47 mSv、食物から0.99 mSv。</p></section>
+    <section class="panel"><h3>〇 国際放射能標識</h3><svg class="fig" viewBox="0 0 120 120" style="max-width:130px;display:block;margin:8px auto" role="img" aria-label="国際的な放射能標識。黄色地に黒の三つ葉マーク"><rect x="4" y="4" width="112" height="112" rx="6" fill="#F6D33C"/><circle cx="60" cy="60" r="7" fill="#1A1A1A"/><path d="M65.5 69.5 L79.0 92.9 A38 38 0 0 1 41.0 92.9 L54.5 69.5 A11 11 0 0 0 65.5 69.5 Z" fill="#1A1A1A"/><path d="M49.0 60.0 L22.0 60.0 A38 38 0 0 1 41.0 27.1 L54.5 50.5 A11 11 0 0 0 49.0 60.0 Z" fill="#1A1A1A"/><path d="M65.5 50.5 L79.0 27.1 A38 38 0 0 1 98.0 60.0 L71.0 60.0 A11 11 0 0 0 65.5 50.5 Z" fill="#1A1A1A"/></svg></section>
+    <section class="panel"><h3>〇 組織集積性</h3>
+    ${ktbl([
+      ['骨', '³²P、⁴⁵Ca、⁹⁰Sr、²²⁶Ra<br><span class="small muted">²²⁶RaはCaと同じ第2族（アルカリ土類金属）なので骨に集積する。</span>'],
+      ['甲状腺', '¹²³I、¹²⁵I、¹³¹I'],
+      ['全身', '³H、¹⁴C、¹³⁷Cs（主に筋肉中）']
+    ])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/bonenuc.png" alt="骨に集積する放射性核種の覚え方。骨にランプするか？骨に＝骨に集積、ラン＝Ra、プ＝P、する＝Sr、か＝Ca" loading="lazy"></section>
+    <section class="panel"><h3>〇 放射線感受性</h3>
+    <p><b>・ベルゴニー・トリボンドーの法則</b></p>
+    <p>放射線の感受性は、<span class="mk">細胞分裂が盛んなもの</span>、<span class="mk">未分化なもの</span>ほど高い。</p><svg class="fig" viewBox="0 0 340 234" role="img" aria-label="ベルゴニー・トリボンドーの法則。放射線感受性は造血組織、生殖腺、消化管、体表・眼、内臓・腺、支持組織、神経の順に低くなる"><defs><linearGradient id="bgg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0505A"/><stop offset="1" stop-color="#F6D5D8"/></linearGradient></defs><text class="sm2" x="22" y="14" text-anchor="middle" style="font-weight:700;fill:#E0505A">高い</text><rect x="14" y="28" width="16" height="164" fill="url(#bgg)"/><path d="M6 192 L38 192 L22 210 Z" fill="#F6D5D8"/><text class="sm2" x="22" y="226" text-anchor="middle">低い</text><text class="sm2" x="200" y="14" text-anchor="middle" style="font-weight:700">放射線感受性（細胞分裂頻度）</text><rect x="48" y="28" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="45" style="font-weight:700">造血組織</text><text class="sm2" x="118" y="45">骨髄、胸腺、脾臓、リンパ組織</text><rect x="48" y="54" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="71" style="font-weight:700">生殖腺</text><text class="sm2" x="118" y="71">精巣、卵巣</text><rect x="48" y="80" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="97" style="font-weight:700">消化管</text><text class="sm2" x="118" y="97">腸、粘膜</text><rect x="48" y="106" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="123" style="font-weight:700">体表・眼</text><text class="sm2" x="118" y="123">皮膚、毛のう、水晶体</text><rect x="48" y="132" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="149" style="font-weight:700">内臓・腺</text><text class="sm2" x="118" y="149">肺、腎臓、肝臓、膵臓、甲状腺</text><rect x="48" y="158" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="175" style="font-weight:700">支持組織</text><text class="sm2" x="118" y="175">骨、血管、結合組織、脂肪組織、筋肉</text><rect x="48" y="184" width="288" height="26" fill="none" stroke="var(--line,#ccc)" stroke-width="1"/><text class="sm2" x="56" y="201" style="font-weight:700">神経</text><text class="sm2" x="118" y="201">神経</text></svg>
+    ${ktbl([
+      ['<span class="mk">高感受性</span>', 'リンパ組織（脾臓、胸腺）、骨髄、胎児の組織'],
+      ['中感受性', '皮膚、眼、消化管'],
+      ['低感受性', '結合組織、筋肉'],
+      ['<span class="mk">さらに<br>低感受性</span>', '神経、脂肪組織']
+    ])}
+    <p class="small muted">※組織加重係数が大きい（0.12）組織：肺、胃、結腸、赤色骨髄、乳房</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/xabsorb.png" alt="組織でのX線吸収率の覚え方。コツコツと金欠でも支払い。コツ＝骨、金＝筋肉、欠＝血液、支＝脂肪、払い＝肺。吸収率は骨＞筋肉＞血液＞脂肪＞肺" loading="lazy"></section>` }
 ];
 const RAD2_LESSONS = [
   { id:'2-1', t:'放射性医薬品とは', wip:true, plan:[], body:()=>'' },
