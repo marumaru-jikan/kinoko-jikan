@@ -118,7 +118,7 @@ p{margin:0}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
 .fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.figwip{border:1.5px dashed var(--line,#ccc);border-radius:12px;padding:22px 10px;text-align:center;color:var(--muted);font-size:.85rem;margin:6px 0 12px}.pfl{display:flex;flex-direction:column;gap:6px;margin:8px 0}.pfa{background:#DCEFD9;color:#24451F;border-radius:10px;padding:8px;text-align:center;font-weight:700}.pfd{text-align:center;font-weight:700;font-size:.9rem}.pfr{display:flex;align-items:stretch;gap:6px}.pfb{flex:1;background:#F6E3C6;color:#4A3410;border-radius:10px;padding:8px;font-size:.85rem;display:flex;align-items:center}.pfx{display:flex;align-items:center;font-weight:700}.pfc{flex:1.2;background:#E6DDF0;color:#3A2A55;border-radius:10px;padding:8px;font-size:.85rem}.sigfig{line-height:1.9}.sigfig ruby rt{font-size:.6em;color:var(--muted)}.sfn{font-size:1.1em;font-weight:700;letter-spacing:.05em}.cm{color:#222;border-radius:4px;padding:0 3px;white-space:nowrap}.fgs{display:block;width:104px;height:auto;margin-top:4px}.fgs[viewBox^="0 0 170"]{width:180px}.radt{font-size:.8rem;min-width:560px}.radt td,.radt th{vertical-align:top;padding:6px 6px}.radt td:first-child,.radt th:first-child{white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
-.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.knum{table-layout:fixed;width:100%}.knum td:first-child{width:2em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
+.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.knum{table-layout:fixed;width:100%}.kw td:first-child{white-space:normal;width:44%}.knum td:first-child{width:2em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .note-box{background:var(--sunk);border-color:transparent;display:flex;flex-direction:column;gap:10px}
@@ -458,6 +458,15 @@ const POOL = {
     ['硝酸銀','0.1 mol/L 硝酸銀液の標定に用いる標準試薬は？','塩化ナトリウム',['炭酸ナトリウム','亜鉛','スルファニルアミド'],'指示薬：フルオレセインナトリウム（ファヤンス法）'],
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
+  ],
+  req:[
+    ['過渡平衡','⁹⁹Mo → ⁹⁹ᵐTcで成立する放射平衡は？','過渡平衡',['永続平衡','非平衡','化学平衡'],'T_AがT_Bの10倍程度'],
+    ['永続平衡','⁹⁰Sr → ⁹⁰Yで成立する放射平衡は？','永続平衡',['過渡平衡','非平衡','化学平衡'],'T_A ≫ T_B'],
+    ['永続平衡','永続平衡成立後の放射能の特徴は？','Aの放射能＝Bの放射能のように見える',['Bの放射能はAの2倍','Bの放射能は0になる','Aの放射能のみ減衰する'],'親の半減期が長すぎる'],
+    ['GM計数管','GM計数管の測定対象は？','高エネルギーのβ線',['低エネルギーのβ線','α線のみ','中性子線'],'電離作用を利用'],
+    ['液体シンチレーション','低エネルギーのβ線（³H、¹⁴C）の測定に用いるのは？','液体シンチレーションカウンタ',['GM計数管','半導体検出器','NaI（Tl）シンチレーションカウンタ'],'蛍光（励起）作用を利用'],
+    ['NaI（Tl）','NaI（Tl）シンチレーションカウンタの測定対象は？','γ線',['低エネルギーのβ線','α線','中性子線'],'蛍光（励起）作用を利用'],
+    ['半導体検出器','半導体検出器（Ge）が利用する作用は？','電離作用',['蛍光作用','写真作用','化学作用'],'γ線を測定'],
   ],
   rcalc:[
     ['有効半減期','物理学的半減期30年、生物学的半減期50年の核種の有効半減期は？','18.75年',['40年','80年','20年'],'30×50／（30＋50）'],
@@ -1436,9 +1445,31 @@ const RAD1_LESSONS = [
     <p>T＝<span class="frac"><span>ln2</span><span>λ</span></span>　　A＝N・λ</p>
     ${ktbl([['T','物理学的半減期'],['λ','壊変定数'],['A','放射能<br><span class="small muted">放射能は速度</span>'],['N','原子数']])}
     <p>※半減期は壊変定数に<span class="mk">反比例</span></p></section>` },
-  { id:'1-9', t:'放射平衡', wip:true, plan:[], body:()=>'' },
-  { id:'1-10', t:'放射線測定', wip:true, plan:[], body:()=>'' },
-  { id:'1-11', t:'人体への影響', wip:true, plan:[], body:()=>'' }
+  { id:'1-9', t:'放射平衡・放射線測定', sub:'過渡平衡・永続平衡・測定器', plan:['req','req','req','req','req'], body:()=>`
+    <section class="panel"><h3>〇 放射平衡とは</h3>
+    <p>親核種（A）の放射壊変により生成した娘核種（B）が放射性核種であり、娘核種の半減期（T<sub>B</sub>）が親核種の半減期（T<sub>A</sub>）より短い場合、時間が十分経ったときに見かけ上、親の半減期で減衰する。<br>これを<span class="mk">放射平衡</span>という。</p>
+    <p class="small muted">半減期：親（長い）＞ 娘（短い）<br>放射能の比が一定になる。</p><svg class="fig" viewBox="0 0 300 60" role="img" aria-label="放射平衡の流れ。A、壊変定数λA・半減期TAでB、壊変定数λB・半減期TBでC"><text class="lb" x="20" y="34" text-anchor="middle">A</text><line x1="34" y1="30" x2="108" y2="30" stroke="var(--ink)" stroke-width="1.4"/><path d="M110 30 L102 26 L102 34 Z" fill="var(--ink)"/><text class="sm2" x="72" y="22" text-anchor="middle">λ<tspan font-size="8" dy="3">A</tspan></text><text class="sm2" x="72" y="46" text-anchor="middle">T<tspan font-size="8" dy="3">A</tspan></text><text class="lb" x="126" y="34" text-anchor="middle">B</text><line x1="140" y1="30" x2="214" y2="30" stroke="var(--ink)" stroke-width="1.4"/><path d="M216 30 L208 26 L208 34 Z" fill="var(--ink)"/><text class="sm2" x="178" y="22" text-anchor="middle">λ<tspan font-size="8" dy="3">B</tspan></text><text class="sm2" x="178" y="46" text-anchor="middle">T<tspan font-size="8" dy="3">B</tspan></text><text class="lb" x="232" y="34" text-anchor="middle">C</text></svg>
+    <p class="small muted">λ：壊変定数、T：半減期</p></section>
+    <section class="panel"><h3>〇 放射平衡の種類</h3>
+    <p class="small muted">表は横にスクロールできる。</p>
+    <div class="scroll"><table class="tbl radt"><tr><th>種類</th><th><span class="mk">過渡平衡</span></th><th><span class="mk">永続平衡</span></th></tr><tr><td><b>平衡成立条件</b></td><td>T<sub>A</sub> ＞ T<sub>B</sub><br><span class="small muted">T<sub>A</sub>がT<sub>B</sub>の10倍程度</span></td><td>T<sub>A</sub> ≫ T<sub>B</sub><br><span class="small muted">親の半減期が長すぎる</span></td></tr><tr><td><b>成立後の<br>原子数の特徴</b></td><td><span class="frac"><span>N<sub>B</sub></span><span>N<sub>A</sub></span></span>＝<span class="frac"><span>T<sub>B</sub></span><span>T<sub>A</sub>−T<sub>B</sub></span></span>＝一定値</td><td><span class="frac"><span>N<sub>B</sub></span><span>N<sub>A</sub></span></span>＝<span class="frac"><span>T<sub>B</sub></span><span>T<sub>A</sub></span></span>＝一定値</td></tr><tr><td><b>成立後の<br>放射能の特徴</b></td><td><span class="frac"><span>T<sub>A</sub></span><span>T<sub>A</sub>−T<sub>B</sub></span></span>＝<span class="frac"><span>Bの放射能</span><span>Aの放射能</span></span><br>＝1より少し大きい一定値</td><td><span class="mk">Aの放射能＝Bの放射能</span><br>のように見える</td></tr><tr><td><b>例</b></td><td>⁹⁹Mo → ⁹⁹ᵐTc → ⁹⁹Tc<br><span class="small muted">（約66時間）（約6時間）</span></td><td>⁹⁰Sr → ⁹⁰Y → ⁹⁰Zr<br><span class="small muted">（約29年）（約64時間）</span></td></tr></table></div><svg class="fig" viewBox="0 0 340 132" role="img" aria-label="過渡平衡では娘の放射能が親と同じ割合で減っていく。永続平衡では親の半減期が長すぎるため親も娘もほぼ一定で、放射能が等しく見える"><text class="sm2" x="79" y="12" text-anchor="middle" style="font-weight:700">過渡平衡</text><line x1="18" y1="18" x2="18" y2="112" stroke="var(--ink)" stroke-width="1.2"/><line x1="18" y1="112" x2="154" y2="112" stroke="var(--ink)" stroke-width="1.2"/><text class="sm2" x="86" y="126" text-anchor="middle">時間</text><text class="sm2" x="12" y="64" text-anchor="middle" transform="rotate(-90 12 64)">放射能</text><path d="M20 26 L150 92" stroke="#E07A8C" stroke-width="2" fill="none"/><path d="M20 110 Q44 40 74 50 L150 84" stroke="#2E8BC9" stroke-width="2" fill="none"/><text class="sm2" x="124" y="96" style="fill:#E07A8C">親</text><text class="sm2" x="112" y="62" style="fill:#2E8BC9">娘</text><text class="sm2" x="255" y="12" text-anchor="middle" style="font-weight:700">永続平衡</text><line x1="194" y1="18" x2="194" y2="112" stroke="var(--ink)" stroke-width="1.2"/><line x1="194" y1="112" x2="330" y2="112" stroke="var(--ink)" stroke-width="1.2"/><text class="sm2" x="262" y="126" text-anchor="middle">時間</text><text class="sm2" x="188" y="64" text-anchor="middle" transform="rotate(-90 188 64)">放射能</text><path d="M196 40 L326 44" stroke="#E07A8C" stroke-width="2" fill="none"/><path d="M196 110 Q216 48 250 42.5 L326 44" stroke="#2E8BC9" stroke-width="2" fill="none" stroke-dasharray="5 3"/><text class="sm2" x="306" y="34" style="fill:#E07A8C">親</text><text class="sm2" x="228" y="78" style="fill:#2E8BC9">娘</text></svg>
+    <p class="small muted">過渡平衡：娘は親と同じ割合で減っていく。<br>永続平衡：親の半減期が長すぎて、親も娘もほぼ減らない。</p></section>
+    <section class="panel"><h3>〇 放射線の測定</h3>
+    <p><b>・電離作用を利用した測定法</b></p>
+    ${ktbl([
+      ['GM計数管<br><span class="small muted">（ガイガー・ミュラー計数管）</span>', '<span class="mk">高エネルギーのβ線</span><br><span class="small muted">³²P、⁴⁰K、¹³¹I<br>アルゴンなどの不活性気体が電離する。</span>'],
+      ['半導体検出器<br><span class="small muted">（Ge）</span>', 'γ線'],
+      ['比例計数管', '利用範囲は広い']
+    ]).replace('tbl ktbl','tbl ktbl kw')}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/ionmeter.png" alt="電離作用を利用した測定器の覚え方。高BGMは便利！高B＝高エネルギーβ線、GM＝GM計数管、便利＝電離作用を利用" loading="lazy">
+    <p><b>・蛍光（励起）作用を利用した測定法</b></p>
+    ${ktbl([
+      ['NaI（Tl）<br>シンチレーションカウンタ', '<span class="mk">γ線</span>'],
+      ['液体<br>シンチレーションカウンタ', '<span class="mk">低エネルギーのβ線</span><br><span class="small muted">³H、¹⁴C</span>']
+    ]).replace('tbl ktbl','tbl ktbl kw')}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/fluormeter.png" alt="蛍光作用を利用した測定器の覚え方。ナイル川、低いベッドは水びたし。ナイル＝NaIシンチレーションカウンタ、川＝γ線、低いベッド＝低エネルギーβ線、水びたし＝液体シンチレーションカウンタ" loading="lazy">
+    <p class="small muted">※個人の外部被ばく線量の測定には、蛍光ガラス線量計（ガラスバッジ）、フィルムバッジ、OSL（光刺激ルミネッセンス）線量計などを用いる。</p></section>` },
+  { id:'1-10', t:'人体への影響', wip:true, plan:[], body:()=>'' }
 ];
 const RAD2_LESSONS = [
   { id:'2-1', t:'放射性医薬品とは', wip:true, plan:[], body:()=>'' },
