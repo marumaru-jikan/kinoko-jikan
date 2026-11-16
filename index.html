@@ -118,7 +118,7 @@ p{margin:0}
 .fig .mu{fill:var(--muted);font-size:10.5px}
 .fig .ac{fill:var(--accent)}
 .fig .bd{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}.fig .at{font-size:11px;font-weight:700}.fig .bg{fill:var(--surface)}.fig .sg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}.fig .cell{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}.fig .tp{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}.fig .xx{stroke:var(--red);stroke-width:3;stroke-linecap:round}.fig .ar{fill:none;stroke:var(--muted);stroke-width:1.6;marker-end:url(#ah)}.dg{color:var(--red);font-weight:700}.mk{background:rgba(240,140,70,.42);border-radius:3px;padding:0 2px}.kgrp{font-size:.8rem;color:var(--muted);margin:2px 0 2px}.kgrp:not(:first-child){margin-top:8px}.fig .sm2{font-size:10.5px;fill:var(--ink)}.sgt{font-size:.72rem;white-space:nowrap}.sgt th,.sgt td{padding:5px 6px;text-align:center}.sgt td.sgd,.sgt th.sgd{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}.sgt tr.sgtop td{border-top:2px solid var(--line,#ccc)}.sgt td.sgc{font-weight:700}.fig.apf{max-width:240px;margin:8px 0}.fig.dev{max-width:180px;margin:6px 0}.fig.ftu{max-width:220px;margin:6px 0 0;display:block;height:auto}.stt td{vertical-align:middle}.stt td.stc{text-align:center;color:#3A2210;white-space:nowrap;width:6.5em}.band{padding:10px 16px 6px;font-weight:700;font-size:.85rem;color:var(--accent-ink);background:var(--accent-soft);border-bottom:1px solid var(--line,#ddd)}.figwip{border:1.5px dashed var(--line,#ccc);border-radius:12px;padding:22px 10px;text-align:center;color:var(--muted);font-size:.85rem;margin:6px 0 12px}.pfl{display:flex;flex-direction:column;gap:6px;margin:8px 0}.pfa{background:#DCEFD9;color:#24451F;border-radius:10px;padding:8px;text-align:center;font-weight:700}.pfd{text-align:center;font-weight:700;font-size:.9rem}.pfr{display:flex;align-items:stretch;gap:6px}.pfb{flex:1;background:#F6E3C6;color:#4A3410;border-radius:10px;padding:8px;font-size:.85rem;display:flex;align-items:center}.pfx{display:flex;align-items:center;font-weight:700}.pfc{flex:1.2;background:#E6DDF0;color:#3A2A55;border-radius:10px;padding:8px;font-size:.85rem}.sigfig{line-height:1.9}.sigfig ruby rt{font-size:.6em;color:var(--muted)}.sfn{font-size:1.1em;font-weight:700;letter-spacing:.05em}.cm{color:#222;border-radius:4px;padding:0 3px;white-space:nowrap}.fgs{display:block;width:104px;height:auto;margin-top:4px}.fgs[viewBox^="0 0 170"]{width:180px}.radt{font-size:.8rem;min-width:560px}.radt td,.radt th{vertical-align:top;padding:6px 6px}.radt td:first-child,.radt th:first-child{white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1}.goro-img{display:block;width:100%;height:auto;border-radius:12px;background:#fff;margin-bottom:10px}.fig .dg{fill:var(--red);font-weight:700}
-.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
+.ktbl td:first-child{white-space:nowrap;font-weight:700;width:4.6em}.knum{table-layout:fixed;width:100%}.knum td:first-child{width:2em}.kdrug{display:flex;flex-direction:column;margin-bottom:8px;line-height:1.45}.kdrug .kp{font-size:.72rem;color:var(--muted);font-weight:400}.kdrug:last-child{margin-bottom:0}.fig .nm{font-size:8.5px;fill:var(--muted)}.fig .ah{fill:var(--muted)}.fig .tl{fill:none;stroke:var(--muted);stroke-width:1.6}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.78rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 .note-box{background:var(--sunk);border-color:transparent;display:flex;flex-direction:column;gap:10px}
@@ -458,6 +458,15 @@ const POOL = {
     ['硝酸銀','0.1 mol/L 硝酸銀液の標定に用いる標準試薬は？','塩化ナトリウム',['炭酸ナトリウム','亜鉛','スルファニルアミド'],'指示薬：フルオレセインナトリウム（ファヤンス法）'],
     ['KMnO₄','過マンガン酸カリウム液の標定で指示薬が不要な理由は？','KMnO₄自身の色で終点がわかるため',['反応が速すぎるため','デンプンと反応するため','電位差滴定しか使えないため'],'標準試薬：シュウ酸ナトリウム'],
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
+  ],
+  nucl:[
+    ['天然放射性核種','宇宙線と大気中物質との反応で生成する誘導天然型放射性核種は？','¹⁴C',['⁴⁰K','²²⁶Ra','¹⁸F'],'³H、¹⁴C'],
+    ['天然放射性核種','半減期が非常に長く、自然放射線の主要因子の1つである核種は？','⁴⁰K',['³H','¹³¹I','¹¹C'],'半減期 約13億年'],
+    ['人工放射性核種','加速器（サイクロトロン）で製造される核種は？','¹⁸F',['¹³¹I','³²P','⁴⁰K'],'β⁺壊変核種で半減期が短い'],
+    ['ミルキング','親核種から短半減期の娘核種を化学分離して得る方法は？','ミルキング',['トレーサー法','ラジオイムノアッセイ','シンチグラフィー'],'装置はジェネレーター'],
+    ['ラジオイムノアッセイ','抗原抗体反応を利用した生体内微量成分の定量法は？','ラジオイムノアッセイ',['ミルキング','トレーサー法','PET'],'例）¹²⁵I'],
+    ['PET','消滅放射線を体外で測定し断層像を得る方法は？','ポジトロンCT（PET）',['ラジオイムノアッセイ','トレーサー法','ミルキング'],'β⁺線放出核種を用いる'],
+    ['トレーサー法','トレーサー法で特に用いられるのは？','β⁻線放射性核種',['α線放射性核種','β⁺線放射性核種','中性子線源'],'例）³H、¹⁴C、³²P'],
   ],
   radu:[
     ['放射能','放射能の単位は？','Bq',['Gy','Sv','C/kg'],'1秒間あたりの壊変数'],
@@ -1368,7 +1377,29 @@ const RAD1_LESSONS = [
     <div class="scroll"><table class="tbl radt"><tr><th></th><th>単位</th><th>内容</th><th>その他</th></tr><tr><td><b>放射線の<br>エネルギー</b></td><td>eV</td><td>電子1個が1 Vの電圧で加速されて得るエネルギー</td><td></td></tr><tr><td><b>放射能</b></td><td><span class="mk">Bq</span></td><td><span class="mk">1秒間</span>あたりの壊変数</td><td></td></tr><tr><td><b>壊変率</b></td><td>dps<br>dpm</td><td>1秒間あたりの壊変数（壊変/秒）<br>1分間あたりの壊変数（壊変/分）</td><td>Bq＝dps<br>1 dps＝60 dpm</td></tr><tr><td><b>照射線量</b></td><td>C/kg</td><td><span class="mk">空気</span>1 kg中にγ線・X線がどれくらいのイオンをつくるかを表す単位</td><td>電磁波のみに使用</td></tr><tr><td><b>吸収線量</b></td><td><span class="mk">Gy</span></td><td><span class="mk">物質</span>1 kgに放射線がどれくらいエネルギーを与えたかを表す単位</td><td></td></tr><tr><td><b>等価線量</b><br><span class="small muted">（線量当量）</span></td><td><span class="mk">Sv</span></td><td><span class="mk">人体</span>に放射線がどれくらいダメージを与えたかを表す単位<br>【等価線量】＝【組織・臓器の平均吸収線量】×【放射線加重係数<sup>※1</sup>】</td><td rowspan="2">人体の放射線防護の指標として用いる</td></tr><tr><td><b>実効線量</b></td><td><span class="mk">Sv</span></td><td><span class="mk">人体</span>に放射線がどれくらいダメージを与えたかを表す単位<br>【実効線量】＝各組織・臓器の実効線量の和<br>【組織・臓器の実効線量】＝【組織・臓器の等価線量】×【組織加重係数<sup>※2</sup>】</td></tr><tr><td><b>計数率</b></td><td>cps<br>cpm</td><td>1秒間あたりの計数（計数/秒）<br>1分間あたりの計数（計数/分）</td><td>測定器がとらえた電離粒子の数＝計数<br>1 cps＝60 cpm</td></tr></table></div>
     <p class="small muted">※1 放射線加重係数：α線（20）、中性子線（2.5〜20）、β線・γ線・X線（1）<br>※2 組織加重係数：骨髄・肺・乳房（0.12）、肝臓・食道・甲状腺（0.04）、皮膚・脳（0.01）</p>
     <p><b>覚え方</b></p><img class="goro-img" src="goro/radunit2.png" alt="放射線に関する単位の覚え方。ショック！九州でグレイとシューベルトが星の勉強。ショッ＝照射線量、ク＝C/kg、九州＝吸収線量、グレイ＝Gy、と＝等価線量、シューベルト＝Sv、星＝放射能、勉強＝Bq" loading="lazy"></section>` },
-  { id:'1-6', t:'放射性核種', wip:true, plan:[], body:()=>'' },
+  { id:'1-6', t:'放射性核種', sub:'天然・人工・応用', plan:['nucl','nucl','nucl','nucl','nucl'], body:()=>`
+    <section class="panel"><h3>〇 天然放射性核種</h3>
+    <p>天然に存在する核種。</p>
+    ${ktbl([
+      ['①', '²³⁸U、²³⁵U、²³²Thを出発点とする壊変系列に属する核種<br>例）²²⁶Ra、²²²Rn<br><span class="small muted">α線放出核種で呼吸により被ばくするため、内部被ばくが問題となる。</span>'],
+      ['②', '半減期が非常に長く（13億年）、その核種のみが放射性のもの<br>例）⁴⁰K<br><span class="small muted">天然存在比が大きく、地殻などによる自然放射線の主要因子の1つ</span>'],
+      ['③', '宇宙線と大気中物質との反応により生成（誘導天然型放射性核種）<br>例）³H、¹⁴C']
+    ]).replace('tbl ktbl','tbl ktbl knum')}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/natnuc.png" alt="天然放射性核種の覚え方。天然！再試40個！天然＝天然放射性核種、再＝3H、試＝14C、40個＝40K" loading="lazy"></section>
+    <section class="panel"><h3>〇 人工放射性核種</h3>
+    <p>人工的に産生される核種。</p>
+    ${ktbl([
+      ['①', '原子炉を利用した方法<br>例）³H、¹⁴C、³²P、¹³¹I'],
+      ['②', '加速器を利用した方法<br>例）¹¹C、¹³N、¹⁵O、¹⁸F<br><span class="small muted">β⁺壊変核種。半減期が短いため、超小型サイクロトロンで生成する。</span>']
+    ]).replace('tbl ktbl','tbl ktbl knum')}</section>
+    <section class="panel"><h3>〇 応用</h3>
+    ${ktbl([
+      ['<span class="mk">ミルキング</span>', '放射平衡（主に過渡平衡）を利用して、親核種から短半減期の娘核種を化学分離して得る方法。<br>その装置を<span class="cm" style="background:#9FD3EE">ジェネレーター</span>という。<br><span class="small muted">例）⁹⁹ᵐTcの生成</span>'],
+      ['ラジオイムノアッセイ', '<span class="mk">抗原抗体反応</span>を利用した生体内微量成分の<span class="mk">定量法</span>。<br>放射性核種で標識した抗体などを用いる。<br><span class="small muted">例）¹²⁵I</span>'],
+      ['<span class="mk">ポジトロンCT</span><br>（PET）', 'β⁺線から放出される<span class="mk">消滅放射線</span>を体外で測定することにより、<span class="mk">断層像</span>を得る方法。<br>消滅放射線（γ線）は180°方向に2本出る<br>→ 2本あるので空間分解能が高い。<br><span class="small muted">例）¹¹C、¹³N、¹⁵O、¹⁸F、²²Na</span>'],
+      ['サイクロトロン', '<span class="mk">荷電粒子を加速して、原子核にぶつける</span>ことにより、放射性核種をつくり出す装置。<br><span class="cm" style="background:#9FD3EE">短</span>寿命の放射性核種を<span class="mk">院内で</span>得るのに用いられている。'],
+      ['トレーサー法', '<span class="mk">物質に放射性核種を混ぜ、その放射線を追跡する</span>ことで<span class="mk">物質の挙動を知る</span>方法。<br>特に<span class="cm" style="background:#9FD3EE">β⁻</span>線放射性核種が用いられる。<br><span class="small muted">例）³H、¹⁴C、³²P</span>']
+    ])}</section>` },
   { id:'1-7', t:'代表的な放射性核種', wip:true, plan:[], body:()=>'' },
   { id:'1-8', t:'放射能計算', wip:true, plan:[], body:()=>'' },
   { id:'1-9', t:'放射平衡', wip:true, plan:[], body:()=>'' },
