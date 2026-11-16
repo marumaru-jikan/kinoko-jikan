@@ -460,6 +460,10 @@ const POOL = {
     ['亜硝酸ナトリウム','0.1 mol/L 亜硝酸ナトリウム液（ジアゾ滴定）の標定に用いる標準試薬は？','スルファニルアミド',['シュウ酸ナトリウム','塩化ナトリウム','フタル酸水素カリウム'],'電位差滴定法又は電流滴定法'],
   ],
   rjp:[
+    ['¹¹¹In','骨髄シンチグラフィーに用いる局方収載品は？','インジウム（¹¹¹In）',['タリウム（²⁰¹Tl）','ガリウム（⁶⁷Ga）','クロム（⁵¹Cr）'],'陰気な骨'],
+    ['²⁰¹Tl','心筋シンチグラフィーに用いる局方収載品は？','タリウム（²⁰¹Tl）',['インジウム（¹¹¹In）','ガリウム（⁶⁷Ga）','キセノン（¹³³Xe）'],'紳士が足りない'],
+    ['¹³¹I','甲状腺機能亢進症（バセドウ病）の治療に用いるのは？','ヨウ化ナトリウム（¹³¹I）',['ヨウ化ナトリウム（¹²³I）','ヨウ化ヒプル酸（¹³¹I）','タリウム（²⁰¹Tl）'],'β⁻線を出す'],
+    ['ヨウ化ヒプル酸','ヨウ化ヒプル酸（¹³¹I）の用途は？','腎・尿路疾患の診断',['甲状腺疾患の診断','循環血漿量の測定','心筋疾患の診断'],'ヒプル → おしり'],
     ['⁹⁹ᵐTc','脳シンチグラフィーによる脳腫瘍・脳血管障害の診断に用いる局方収載品は？','過テクネチウム（⁹⁹ᵐTc）',['クロム（⁵¹Cr）','ガリウム（⁶⁷Ga）','ヨウ化ナトリウム（¹³¹I）'],'テクノロジー'],
     ['⁵¹Cr','赤血球寿命・循環血液量の測定に用いる局方収載品は？','クロム（⁵¹Cr）',['過テクネチウム（⁹⁹ᵐTc）','ガリウム（⁶⁷Ga）','タリウム（²⁰¹Tl）'],'黒い血'],
     ['⁶⁷Ga','腫瘍シンチグラフィー・炎症シンチグラフィーに用いる局方収載品は？','ガリウム（⁶⁷Ga）',['クロム（⁵¹Cr）','過テクネチウム（⁹⁹ᵐTc）','キセノン（¹³³Xe）'],'ガリ勉が主演'],
@@ -1559,14 +1563,25 @@ const RAD2_LESSONS = [
       ['法律', '医療法及び医薬品医療機器等法により規制・管理されている。<br><span class="small muted">研究の用途に使用する場合は、放射線障害防止法（現：放射性同位元素等規制法）の規制・管理を受ける。</span>'],
       ['表示', '容器・外部の容器・外装には、医薬品医療機器等法の必須事項に加えて、<br>・<span class="mk">検定日時における放射能</span><br>・<span class="mk">放射能標識</span>とその上部に<span class="mk">「放射性医薬品」</span>の文字<br>・<span class="mk">貯法</span><br>・<span class="mk">有効期間</span><br>などを表示する。']
     ])}</section>` },
-  { id:'2-2', t:'放射性医薬品', sub:'局方収載品', plan:['rjp','rjp','rjp','rjp','rjp'], body:()=>`
+  { id:'2-2', t:'放射性医薬品（局方収載）', sub:'Tc・Cr・Ga・In・I・Tl', plan:['rjp','rjp','rjp','rjp','rjp'], body:()=>`
     <section class="panel"><h3>〇 局方収載品</h3>
     <p><b>① 過テクネチウム（⁹⁹ᵐTc）</b><br><span class="mk">脳</span>シンチグラフィーによる<span class="mk">脳腫瘍</span>・<span class="mk">脳血管障害</span>の診断<br><span class="small muted">ジェネレーターから生成</span></p>
     <p><b>覚え方</b></p><img class="goro-img" src="goro/tc99m.png" alt="テクネチウムの覚え方。テクノロジー。テク＝99mTc、ノロジー＝脳シンチグラフィー" loading="lazy">
     <p><b>② クロム（⁵¹Cr）</b><br><span class="mk">赤血球寿命</span>・<span class="mk">循環赤血球量</span>・<span class="mk">循環血液量</span>の測定</p>
     <p><b>覚え方</b></p><img class="goro-img" src="goro/cr51.png" alt="クロムの覚え方。黒い血。黒い＝51Cr、血＝循環血液量・循環赤血球量・赤血球寿命" loading="lazy">
     <p><b>③ ガリウム（⁶⁷Ga）</b><br><span class="mk">腫瘍</span>シンチグラフィーによる<span class="mk">悪性腫瘍</span>の診断<br><span class="mk">炎症</span>シンチグラフィーによる<span class="mk">炎症性疾患</span>の診断</p>
-    <p><b>覚え方</b></p><img class="goro-img" src="goro/ga67.png" alt="ガリウムの覚え方。ガリ勉が主演。ガリ＝67Ga、主＝腫瘍、演＝炎症" loading="lazy"></section>` }
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/ga67.png" alt="ガリウムの覚え方。ガリ勉が主演。ガリ＝67Ga、主＝腫瘍、演＝炎症" loading="lazy">
+    <p><b>④ インジウム（¹¹¹In）</b><br><span class="mk">骨髄</span>シンチグラフィーによる<span class="mk">骨髄</span>疾患（溶血性貧血、多発性骨髄腫）の診断</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/in111.png" alt="インジウムの覚え方。陰気な骨。陰気＝111In、骨＝骨髄シンチグラフィー" loading="lazy">
+    <p><b>⑤ ヨウ素（¹²³I・¹³¹I）</b></p>
+    ${ktbl([
+      ['ヨウ化ナトリウム<br>（¹²³I）', '<span class="mk">甲状腺</span>シンチグラフィーによる<span class="mk">甲状腺</span>疾患の診断'],
+      ['ヨウ化ナトリウム<br>（¹³¹I）', '<span class="mk">甲状腺</span>機能検査、<span class="mk">甲状腺機能亢進症</span>（バセドウ病）や<span class="mk">甲状腺がん</span>の治療<br><span class="small muted">¹³¹Iはβ⁻線もγ線も出すので、検査にも治療にも使う。</span>'],
+      ['ヨウ化人血清<br>アルブミン（¹³¹I）', '<span class="mk">循環血漿量</span>、<span class="mk">血液量</span>、心拍出量の測定<br><span class="small muted">アルブミン → 血液</span>'],
+      ['ヨウ化ヒプル酸<br>（¹³¹I）', '各種<span class="mk">腎</span>・<span class="mk">尿路</span>疾患の診断<br><span class="small muted">ヒプル → おしり → 腎・尿路</span>']
+    ]).replace('tbl ktbl','tbl ktbl kw')}
+    <p><b>⑥ タリウム（²⁰¹Tl）</b><br><span class="mk">心筋</span>シンチグラフィーによる<span class="mk">心筋</span>疾患の診断<br><span class="mk">腫瘍</span>シンチグラフィーによる<span class="mk">悪性腫瘍</span>の診断</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tl201.png" alt="タリウムの覚え方。紳士が足りない。紳＝心筋、士＝腫瘍、足りない＝201Tl" loading="lazy"></section>` }
 ];
 /* ===== 物4-7 機器分析④⑤ ===== */
 const ANA7_LESSONS = [
