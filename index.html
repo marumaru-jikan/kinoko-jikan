@@ -2226,8 +2226,6 @@ const ANS_LESSONS = [
     <section class="panel"><h3>代表薬</h3>${tbl(['分類','代表薬','使いみち'],[['M作動','ベタネコール','排尿困難'],['M作動','ピロカルピン','緑内障（縮瞳）'],['ChE阻害','ネオスチグミン','重症筋無力症'],['M遮断','アトロピン','徐脈、有機リン中毒'],['M遮断（吸入）','チオトロピウム','COPD']])}
     ${rule('抗コリン薬の禁忌：閉塞隅角緑内障、前立腺肥大による排尿障害')}
     <p class="small muted">有機リン中毒には、アトロピン＋プラリドキシム（PAM）。</p></section>` },
-  { id:'1-6', t:'まとめテスト', sub:'自律神経系の薬の10問', test:true, plan:['ans','ans','adr','adr','sym','sym','syb','syb','para','para'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。問題の順番は毎回かわります。わからなかった問題は、あとで見直せます。</p></section>` },
 ];
 const FP_LESSONS = [
   { id:'1-1', t:'細菌性食中毒（感染型）', sub:'菌が体の中で増える', plan:['inf','inf','inf','inf','inf'], body:()=>`
@@ -2244,8 +2242,6 @@ const FP_LESSONS = [
     <section class="panel"><h3>覚えたい自然毒</h3>${tbl(['もとになるもの','毒','作用・症状'],[['フグ','テトロドトキシン','Na⁺チャネル遮断'],['二枚貝','サキシトキシン（麻痺性）','Na⁺チャネル遮断'],['ジャガイモの芽','ソラニン・チャコニン','腹痛・嘔吐'],['スイセン','リコリン','嘔吐（ニラとまちがえる）'],['ツキヨタケ','イルジンS','嘔吐・下痢'],['ドクツルタケ','α-アマニチン','RNAポリメラーゼⅡ阻害']])}</section>` },
   { id:'1-5', t:'カビ毒', sub:'マイコトキシン', plan:['myc','myc','myc','myc','myc'], body:()=>`
     <section class="panel"><h3>代表的なカビ毒</h3>${tbl(['カビ毒','つくるカビ','ポイント'],[['アフラトキシンB₁','Aspergillus flavus','強い肝発がん性'],['アフラトキシンM₁','（B₁の代謝物）','牛乳に出てくる'],['パツリン','Penicillium expansum','りんご果汁'],['デオキシニバレノール','Fusarium属','小麦の赤かび病'],['オクラトキシンA','Aspergillus・Penicillium属','腎毒性']])}</section>` },
-  { id:'1-6', t:'まとめテスト', sub:'食中毒の10問', test:true, plan:['inf','inf','tox','tox','vir','vir','nat','nat','myc','myc'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const PK_LESSONS = [
   { id:'1-1', t:'半減期と消失速度定数', sub:'k ＝ 0.693 ÷ t½', plan:['kel','kel','half','half','pkk'], body:()=>`
@@ -2269,8 +2265,6 @@ const PK_LESSONS = [
     <section class="panel"><h3>Cockcroft-Gault式</h3>${rule('CCr（mL/分）＝ (140 − 年齢) × 体重 ÷ (72 × 血清Cr)<br>女性は × 0.85')}
     <div class="fx">例：70歳男性、60 kg、血清Cr 1.0<br>70 × 60 ÷ 72 ≒ 58 mL/分</div>
     <p class="small muted">身長は使いません。GFRの正確な測定にはイヌリンクリアランスを使います。腎排泄型の薬は、腎機能に合わせて減量や投与間隔の延長をします。</p></section>` },
-  { id:'1-6', t:'まとめテスト', sub:'薬物動態の計算10問', test:true, plan:['kel','half','vd','dose0','cl','thalf','css','load','cg','pkk'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。計算用紙を用意して、式を書いてから選ぼう。</p></section>` },
 ];
 
 
@@ -2330,8 +2324,6 @@ const KD_LESSONS = [
   ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name, sub:KD[k].drugs.map(d=>d[0]).slice(0,3).join('・')+' など', plan:Array(5).fill('kd_'+k), body:()=>`
     <section class="panel"><h3>${KD[k].name}のしくみ</h3><p>${KD[k].mech}</p>${rule(KD[k].rule)}</section>
     <section class="panel"><h3>棚の薬</h3>${kdTable(k)}</section>` })),
-  { id:'1-6', t:'まとめテスト', sub:'降圧薬の10問', test:true, plan:['kd_ace','kd_ace','kd_arb','kd_arb','kd_ca','kd_ca','kd_diu','kd_diu','kd_bb','kd_bb'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 の薬から10問。分類・商品名・特徴をまぜて出します。</p></section>` },
 ];
 
 
@@ -2346,8 +2338,6 @@ const GR_LESSONS = [
   ...[['ace','1-1'],['arb','1-2'],['ca','1-3'],['diu','1-4'],['bb','1-5']].map(([k,id])=>({ id, t:KD[k].name+'のゴロ', sub:KD[k].goro[0][0], plan:Array(5).fill('gr_'+k), body:()=>`
     <section class="panel"><h3>${KD[k].name}のゴロ</h3>${goroList(KD[k].goro)}</section>
     <section class="panel"><h3>薬の一覧</h3>${kdTable(k)}<p class="small muted">くわしくは「医薬品棚 › 循環器 › 降圧薬」で。</p></section>` })),
-  { id:'1-6', t:'まとめテスト', sub:'降圧薬のゴロ10問', test:true, plan:['gr_ace','gr_ace','gr_arb','gr_arb','gr_ca','gr_ca','gr_diu','gr_diu','gr_bb','gr_bb'], body:()=>`
-    <section class="panel"><h3>ゴロ集（降圧薬）</h3>${Object.values(KD).map(g=>`<p class="small muted" style="margin-top:6px">${g.name}</p>${goroList(g.goro)}`).join('')}</section>` },
 ];
 
 
@@ -2394,8 +2384,6 @@ const CALC_LESSONS = [
     <section class="panel"><h3>モル濃度</h3>${rule('mol ＝ 質量（g）÷ 分子量<br>モル濃度（mol/L）＝ mol ÷ 体積（L）')}</section>
     <section class="panel"><h3>当量（mEq）</h3>${rule('mEq ＝ mg ÷ 式量 × 価数')}
     <div class="fx">例：KCl 1.5 g → 1,500 ÷ 74.6 ≒ 20 mEq の K⁺<br>生理食塩液 1 L → NaCl 9 g ≒ 154 mEq の Na⁺</div></section>` },
-  { id:'1-6', t:'まとめテスト', sub:'濃度と希釈の10問', test:true, plan:['cunit','cunit','cpct','cpct','cdil','cdil','cbai','cbai','cmol','cmol'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-5 から10問。計算用紙を用意して、式を書いてから選ぼう。</p></section>` },
 ];
 
 
@@ -2448,8 +2436,6 @@ const HH_LESSONS = [
       ['1980年〜','食生活や運動などの生活習慣が関わる病気（当時は「成人病」、1996年に<b>生活習慣病</b>と呼び名を変更）が問題に。'],
       ['現代','<b>健康日本21</b>（2000年〜、2024年度から第三次）で健康寿命をのばす取り組み。団塊の世代がすべて75歳以上になる<b>2025年問題</b>にそなえ、住みなれた地域で医療・介護・予防・住まい・生活支援を一体で届ける<b>地域包括ケアシステム</b>づくりが進む。']])}
     ${rule('感染症（急性 → 慢性）→ 生活習慣病 → 高齢社会への対応')}</section>` },
-  { id:'1-4', t:'まとめテスト', sub:'健康と疾病の概念の10問', test:true, plan:['whodef','whodef','whodef','hidx','hidx','hidx','hidx','whoact','whoact','whoact'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>1-1〜1-3 から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 
 
@@ -2639,8 +2625,6 @@ const HS_LESSONS = [
   { id:'2-11', t:'疾病統計', sub:'患者調査・国民生活基礎調査など', plan:['dis','dis','dis','dis','dis'], body:()=>`
     <section class="panel"><h3>おもな疾病統計</h3>${tbl(['調査','ポイント'],[['患者調査','厚生労働省・3年ごと。医療施設の標本調査。受療率・推計患者数・平均在院日数'],['国民生活基礎調査','3年ごとに大規模調査。世帯が対象。有訴者率・通院者率'],['感染症発生動向調査','感染症法にもとづく'],['食中毒統計','食品衛生法にもとづく'],['全国がん登録','がん登録推進法（2016年から）']])}
     ${rule('受療率 ＝ 推計患者数 ÷ 人口 × 10万')}</section>` },
-  { id:'2-12', t:'まとめテスト', sub:'保健統計の10問', test:true, plan:['hstype','census','pyr','pidx','vit','mort','smr','mch','jvit','dis'], body:()=>`
-    <section class="panel"><h3>まとめテスト</h3><p>2-1〜2-11 から10問。計算問題もまざります。</p></section>` },
 ];
 
 
@@ -2649,37 +2633,30 @@ Object.assign(POOL, {"nx_phy1": [["水分子の形", "水分子（H₂O）の形
 const NX_PHY_LESSONS = [
   { id:'1-1', t:'構造と物性', sub:'結合・pH・放射線・浸透圧', plan:["nx_phy1", "nx_phy1", "nx_phy1", "nx_phy1", "nx_phy1"], body:()=>`<section class="panel"><h3>構造と物性</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'分析', sub:'日本薬局方・クロマト・スペクトル', plan:["nx_phy2", "nx_phy2", "nx_phy2", "nx_phy2", "nx_phy2"], body:()=>`<section class="panel"><h3>分析</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'物理・分析の10問', test:true, plan:["nx_phy1", "nx_phy1", "nx_phy1", "nx_phy1", "nx_phy1", "nx_phy2", "nx_phy2", "nx_phy2", "nx_phy2", "nx_phy2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>物理・分析から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_HYG_LESSONS = [
   { id:'1-1', t:'保健統計', sub:'出生・死亡・母子・国勢調査', plan:["nx_hyg1", "nx_hyg1", "nx_hyg1", "nx_hyg1", "nx_hyg1"], body:()=>`<section class="panel"><h3>保健統計</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'疫学', sub:'相対危険・寄与危険・研究デザイン', plan:["nx_hyg2", "nx_hyg2", "nx_hyg2", "nx_hyg2", "nx_hyg2"], body:()=>`<section class="panel"><h3>疫学</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'社会・集団と健康の10問', test:true, plan:["nx_hyg1", "nx_hyg1", "nx_hyg1", "nx_hyg1", "nx_hyg1", "nx_hyg2", "nx_hyg2", "nx_hyg2", "nx_hyg2", "nx_hyg2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>社会・集団と健康から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_PH_LESSONS = [
   { id:'1-1', t:'自律神経系', sub:'受容体と代表薬', plan:["nx_ph1", "nx_ph1", "nx_ph1", "nx_ph1", "nx_ph1"], body:()=>`<section class="panel"><h3>自律神経系</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'中枢神経系', sub:'睡眠薬・鎮痛薬・認知症・精神', plan:["nx_ph2", "nx_ph2", "nx_ph2", "nx_ph2", "nx_ph2"], body:()=>`<section class="panel"><h3>中枢神経系</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'神経系の薬の10問', test:true, plan:["nx_ph1", "nx_ph1", "nx_ph1", "nx_ph1", "nx_ph1", "nx_ph2", "nx_ph2", "nx_ph2", "nx_ph2", "nx_ph2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>神経系の薬から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_PK_LESSONS = [
   { id:'1-1', t:'吸収・代謝・排泄', sub:'初回通過・CYP・トランスポーター', plan:["nx_pk1", "nx_pk1", "nx_pk1", "nx_pk1", "nx_pk1"], body:()=>`<section class="panel"><h3>吸収・代謝・排泄</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'製剤', sub:'剤形と容器', plan:["nx_pk2", "nx_pk2", "nx_pk2", "nx_pk2", "nx_pk2"], body:()=>`<section class="panel"><h3>製剤</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'薬物動態と製剤の10問', test:true, plan:["nx_pk1", "nx_pk1", "nx_pk1", "nx_pk1", "nx_pk1", "nx_pk2", "nx_pk2", "nx_pk2", "nx_pk2", "nx_pk2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>薬物動態と製剤から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_DX_LESSONS = [
   { id:'1-1', t:'検査値', sub:'基準値と異常値', plan:["nx_dx1", "nx_dx1", "nx_dx1", "nx_dx1", "nx_dx1"], body:()=>`<section class="panel"><h3>検査値</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'重大な副作用', sub:'副作用と相互作用', plan:["nx_dx2", "nx_dx2", "nx_dx2", "nx_dx2", "nx_dx2"], body:()=>`<section class="panel"><h3>重大な副作用</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'検査値と副作用の10問', test:true, plan:["nx_dx1", "nx_dx1", "nx_dx1", "nx_dx1", "nx_dx1", "nx_dx2", "nx_dx2", "nx_dx2", "nx_dx2", "nx_dx2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>検査値と副作用から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_LAW_LESSONS = [
   { id:'1-1', t:'薬剤師法・薬機法', sub:'疑義照会・保存期間・表示', plan:["nx_law1", "nx_law1", "nx_law1", "nx_law1", "nx_law1"], body:()=>`<section class="panel"><h3>薬剤師法・薬機法</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'麻薬・制度・倫理', sub:'麻薬・医療保険・倫理', plan:["nx_law2", "nx_law2", "nx_law2", "nx_law2", "nx_law2"], body:()=>`<section class="panel"><h3>麻薬・制度・倫理</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'法規の基本の10問', test:true, plan:["nx_law1", "nx_law1", "nx_law1", "nx_law1", "nx_law1", "nx_law2", "nx_law2", "nx_law2", "nx_law2", "nx_law2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>法規の基本から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 const NX_PR_LESSONS = [
   { id:'1-1', t:'調剤', sub:'処方箋・用法・粉砕', plan:["nx_pr1", "nx_pr1", "nx_pr1", "nx_pr1", "nx_pr1"], body:()=>`<section class="panel"><h3>調剤</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
   { id:'1-2', t:'服薬指導・在宅', sub:'飲み方の説明・在宅', plan:["nx_pr2", "nx_pr2", "nx_pr2", "nx_pr2", "nx_pr2"], body:()=>`<section class="panel"><h3>服薬指導・在宅</h3><p>必須問題レベルの一問一答です。まちがえた問題は解説を読んで、もう一度解こう。</p></section>` },
-  { id:'1-3', t:'まとめテスト', sub:'調剤と服薬指導の10問', test:true, plan:["nx_pr1", "nx_pr1", "nx_pr1", "nx_pr1", "nx_pr1", "nx_pr2", "nx_pr2", "nx_pr2", "nx_pr2", "nx_pr2"], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>調剤と服薬指導から10問。問題の順番は毎回かわります。</p></section>` },
 ];
 
 
@@ -2693,7 +2670,6 @@ const COG_LESSONS = [
     <section class="panel"><h3>HDS-R（改訂長谷川式簡易知能評価スケール）</h3>${tbl(['項目','内容'],[['満点','30点'],['目安','20点以下で認知症の疑い'],['9つの質問','年齢、日時の見当識、場所の見当識、3つの言葉の記銘、計算（100から7を引く）、数字の逆唱、3つの言葉の遅延再生、5つの物品の記銘、言葉の流暢性（野菜の名前）']])}
     ${rule('HDS-R ＝ 30点満点・20点以下')}</section>
     <section class="panel"><h3>MMSEとのちがい</h3>${tbl(['','MMSE','HDS-R'],[['区切り','23点以下','20点以下'],['動作の課題','あり（書字・図形模写）','なし（口頭のみ）'],['生まれ','海外','日本']])}</section>` },
-  { id:'1-3', t:'まとめテスト', sub:'認知機能の検査10問', test:true, plan:['mmse','mmse','mmse','mmse','mmse','hdsr','hdsr','hdsr','hdsr','hdsr'], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>MMSEとHDS-Rから10問。区切りの点数をまちがえないように。</p></section>` },
 ];
 const PHY_LESSONS = [
   { id:'2-1', t:'徒手筋力テスト（MMT）', sub:'0〜5の6段階', plan:['mmt','mmt','mmt','mmt','mmt'], body:()=>`
@@ -2702,7 +2678,6 @@ const PHY_LESSONS = [
   { id:'2-2', t:'ADLの評価', sub:'Barthel Index・FIM', plan:['adl','adl','adl','adl','adl'], body:()=>`
     <section class="panel"><h3>ADLの評価スケール</h3>${tbl(['','Barthel Index','FIM'],[['満点','100点','126点'],['項目','10項目（運動）','18項目（運動13＋認知5）'],['つけ方','自立・一部介助などで点数','1〜7点の7段階'],['評価するもの','「できる」ADL','「している」ADL']])}
     <div class="note-box panel"><p class="small"><b>※ 基本的ADLと手段的ADL</b><br><b>基本的ADL（BADL）</b>：食事・入浴・排泄・更衣・移動など、身の回りの動作。<br><b>手段的ADL（IADL）</b>：買い物・料理・服薬管理・金銭管理・電話など、生活を営むための動作。</p></div></section>` },
-  { id:'2-3', t:'まとめテスト', sub:'身体機能・ADLの10問', test:true, plan:['mmt','mmt','mmt','mmt','mmt','adl','adl','adl','adl','adl'], body:()=>`<section class="panel"><h3>まとめテスト</h3><p>MMTとADLの評価から10問。</p></section>` },
 ];
 
 
