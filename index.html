@@ -3489,8 +3489,8 @@ const UNITS = {
   larr: { no:'検3-2', title:'不整脈', subject:'検査室', course:'lab', subj:2, lessons:LARR_LESSONS, cards:'larr', drill:'larr' },
   lisch: { no:'検3-3', title:'虚血性心疾患', subject:'検査室', course:'lab', subj:2, lessons:LISCH_LESSONS, cards:'lisch', drill:'lisch' },
   lqt: { no:'検3-4', title:'薬と心電図（QT延長など）', subject:'検査室', course:'lab', subj:2, lessons:LQT_LESSONS, cards:'lqt', drill:'lqt' },
-  cog: { no:'検5-1', title:'認知機能の検査', subject:'検査室', course:'lab', subj:4, lessons:COG_LESSONS, cards:'cog', drill:'cog' },
-  phy: { no:'検5-2', title:'身体機能・ADLの評価', subject:'検査室', course:'lab', subj:4, lessons:PHY_LESSONS, cards:'phy', drill:'phy' },
+  cog: { no:'検5-1', title:'認知機能の検査', subject:'検査室', course:'lab', subj:3, lessons:COG_LESSONS, cards:'cog', drill:'cog' },
+  phy: { no:'検5-2', title:'身体機能・ADLの評価', subject:'検査室', course:'lab', subj:3, lessons:PHY_LESSONS, cards:'phy', drill:'phy' },
   kd: { no:'棚1', title:'降圧薬', subject:'医薬品棚', course:'drawer', subj:0, lessons:KD_LESSONS, cards:'kd', drill:'kd' },
 };
 const U = (...t) => t.map(x => typeof x === 'string' ? { t:x } : x);
@@ -3623,12 +3623,11 @@ const CATALOG = [
       { name:'法規・制度・倫理', k:'法', units:U({ t:'法規の基本', ready:'nx_law' },'医療制度','薬害と倫理') },
       { name:'実務', k:'実', units:U({ t:'調剤と服薬指導', ready:'nx_pr' },'病院の業務','地域の医療') } ] },
     { id:'lab', name:'検査室', k:'検', note:'検査値と検査の読み方', subjects:[
-      { name:'血液検査', k:'1', units:U('血球（血算）','肝機能','腎機能','糖代謝','脂質','電解質','凝固・線溶','炎症・免疫') },
-      { name:'尿検査', k:'2', units:U('尿定性（たんぱく・糖・潜血）','尿沈渣') },
-      { name:'心電図', k:'3', units:U({ t:'波形の基本', ready:'lecg' },{ t:'不整脈', ready:'larr' },{ t:'虚血性心疾患', ready:'lisch' },{ t:'薬と心電図（QT延長など）', ready:'lqt' }) },
-      { name:'画像検査', k:'4', units:U('X線・CT','MRI','超音波','核医学') },
-      { name:'評価スケール', k:'5', units:U({ t:'認知機能の検査', ready:'cog' },{ t:'身体機能・ADLの評価', ready:'phy' },'意識レベル（JCS・GCS）','栄養・嚥下の評価','こころの評価（うつ・不安）','痛みの評価') },
-      { name:'その他', k:'6', units:U('呼吸機能検査','内視鏡','病理・細胞診') } ] },
+      { name:'血液検査', k:'血', units:U('血球（血算）','肝機能','腎機能','糖代謝','脂質','電解質','凝固・線溶','炎症・免疫') },
+      { name:'尿検査', k:'尿', units:U('尿定性（たんぱく・糖・潜血）','尿沈渣') },
+      { name:'心電図', k:'心', units:U({ t:'波形の基本', ready:'lecg' },{ t:'不整脈', ready:'larr' },{ t:'虚血性心疾患', ready:'lisch' },{ t:'薬と心電図（QT延長など）', ready:'lqt' }) },
+      { name:'評価スケール', k:'評', units:U({ t:'認知機能の検査', ready:'cog' },{ t:'身体機能・ADLの評価', ready:'phy' },'意識レベル（JCS・GCS）','栄養・嚥下の評価','こころの評価（うつ・不安）','痛みの評価') },
+      { name:'その他', k:'他', units:U('呼吸機能検査','内視鏡','病理・細胞診','画像検査') } ] },
     { id:'drawer', name:'医薬品棚', k:'棚', note:'医薬品単語集', subjects:[
       { name:'循環器', k:'循', units:U({ t:'降圧薬', ready:'kd' },'抗不整脈薬','心不全・狭心症の薬','抗血栓薬','脂質異常症の薬') },
       { name:'中枢神経', k:'中', units:U('抗精神病薬','抗うつ薬','抗てんかん薬','睡眠薬・抗不安薬','パーキンソン病の薬','認知症の薬') },
