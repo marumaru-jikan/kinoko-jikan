@@ -2631,6 +2631,16 @@ Object.assign(POOL, {
     ['代謝阻害','アロプリノールが代謝を阻害する薬物は？','メルカプトプリン',['ワルファリン','オメプラゾール','ニフェジピン'],'キサンチンオキシダーゼ阻害 → ほかにアザチオプリン、テオフィリン'],
     ['代謝阻害','不可逆的阻害から回復するために必要なのは？','酵素の新生',['薬物の排泄のみ','食事の摂取','pHの変化'],'数日かかる'],
   ],
+  gind:[
+    ['代謝誘導','代謝誘導が起こると当該薬物の血中濃度は？','低下する',['上昇する','変化しない','ゼロになる'],'代謝亢進 → 作用減弱'],
+    ['代謝誘導','喫煙で誘導されるCYPは？','CYP1A2',['CYP3A4','CYP2D6','CYP2C9'],'テオフィリンの半減期が短くなる'],
+    ['代謝誘導','セイヨウオトギリソウで誘導されるCYPは？','CYP3A4',['CYP1A2','CYP2D6','CYP2E1'],'セント・ジョーンズ・ワート'],
+    ['代謝誘導','CYP2D6を除くほぼすべてのCYPを誘導する薬物は？','リファンピシン',['シメチジン','エリスロマイシン','オメプラゾール'],'ほかにカルバマゼピン、フェニトイン、フェノバルビタール'],
+    ['代謝誘導','代謝誘導を起こしにくいCYPは？','CYP2D6',['CYP3A4','CYP1A2','CYP2C9'],'誘導薬は2D6以外を誘導'],
+    ['代謝誘導','代謝誘導に関わる核内受容体は？','プレグナンX受容体（PXR）',['アセチルコリン受容体','β受容体','GABAA受容体'],'ほかに構成的アンドロスタン受容体（CAR）'],
+    ['代謝誘導','代謝誘導のしくみは？','代謝酵素の生合成の亢進',['酵素の活性部位の競合','ヘム鉄への配位','代謝物との複合体形成'],'核内受容体 → mRNAの転写促進'],
+    ['代謝誘導','活性代謝物を生じる薬物で代謝誘導が起こると作用は？','増強する',['減弱する','変化しない','消失する'],'活性代謝物が増える'],
+  ],
   gbbb:[
     ['血液脳関門','血液脳関門の実体である細胞は？','脳毛細血管内皮細胞',['脈絡叢上皮細胞','周皮細胞（ペリサイト）','星状膠細胞（アストロサイト）'],'内皮細胞が密着結合している'],
     ['血液脳脊髄液関門','血液脳脊髄液関門の実体である細胞は？','脈絡叢上皮細胞',['脳毛細血管内皮細胞','神経細胞','周皮細胞（ペリサイト）'],'上皮細胞が密着結合している'],
@@ -3165,7 +3175,19 @@ const MET_LESSONS = [
     <section class="panel"><h3>〇 その他の代謝阻害</h3>
     <p><b>キサンチンオキシダーゼ阻害薬</b><br><span class="dg">アロプリノール</span><br>→ <span class="dg">アザチオプリン</span>、<span class="dg">メルカプトプリン</span>、<span class="dg">テオフィリン</span>の代謝を阻害</p>
     <p class="small muted">これらの薬物の血中濃度⬆ → 作用・副作用⬆</p></section>` },
-  { id:'5-8', t:'代謝誘導', wip:true, plan:[], body:()=>'' },
+  { id:'5-8', t:'代謝誘導', sub:'代謝誘導を起こす薬物・代謝誘導様式', plan:['gind','gind','gind','gind','gind'], body:()=>`
+    <section class="panel"><h3>〇 代謝誘導</h3>
+    <p>代謝誘導を起こす併用薬物<br>→ 当該薬物の代謝が<b>亢進</b><br>→ 血中濃度⬇<br>→ 作用の<b>減弱</b></p>
+    <p>活性代謝物の場合は、作用が<b>増強</b>する。</p></section>
+    <section class="panel"><h3>〇 代謝誘導を起こす薬物・食品・嗜好品</h3>
+    ${tbl(['酵素','誘導薬・食品・嗜好品'],[["CYP1A2", "<b>喫煙</b><br>→ <span class=\"dg\">テオフィリン</span>などの代謝⬆、半減期が短くなる<br>→ 血中濃度⬇<br><span class=\"small muted\">ベンゾ[a]ピレン</span>"], ["CYP3A4", "<b>セイヨウオトギリソウ</b><br><span class=\"small muted\">セント・ジョーンズ・ワート</span>"], ["CYP2D6<br>を除く<br>ほぼすべて", "<span class=\"dg\">リファンピシン</span>、<span class=\"dg\">カルバマゼピン</span>、<span class=\"dg\">フェニトイン</span>、<span class=\"dg\">フェノバルビタール</span>"]])}
+    <p class="small muted">P糖タンパク質も誘導（デキサメタゾンも）</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/cypind.png" alt="CYPを誘導する薬物の覚え方。カーフェリーで誘導せい！カー＝カルバマゼピン、フェ＝フェニトイン・フェノバルビタール、リー＝リファンピシン、誘導、せい＝セイヨウオトギリソウ" loading="lazy">
+    <p class="small muted">セイヨウオトギリソウ → 3A4・ほかの4つ → 2D6以外のすべて</p></section>
+    <section class="panel"><h3>〇 代謝誘導様式</h3>
+    <p>代謝誘導を起こす多くの薬物は、細胞内で<b>核内レセプター</b>に結合<br>→ mRNAの<b>転写</b>が促進<br>→ 薬物<b>代謝酵素の生合成</b>が亢進</p>
+    <p>核内受容体の例：<b>プレグナンX受容体（PXR）</b>、<b>構成的アンドロスタン受容体（CAR）</b></p>
+    <p class="small muted">酵素の合成を介するため、効果が現れるまで数日かかる</p></section>` },
   { id:'5-9', t:'プロドラッグ①', wip:true, plan:[], body:()=>'' },
   { id:'5-10', t:'プロドラッグ②', wip:true, plan:[], body:()=>'' },
   { id:'5-11', t:'プロドラッグ③', wip:true, plan:[], body:()=>'' }
@@ -3218,7 +3240,8 @@ const GX_BP_LESSONS = [
   { id:'g5', col:true, lid:'4-2', t:'脳への移行性', sub:'分布　1つ', plan:[], body:()=>`<section class="panel"><h3>血液脳関門と血液脳脊髄液関門</h3><img class="goro-img" src="goro/bbb.png" alt="血液脳関門と血液脳脊髄液関門の覚え方。濁点があるかどうかでペアにする。けつえきのうかんもん（濁点なし）→のうもうさいけっかんないひ細胞（脳毛細血管内皮細胞）。けつえきのうせきずいえきかんもん（濁点あり）→みゃくらくそうじょうひ細胞（脈絡叢上皮細胞）" loading="lazy"></section>` },
   { id:'g4', col:true, lid:'4-6', t:'血漿タンパク結合', sub:'分布　3つ', plan:[], body:()=>`<section class="panel"><h3>サイトⅠ（ワルファリンサイト）</h3><img class="goro-img" src="goro/alb1.png" alt="サイトⅠ（ワルファリンサイト）に結合する薬物の覚え方。明日インドでセミ増えとるわ。明日＝アスピリン、インド＝インドメタシン、セミ＝フロセミド、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン" loading="lazy"></section><section class="panel"><h3>サイトⅡ（ジアゼパムサイト）</h3><img class="goro-img" src="goro/alb2.png" alt="サイトⅡ（ジアゼパムサイト）に結合する薬物の覚え方。サイトⅡは2がカギ。ジ（接頭語di＝2）→ジアゼパム、フルルビプロフェン（ルがふたつ）" loading="lazy"></section><section class="panel"><h3>α<sub>1</sub>-酸性糖タンパク質</h3><img class="goro-img" src="goro/agp.png" alt="α1-酸性糖タンパク質と高親和性の薬物の覚え方。愛のあるイジリのプロ。愛のある＝α1-酸性糖タンパク質、イ＝イミプラミン、ジ＝ジソピラミド、リ＝リドカイン、プロ＝プロプラノロール" loading="lazy"></section>` },
   { id:'g6', col:true, lid:'5-5', t:'シトクロムP450（CYP）', sub:'代謝　4つ', plan:[], body:()=>`<section class="panel"><h3>CYP1A2の基質</h3><img class="goro-img" src="goro/cyp1a2.png" alt="CYP1A2の基質の覚え方。1日中、小さなカフェで手をプラプラ振る。1日中＝CYP1A2、小さな＝チザニジン、カフェ＝カフェイン、手＝テオフィリン、プラ＝イミプラミン、プラ＝プロプラノロール、振る＝フルボキサミン" loading="lazy"></section><section class="panel"><h3>CYP2C9の基質</h3><img class="goro-img" src="goro/cyp2c9.png" alt="CYP2C9の基質の覚え方。肉増えとるわ！サンマにしとけ！肉＝CYP2C9、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン、サン＝酸性薬物が多い" loading="lazy"></section><section class="panel"><h3>CYP2C19の基質</h3><img class="goro-img" src="goro/cyp2c19.png" alt="CYP2C19の基質の覚え方。一服で奥にさぼりに行く。一服＝イミプラミン、奥＝オメプラゾール・クロピドグレル、さぼり＝ボリコナゾール、に行く＝CYP2C19" loading="lazy"></section><section class="panel"><h3>CYP2D6の基質</h3><img class="goro-img" src="goro/cyp2d6.png" alt="CYP2D6の基質の覚え方。二度寝で行こう、縁起がいいから。二度寝＝CYP2D6、で＝デキストロメトルファン、行＝イミプラミン、こ＝コデイン、縁起＝塩基性薬物が多い" loading="lazy"></section>` },
-  { id:'g7', col:true, lid:'5-7', t:'代謝阻害', sub:'代謝　1つ', plan:[], body:()=>`<section class="panel"><h3>CYPを阻害する薬物</h3><img class="goro-img" src="goro/cypinh.png" alt="CYPを阻害する薬物の覚え方。ニューエリアしおどめは古いグループ。ニュー＝ニューキノロン系、エ＝エリスロマイシン、リ＝リトナビル、ア＝アゾール系、し＝シメチジン、お＝オメプラゾール、どめ＝阻害、古＝フルボキサミン、グループ＝GFJ" loading="lazy"></section>` }
+  { id:'g7', col:true, lid:'5-7', t:'代謝阻害', sub:'代謝　1つ', plan:[], body:()=>`<section class="panel"><h3>CYPを阻害する薬物</h3><img class="goro-img" src="goro/cypinh.png" alt="CYPを阻害する薬物の覚え方。ニューエリアしおどめは古いグループ。ニュー＝ニューキノロン系、エ＝エリスロマイシン、リ＝リトナビル、ア＝アゾール系、し＝シメチジン、お＝オメプラゾール、どめ＝阻害、古＝フルボキサミン、グループ＝GFJ" loading="lazy"></section>` },
+  { id:'g8', col:true, lid:'5-8', t:'代謝誘導', sub:'代謝　1つ', plan:[], body:()=>`<section class="panel"><h3>CYPを誘導する薬物</h3><img class="goro-img" src="goro/cypind.png" alt="CYPを誘導する薬物の覚え方。カーフェリーで誘導せい！カー＝カルバマゼピン、フェ＝フェニトイン・フェノバルビタール、リー＝リファンピシン、誘導、せい＝セイヨウオトギリソウ" loading="lazy"></section>` }
 ];
 const GX_HSCHEM_LESSONS = [
   { id:'bandA', band:'A　理論化学', col:true, plan:[], body:()=>'' },
