@@ -2606,6 +2606,19 @@ Object.assign(POOL, {
     ['活性代謝物','サラゾスルファピリジンの活性代謝物は？','5-アミノサリチル酸',['モルヒネ','フェノバルビタール','デシプラミン'],'抗炎症作用'],
     ['活性代謝物','アミトリプチリンの活性代謝物は？','ノルトリプチリン',['デシプラミン','フェノバルビタール','モルヒネ'],'抗うつ作用'],
   ],
+  gcyp:[
+    ['CYP','シトクロムP450が存在する細胞内小器官は？','小胞体',['ミトコンドリア','核','リソソーム'],'ミクロソーム画分'],
+    ['CYP','シトクロムP450の活性中心にあるのは？','ヘム鉄',['亜鉛','銅','マグネシウム'],'還元型＋COで450 nmに吸収極大'],
+    ['CYP','最も多く、医薬品の約半数の代謝に関与する分子種は？','CYP3A4',['CYP1A2','CYP2D6','CYP2C9'],'小腸にも存在'],
+    ['CYP','テオフィリンを主に代謝する分子種は？','CYP1A2',['CYP2C9','CYP2C19','CYP3A4'],'喫煙で誘導'],
+    ['CYP','テガフールを5-FUに変換する分子種は？','CYP2A6',['CYP2E1','CYP2D6','CYP1A2'],'テガフールはプロドラッグ'],
+    ['CYP','ワルファリンを主に代謝する分子種は？','CYP2C9',['CYP2D6','CYP1A2','CYP2E1'],'酸性薬物が多い'],
+    ['CYP','クロピドグレルを活性化する分子種は？','CYP2C19',['CYP2C9','CYP2E1','CYP2A6'],'遺伝子多型あり'],
+    ['CYP','コデインを代謝してモルヒネを生成する分子種は？','CYP2D6',['CYP3A4','CYP1A2','CYP2C19'],'塩基性薬物が多い'],
+    ['CYP','アセトアミノフェンの毒性代謝物の生成に関わる分子種は？','CYP2E1',['CYP2C9','CYP2A6','CYP2C19'],'NAPQI'],
+    ['CYP','グレープフルーツジュースで阻害される分子種は？','CYP3A4',['CYP1A2','CYP2D6','CYP2E1'],'小腸のCYP3A4'],
+    ['CYP','CYP2D6で代謝される薬物は？','デキストロメトルファン',['テオフィリン','ワルファリン','オメプラゾール'],'ほかにイミプラミン、コデイン'],
+  ],
   gbbb:[
     ['血液脳関門','血液脳関門の実体である細胞は？','脳毛細血管内皮細胞',['脈絡叢上皮細胞','周皮細胞（ペリサイト）','星状膠細胞（アストロサイト）'],'内皮細胞が密着結合している'],
     ['血液脳脊髄液関門','血液脳脊髄液関門の実体である細胞は？','脈絡叢上皮細胞',['脳毛細血管内皮細胞','神経細胞','周皮細胞（ペリサイト）'],'上皮細胞が密着結合している'],
@@ -3090,7 +3103,39 @@ const MET_LESSONS = [
     <p>① 通常、代謝により薬効の<b>減弱</b>や<b>消失</b>が起こる。</p>
     <p>② 薬物によっては、代謝により<b>活性代謝物</b>が生成<br>→ 薬効の<b>増強</b>や異なる薬効・<b>毒性</b>が発現する。</p>
     <p><b>・活性代謝物</b></p>
-    ${tbl(['薬物','活性代謝物'],[["<span class=\"dg\">プリミドン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗てんかん作用</span>", "→ <span class=\"dg\">フェノバルビタール</span><br><span class=\"small muted\" style=\"font-weight:400\">抗てんかん作用</span>"], ["<span class=\"dg\">アミトリプチリン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>", "→ <span class=\"dg\">ノルトリプチリン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>"], ["<span class=\"dg\">イミプラミン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>", "→ <span class=\"dg\">デシプラミン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>"], ["<span class=\"dg\">コデイン</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮咳作用</span>", "→ モルヒネ<br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>"], ["<span class=\"dg\">モルヒネ</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>", "→ <span class=\"dg\">モルヒネ-6-グルクロニド</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>"], ["<span class=\"dg\">サラゾスルファピリジン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗リウマチ作用</span>", "→ <span class=\"dg\">5-アミノサリチル酸</span><br><span class=\"small muted\" style=\"font-weight:400\">抗炎症作用</span>"]])}</section>` }
+    ${tbl(['薬物','活性代謝物'],[["<span class=\"dg\">プリミドン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗てんかん作用</span>", "→ <span class=\"dg\">フェノバルビタール</span><br><span class=\"small muted\" style=\"font-weight:400\">抗てんかん作用</span>"], ["<span class=\"dg\">アミトリプチリン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>", "→ <span class=\"dg\">ノルトリプチリン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>"], ["<span class=\"dg\">イミプラミン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>", "→ <span class=\"dg\">デシプラミン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗うつ作用</span>"], ["<span class=\"dg\">コデイン</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮咳作用</span>", "→ モルヒネ<br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>"], ["<span class=\"dg\">モルヒネ</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>", "→ <span class=\"dg\">モルヒネ-6-グルクロニド</span><br><span class=\"small muted\" style=\"font-weight:400\">鎮痛作用</span>"], ["<span class=\"dg\">サラゾスルファピリジン</span><br><span class=\"small muted\" style=\"font-weight:400\">抗リウマチ作用</span>", "→ <span class=\"dg\">5-アミノサリチル酸</span><br><span class=\"small muted\" style=\"font-weight:400\">抗炎症作用</span>"]])}</section>` },
+  { id:'5-2', t:'シトクロムP450（CYP）', sub:'CYPの分子種と基質', plan:['gcyp','gcyp','gcyp','gcyp','gcyp'], body:()=>`
+    <section class="panel"><h3>〇 シトクロムP450（CYP）</h3>
+    <p>・肝細胞の<b>小胞体</b>（ミクロソーム）に存在する。</p>
+    <p>・活性中心に<b>ヘム鉄</b>をもつ。</p>
+    <p class="small muted">還元型が一酸化炭素と結合すると450 nmに吸収極大を示す → P450</p>
+    <p>・複数の分子種が存在し、<b>CYP3A4</b>が最も多く、医薬品の約半数の代謝に関与する。</p></section>
+    <section class="panel"><h3>〇 CYPの分子種と基質</h3>
+    <p><b>・CYP1A2</b></p>
+    <p><span class="dg">テオフィリン</span>、<span class="dg">カフェイン</span>、<span class="dg">チザニジン</span>、<span class="dg">イミプラミン</span>、<span class="dg">プロプラノロール</span>、<span class="dg">フルボキサミン</span></p>
+    <p class="small muted">喫煙で誘導される</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/cyp1a2.png" alt="CYP1A2の基質の覚え方。1日中、小さなカフェで手をプラプラ振る。1日中＝CYP1A2、小さな＝チザニジン、カフェ＝カフェイン、手＝テオフィリン、プラ＝イミプラミン、プラ＝プロプラノロール、振る＝フルボキサミン" loading="lazy">
+    <p><b>・CYP2A6</b></p>
+    <p><span class="dg">テガフール</span></p>
+    <p class="small muted">テガフール → 5-FU（活性体）</p>
+    <p><b>・CYP2C9</b></p>
+    <p><span class="dg">ワルファリン</span>、<span class="dg">フェニトイン</span>、<span class="dg">トルブタミド</span></p>
+    <p class="small muted">酸性薬物が多い</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/cyp2c9.png" alt="CYP2C9の基質の覚え方。肉増えとるわ！サンマにしとけ！肉＝CYP2C9、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン、サン＝酸性薬物が多い" loading="lazy">
+    <p><b>・CYP2C19</b></p>
+    <p><span class="dg">オメプラゾール</span>、<span class="dg">クロピドグレル</span>、<span class="dg">ボリコナゾール</span>、<span class="dg">イミプラミン</span></p>
+    <p class="small muted">遺伝子多型あり（日本人の約20％がPM）</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/cyp2c19.png" alt="CYP2C19の基質の覚え方。一服で奥にさぼりに行く。一服＝イミプラミン、奥＝オメプラゾール・クロピドグレル、さぼり＝ボリコナゾール、に行く＝CYP2C19" loading="lazy">
+    <p><b>・CYP2D6</b></p>
+    <p><span class="dg">デキストロメトルファン</span>、<span class="dg">イミプラミン</span>、<span class="dg">コデイン</span></p>
+    <p class="small muted">塩基性薬物が多い・遺伝子多型あり</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/cyp2d6.png" alt="CYP2D6の基質の覚え方。二度寝で行こう、縁起がいいから。二度寝＝CYP2D6、で＝デキストロメトルファン、行＝イミプラミン、こ＝コデイン、縁起＝塩基性薬物が多い" loading="lazy">
+    <p><b>・CYP2E1</b></p>
+    <p><span class="dg">エタノール</span>、<span class="dg">アセトアミノフェン</span></p>
+    <p class="small muted">アセトアミノフェン → 毒性代謝物（NAPQI）</p>
+    <p><b>・CYP3A4</b></p>
+    <p><span class="dg">ニフェジピン</span>、<span class="dg">シクロスポリン</span>、<span class="dg">タクロリムス</span>、<span class="dg">ミダゾラム</span>、<span class="dg">トリアゾラム</span>、<span class="dg">シンバスタチン</span></p>
+    <p class="small muted">最も多い分子種・小腸にも存在・グレープフルーツジュースで阻害</p></section>` }
 ];
 const GX_RAD_LESSONS = [
   { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
@@ -3138,7 +3183,8 @@ const GX_BP_LESSONS = [
   { id:'g2', col:true, lid:'1-3', t:'能動輸送', sub:'生体膜通過　1つ', plan:[], body:()=>`<section class="panel"><h3>一次性能動輸送</h3><img class="goro-img" src="goro/primary.png" alt="一次性能動輸送の覚え方。〜protein、〜pump、〜ATPase、タンパク質、ポンプというワードがあれば一次性能動輸送（ATPを直接利用）" loading="lazy"></section>` },
   { id:'g3', col:true, lid:'3-3', t:'消化管吸収に影響する因子', sub:'吸収　1つ', plan:[], body:()=>`<section class="panel"><h3>単純拡散・能動輸送の消化管吸収</h3><img class="goro-img" src="goro/absdiff.png" alt="単純拡散・能動輸送の消化管吸収の覚え方。リボの納期にアセった。リボ＝リボフラビン、納＝能動輸送、ア＝アセトアミノフェン、セ＝セファクロル、た＝単純拡散" loading="lazy"></section>` },
   { id:'g5', col:true, lid:'4-2', t:'脳への移行性', sub:'分布　1つ', plan:[], body:()=>`<section class="panel"><h3>血液脳関門と血液脳脊髄液関門</h3><img class="goro-img" src="goro/bbb.png" alt="血液脳関門と血液脳脊髄液関門の覚え方。濁点があるかどうかでペアにする。けつえきのうかんもん（濁点なし）→のうもうさいけっかんないひ細胞（脳毛細血管内皮細胞）。けつえきのうせきずいえきかんもん（濁点あり）→みゃくらくそうじょうひ細胞（脈絡叢上皮細胞）" loading="lazy"></section>` },
-  { id:'g4', col:true, lid:'4-6', t:'血漿タンパク結合', sub:'分布　3つ', plan:[], body:()=>`<section class="panel"><h3>サイトⅠ（ワルファリンサイト）</h3><img class="goro-img" src="goro/alb1.png" alt="サイトⅠ（ワルファリンサイト）に結合する薬物の覚え方。明日インドでセミ増えとるわ。明日＝アスピリン、インド＝インドメタシン、セミ＝フロセミド、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン" loading="lazy"></section><section class="panel"><h3>サイトⅡ（ジアゼパムサイト）</h3><img class="goro-img" src="goro/alb2.png" alt="サイトⅡ（ジアゼパムサイト）に結合する薬物の覚え方。サイトⅡは2がカギ。ジ（接頭語di＝2）→ジアゼパム、フルルビプロフェン（ルがふたつ）" loading="lazy"></section><section class="panel"><h3>α<sub>1</sub>-酸性糖タンパク質</h3><img class="goro-img" src="goro/agp.png" alt="α1-酸性糖タンパク質と高親和性の薬物の覚え方。愛のあるイジリのプロ。愛のある＝α1-酸性糖タンパク質、イ＝イミプラミン、ジ＝ジソピラミド、リ＝リドカイン、プロ＝プロプラノロール" loading="lazy"></section>` }
+  { id:'g4', col:true, lid:'4-6', t:'血漿タンパク結合', sub:'分布　3つ', plan:[], body:()=>`<section class="panel"><h3>サイトⅠ（ワルファリンサイト）</h3><img class="goro-img" src="goro/alb1.png" alt="サイトⅠ（ワルファリンサイト）に結合する薬物の覚え方。明日インドでセミ増えとるわ。明日＝アスピリン、インド＝インドメタシン、セミ＝フロセミド、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン" loading="lazy"></section><section class="panel"><h3>サイトⅡ（ジアゼパムサイト）</h3><img class="goro-img" src="goro/alb2.png" alt="サイトⅡ（ジアゼパムサイト）に結合する薬物の覚え方。サイトⅡは2がカギ。ジ（接頭語di＝2）→ジアゼパム、フルルビプロフェン（ルがふたつ）" loading="lazy"></section><section class="panel"><h3>α<sub>1</sub>-酸性糖タンパク質</h3><img class="goro-img" src="goro/agp.png" alt="α1-酸性糖タンパク質と高親和性の薬物の覚え方。愛のあるイジリのプロ。愛のある＝α1-酸性糖タンパク質、イ＝イミプラミン、ジ＝ジソピラミド、リ＝リドカイン、プロ＝プロプラノロール" loading="lazy"></section>` },
+  { id:'g6', col:true, lid:'5-2', t:'シトクロムP450（CYP）', sub:'代謝　4つ', plan:[], body:()=>`<section class="panel"><h3>CYP1A2の基質</h3><img class="goro-img" src="goro/cyp1a2.png" alt="CYP1A2の基質の覚え方。1日中、小さなカフェで手をプラプラ振る。1日中＝CYP1A2、小さな＝チザニジン、カフェ＝カフェイン、手＝テオフィリン、プラ＝イミプラミン、プラ＝プロプラノロール、振る＝フルボキサミン" loading="lazy"></section><section class="panel"><h3>CYP2C9の基質</h3><img class="goro-img" src="goro/cyp2c9.png" alt="CYP2C9の基質の覚え方。肉増えとるわ！サンマにしとけ！肉＝CYP2C9、増え＝フェニトイン、とる＝トルブタミド、わ＝ワルファリン、サン＝酸性薬物が多い" loading="lazy"></section><section class="panel"><h3>CYP2C19の基質</h3><img class="goro-img" src="goro/cyp2c19.png" alt="CYP2C19の基質の覚え方。一服で奥にさぼりに行く。一服＝イミプラミン、奥＝オメプラゾール・クロピドグレル、さぼり＝ボリコナゾール、に行く＝CYP2C19" loading="lazy"></section><section class="panel"><h3>CYP2D6の基質</h3><img class="goro-img" src="goro/cyp2d6.png" alt="CYP2D6の基質の覚え方。二度寝で行こう、縁起がいいから。二度寝＝CYP2D6、で＝デキストロメトルファン、行＝イミプラミン、こ＝コデイン、縁起＝塩基性薬物が多い" loading="lazy"></section>` }
 ];
 const GX_HSCHEM_LESSONS = [
   { id:'bandA', band:'A　理論化学', col:true, plan:[], body:()=>'' },
