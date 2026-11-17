@@ -2721,6 +2721,47 @@ const ONC5_LESSONS = [
   { id:'5-6', t:'乳がんのホルモン療法', wip:true, plan:[], body:()=>'' },
   { id:'5-7', t:'前立腺がんのホルモン療法', wip:true, plan:[], body:()=>'' }
 ];
+const GX_RAD_LESSONS = [
+  { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'1-3', t:'放射線の分類', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>電磁波</h3><img class="goro-img" src="goro/emwave.png" alt="電磁波の覚え方。感度抜群！しかし、せまいラジオ局。感＝γ線、度＝X線、し＝紫外線、か＝可視光線、せ＝赤外線、まい＝マイクロ波、ラジオ局＝ラジオ波。左ほどエネルギー大・波長短" loading="lazy"></section><section class="panel"><h3>線スペクトル</h3><img class="goro-img" src="goro/linespec.png" alt="線スペクトルの覚え方。センスがあると得。センス＝線スペクトル、が＝γ、ある＝α、得＝特性X線" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'1-4', t:'相互作用', sub:'放射線と放射能　1つ', plan:[], body:()=>`<section class="panel"><h3>β⁻線とγ線の相互作用</h3><img class="goro-img" src="goro/interact2.png" alt="β⁻線とγ線の相互作用の覚え方。非男性のビーナス、合コンで頑張る。非＝非弾性散乱、男性＝弾性散乱、性＝制動放射、ビーナス＝β⁻線、合＝光電効果、コン＝コンプトン散乱、で＝電子対生成、頑張る＝γ線" loading="lazy"></section>` },
+  { id:'g4', col:true, lid:'1-5', t:'放射線に関する単位', sub:'放射線と放射能　1つ', plan:[], body:()=>`<section class="panel"><h3>放射線に関する単位</h3><img class="goro-img" src="goro/radunit2.png" alt="放射線に関する単位の覚え方。ショック！九州でグレイとシューベルトが星の勉強。ショッ＝照射線量、ク＝C/kg、九州＝吸収線量、グレイ＝Gy、と＝等価線量、シューベルト＝Sv、星＝放射能、勉強＝Bq" loading="lazy"></section>` },
+  { id:'g5', col:true, lid:'1-6', t:'放射性核種', sub:'放射線と放射能　1つ', plan:[], body:()=>`<section class="panel"><h3>天然放射性核種</h3><img class="goro-img" src="goro/natnuc.png" alt="天然放射性核種の覚え方。天然！再試40個！天然＝天然放射性核種、再＝3H、試＝14C、40個＝40K" loading="lazy"></section>` },
+  { id:'g6', col:true, lid:'1-9', t:'放射平衡・放射線測定', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>電離作用を利用した測定器</h3><img class="goro-img" src="goro/ionmeter.png" alt="電離作用を利用した測定器の覚え方。高BGMは便利！高B＝高エネルギーβ線、GM＝GM計数管、便利＝電離作用を利用" loading="lazy"></section><section class="panel"><h3>蛍光作用を利用した測定器</h3><img class="goro-img" src="goro/fluormeter.png" alt="蛍光作用を利用した測定器の覚え方。ナイル川、低いベッドは水びたし。ナイル＝NaIシンチレーションカウンタ、川＝γ線、低いベッド＝低エネルギーβ線、水びたし＝液体シンチレーションカウンタ" loading="lazy"></section>` },
+  { id:'g7', col:true, lid:'1-10', t:'人体への影響', sub:'放射線と放射能　1つ', plan:[], body:()=>`<section class="panel"><h3>骨に集積する放射性核種</h3><img class="goro-img" src="goro/bonenuc.png" alt="骨に集積する放射性核種の覚え方。骨にランプするか？骨に＝骨に集積、ラン＝Ra、プ＝P、する＝Sr、か＝Ca" loading="lazy"></section>` },
+  { id:'g8', col:true, lid:'2-2', t:'放射性医薬品（局方収載）', sub:'放射性医薬品　5つ', plan:[], body:()=>`<section class="panel"><h3>テクネチウム</h3><img class="goro-img" src="goro/tc99m.png" alt="テクネチウムの覚え方。テクノロジー。テク＝99mTc、ノロジー＝脳シンチグラフィー" loading="lazy"></section><section class="panel"><h3>クロム</h3><img class="goro-img" src="goro/cr51.png" alt="クロムの覚え方。黒い血。黒い＝51Cr、血＝循環血液量・循環赤血球量・赤血球寿命" loading="lazy"></section><section class="panel"><h3>ガリウム</h3><img class="goro-img" src="goro/ga67.png" alt="ガリウムの覚え方。ガリ勉が主演。ガリ＝67Ga、主＝腫瘍、演＝炎症" loading="lazy"></section><section class="panel"><h3>インジウム</h3><img class="goro-img" src="goro/in111.png" alt="インジウムの覚え方。陰気な骨。陰気＝111In、骨＝骨髄シンチグラフィー" loading="lazy"></section><section class="panel"><h3>タリウム</h3><img class="goro-img" src="goro/tl201.png" alt="タリウムの覚え方。紳士が足りない。紳＝心筋、士＝腫瘍、足りない＝201Tl" loading="lazy"></section>` }
+];
+const GX_ANA_LESSONS = [
+  { id:'g1', col:true, lid:'1-2', t:'測定値', sub:'分析の基本　1つ', plan:[], body:()=>`<section class="panel"><h3>SI基本単位</h3><img class="goro-img" src="goro/si.png" alt="SI基本単位の覚え方。カードのクマはスモールキング。カード＝cd、ク＝K、マ＝m・A、ス＝s、モール＝mol、キング＝kg" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'1-3', t:'バリデーション', sub:'分析の基本　1つ', plan:[], body:()=>`<section class="panel"><h3>分析パラメータ（真度）</h3><img class="goro-img" src="goro/shindo.png" alt="分析パラメータ（真度）の覚え方。肩こりはしんどい。肩こり＝偏り、しんど＝真度" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'2-1', t:'無機イオンの定性分析①', sub:'定性分析　1つ', plan:[], body:()=>`<section class="panel"><h3>炎色反応</h3><img class="goro-img" src="goro/flame.png" alt="炎色反応の覚え方。リアカー無きK村、動力で勝とうとするもくれない馬力。Li赤、Na黄、K紫、Cu緑（青緑）、Ca橙、Sr紅、Ba緑（黄緑）" loading="lazy"></section>` },
+  { id:'g4', col:true, lid:'2-4', t:'官能基による確認試験②', sub:'定性分析　2つ', plan:[], body:()=>`<section class="panel"><h3>アルデヒド・ケトンの定性</h3><img class="goro-img" src="goro/ald.png" alt="アルデヒド・ケトンの定性の覚え方。銀とれて、銅ふえる。銀＝Ag、とれ＝トレンス反応、銅＝Cu、ふえ＝フェーリング反応" loading="lazy"></section><section class="panel"><h3>カルボン酸・誘導体の定性</h3><img class="goro-img" src="goro/carbox.png" alt="カルボン酸・誘導体の定性の覚え方。ひとは軽いエステで悲惨に。ひ＝ヒドロキシルアミン、軽＝カルボン酸、エステ＝エステル、悲惨＝ヒドロキサム酸" loading="lazy"></section>` },
+  { id:'g5', col:true, lid:'3-2', t:'標定', sub:'定量分析　3つ', plan:[], body:()=>`<section class="panel"><h3>非水滴定</h3><img class="goro-img" src="goro/nonaq.png" alt="非水滴定の覚え方。簡素二人のクリスマス悲惨。簡素＝過塩素酸、二人＝フタル酸カリウム、クリスマス＝クリスタルバイオレット、悲惨＝非水滴定" loading="lazy"></section><section class="panel"><h3>沈殿滴定（ファヤンス法）</h3><img class="goro-img" src="goro/fajans.png" alt="沈殿滴定（ファヤンス法）の覚え方。古いファンからクレームで消沈。古い＝フルオレセインナトリウム、ファン＝ファヤンス法、クレー＝紅色、沈＝沈殿法" loading="lazy"></section><section class="panel"><h3>酸化還元滴定</h3><img class="goro-img" src="goro/redox.png" alt="酸化還元滴定の覚え方。血をようさん噛む。血＝チオ硫酸Na、ようさん＝ヨウ素酸カリウム、6：1で反応" loading="lazy"></section>` }
+];
+const GX_HJP_LESSONS = [
+  { id:'g1', col:true, lid:'3-1', t:'死因別死亡率①', sub:'日本の現状　1つ', plan:[], body:()=>`<section class="panel"><h3>死因順位</h3><img class="goro-img" src="goro/deathrank.png" alt="死因順位の覚え方。悪心老人の肺は不治の病。悪＝悪性新生物、心＝心疾患、老＝老衰、の＝脳血管疾患、肺＝肺炎、は＝誤嚥性肺炎、不＝不慮の事故、治＝腎不全、の病＝（脳）アルツハイマー病" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'3-2', t:'死因別死亡率②', sub:'日本の現状　2つ', plan:[], body:()=>`<section class="panel"><h3>悪性新生物による死亡率（男性）</h3><img class="goro-img" src="goro/canm.png" alt="悪性新生物による死亡率（男性）の覚え方。男は大好き肝臓。男＝男性、は＝肺、大＝大腸、好＝胃、き＝膵臓、肝臓＝肝臓" loading="lazy"></section><section class="panel"><h3>悪性新生物による死亡率（女性）</h3><img class="goro-img" src="goro/canf.png" alt="悪性新生物による死亡率（女性）の覚え方。女子大はスイッチいい。女＝女性、大＝大腸、は＝肺、スイ＝膵臓、チ＝乳房、いい＝胃" loading="lazy"></section>` }
+];
+const GX_HF_LESSONS = [
+  { id:'g1', col:true, lid:'1-2', t:'急性心不全治療薬②', sub:'心不全治療薬　4つ', plan:[], body:()=>`<section class="panel"><h3>β1受容体刺激薬</h3><img class="goro-img" src="goro/b1.png" alt="β1受容体刺激薬の覚え方。出歯のドブタはバイバイし。出歯＝デノパミン、ドブタ＝ドブタミン、バイ＝β1、し＝刺激" loading="lazy"></section><section class="panel"><h3>アデニル酸シクラーゼ活性化薬</h3><img class="goro-img" src="goro/ac.png" alt="アデニル酸シクラーゼ活性化薬の覚え方。診断あってる。診断＝コルホルシンダロパート、あってる＝アデニル酸シクラーゼ活性化" loading="lazy"></section><section class="panel"><h3>ホスホジエステラーゼⅢ阻害薬</h3><img class="goro-img" src="goro/pde3.png" alt="ホスホジエステラーゼⅢ阻害薬の覚え方。ホスト3人の理論。ホスト3人＝ホスホジエステラーゼⅢ阻害、理論＝〜リノン" loading="lazy"></section><section class="panel"><h3>cAMP製剤</h3><img class="goro-img" src="goro/camp.png" alt="cAMP製剤の覚え方。ぼくら弟子、cAMPで変身。ぼくら弟子＝ブクラデシン、cAMPで変身＝cAMPに変わる" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'1-3', t:'慢性心不全治療薬①', sub:'心不全治療薬　3つ', plan:[], body:()=>`<section class="panel"><h3>ニコランジル</h3><img class="goro-img" src="goro/nico.png" alt="ニコランジルの覚え方。ニコッと開口。ニコッと＝ニコランジル、開口＝K⁺チャネル開口" loading="lazy"></section><section class="panel"><h3>ACE阻害薬</h3><img class="goro-img" src="goro/acei.png" alt="ACE阻害薬の覚え方。エースの襟フリフリで不快。エース＝ACE阻害薬、襟フリフリ＝エナラプリル・リシノプリル、不快＝負荷⬇" loading="lazy"></section><section class="panel"><h3>ARB</h3><img class="goro-img" src="goro/arb.png" alt="ARBの覚え方。アタック行けない、エースと交換で。アタック行けない＝AT1遮断、エース＝ACE阻害が適さない心不全、交換で＝カンデサルタン シレキセチル" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'1-4', t:'慢性心不全治療薬②', sub:'心不全治療薬　1つ', plan:[], body:()=>`<section class="panel"><h3>α1・β受容体遮断薬</h3><img class="goro-img" src="goro/carv.png" alt="α1・β受容体遮断薬の覚え方。後負荷を軽くする。軽く＝カルベジロール" loading="lazy"></section>` }
+];
+const GX_AAR_LESSONS = [
+  { id:'g1', col:true, lid:'2-1', t:'頻脈性不整脈治療薬①', sub:'抗不整脈薬　1つ', plan:[], body:()=>`<section class="panel"><h3>抗不整脈薬</h3><img class="goro-img" src="goro/vw.png" alt="抗不整脈薬の覚え方。なべかりっか。な＝Ⅰ Na⁺チャネル、べ＝Ⅱ β遮断、かり＝Ⅲ K⁺チャネル、か＝Ⅳ Ca²⁺チャネル" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'2-2', t:'頻脈性不整脈治療薬②', sub:'抗不整脈薬　3つ', plan:[], body:()=>`<section class="panel"><h3>Ⅰa群</h3><img class="goro-img" src="goro/ia.png" alt="Ⅰa群の覚え方。姫の家は地震キープ。姫＝ピルメノール、家＝Ⅰa群、地＝ジソピラミド、震＝シベンゾリン、キー＝キニジン、プ＝プロカインアミド" loading="lazy"></section><section class="panel"><h3>Ⅰb群</h3><img class="goro-img" src="goro/ib.png" alt="Ⅰb群の覚え方。アプリでメキメキリード、1番に。アプリ＝アプリンジン、メキメキ＝メキシレチン、リード＝リドカイン、1番＝Ⅰb群" loading="lazy"></section><section class="panel"><h3>Ⅰc群</h3><img class="goro-img" src="goro/ic.png" alt="Ⅰc群の覚え方。石のフロはピカピカ深い。石＝Ⅰc群、フロ＝プロパフェノン、ピカピカ＝ピルシカイニド、深い＝フレカイニド" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'2-4', t:'頻脈性不整脈治療薬④', sub:'抗不整脈薬　1つ', plan:[], body:()=>`<section class="panel"><h3>Ⅲ群</h3><img class="goro-img" src="goro/k3.png" alt="Ⅲ群の覚え方。二本の三つ編みをそったろ。二本＝ニフェカラント、三つ＝Ⅲ群、編み＝アミオダロン、そったろ＝ソタロール" loading="lazy"></section>` },
+  { id:'g4', col:true, lid:'2-5', t:'頻脈性不整脈治療薬⑤', sub:'抗不整脈薬　1つ', plan:[], body:()=>`<section class="panel"><h3>Ⅳ群</h3><img class="goro-img" src="goro/c4.png" alt="Ⅳ群の覚え方。死ぬ気でベジタブル女子。死ぬ＝Ⅳ群、ベ＝ベプリジル・ベラパミル、ジ＝ジルチアゼム、女子＝上室性頻脈性不整脈" loading="lazy"></section>` },
+  { id:'g5', col:true, lid:'2-6', t:'抗不整脈薬の使い分け', sub:'抗不整脈薬　1つ', plan:[], body:()=>`<section class="panel"><h3>抗不整脈薬の使い分け</h3><img class="goro-img" src="goro/tsk.png" alt="抗不整脈薬の使い分けの覚え方。Ⅰa、Ⅰb、Ⅰc、Ⅱ、Ⅲ、Ⅳ、ジ と並べ、Ⅰbは下の心室性頻脈へ、Ⅳとジギタリスは上の上室性頻脈（心房細動）へ" loading="lazy"></section>` },
+  { id:'g6', col:true, lid:'2-7', t:'徐脈性不整脈治療薬', sub:'抗不整脈薬　1つ', plan:[], body:()=>`<section class="panel"><h3>徐脈性不整脈治療薬</h3><img class="goro-img" src="goro/brady2.png" alt="徐脈性不整脈治療薬の覚え方。徐々に急いであとつける。徐々に＝徐脈性不整脈、急いで＝イソプレナリン、あと＝アトロピン" loading="lazy"></section>` }
+];
+const GX_ONC_LESSONS = [
+  { id:'g1', col:true, lid:'2-1', t:'アルキル化薬', sub:'細胞障害性抗悪性腫瘍薬　1つ', plan:[], body:()=>`<section class="panel"><h3>アルキル化薬</h3><img class="goro-img" src="goro/alkyl.png" alt="アルキル化薬の覚え方。歩くファミリー、ブスなムスメ。歩く＝アルキル化薬、ファミ＝イホスファミド・シクロホスファミド、ブス＝ブスルファン、ムス＝ニムスチン・ラニムスチン、メ＝メルファラン" loading="lazy"></section>` }
+];
+const GX_PM_LESSONS = [
+  { id:'g1', col:true, lid:'4-1', t:'妊娠と薬', sub:'配慮が必要な患者　1つ', plan:[], body:()=>`<section class="panel"><h3>催奇形性（絶対過敏期）</h3><img class="goro-img" src="goro/teratogen.png" alt="催奇形性（絶対過敏期）の覚え方。投与しない。し＝4、な＝7、4〜7週は投与しない" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'4-3', t:'妊婦に投与可能な医薬品', sub:'配慮が必要な患者　2つ', plan:[], body:()=>`<section class="panel"><h3>妊娠高血圧症候群に使用可能な降圧薬</h3><img class="goro-img" src="goro/preg_bp.png" alt="妊娠高血圧症候群に使用可能な降圧薬の覚え方。めっちゃひどい！妊娠したらアムロに逃げられた。めっちゃ＝メチルドパ、ひど＝ヒドララジン、妊娠＝妊娠高血圧症、アムロ＝アムロジピン、に＝ニフェジピン、られた＝ラベタロール" loading="lazy"></section><section class="panel"><h3>妊婦に投与可能な抗菌薬</h3><img class="goro-img" src="goro/preg_abx.png" alt="妊婦に投与可能な抗菌薬の覚え方。マグロのシリはセーフ。マグロ＝マクロライド系、シリ＝ペニシリン系、セーフ＝セフェム系" loading="lazy"></section>` }
+];
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean'], body:()=>`
     <section class="panel"><h3>なぜ保健統計が必要か</h3><p>健康を守るには、<b>地域や国などの集団</b>の健康状態を知る必要がある。<br>保健統計＝集団の<b>健康水準</b>をはかり、施策を決める土台。</p>
@@ -3474,6 +3515,13 @@ const UNITS = {
   ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:2, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
   fp: { no:'衛4', title:'食中毒と食品汚染', subject:'衛生', course:'hyg', subj:3, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   pk: { no:'剤2', title:'薬物速度論', subject:'薬剤', course:'pmcy', subj:1, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
+  gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
+  gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
+  gx_hjp: { no:'覚', title:'日本の現状', subject:'覚え方', course:'goro', subj:4, goro:true, lessons:GX_HJP_LESSONS, cards:'gx_hjp', drill:'gx_hjp' },
+  gx_hf: { no:'覚', title:'心不全治療薬', subject:'覚え方', course:'goro', subj:6, goro:true, lessons:GX_HF_LESSONS, cards:'gx_hf', drill:'gx_hf' },
+  gx_aar: { no:'覚', title:'抗不整脈薬', subject:'覚え方', course:'goro', subj:6, goro:true, lessons:GX_AAR_LESSONS, cards:'gx_aar', drill:'gx_aar' },
+  gx_onc: { no:'覚', title:'抗悪性腫瘍薬', subject:'覚え方', course:'goro', subj:17, goro:true, lessons:GX_ONC_LESSONS, cards:'gx_onc', drill:'gx_onc' },
+  gx_pm: { no:'覚', title:'服薬指導', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_PM_LESSONS, cards:'gx_pm', drill:'gx_pm' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:6, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
   hh: { no:'衛1-1', title:'健康と疾病の概念', subject:'衛生', course:'hyg', subj:0, lessons:HH_LESSONS, cards:'hh', drill:'hh' },
@@ -3649,13 +3697,13 @@ const CATALOG = [
       { name:'抗悪性腫瘍薬', k:'悪', units:U('抗がん薬') },
       { name:'漢方薬', k:'漢', units:U() } ] },
     { id:'goro', name:'覚え方', k:'覚', note:'ゴロ集', subjects:[
-      { name:'高校科目', k:'高', units:U() },
-      { name:'物理', k:'物', units:U() },
+      { name:'高校科目', k:'高', units:U('高校物理','高校化学','高校生物') },
+      { name:'物理', k:'物', units:U({ t:'放射化学', ready:'gx_rad' },{ t:'分析化学', ready:'gx_ana' }) },
       { name:'化学', k:'化', units:U() },
       { name:'生物', k:'生', units:U() },
-      { name:'衛生', k:'衛', units:U('食中毒のゴロ') },
+      { name:'衛生', k:'衛', units:U({ t:'日本の現状', ready:'gx_hjp' },'食中毒のゴロ') },
       { name:'神経系', k:'神', units:U('抗精神病薬のゴロ','抗うつ薬のゴロ','抗てんかん薬のゴロ') },
-      { name:'循環器系', k:'循', units:U({ t:'降圧薬のゴロ', ready:'gr' },'抗不整脈薬のゴロ') },
+      { name:'循環器系', k:'循', units:U({ t:'降圧薬のゴロ', ready:'gr' },{ t:'心不全治療薬', ready:'gx_hf' },{ t:'抗不整脈薬', ready:'gx_aar' }) },
       { name:'消化器系', k:'消', units:U() },
       { name:'呼吸器系', k:'呼', units:U() },
       { name:'血液・造血系', k:'血', units:U('抗血栓薬のゴロ') },
@@ -3666,11 +3714,11 @@ const CATALOG = [
       { name:'感覚器系', k:'覚', units:U() },
       { name:'免疫系', k:'免', units:U() },
       { name:'感染症', k:'感', units:U('抗菌薬のゴロ') },
-      { name:'悪性腫瘍', k:'悪', units:U() },
+      { name:'悪性腫瘍', k:'悪', units:U({ t:'抗悪性腫瘍薬', ready:'gx_onc' }) },
       { name:'炎症', k:'炎', units:U() },
       { name:'法規・制度・倫理', k:'法', units:U('法規の数字のゴロ') },
       { name:'薬剤', k:'剤', units:U() },
-      { name:'実務', k:'実', units:U() },
+      { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' }) },
       { name:'基準値', k:'基', units:U() },
       { name:'その他', k:'他', units:U() } ] },
     { id:'calc', name:'計算', k:'計', note:'薬学計算', subjects:[
@@ -3899,6 +3947,7 @@ function vSubject(){
   const c=courseById(S.course), sb=c.subjects[S.subj];
   return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。この項目の章をぜんぶ終えると、きのこカードが1まい届きます。</p><div class="list">
   ${sb.units.map((un,i)=>{ const u=un.ready&&UNITS[un.ready];
+    if(u&&u.goro) return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${u.lessons.length}つの胞子の覚え方</span></span><span class="chev">›</span></button>`;
     if(u){ const d=doneCount(un.ready), n=QL(un.ready).length;
       return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
     return `<button class="item" disabled><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
@@ -3911,7 +3960,7 @@ const refItem = l => { const c=CATALOG.find(x=>x.id===l.ref.c), s=c&&c.subjects.
     : `<button class="item" disabled><span class="lid col">${l.lid}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}（準備中）</span></span></button>`; };
 function vUnit(){
   const u=CU(), uid=S.uid, T=TERMS[u.cards]||[], kn=(R.known[uid]||[]).length, hasPdf=Object.keys(PDF).some(k=>k.startsWith(u.drill+'-')&&PDF[k].q);
-  return `${top(u.no+'　'+u.title)}<div class="stack"><p class="muted small">${QL(uid).length}つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。</p><div class="list">
+  return `${top(u.goro?'覚え方　'+u.title:u.no+'　'+u.title)}<div class="stack"><p class="muted small">${u.goro?'胞子ごとの覚え方をまとめて見直せる。':QL(uid).length+'つの胞子　1つ約5分。上から順に進めるのがおすすめです。ぜんぶクリアすると、森から木の葉が降ってきます。'}</p><div class="list">
   ${u.lessons.map(l=>l.band?`<div class="band">${l.band}</div>`:l.wip?wipItem(l):l.ref?refItem(l):l.col?`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid col">${l.lid||'コラム'}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`:`<button class="item" data-act="lesson" data-arg="${l.id}"><span class="lid ${R.lessons[lkey(uid,l.id)]?'done':''}">${l.test?'まとめ':l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span>${lTag(uid,l.id)}<span class="chev">›</span></button>`).join('')}
   ${hasPdf?`<button class="item" data-act="go" data-arg="drill"><span class="lid">▶</span><span class="body"><b>演習問題</b><br><span class="small muted">PDF・Lv1〜Lv5</span></span><span class="chev">›</span></button>`:''}
   </div></div>`;
