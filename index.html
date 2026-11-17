@@ -2409,6 +2409,17 @@ Object.assign(POOL, {
     ['ニトロソウレア類','血液脳関門を通過し、脳腫瘍に用いるアルキル化薬は？','ニムスチン',['ブスルファン','シクロホスファミド','メルファラン'],'ニトロソウレア類'],
     ['ニトロソウレア類','ニトロソウレア類の分解産物イソシアネートが起こす反応は？','タンパク質のカルバモイル化',['DNAのメチル化','RNAのアセチル化','脂質の過酸化'],'R−N=C=O'],
   ],
+  expl:[
+    ['指数','2³×2⁴ を計算すると？','128',['64','4096','14'],'指数の足し算：2⁷'],
+    ['指数','(2²)³ を計算すると？','64',['32','12','256'],'指数の掛け算：2⁶'],
+    ['指数','10⁻³ と等しいのは？','0.001',['−1000','0.0001','−0.001'],'a⁻ⁿ＝1/aⁿ'],
+    ['指数','8^(2/3) を計算すると？','4',['16/3','2','64'],'∛8²＝∛64'],
+    ['指数','(6×10⁵)÷(2×10²) を計算すると？','3×10³',['3×10⁷','4×10³','3×10²'],'(6÷2)×10⁵⁻²'],
+    ['対数','log₁₀5 の値は？（log₁₀2＝0.301）','0.699',['0.602','1.301','0.5'],'log₁₀(10/2)＝1−0.301'],
+    ['対数','log₁₀(1/2) の値は？（log₁₀2＝0.301）','−0.301',['0.5','−0.699','0.301'],'log(1/M)＝−logM'],
+    ['対数','ln 2 の値は？','0.693',['0.301','2.303','1'],'自然対数'],
+    ['対数','log₁₀1000 の値は？','3',['1000','100','0.3'],'log₁₀10³＝3'],
+  ],
   oncb:[
     ['抗悪性腫瘍薬の特徴','抗悪性腫瘍薬が効きやすいのは？','増殖速度の速い細胞',['増殖速度の遅い細胞','分裂を終えた神経細胞','脂肪細胞'],'腫瘍細胞の増殖過程を抑制'],
     ['抗悪性腫瘍薬の特徴','抗悪性腫瘍薬を多剤併用する目的は？','副作用の分散化と耐性の防止',['服用回数を減らすため','薬価を下げるため','効果の発現を遅らせるため'],'通常、多剤併用で用いる'],
@@ -2769,7 +2780,16 @@ const GX_HSCHEM_LESSONS = [
   { id:'bandC', band:'C　有機化学', col:true, plan:[], body:()=>'' }
 ];
 const PB1_LESSONS = [
-  { id:'1-1', t:'指数・対数', wip:true, plan:[], body:()=>'' }
+  { id:'1-1', t:'指数・対数', sub:'指数計算・対数計算の規則', plan:['expl','expl','expl','expl','expl'], body:()=>`
+    <section class="panel"><h3>〇 指数計算</h3>
+    <p>同じ数や文字を何回掛け合わせたかを示す n を<b>指数</b>という。<br>a<sup>1</sup>、a<sup>2</sup>、a<sup>3</sup>…をまとめて a の<b>累乗</b>という。</p>
+    ${ktbl([['a<sup>m</sup>×a<sup>n</sup>＝a<sup>m+n</sup>', '2<sup>3</sup>×2<sup>4</sup>＝2<sup>7</sup>＝128<br><span class="small muted">掛け算 → 指数の足し算</span>'], ['a<sup>m</sup>÷a<sup>n</sup>＝a<sup>m−n</sup>', '2<sup>5</sup>÷2<sup>2</sup>＝2<sup>3</sup>＝8<br><span class="small muted">割り算 → 指数の引き算</span>'], ['(a<sup>m</sup>)<sup>n</sup>＝a<sup>m×n</sup>', '(2<sup>2</sup>)<sup>3</sup>＝2<sup>6</sup>＝64<br><span class="small muted">累乗の累乗 → 指数の掛け算</span>'], ['a<sup>0</sup>＝1', '2<sup>3</sup>÷2<sup>3</sup>＝2<sup>0</sup>＝1<br><span class="small muted">指数が0なら底にかかわらず1</span>'], ['a<sup>−n</sup>＝<span class="frac"><span>1</span><span>a<sup>n</sup></span></span>', '2<sup>−3</sup>＝<span class="frac"><span>1</span><span>2<sup>3</sup></span></span>'], ['(M×a<sup>m</sup>)×(N×a<sup>n</sup>)<br>＝(M×N)×a<sup>m+n</sup>', '(3×10<sup>2</sup>)×(2×10<sup>3</sup>)<br>＝6×10<sup>5</sup>'], ['(M×a<sup>m</sup>)÷(N×a<sup>n</sup>)<br>＝(M÷N)×a<sup>m−n</sup>', '(6×10<sup>5</sup>)÷(2×10<sup>2</sup>)<br>＝3×10<sup>3</sup>'], ['M<sup>n</sup>＝a<br>⇔ M＝<sup>n</sup>√a＝a<sup>1/n</sup><br><span class="small muted">n：偶数なら ±</span>', 'M<sup>2</sup>＝9<br>⇒ M＝±√9＝±3'], ['a<sup>m/n</sup>＝(a<sup>m</sup>)<sup>1/n</sup><br>＝<sup>n</sup>√a<sup>m</sup>', '8<sup>2/3</sup>＝<sup>3</sup>√8<sup>2</sup>＝<sup>3</sup>√2<sup>6</sup>＝2<sup>2</sup>＝4']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 対数計算</h3>
+    <p>a<sup>p</sup>＝M のとき p＝log<sub>a</sub>M<br><span class="small muted">a：底、M：真数</span><br>常用対数：底が10（log<sub>10</sub>）<br>自然対数：底が e（ln）</p>
+    <p><b>・よく用いる値</b></p>
+    ${ktbl([['log<sub>10</sub>2', '0.30'], ['log<sub>10</sub>3', '0.48'], ['log<sub>10</sub>10', '1'], ['ln 2', '0.693'], ['ln 10', '2.303'], ['ln e', '1']])}
+    <p><b>・対数計算の規則</b></p>
+    ${ktbl([['log<sub>a</sub>(MN)<br>＝log<sub>a</sub>M＋log<sub>a</sub>N', 'log<sub>10</sub>1000<br>＝log<sub>10</sub>10＋log<sub>10</sub>100＝1＋2＝3<br><span class="small muted">掛け算の対数 → 対数の和</span>'], ['log<sub>a</sub><span class="frac"><span>M</span><span>N</span></span><br>＝log<sub>a</sub>M−log<sub>a</sub>N', 'log<sub>10</sub>5＝log<sub>10</sub><span class="frac"><span>10</span><span>2</span></span><br>＝1−0.301＝0.699<br><span class="small muted">割り算の対数 → 対数の差</span>'], ['log<sub>a</sub>M<sup>n</sup>＝n log<sub>a</sub>M', 'log<sub>10</sub>10<sup>5</sup>＝5×log<sub>10</sub>10＝5<br><span class="small muted">真数の指数 → 対数の係数に移せる</span>'], ['log<sub>a</sub><span class="frac"><span>1</span><span>M</span></span>＝log<sub>a</sub>M<sup>−1</sup><br>＝−log<sub>a</sub>M', 'log<sub>10</sub><span class="frac"><span>1</span><span>2</span></span>＝−log<sub>10</sub>2＝−0.301']]).replace('tbl ktbl','tbl ktbl kw')}</section>` }
 ];
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean'], body:()=>`
