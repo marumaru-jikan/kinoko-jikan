@@ -2401,6 +2401,16 @@ Object.assign(POOL, {
     ['SI接頭語','μ（マイクロ）の大きさは？','10⁻⁶',['10⁻³','10⁻⁹','10⁻¹²'],'m：10⁻³、n：10⁻⁹'],
     ['SI接頭語','n（ナノ）の大きさは？','10⁻⁹',['10⁻⁶','10⁻¹²','10⁻³'],'p（ピコ）は10⁻¹²'],
   ],
+  pmol:[
+    ['原子量','Clの原子量（概数値）は？','35.5',['35','17','71'],'よく使う元素の原子量'],
+    ['分子量','H₂Oの分子量は？','18',['17','16','20'],'2×1＋1×16'],
+    ['式量','NaClの式量は？','58.5',['58','23','35.5'],'23＋35.5'],
+    ['物質量','1 molあたりの粒子数は？','6.02×10²³',['1.38×10⁻²³','9.65×10⁴','22.4'],'アボガドロ定数'],
+    ['物質量','標準温度圧力で気体1 molの体積は？','22.4 L',['1 L','24.5 L','11.2 L'],'0℃、1 atm'],
+    ['単位変換','水36 gの物質量は？','2 mol',['0.5 mol','36 mol','18 mol'],'36÷18'],
+    ['単位変換','標準温度圧力で44.8 Lの気体の物質量は？','2 mol',['1 mol','4 mol','0.5 mol'],'44.8÷22.4'],
+    ['モル質量','NaClのモル質量は？','58.5 g/mol',['58.5 mol/g','23 g/mol','35.5 g/mol'],'式量にg/molをつける'],
+  ],
   pconst:[
     ['基本物理定数','アボガドロ定数の値は？','6.02×10²³ mol⁻¹',['1.38×10⁻²³ mol⁻¹','9.65×10⁴ mol⁻¹','6.63×10⁻³⁴ mol⁻¹'],'記号 N_A'],
     ['基本物理定数','気体定数Rの値は？','8.314 J・K⁻¹・mol⁻¹',['0.082 J・K⁻¹・mol⁻¹','1.38×10⁻²³ J・K⁻¹','96485 C・mol⁻¹'],'R＝N_A・k'],
@@ -2830,7 +2840,29 @@ const PB2_LESSONS = [
     <div class="scroll"><table class="tbl ktbl"><tr><td><b>温度</b></td><td>T＝t＋273.15<br><span class="small muted">T：絶対温度（K）、t：セルシウス温度（℃）<br>絶対零度は0 K＝−273.15℃</span></td></tr><tr><td><b>圧力</b></td><td>1 bar＝100000 Pa＝1000 hPa＝100 kPa<br>1気圧＝1 atm＝101325 Pa<br><span class="small muted">1 Torr＝1 mmHg＝133.322 Pa</span></td></tr><tr><td><b>熱量</b></td><td>1 cal≒4.19 J</td></tr><tr><td><b>体積</b></td><td>1 m<sup>3</sup>＝1000 L<br>10<sup>−3</sup> m<sup>3</sup>＝1 L</td></tr><tr><td><b>長さ</b></td><td>1 Å＝10<sup>−10</sup> m<br><span class="small muted">Å：オングストローム</span></td></tr></table></div></section>
     <section class="panel"><h3>〇 SI接頭語</h3>
     <p>SI単位の前に置いて、単位の大きさを表す。</p>
-    <div class="scroll"><table class="tbl"><tr><th>名称</th><th>記号</th><th>大きさ</th></tr><tr><td><b>テラ（tera）</b></td><td>T</td><td>10<sup>12</sup></td></tr><tr><td><b>ギガ（giga）</b></td><td>G</td><td>10<sup>9</sup></td></tr><tr><td><b>メガ（mega）</b></td><td>M</td><td>10<sup>6</sup></td></tr><tr><td><b>キロ（kilo）</b></td><td>k</td><td>10<sup>3</sup></td></tr><tr><td><b>ヘクト（hecto）</b></td><td>h</td><td>10<sup>2</sup></td></tr><tr><td><b>デカ（deca）</b></td><td>da</td><td>10<sup>1</sup></td></tr><tr><td><b>デシ（deci）</b></td><td>d</td><td>10<sup>−1</sup></td></tr><tr><td><b>センチ（centi）</b></td><td>c</td><td>10<sup>−2</sup></td></tr><tr><td><b>ミリ（milli）</b></td><td>m</td><td>10<sup>−3</sup></td></tr><tr><td><b>マイクロ（micro）</b></td><td>μ</td><td>10<sup>−6</sup></td></tr><tr><td><b>ナノ（nano）</b></td><td>n</td><td>10<sup>−9</sup></td></tr><tr><td><b>ピコ（pico）</b></td><td>p</td><td>10<sup>−12</sup></td></tr></table></div></section>` }
+    <div class="scroll"><table class="tbl"><tr><th>名称</th><th>記号</th><th>大きさ</th></tr><tr><td><b>テラ（tera）</b></td><td>T</td><td>10<sup>12</sup></td></tr><tr><td><b>ギガ（giga）</b></td><td>G</td><td>10<sup>9</sup></td></tr><tr><td><b>メガ（mega）</b></td><td>M</td><td>10<sup>6</sup></td></tr><tr><td><b>キロ（kilo）</b></td><td>k</td><td>10<sup>3</sup></td></tr><tr><td><b>ヘクト（hecto）</b></td><td>h</td><td>10<sup>2</sup></td></tr><tr><td><b>デカ（deca）</b></td><td>da</td><td>10<sup>1</sup></td></tr><tr><td><b>デシ（deci）</b></td><td>d</td><td>10<sup>−1</sup></td></tr><tr><td><b>センチ（centi）</b></td><td>c</td><td>10<sup>−2</sup></td></tr><tr><td><b>ミリ（milli）</b></td><td>m</td><td>10<sup>−3</sup></td></tr><tr><td><b>マイクロ（micro）</b></td><td>μ</td><td>10<sup>−6</sup></td></tr><tr><td><b>ナノ（nano）</b></td><td>n</td><td>10<sup>−9</sup></td></tr><tr><td><b>ピコ（pico）</b></td><td>p</td><td>10<sup>−12</sup></td></tr></table></div></section>` },
+  { id:'2-3', t:'原子量・分子量・式量・物質量', sub:'原子量・分子量・式量・物質量・単位変換', plan:['pmol','pmol','pmol','pmol','pmol'], body:()=>`
+    <section class="panel"><h3>〇 原子量</h3>
+    <p>各同位体の相対質量に、その天然存在比を掛けて平均したもの。</p>
+    <p class="small muted">例）¹²C＝12（天然存在比98.93%）、¹³C＝13.003（1.07%）<br>炭素の原子量＝12×<span class="frac"><span>98.93</span><span>100</span></span>＋13.003×<span class="frac"><span>1.07</span><span>100</span></span>≒12.01</p>
+    <p><b>・よく使う元素の原子量（概数値）</b></p>
+    <div class="scroll"><table class="tbl"><tr><th>元素</th><th>元素記号</th><th>原子量</th></tr><tr><td><b>水素</b></td><td><sub>1</sub>H</td><td>1</td></tr><tr><td><b>炭素</b></td><td><sub>6</sub>C</td><td>12</td></tr><tr><td><b>窒素</b></td><td><sub>7</sub>N</td><td>14</td></tr><tr><td><b>酸素</b></td><td><sub>8</sub>O</td><td>16</td></tr><tr><td><b>フッ素</b></td><td><sub>9</sub>F</td><td>19</td></tr><tr><td><b>ナトリウム</b></td><td><sub>11</sub>Na</td><td>23</td></tr><tr><td><b>アルミニウム</b></td><td><sub>13</sub>Al</td><td>27</td></tr><tr><td><b>塩素</b></td><td><sub>17</sub>Cl</td><td>35.5</td></tr><tr><td><b>カリウム</b></td><td><sub>19</sub>K</td><td>39</td></tr><tr><td><b>カルシウム</b></td><td><sub>20</sub>Ca</td><td>40</td></tr><tr><td><b>臭素</b></td><td><sub>35</sub>Br</td><td>80</td></tr><tr><td><b>ヨウ素</b></td><td><sub>53</sub>I</td><td>127</td></tr></table></div></section>
+    <section class="panel"><h3>〇 分子量</h3>
+    <p>分子の相対質量。分子式に含まれる元素の原子量の総和。</p>
+    <p class="small muted">例）H₂Oの分子量：2×1＋1×16＝18</p></section>
+    <section class="panel"><h3>〇 式量</h3>
+    <p>イオン結合性化合物では、分子量の代わりに式量を用いる。<br>化学式（組成式）中の各成分元素の原子量の総和。</p>
+    <p class="small muted">例）NaClの式量：23＋35.5＝58.5</p></section>
+    <section class="panel"><h3>〇 物質量</h3>
+    ${ktbl([
+      ['物質量<br><span class="small muted">mol</span>', '6.02×10<sup>23</sup>個の粒子（原子・分子・イオン）の集まりを1 molとし、mol単位で表した物質の量。<br>1 molあたりの粒子数＝アボガドロ定数（6.02×10<sup>23</sup> /mol）<br><span class="small muted">例）¹²C 12 g中の炭素原子の数：6.02×10<sup>23</sup>個<br>¹²C 2 mol中の炭素原子の数：2×（6.02×10<sup>23</sup>）個</span>'],
+      ['モル質量<br><span class="small muted">g・mol<sup>−1</sup></span>', '物質1 molあたりの質量。<br>原子量・分子量・式量の数値にg/molをつけて表す。<br><span class="small muted">例）H₂O：18 g/mol、NaCl：58.5 g/mol</span>'],
+      ['モル体積<br><span class="small muted">L</span>', '気体の種類に関係なく、気体分子1 molあたりの体積は、標準温度圧力（0℃、1.013×10<sup>5</sup> Pa（1 atm））で22.4 L。<br><span class="small muted">アボガドロの法則：同温・同圧下、同体積の気体中には、種類に関係なく同数の分子が含まれる。<br>例）O₂ 1 mol：22.4 L、N₂ 3 mol：3×22.4 L</span>']
+    ])}<svg class="fig" viewBox="0 0 330 112" role="img" aria-label="質量1.9944×10⁻²³ gの炭素12原子が6.02×10²³個集まると1 molになり、12 gになる"><circle cx="40" cy="40" r="11" fill="#9AA5B1" stroke="var(--ink)" stroke-width="1"/><text x="40" y="44" text-anchor="middle" style="font-size:8px;fill:#fff">¹²C</text><text class="sm2" x="40" y="70" text-anchor="middle" style="font-size:9.5px">1.9944×10⁻²³ g</text><line x1="70" y1="40" x2="190" y2="40" stroke="var(--ink)" stroke-width="1.3"/><path d="M190 35 L198 40 L190 45 Z" fill="var(--ink)"/><text class="sm2" x="134" y="30" text-anchor="middle" style="font-size:9.5px">6.02×10²³個 集まると</text><text class="sm2" x="134" y="56" text-anchor="middle" style="font-size:9.5px">（1 molになると）</text><circle cx="268" cy="14" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="259" cy="29" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="277" cy="29" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="250" cy="44" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="268" cy="44" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="286" cy="44" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="241" cy="59" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="259" cy="59" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="277" cy="59" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><circle cx="295" cy="59" r="8" fill="#9AA5B1" stroke="var(--ink)" stroke-width=".8"/><text x="268" y="84" text-anchor="middle" style="font-size:12px;fill:var(--ink)">⋮</text><text class="sm2" x="268" y="104" text-anchor="middle" style="font-size:10px;font-weight:700">12 g</text></svg></section>
+    <section class="panel"><h3>〇 単位変換</h3>
+    <p>① 粒子の数 ⇔ 物質量<br><span class="frac"><span>粒子の数</span><span>6.02×10<sup>23</sup>（mol<sup>−1</sup>）</span></span>＝物質量（mol）</p>
+    <p>② 物質の質量 ⇔ 物質量<br><span class="frac"><span>物質の質量（g）</span><span>モル質量（g・mol<sup>−1</sup>）</span></span>＝物質量（mol）</p>
+    <p>③ 気体の体積（標準温度圧力）⇔ 物質量<br><span class="frac"><span>気体の体積（L）</span><span>22.4（L・mol<sup>−1</sup>）</span></span>＝物質量（mol）</p></section>` }
 ];
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean'], body:()=>`
