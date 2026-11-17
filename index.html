@@ -2433,7 +2433,7 @@ Object.assign(POOL, {
     ['基本物理定数','気体定数Rの値は？','8.314 J・K⁻¹・mol⁻¹',['0.082 J・K⁻¹・mol⁻¹','1.38×10⁻²³ J・K⁻¹','96485 C・mol⁻¹'],'R＝N_A・k'],
     ['基本物理定数','ファラデー定数Fの値は？','9.65×10⁴ C・mol⁻¹',['6.02×10²³ C・mol⁻¹','8.31 C・mol⁻¹','1.60×10⁻¹⁹ C・mol⁻¹'],'F＝N_A・e'],
     ['基本物理定数','25℃における水のイオン積Kwは？','1.0×10⁻¹⁴ mol²・L⁻²',['1.0×10⁻⁷ mol²・L⁻²','1.0×10⁻¹² mol²・L⁻²','1.0×10¹⁴ mol²・L⁻²'],'25℃'],
-    ['基本物理定数','気体定数Rを表す式は？','R＝N_A・k',['R＝N_A・e','R＝h・c','R＝F・k'],'k：ボルツマン定数'],
+    ['基本物理定数','ボルツマン定数kを表す式は？','k＝R／N_A',['k＝N_A／R','k＝F／N_A','k＝R／F'],'R＝N_A・k（R：気体定数、N_A：アボガドロ定数）'],
     ['ギリシャ文字','「λ」の読みは？','ラムダ',['ミュー','ニュー','グザイ'],'L / l に対応'],
     ['ギリシャ文字','「ρ」の読みは？','ロー',['ファイ','プサイ','カイ'],'R / r に対応'],
     ['ギリシャ文字','「μ」の読みは？','ミュー',['ニュー','ラムダ','パイ'],'M / m に対応'],
@@ -4048,7 +4048,9 @@ function supFix(root){
     f.append(t.slice(last));n.replaceWith(f);
   }
 }
-const fx = s => fracHTML(esc(s));
+// 式の表示：a／b は分数、N_A は下付き
+const mfmt = s => String(s).replace(/([^\s＝、。・＋−×（）()<>／]+)／([^\s＝、。・＋−×（）()<>／]+)/g,'<span class="frac"><span>$1</span><span>$2</span></span>').replace(/([A-Za-zα-ωΑ-Ω])_([A-Za-z0-9]+)/g,'$1<sub>$2</sub>');
+const fx = s => mfmt(fracHTML(esc(s)));
 // 画面に出す名前：まとめテストは番号をつけない
 const LN = l => l.test ? l.t : l.id+'　'+l.t;
 const app = document.getElementById('app'), tabs = document.querySelector('.tabs');
@@ -4141,10 +4143,10 @@ function vQuiz(){
   return `${top(Q.retry?'間違えた問題':LN(l))}<div class="stack">
   <div class="qhead"><span class="num small muted">${Q.i+1} / ${n}</span><span class="num small muted">正解 ${Q.score}</span></div>
   <div class="meter"><i style="width:${Math.round(Q.i/n*100)}%"></i></div>
-  <div class="qbox pop"><div class="prompt">${q.prompt}</div><div class="expr ${longExpr?'long':''}">${q.expr}</div></div>
+  <div class="qbox pop"><div class="prompt">${mfmt(q.prompt)}</div><div class="expr ${longExpr?'long':''}">${mfmt(q.expr)}</div></div>
   <div class="choices ${q.words||q.choices.some(c=>c.length>9)?'words':''}">${q.choices.map(c=>{ let cls=''; if(ans){ if(c===q.answer) cls='ok'; else if(c===Q.picked) cls='ng'; } return `<button class="choice ${cls}" data-act="pick" data-arg="${esc(c)}" ${ans?'disabled':''}>${fx(c)}</button>`; }).join('')}</div>
   ${!ans?(Q.hint?`<div class="hint">${fracHTML(q.hint)}</div>`:`<button class="linkbtn" data-act="hint">ヒントを見る</button>`):`
-  <div class="feedback ${ok?'ok':'ng'} pop"><span class="verdict">${ok?'正解！':'惜しい！ 答えは '+fx(q.answer)}</span><p>${fracHTML(q.explain)}</p></div>
+  <div class="feedback ${ok?'ok':'ng'} pop"><span class="verdict">${ok?'正解！':'惜しい！ 答えは '+fx(q.answer)}</span><p>${mfmt(fracHTML(q.explain))}</p></div>
   <button class="btn wide" data-act="next">${Q.i+1<n?'次の問題 →':'結果を見る'}</button>`}</div>`;
 }
 
