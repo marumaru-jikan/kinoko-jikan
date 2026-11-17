@@ -2762,6 +2762,12 @@ const GX_PM_LESSONS = [
   { id:'g1', col:true, lid:'4-1', t:'妊娠と薬', sub:'配慮が必要な患者　1つ', plan:[], body:()=>`<section class="panel"><h3>催奇形性（絶対過敏期）</h3><img class="goro-img" src="goro/teratogen.png" alt="催奇形性（絶対過敏期）の覚え方。投与しない。し＝4、な＝7、4〜7週は投与しない" loading="lazy"></section>` },
   { id:'g2', col:true, lid:'4-3', t:'妊婦に投与可能な医薬品', sub:'配慮が必要な患者　2つ', plan:[], body:()=>`<section class="panel"><h3>妊娠高血圧症候群に使用可能な降圧薬</h3><img class="goro-img" src="goro/preg_bp.png" alt="妊娠高血圧症候群に使用可能な降圧薬の覚え方。めっちゃひどい！妊娠したらアムロに逃げられた。めっちゃ＝メチルドパ、ひど＝ヒドララジン、妊娠＝妊娠高血圧症、アムロ＝アムロジピン、に＝ニフェジピン、られた＝ラベタロール" loading="lazy"></section><section class="panel"><h3>妊婦に投与可能な抗菌薬</h3><img class="goro-img" src="goro/preg_abx.png" alt="妊婦に投与可能な抗菌薬の覚え方。マグロのシリはセーフ。マグロ＝マクロライド系、シリ＝ペニシリン系、セーフ＝セフェム系" loading="lazy"></section>` }
 ];
+const GX_HSCHEM_LESSONS = [
+  { id:'bandA', band:'A　理論化学', col:true, plan:[], body:()=>'' },
+  { id:'2-1', t:'周期表', wip:true, plan:[], body:()=>'' },
+  { id:'bandB', band:'B　無機化学', col:true, plan:[], body:()=>'' },
+  { id:'bandC', band:'C　有機化学', col:true, plan:[], body:()=>'' }
+];
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean'], body:()=>`
     <section class="panel"><h3>なぜ保健統計が必要か</h3><p>健康を守るには、<b>地域や国などの集団</b>の健康状態を知る必要がある。<br>保健統計＝集団の<b>健康水準</b>をはかり、施策を決める土台。</p>
@@ -3522,6 +3528,7 @@ const UNITS = {
   gx_aar: { no:'覚', title:'抗不整脈薬', subject:'覚え方', course:'goro', subj:6, goro:true, lessons:GX_AAR_LESSONS, cards:'gx_aar', drill:'gx_aar' },
   gx_onc: { no:'覚', title:'抗悪性腫瘍薬', subject:'覚え方', course:'goro', subj:17, goro:true, lessons:GX_ONC_LESSONS, cards:'gx_onc', drill:'gx_onc' },
   gx_pm: { no:'覚', title:'服薬指導', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_PM_LESSONS, cards:'gx_pm', drill:'gx_pm' },
+  gx_hschem: { no:'覚', title:'高校化学', subject:'覚え方', course:'goro', subj:0, goro:true, lessons:GX_HSCHEM_LESSONS, cards:'gx_hschem', drill:'gx_hschem' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:6, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
   hh: { no:'衛1-1', title:'健康と疾病の概念', subject:'衛生', course:'hyg', subj:0, lessons:HH_LESSONS, cards:'hh', drill:'hh' },
@@ -3697,7 +3704,7 @@ const CATALOG = [
       { name:'抗悪性腫瘍薬', k:'悪', units:U('抗がん薬') },
       { name:'漢方薬', k:'漢', units:U() } ] },
     { id:'goro', name:'覚え方', k:'覚', note:'ゴロ集', subjects:[
-      { name:'高校科目', k:'高', units:U('高校物理','高校化学','高校生物') },
+      { name:'高校科目', k:'高', units:U('高校物理',{ t:'高校化学', ready:'gx_hschem' },'高校生物') },
       { name:'物理', k:'物', units:U({ t:'放射化学', ready:'gx_rad' },{ t:'分析化学', ready:'gx_ana' }) },
       { name:'化学', k:'化', units:U() },
       { name:'生物', k:'生', units:U() },
@@ -3947,7 +3954,7 @@ function vSubject(){
   const c=courseById(S.course), sb=c.subjects[S.subj];
   return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。この項目の章をぜんぶ終えると、きのこカードが1まい届きます。</p><div class="list">
   ${sb.units.map((un,i)=>{ const u=un.ready&&UNITS[un.ready];
-    if(u&&u.goro) return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${u.lessons.length}つの胞子の覚え方</span></span><span class="chev">›</span></button>`;
+    if(u&&u.goro) return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${(n=>n?n+'つの胞子の覚え方':'準備中')(u.lessons.filter(l=>!l.band&&!l.wip).length)}</span></span><span class="chev">›</span></button>`;
     if(u){ const d=doneCount(un.ready), n=QL(un.ready).length;
       return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
     return `<button class="item" disabled><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
