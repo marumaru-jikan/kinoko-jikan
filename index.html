@@ -4482,7 +4482,7 @@ function supFix(root){
   }
 }
 // 式の表示：a／b は分数、N_A は下付き
-const mfmt = s => String(s).replace(/([^\s＝、。・＋−×（）()<>／]+)／([^\s＝、。・＋−×（）()<>／]+)/g,'<span class="frac"><span>$1</span><span>$2</span></span>').replace(/([A-Za-zα-ωΑ-Ω])_([A-Za-z0-9]+)/g,'$1<sub>$2</sub>');
+const mfmt = s => String(s).replace(/([A-Za-z0-9_.α-ωΑ-Ω⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)／([A-Za-z0-9_.α-ωΑ-Ω⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)/g,'<span class="frac"><span>$1</span><span>$2</span></span>').replace(/([A-Za-zα-ωΑ-Ω])_([A-Za-z0-9]+)/g,'$1<sub>$2</sub>');
 const fx = s => mfmt(fracHTML(esc(s)));
 // 画面に出す名前：まとめテストは番号をつけない
 const LN = l => l.test ? l.t : l.id+'　'+l.t;
