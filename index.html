@@ -3472,7 +3472,7 @@ const UNITS = {
   hf:{ no:'理8', title:'心不全治療薬', subject:'薬理', course:'pharm', subj:7, lessons:HF_LESSONS, cards:'hf', drill:'hf' },
   ans:{ no:'理1', title:'自律神経系の薬', subject:'薬理', course:'pharm', subj:2, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
   fp: { no:'衛4', title:'食中毒と食品汚染', subject:'衛生', course:'hyg', subj:3, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
-  pk: { no:'剤2', title:'薬物動態の計算', subject:'薬剤', course:'pmcy', subj:1, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
+  pk: { no:'剤2', title:'薬物速度論', subject:'薬剤', course:'pmcy', subj:1, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:0, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
   hh: { no:'衛1-1', title:'健康と疾病の概念', subject:'衛生', course:'hyg', subj:0, lessons:HH_LESSONS, cards:'hh', drill:'hh' },
@@ -3570,10 +3570,10 @@ const CATALOG = [
       { name:'悪性腫瘍', k:'24', units:U('がん化学療法の基本','肺がん','胃がん・大腸がん','乳がん','血液がん','緩和ケア') } ] },
     { id:'pmcy', name:'薬剤', k:'剤', note:'薬物動態・製剤', subjects:[
       { name:'薬物動態', k:'1', units:U('薬物動態とは','生体膜通過','吸収','分布','代謝','排泄') },
-      { name:'薬物動態解析', k:'2', units:U({ t:'薬物動態の計算', ready:'pk' },'TDM') },
-      { name:'製剤', k:'3', units:U('製剤と剤形','日本薬局方の試験') },
-      { name:'製剤設計', k:'4', units:U() },
-      { name:'DDS（Drug Delivery System：薬物送達システム）', k:'5', units:U() } ] },
+      { name:'薬物動態解析', k:'2', units:U({ t:'薬物速度論', ready:'pk' },'TDMと投与計画') },
+      { name:'製剤', k:'3', units:U('固形材料','半固形・液体材料','分散系材料','薬物及び製剤材料の物性') },
+      { name:'製剤設計', k:'4', units:U('代表的な製剤','製剤化と製剤試験法') },
+      { name:'DDS（Drug Delivery System：薬物送達システム）', k:'5', units:U('DDS') } ] },
     { id:'law', name:'法規・制度・倫理', k:'法', note:'法規・制度・倫理', subjects:[
       { name:'法規', k:'法', units:U('薬機法','薬剤師法','麻薬・向精神薬') },
       { name:'制度と倫理', k:'倫', units:U('医療保険制度','医療倫理と患者の権利') } ] },
