@@ -987,7 +987,7 @@ const PM1_LESSONS = [
   { id:'1-6', t:'服薬指導内容④', wip:true, plan:[], body:()=>'' }
 ];
 const PM2_LESSONS = [
-  { id:'2-1', t:'高血圧症', sub:'食事療法 › 減量 › 運動療法 › 喫煙 › 飲酒', plan:['lsh','lsh','lsh','lsh','lsh'], body:()=>`
+  { id:'2-1', t:'高血圧症', sub:'食事療法・減量・運動療法・喫煙・飲酒', plan:['lsh','lsh','lsh','lsh','lsh'], body:()=>`
     <section class="panel"><h3>〇 高血圧症患者への生活指導</h3>
     ${ktbl([
       ['食事療法', '・食塩制限：1日<span class="mk">6g未満</span><br>・野菜、果物（Kを多く含む）を積極的にとる<br>・コレステロールや飽和脂肪酸を控える'],
@@ -996,7 +996,7 @@ const PM2_LESSONS = [
       ['喫煙', '・<span class="mk">禁煙</span>'],
       ['飲酒', '・エタノール換算で男性20〜30mL以下、女性10〜20mL以下']
     ])}</section>` },
-  { id:'2-2', t:'糖尿病', sub:'食事療法 › 運動療法 › 減量 › 喫煙 › 飲酒 › シックデイ', plan:['lsdm','lsdm','lsdm','lsdm','lsdm'], body:()=>`
+  { id:'2-2', t:'糖尿病', sub:'食事療法・運動療法・減量・喫煙・飲酒・シックデイ', plan:['lsdm','lsdm','lsdm','lsdm','lsdm'], body:()=>`
     <section class="panel"><h3>〇 糖尿病患者への生活指導</h3>
     ${ktbl([
       ['食事療法', '・指示されたエネルギー内で、どの栄養素も<span class="mk">バランスよく</span>にとる<br>・食品交換表を参考にする<br><span class="small muted">腹八分目。食品の種類はできるだけ多く、脂肪は控えめ、食物繊維を多く。朝・昼・夕食を規則正しく、ゆっくりかんで食べる。</span>'],
@@ -1013,7 +1013,7 @@ const PM2_LESSONS = [
       ['血糖測定', '・いつもより頻回に（3〜4時間ごとなど）'],
       ['受診の目安', '・嘔吐・下痢が続き、食事がとれない<br>・高血糖（350mg/dL以上）が続く、尿ケトン体陽性<br>→ 早めに<span class="mk">医療機関を受診</span>']
     ])}</section>` },
-  { id:'2-3', t:'脂質異常症', sub:'食事療法 › 減量 › 運動療法 › 喫煙 › 飲酒', plan:['lsdl','lsdl','lsdl','lsdl','lsdl'], body:()=>`
+  { id:'2-3', t:'脂質異常症', sub:'食事療法・減量・運動療法・喫煙・飲酒', plan:['lsdl','lsdl','lsdl','lsdl','lsdl'], body:()=>`
     <section class="panel"><h3>〇 脂質異常症患者への生活指導</h3>
     ${ktbl([
       ['食事療法', '・総摂取エネルギー量を適正化し、バランスよくとる<br>・コレステロール摂取量：1日<span class="mk">300mg</span>以下<br><span class="small muted">動物性油⬇、魚や植物性油⬆</span>'],
@@ -1023,7 +1023,7 @@ const PM2_LESSONS = [
       ['飲酒', '・エタノール換算で20〜30mL/日以下<br><span class="small muted">日本酒1合、ビール中ビン1本、焼酎半合弱、ウイスキー・ブランデーダブル1杯、ワイン2杯弱に相当</span><br>・高トリグリセリド血症が続く場合は禁酒']
     ])}</section>` },
   { id:'2-4', t:'高尿酸血症', wip:true, plan:[], body:()=>'' },
-  { id:'2-5', t:'禁煙指導', sub:'ニコチン置換療法 › ニコチン性アセチルコリン受容体部分作動薬', plan:['smk','smk','smk','smk','smk'], body:()=>`
+  { id:'2-5', t:'禁煙指導', sub:'ニコチン置換療法・ニコチン性アセチルコリン受容体部分作動薬', plan:['smk','smk','smk','smk','smk'], body:()=>`
     <section class="panel"><h3>〇 ニコチン置換療法</h3>
     <p><span class="mk">ニコチンを補給</span>することで、禁煙に伴う<span class="mk">離脱症状</span>（イライラ感、眠気など）を軽くし、まず心理・行動的依存から抜け出す。次にニコチン補給量を調節しながら、ニコチン依存から離脱する。</p>
     ${ktbl([
@@ -1043,7 +1043,7 @@ const PM2_LESSONS = [
     <p><b>バレニクリンの用法</b></p>
     ${tbl(['','1〜3日目','4〜7日目','8日目〜（第2〜12週）'],[['用量','0.5mg 1日1回','0.5mg 1日2回','1mg 1日2回'],['服用','食後','朝夕食後','朝夕食後']])}
     <p class="small muted">8日目に禁煙開始。</p></section>` },
-  { id:'2-6', t:'アトピー性皮膚炎', sub:'服薬指導・生活指導 › 保湿剤', plan:['lsad','lsad','lsad','lsad','lsad'], body:()=>`
+  { id:'2-6', t:'アトピー性皮膚炎', sub:'服薬指導・生活指導・保湿剤', plan:['lsad','lsad','lsad','lsad','lsad'], body:()=>`
     <section class="panel"><h3>〇 アトピー性皮膚炎患者への服薬指導・生活指導</h3>
     ${ktbl([
       ['薬物', kdrug('ステロイド外用薬','')],
@@ -1081,7 +1081,7 @@ const PM4_LESSONS = [
       ['13〜16週<br><span class="small muted">85〜112日</span>','比較過敏期','やや危険'],
       ['17週〜分娩','潜在過敏期','ほとんど影響なし<br><span class="small muted">催奇形性はないが、胎児毒性（発育・機能への影響）に注意。</span>']])}
     <p><b>覚え方</b></p><img class="goro-img" src="goro/teratogen.png" alt="催奇形性（絶対過敏期）の覚え方。投与しない。し＝4、な＝7、4〜7週は投与しない" loading="lazy"></section>` },
-  { id:'4-2', t:'妊婦に投与禁忌の医薬品', sub:'用途 › 理由', plan:['pregx','pregx','pregx','pregx','pregx'], body:()=>`
+  { id:'4-2', t:'妊婦に投与禁忌の医薬品', sub:'用途・理由', plan:['pregx','pregx','pregx','pregx','pregx'], body:()=>`
     <section class="panel"><h3>〇 妊婦に投与禁忌の代表的な医薬品</h3>
     ${tbl(['医薬品','用途','理由'],[
       ['<span class="mk"><span class="dg">カプトプリル</span></span>（ACE阻害薬）<br><span class="mk"><span class="dg">ロサルタン</span></span>（ARB）','高血圧治療薬','胎児死亡例あり'],
@@ -1112,7 +1112,7 @@ const PM4_LESSONS = [
       ['慎重投与', kdrug('<span class="mk">大黄甘草湯</span>','漢方製剤・含ダイオウ')+kdrug('<span class="mk">センノシド</span>','大腸刺激性下剤')+'<span class="small muted">子宮収縮を誘発し、流早産の危険</span>'],
       ['禁忌', kdrug('<span class="mk">ルビプロストン</span>','ClC-2活性化薬')+'<span class="small muted">動物実験で胎児喪失</span>']
     ])}</section>` },
-  { id:'4-4', t:'妊娠と栄養素', sub:'葉酸 › 鉄分 › カルシウム › タンパク質 › ビタミンA › 水銀', plan:['pregnu','pregnu','pregnu','pregnu','pregnu'], body:()=>`
+  { id:'4-4', t:'妊娠と栄養素', sub:'葉酸・鉄分・カルシウム・タンパク質・ビタミンA・水銀', plan:['pregnu','pregnu','pregnu','pregnu','pregnu'], body:()=>`
     <section class="panel"><h3>〇 葉酸</h3>
     <p>胎児の<span class="mk">神経管閉鎖障害（二分脊椎など）</span>のリスクを下げる。</p>
     <p>妊娠を計画している女性・妊娠初期は、食事に加えてサプリメントなどから1日<span class="mk">400μg</span>をとる。<br><span class="small muted">妊娠1か月以上前から妊娠3か月までが特に大切。</span></p></section>
@@ -1132,7 +1132,7 @@ const PM4_LESSONS = [
   { id:'4-5', t:'小児薬用量', wip:true, plan:[], body:()=>'' },
   { id:'4-6', t:'小児への服薬の工夫', wip:true, plan:[], body:()=>'' },
   { id:'bandC', band:'C　高齢者', col:true, plan:[], body:()=>'' },
-  { id:'4-7', t:'高齢者と薬', sub:'高齢者の特徴と薬学的管理 › ポリファーマシー', plan:['eld','eld','eld','eld','eld'], body:()=>`
+  { id:'4-7', t:'高齢者と薬', sub:'高齢者の特徴と薬学的管理・ポリファーマシー', plan:['eld','eld','eld','eld','eld'], body:()=>`
     <section class="panel"><h3>〇 高齢者の特徴と薬学的管理</h3>
     ${ktbl([
       ['生理機能の低下', '・薬物の代謝・排泄能が低下（動態変化）したり、反応性（薬力学）が変化したりする。<br>→ <span class="mk">用量</span>に注意<br>・高齢者に多くみられる症候（老年症候群）が出現する。<br>→ 薬剤の副作用（<span class="mk">薬剤起因性老年症候群</span>）を見逃さない'],
@@ -1142,7 +1142,7 @@ const PM4_LESSONS = [
     <section class="panel"><h3>〇 ポリファーマシー</h3>
     <p>多剤服用のうち、害をなすもの。単に薬の数が多いことではない。</p><div class="pfl"><div class="pfa">多剤服用</div><div class="pfd">＋ 加齢性変化</div><div class="pfr"><div class="pfb">生理機能の低下</div><div class="pfx">→</div><div class="pfc">相互作用の増加<br>副作用の増加</div></div><div class="pfr"><div class="pfb">服薬管理能力の低下</div><div class="pfx">→</div><div class="pfc">アドヒアランス低下<br><span class="small">（飲み間違い、飲み忘れの増加）</span></div></div><div class="pfd">＝ ポリファーマシー（害をなす多剤服用）</div></div>
     <p class="small muted">※医療費増大の原因ともなる。</p></section>` },
-  { id:'4-8', t:'嚥下障害', sub:'嚥下障害時の対応 › 嚥下障害と薬', plan:['dysph','dysph','dysph','dysph','dysph'], body:()=>`
+  { id:'4-8', t:'嚥下障害', sub:'嚥下障害時の対応・嚥下障害と薬', plan:['dysph','dysph','dysph','dysph','dysph'], body:()=>`
     <section class="panel"><h3>〇 嚥下障害</h3>
     <div class="figwip">嚥下と誤嚥の図解（準備中）</div>
     ${ktbl([
@@ -1184,7 +1184,7 @@ const PM4_LESSONS = [
 ];
 const PM5_LESSONS = [
   { id:'5-1', t:'点眼剤', wip:true, plan:[], body:()=>'' },
-  { id:'5-2', t:'吸入剤', sub:'吸入剤の種類と使い方 › コントローラーとリリーバー', plan:['inh','inh','inh','inh','inh'], body:()=>`
+  { id:'5-2', t:'吸入剤', sub:'吸入剤の種類と使い方・コントローラーとリリーバー', plan:['inh','inh','inh','inh','inh'], body:()=>`
     <section class="panel"><h3>〇 吸入剤</h3>
     <p>薬を気道・肺に直接届ける剤形。少ない量でよく効き、全身性の副作用が少ない。</p>
     <p><b>気管支喘息治療薬</b>（COPDにも使う）</p>
@@ -1259,7 +1259,7 @@ const CNS1_LESSONS = [
   { id:'1-5', t:'麻酔前投薬', wip:true, plan:[], body:()=>'' }
 ];
 const CNS2_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'中枢神経系の疾患', u:'不安障害・睡眠障害' }, t:'不眠症・不安症について', sub:'病態・薬物治療 › 8 中枢神経系の疾患 › 3 不安障害・睡眠障害', plan:[], body:()=>'' },
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'中枢神経系の疾患', u:'不安障害・睡眠障害' }, t:'不眠症・不安症について', sub:'病態・薬物治療・8 中枢神経系の疾患・3 不安障害・睡眠障害', plan:[], body:()=>'' },
   { id:'2-1', t:'催眠薬・抗不安薬の作用機序', wip:true, plan:[], body:()=>'' },
   { id:'2-2', t:'バルビツール酸系催眠薬', wip:true, plan:[], body:()=>'' },
   { id:'2-3', t:'ベンゾジアゼピン系催眠薬', wip:true, plan:[], body:()=>'' },
@@ -1290,11 +1290,11 @@ const GEN2_LESSONS = [
   { id:'2-2', t:'子宮弛緩薬', wip:true, plan:[], body:()=>'' }
 ];
 const GEN3_LESSONS = [
-  { id:'3-0', lid:'3-0', col:true, ref:{ c:'ther', s:'泌尿器系疾患', u:'前立腺肥大症・過活動膀胱' }, t:'前立腺肥大症について', sub:'病態・薬物治療 › 12 泌尿器系疾患 › 3 前立腺肥大症・過活動膀胱', plan:[], body:()=>'' },
+  { id:'3-0', lid:'3-0', col:true, ref:{ c:'ther', s:'泌尿器系疾患', u:'前立腺肥大症・過活動膀胱' }, t:'前立腺肥大症について', sub:'病態・薬物治療・12 泌尿器系疾患・3 前立腺肥大症・過活動膀胱', plan:[], body:()=>'' },
   { id:'3-1', t:'前立腺肥大症治療薬', wip:true, plan:[], body:()=>'' }
 ];
 const GEN4_LESSONS = [
-  { id:'4-0', lid:'4-0', col:true, ref:{ c:'ther', s:'生殖器系疾患', u:'勃起不全' }, t:'勃起不全について', sub:'病態・薬物治療 › 13 生殖器系疾患 › 4 勃起不全', plan:[], body:()=>'' },
+  { id:'4-0', lid:'4-0', col:true, ref:{ c:'ther', s:'生殖器系疾患', u:'勃起不全' }, t:'勃起不全について', sub:'病態・薬物治療・13 生殖器系疾患・4 勃起不全', plan:[], body:()=>'' },
   { id:'4-1', t:'勃起不全治療薬', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 理10 腎・泌尿器系に作用する薬 ===== */
@@ -1327,12 +1327,12 @@ const EYE1_LESSONS = [
   { id:'1-3', t:'縮瞳薬', wip:true, plan:[], body:()=>'' }
 ];
 const EYE2_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'眼疾患', u:'緑内障' }, t:'緑内障について', sub:'病態・薬物治療 › 18 眼疾患 › 1 緑内障', plan:[], body:()=>'' },
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'眼疾患', u:'緑内障' }, t:'緑内障について', sub:'病態・薬物治療・18 眼疾患・1 緑内障', plan:[], body:()=>'' },
   { id:'2-1', t:'眼房水排出促進薬', wip:true, plan:[], body:()=>'' },
   { id:'2-2', t:'眼房水産生・供給抑制薬', wip:true, plan:[], body:()=>'' }
 ];
 const EYE3_LESSONS = [
-  { id:'3-0', lid:'3-0', col:true, ref:{ c:'ther', s:'眼疾患', u:'白内障' }, t:'白内障について', sub:'病態・薬物治療 › 18 眼疾患 › 2 白内障', plan:[], body:()=>'' },
+  { id:'3-0', lid:'3-0', col:true, ref:{ c:'ther', s:'眼疾患', u:'白内障' }, t:'白内障について', sub:'病態・薬物治療・18 眼疾患・2 白内障', plan:[], body:()=>'' },
   { id:'3-1', t:'白内障治療薬', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 理2 安全性 ===== */
@@ -1801,7 +1801,7 @@ const ANA2_LESSONS = [
 /* ===== 物4 分析化学 ===== */
 const ANA1_LESSONS = [
   { id:'1-1', t:'分析に用いる器具', wip:true, plan:[], body:()=>'' },
-  { id:'1-2', t:'測定値', sub:'SI単位 › 濃度の単位 › 有効数字 › 誤差', plan:['meas','meas','meas','meas','meas'], body:()=>`
+  { id:'1-2', t:'測定値', sub:'SI単位・濃度の単位・有効数字・誤差', plan:['meas','meas','meas','meas','meas'], body:()=>`
     <section class="panel"><h3>〇 SI単位</h3>
     <p>国際単位系（SI）は、基本単位と誘導（組立）単位でできている。</p>
     <p><b>・SI基本単位</b></p>
@@ -1841,7 +1841,7 @@ const ANA1_LESSONS = [
       ['系統誤差<br><span class="small muted">（バイアス）</span>', '明らかな原因が存在し、繰り返し測定すると一定の方向に生じる誤差<br>・器差：測定機器の不正確さに由来<br>・方法誤差：分析法自体に原因<br>・操作誤差：分析操作の未熟さに由来<br>・個人誤差：測定者の癖により生じる'],
       ['偶然誤差<br><span class="small muted">（ばらつき）</span>', '明らかな原因が存在せず、同じ試料を繰り返し分析しても一定の傾向を示さない誤差']
     ])}</section>` },
-  { id:'1-3', t:'バリデーション', sub:'分析法バリデーション › 分析能パラメータ › 用語', plan:['valid','valid','valid','valid','valid'], body:()=>`
+  { id:'1-3', t:'バリデーション', sub:'分析法バリデーション・分析能パラメータ・用語', plan:['valid','valid','valid','valid','valid'], body:()=>`
     <section class="panel"><h3>〇 分析法バリデーション</h3>
     <p>医薬品の試験法に用いる分析法が、使う目的に合っていること（分析法の誤差による判定の誤りの確率が許容できる程度であること）を、科学的に立証すること。</p>
     <p class="small muted">日本薬局方に新たに試験法を収載・改正するときや、新薬の申請時などに行う。「概要」「分析法」「分析法の妥当性を示す資料」が必要。</p></section>
@@ -1889,8 +1889,8 @@ const MOA2_LESSONS = [
 ];
 /* ===== 理8-2 抗不整脈薬 ===== */
 const AAR_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'不整脈' }, t:'不整脈について', sub:'病態・薬物治療 › 10 循環器疾患 › 2 不整脈', plan:[], body:()=>'' },
-  { id:'2-1', t:'頻脈性不整脈治療薬①', sub:'ヴォーン・ウィリアムズ分類 › 活動電位', plan:['vw','vw','vw','ap','ap'], body:()=>`
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'不整脈' }, t:'不整脈について', sub:'病態・薬物治療・10 循環器疾患・2 不整脈', plan:[], body:()=>'' },
+  { id:'2-1', t:'頻脈性不整脈治療薬①', sub:'ヴォーン・ウィリアムズ分類・活動電位', plan:['vw','vw','vw','ap','ap'], body:()=>`
     <section class="panel"><h3>〇 ヴォーン・ウィリアムズ分類</h3>
     ${tbl(['クラス','作用','薬物'],[['Ⅰa','Na⁺チャネル遮断<br>活動電位持続時間 延長','<span class="dg">キニジン</span><br><span class="dg">ジソピラミド</span><br><span class="dg">プロカインアミド</span><br><span class="dg">シベンゾリン</span><br><span class="dg">ピルメノール</span>'],['Ⅰb','Na⁺チャネル遮断<br>活動電位持続時間 短縮','<span class="dg">リドカイン</span><br><span class="dg">メキシレチン</span><br><span class="dg">アプリンジン</span>'],['Ⅰc','Na⁺チャネル遮断<br>活動電位持続時間 不変','<span class="dg">プロパフェノン</span><br><span class="dg">ピルシカイニド</span><br><span class="dg">フレカイニド</span>'],['Ⅱ','β受容体遮断','<span class="dg">プロプラノロール</span><br><span class="dg">ナドロール</span>'],['Ⅲ','K⁺チャネル遮断<br>不応期延長','<span class="dg">アミオダロン</span><br><span class="dg">ソタロール</span><br><span class="dg">ニフェカラント</span>'],['Ⅳ','Ca²⁺チャネル遮断','<span class="dg">ベラパミル</span><br><span class="dg">ジルチアゼム</span><br><span class="dg">ベプリジル</span>']])}
     <p><b>シシリアン・ギャンビット分類</b></p><p class="small muted">表は横にスクロールできる。</p><div class="scroll"><table class="tbl sgt"><tr><th rowspan="2" class="sgd">薬物</th><th rowspan="2">クラス</th><th colspan="5">イオンチャネル</th><th colspan="4">受容体</th><th>ポンプ</th><th colspan="3">臨床効果</th><th colspan="3">心電図所見</th></tr><tr><th>Na⁺<br>速い</th><th>Na⁺<br>中間</th><th>Na⁺<br>遅い</th><th>Ca²⁺</th><th>K⁺</th><th>α</th><th>β</th><th>M₂</th><th>Na⁺,K⁺-<br>ATPase</th><th>左室<br>機能</th><th>洞性<br>調律</th><th>心外性<br>副作用</th><th>PR</th><th>QRS</th><th>JT</th></tr><tr class="sgtop"><td class="sgd"><span class="dg">キニジン</span></td><td rowspan="5" class="sgc">Ⅰa</td><td></td><td>●A</td><td></td><td></td><td>○</td><td>△</td><td></td><td>△</td><td></td><td>→</td><td>⬆</td><td>○</td><td>⬆⬇</td><td>⬆</td><td>⬆</td></tr><tr><td class="sgd"><span class="dg">ジソピラミド</span></td><td></td><td></td><td>●A</td><td></td><td>○</td><td></td><td></td><td>△</td><td></td><td>⬇</td><td>→</td><td>○</td><td>⬆⬇</td><td>⬆</td><td>⬆</td></tr><tr><td class="sgd"><span class="dg">プロカインアミド</span></td><td></td><td>●A</td><td></td><td></td><td>○</td><td></td><td></td><td></td><td></td><td>⬇</td><td>→</td><td>●</td><td>⬆</td><td>⬆</td><td>⬆</td></tr><tr><td class="sgd"><span class="dg">シベンゾリン</span></td><td></td><td></td><td>●A</td><td>△</td><td>○</td><td></td><td></td><td>△</td><td></td><td>⬇</td><td>→</td><td>△</td><td>⬆</td><td>⬆</td><td>→</td></tr><tr><td class="sgd"><span class="dg">ピルメノール</span></td><td></td><td></td><td>●A</td><td></td><td>○</td><td></td><td></td><td>△</td><td></td><td>⬇</td><td>⬆</td><td>△</td><td>⬆</td><td>⬆</td><td>⬆→</td></tr><tr class="sgtop"><td class="sgd"><span class="dg">リドカイン</span></td><td rowspan="3" class="sgc">Ⅰb</td><td>△</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>→</td><td>→</td><td>○</td><td></td><td></td><td>⬇</td></tr><tr><td class="sgd"><span class="dg">メキシレチン</span></td><td>△</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>→</td><td>→</td><td>○</td><td></td><td></td><td>⬇</td></tr><tr><td class="sgd"><span class="dg">アプリンジン</span></td><td></td><td>●I</td><td></td><td>△</td><td>△</td><td></td><td></td><td></td><td></td><td>→</td><td>→</td><td>○</td><td>⬆</td><td>⬆</td><td>→</td></tr><tr class="sgtop"><td class="sgd"><span class="dg">プロパフェノン</span></td><td rowspan="3" class="sgc">Ⅰc</td><td></td><td>●A</td><td></td><td></td><td></td><td></td><td>○</td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td>⬆</td><td></td></tr><tr><td class="sgd"><span class="dg">ピルシカイニド</span></td><td></td><td></td><td>●A</td><td></td><td></td><td></td><td></td><td></td><td></td><td>⬇</td><td>→</td><td>△</td><td>⬆</td><td>⬆</td><td></td></tr><tr><td class="sgd"><span class="dg">フレカイニド</span></td><td></td><td></td><td>●A</td><td></td><td>△</td><td></td><td></td><td></td><td></td><td>⬇</td><td>→</td><td>△</td><td>⬆</td><td>⬆</td><td></td></tr><tr class="sgtop"><td class="sgd"><span class="dg">プロプラノロール</span></td><td rowspan="2" class="sgc">Ⅱ</td><td>△</td><td></td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td></td><td></td></tr><tr><td class="sgd"><span class="dg">ナドロール</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td></td><td></td></tr><tr class="sgtop"><td class="sgd"><span class="dg">アミオダロン</span></td><td rowspan="3" class="sgc">Ⅲ</td><td>△</td><td></td><td></td><td>△</td><td>●</td><td>○</td><td>○</td><td></td><td></td><td>→</td><td>⬇</td><td>●</td><td>⬆</td><td></td><td>⬆</td></tr><tr><td class="sgd"><span class="dg">ソタロール</span></td><td></td><td></td><td></td><td></td><td>●</td><td></td><td>●</td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td></td><td>⬆</td></tr><tr><td class="sgd"><span class="dg">ニフェカラント</span></td><td></td><td></td><td></td><td></td><td>●</td><td></td><td></td><td></td><td></td><td>→</td><td>→</td><td>△</td><td></td><td></td><td>⬆</td></tr><tr class="sgtop"><td class="sgd"><span class="dg">ベラパミル</span></td><td rowspan="3" class="sgc">Ⅳ</td><td>△</td><td></td><td></td><td>●</td><td></td><td>○</td><td></td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td></td><td></td></tr><tr><td class="sgd"><span class="dg">ジルチアゼム</span></td><td></td><td></td><td></td><td>○</td><td></td><td></td><td></td><td></td><td></td><td>⬇</td><td>⬇</td><td>△</td><td>⬆</td><td></td><td></td></tr><tr><td class="sgd"><span class="dg">ベプリジル</span></td><td>△</td><td></td><td></td><td>●</td><td>○</td><td></td><td></td><td></td><td></td><td>→</td><td>⬇</td><td>△</td><td></td><td></td><td>⬆</td></tr><tr class="sgtop"><td class="sgd"><span class="dg">ジゴキシン</span></td><td rowspan="2" class="sgc">その他</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>◆</td><td>●</td><td>⬆</td><td>⬇</td><td>●</td><td>⬆</td><td></td><td>⬇</td></tr><tr><td class="sgd"><span class="dg">アトロピン</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>●</td><td></td><td>→</td><td>⬆</td><td>○</td><td>⬇</td><td></td><td></td></tr></table></div><p class="small muted">●：強　○：中間　△：弱<br>A：活性化状態のNa⁺チャネルに結合　I：不活性化状態のNa⁺チャネルに結合<br>Na⁺の速い・中間・遅い：チャネルからの解離の速さ<br>◆：作動薬（ジゴキシンは迷走神経刺激作用をもつのでM₂作動薬として表示）<br>JT：S波の終わりからT波の終わりまでの時間</p>
@@ -1985,7 +1985,7 @@ const AAR_LESSONS = [
       ['副作用', 'QT間隔延長<br>アミオダロン：間質性肺炎（肺線維症）、肝障害']
     ])}
     <p><b>覚え方</b></p><img class="goro-img" src="goro/k3.png" alt="Ⅲ群の覚え方。二本の三つ編みをそったろ。二本＝ニフェカラント、三つ＝Ⅲ群、編み＝アミオダロン、そったろ＝ソタロール" loading="lazy"></section>` },
-  { id:'2-5', t:'頻脈性不整脈治療薬⑤', sub:'Ⅳ群 › ジギタリス製剤 › ATP製剤', plan:['cls4','cls4','cls4','cls4','cls4'], body:()=>`
+  { id:'2-5', t:'頻脈性不整脈治療薬⑤', sub:'Ⅳ群・ジギタリス製剤・ATP製剤', plan:['cls4','cls4','cls4','cls4','cls4'], body:()=>`
     <section class="panel"><h3>〇 Ⅳ群（Ca²⁺チャネル遮断薬）</h3>
     ${ktbl([
       ['薬物', kdrug('ベラパミル','')+kdrug('ジルチアゼム','')+kdrug('ベプリジル','')],
@@ -2010,7 +2010,7 @@ const AAR_LESSONS = [
     ${tbl(['分類','上室性','心室性'],[['Ⅰa群','○','○'],['Ⅰb群','','○'],['Ⅰc群','○','○'],['Ⅱ群','○','○'],['Ⅲ群','○','○'],['Ⅳ群','○',''],['ジギタリス製剤','○','']])}
     <p>Ⅰb群：心室性頻脈<br>Ⅳ群・ジギタリス製剤：上室性頻脈（心房細動）<br>そのほか：上室性・心室性の両方</p>
     <p><b>覚え方</b></p><img class="goro-img" src="goro/tsk.png" alt="抗不整脈薬の使い分けの覚え方。Ⅰa、Ⅰb、Ⅰc、Ⅱ、Ⅲ、Ⅳ、ジ と並べ、Ⅰbは下の心室性頻脈へ、Ⅳとジギタリスは上の上室性頻脈（心房細動）へ" loading="lazy"></section>` },
-  { id:'2-7', t:'徐脈性不整脈治療薬', sub:'β受容体刺激薬 › 抗コリン薬', plan:['brady','brady','brady','brady','brady'], body:()=>`
+  { id:'2-7', t:'徐脈性不整脈治療薬', sub:'β受容体刺激薬・抗コリン薬', plan:['brady','brady','brady','brady','brady'], body:()=>`
     <section class="panel"><h3>〇 徐脈性不整脈治療薬</h3>
     <p>徐脈（心拍数＜60回/分）、房室ブロックなど</p>
     ${ktbl([
@@ -2029,8 +2029,8 @@ const AAR_LESSONS = [
 const ktbl = rows => `<div class="scroll"><table class="tbl ktbl">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table></div>`;
 const kdrug = (n,p) => `<div class="kdrug"><span class="dg">${n}</span>${p?`<span class="kp">${p}</span>`:''}</div>`;
 const HF_LESSONS = [
-  { id:'1-0', lid:'1-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'心不全' }, t:'心不全について', sub:'病態・薬物治療 › 10 循環器疾患 › 1 心不全', plan:[], body:()=>'' },
-  { id:'1-1', t:'急性心不全治療薬①', sub:'強心薬 › 強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
+  { id:'1-0', lid:'1-0', col:true, ref:{ c:'ther', s:'循環器疾患', u:'心不全' }, t:'心不全について', sub:'病態・薬物治療・10 循環器疾患・1 心不全', plan:[], body:()=>'' },
+  { id:'1-1', t:'急性心不全治療薬①', sub:'強心薬・強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
     <section class="panel"><h3>〇 強心薬</h3><p>弱った心筋の収縮力を高める。</p></section>
     <section class="panel"><h3>〇 強心配糖体</h3><p>心筋収縮力を直接増強する。</p><p><b>基本構造</b></p><svg class="fig" viewBox="27 24 317 215" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖。ステロイド骨格とラクトン環でアグリコン、糖とアグリコンで配糖体"><polygon class="bd" points="118.0,96.0 138.8,108.0 138.8,132.0 118.0,144.0 97.2,132.0 97.2,108.0"/><polygon class="bd" points="159.6,96.0 180.4,108.0 180.4,132.0 159.6,144.0 138.8,132.0 138.8,108.0"/><polygon class="bd" points="180.4,60.0 201.1,72.0 201.1,96.0 180.4,108.0 159.6,96.0 159.6,72.0"/><polygon class="bd" points="201.1,72.0 224.0,64.6 238.1,84.0 224.0,103.4 201.1,96.0"/><text class="nm" x="118.0" y="108.0" text-anchor="middle">1</text><text class="nm" x="105.0" y="115.5" text-anchor="middle">2</text><text class="nm" x="105.0" y="130.5" text-anchor="middle">3</text><text class="nm" x="118.0" y="138.0" text-anchor="middle">4</text><text class="nm" x="131.0" y="130.5" text-anchor="middle">5</text><text class="nm" x="131.0" y="115.5" text-anchor="middle">10</text><text class="nm" x="159.6" y="138.0" text-anchor="middle">6</text><text class="nm" x="172.6" y="130.5" text-anchor="middle">7</text><text class="nm" x="172.6" y="115.5" text-anchor="middle">8</text><text class="nm" x="159.6" y="108.0" text-anchor="middle">9</text><text class="nm" x="167.4" y="79.5" text-anchor="middle">11</text><text class="nm" x="180.4" y="72.0" text-anchor="middle">12</text><text class="nm" x="193.3" y="79.5" text-anchor="middle">13</text><text class="nm" x="193.3" y="94.5" text-anchor="middle">14</text><text class="nm" x="221.2" y="76.1" text-anchor="middle">17</text><text class="nm" x="229.1" y="87.0" text-anchor="middle">16</text><text class="nm" x="221.2" y="97.9" text-anchor="middle">15</text><line class="bd" x1="138.8" y1="108.0" x2="138.8" y2="94.0"/><text class="at" x="138.8" y="91.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="72.0" x2="201.1" y2="58.0"/><text class="at" x="201.1" y="55.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="96.0" x2="201.1" y2="109.0"/><text class="at" x="201.1" y="121.0" text-anchor="middle">OH</text><line class="bd" x1="138.8" y1="132.0" x2="138.8" y2="144.0"/><text class="at" x="138.8" y="155.0" text-anchor="middle">H</text><line class="bd" x1="224.0" y1="64.6" x2="263.1" y2="56.9"/><polygon class="bd" points="263.1,56.9 270.5,34.1 294.5,34.1 301.9,56.9 282.5,71.0"/><line class="bd" x1="266.9" y1="55.6" x2="282.5" y2="66.9"/><line class="bd" x1="301.1" y1="59.2" x2="314.5" y2="63.5"/><line class="bd" x1="302.6" y1="54.6" x2="315.9" y2="59.0"/><circle cx="294.5" cy="34.1" r="6.5" class="bg"/><text class="at" x="294.5" y="38.1" text-anchor="middle">O</text><circle cx="320.0" cy="62.8" r="6.5" class="bg"/><text class="at" x="320.0" y="66.8" text-anchor="middle">O</text><line class="bd" x1="97.2" y1="132.0" x2="86.2" y2="138.0"/><text class="at" x="81.2" y="145.0" text-anchor="middle">O</text><line class="bd" x1="75.2" y1="141.0" x2="65.2" y2="141.0"/><rect class="sg" x="35.2" y="131.0" width="30" height="20" rx="5"/><text class="lb" x="50.2" y="145.5" text-anchor="middle">糖</text><line class="tl" x1="82.7" y1="169.0" x2="82.7" y2="181.0"/><line class="tl" x1="240.6" y1="169.0" x2="240.6" y2="181.0"/><line class="tl" x1="83.7" y1="175.0" x2="119.1" y2="175.0"/><line class="tl" x1="204.1" y1="175.0" x2="239.6" y2="175.0"/><path class="ah" d="M84.2 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M239.1 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="161.6" y="179.0" text-anchor="middle" style="font-size:11px">ステロイド骨格</text><line class="tl" x1="243.6" y1="169.0" x2="243.6" y2="181.0"/><line class="tl" x1="328.0" y1="169.0" x2="328.0" y2="181.0"/><line class="tl" x1="244.6" y1="175.0" x2="254.3" y2="175.0"/><line class="tl" x1="317.3" y1="175.0" x2="327.0" y2="175.0"/><path class="ah" d="M245.1 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="285.8" y="179.0" text-anchor="middle" style="font-size:11px">ラクトン環</text><line class="tl" x1="35.2" y1="195.0" x2="35.2" y2="207.0"/><line class="tl" x1="79.7" y1="195.0" x2="79.7" y2="207.0"/><line class="tl" x1="36.2" y1="201.0" x2="48.0" y2="201.0"/><line class="tl" x1="67.0" y1="201.0" x2="78.7" y2="201.0"/><path class="ah" d="M36.7 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M78.2 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="57.5" y="205.0" text-anchor="middle" style="font-size:11px">糖</text><line class="tl" x1="82.7" y1="195.0" x2="82.7" y2="207.0"/><line class="tl" x1="328.0" y1="195.0" x2="328.0" y2="207.0"/><line class="tl" x1="83.7" y1="201.0" x2="173.8" y2="201.0"/><line class="tl" x1="236.8" y1="201.0" x2="327.0" y2="201.0"/><path class="ah" d="M84.2 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="205.3" y="205.0" text-anchor="middle" style="font-size:11px">アグリコン</text><line class="tl" x1="35.2" y1="221.0" x2="35.2" y2="233.0"/><line class="tl" x1="328.0" y1="221.0" x2="328.0" y2="233.0"/><line class="tl" x1="36.2" y1="227.0" x2="161.1" y2="227.0"/><line class="tl" x1="202.1" y1="227.0" x2="327.0" y2="227.0"/><path class="ah" d="M36.7 227.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 227.0 l-6 -3.2 v6.4z"/><text class="lb" x="181.6" y="231.0" text-anchor="middle" style="font-size:11px">配糖体</text></svg>
     ${ktbl([
@@ -2055,7 +2055,7 @@ const HF_LESSONS = [
       ['副作用', '<b>① 心室性不整脈（ジギタリス中毒）</b><br>心室側の特殊心筋の自動性⬆による。<br><b>② 悪心・嘔吐</b><br>延髄CTZのD₂受容体刺激<br>→ 延髄嘔吐中枢の興奮による。'],
       ['相互作用', '低K⁺血症を起こしやすい薬物（チアジド系利尿薬、ループ利尿薬）と併用<br>→ 心筋のジギタリス感受性⬆<br>→ 副作用が出やすくなる。']
     ])}</section>` },
-  { id:'1-2', t:'急性心不全治療薬②', sub:'その他の強心薬 › β₁刺激薬・AC活性化薬・PDE阻害薬・cAMP製剤', plan:['b1ag','b1ag','acact','pdei','campd'], body:()=>`
+  { id:'1-2', t:'急性心不全治療薬②', sub:'その他の強心薬・β₁刺激薬・AC活性化薬・PDE阻害薬・cAMP製剤', plan:['b1ag','b1ag','acact','pdei','campd'], body:()=>`
     <section class="panel"><h3>〇 その他の強心薬</h3><p>cAMP⬆させることで、心筋収縮力を増強する薬</p></section>
     <section class="panel"><h3>〇 強心薬の作用点</h3><svg class="fig" viewBox="0 0 384 336" role="img" aria-label="強心薬の作用点。β1受容体刺激薬はβ1受容体からGsを介し、コルホルシンダロパートは直接、アデニル酸シクラーゼを活性化してATPからcAMPをつくる。ブクラデシンはcAMPに変換され、ホスホジエステラーゼⅢも阻害する。アミノフィリンはアデノシンA1受容体を遮断し、ホスホジエステラーゼを阻害する。ミルリノン・ピモベンダンはホスホジエステラーゼⅢを阻害する。cAMPはプロテインキナーゼAを活性化し、強心作用を示す">
 <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
@@ -2121,7 +2121,7 @@ const HF_LESSONS = [
       ['作用機序', '① 心筋細胞膜を通過し、脱アシル化酵素によりcAMPに変換<br>② 心筋のホスホジエステラーゼを阻害<br>①、② → 心筋細胞内cAMP⬆<br>→ 心筋収縮力⬆']
     ])}
     <p><b>覚え方</b></p><img class="goro-img" src="goro/camp.png" alt="cAMP製剤の覚え方。ぼくら弟子、cAMPで変身。ぼくら弟子＝ブクラデシン、cAMPで変身＝cAMPに変わる" loading="lazy"></section>` },
-  { id:'1-3', t:'慢性心不全治療薬①', sub:'前負荷・後負荷 › 心筋リモデリング › 利尿薬 › 硝酸薬 › 降圧薬', plan:['chf1','nitr','acei','arb','arb'], body:()=>`
+  { id:'1-3', t:'慢性心不全治療薬①', sub:'前負荷・後負荷・心筋リモデリング・利尿薬・硝酸薬・降圧薬', plan:['chf1','nitr','acei','arb','arb'], body:()=>`
     <section class="panel"><h3>〇 前負荷・後負荷</h3><svg class="fig" viewBox="0 0 340 190" role="img" aria-label="前負荷は心室に入ってくる側の負荷（容量負荷）、後負荷は心室から血液を出していく側の負荷（圧負荷）">
 <defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
 <path d="M8 78 H112 V102 H8 Z" style="fill:var(--teal-soft);stroke:var(--teal);stroke-width:1.5"/>
@@ -2186,7 +2186,7 @@ const HF_LESSONS = [
       ['薬物', kdrug('アリスキレン','')],
       ['作用機序', 'レニンを直接阻害<br>→ アンギオテンシノーゲンからアンギオテンシンⅠへの変換抑制<br>→ アンギオテンシンⅡ⬇<br>→ 血管収縮抑制・アルドステロン分泌抑制<br>→ 前負荷・後負荷⬇']
     ])}</section>` },
-  { id:'1-4', t:'慢性心不全治療薬②', sub:'自律神経作動薬 › ANP製剤', plan:['chf2','chf2','chf2','chf2','chf2'], body:()=>`
+  { id:'1-4', t:'慢性心不全治療薬②', sub:'自律神経作動薬・ANP製剤', plan:['chf2','chf2','chf2','chf2','chf2'], body:()=>`
     <section class="panel"><h3>〇 自律神経作動薬</h3><p>後負荷を軽減する。</p>
     <p><b>・α₁・β受容体遮断薬</b></p>
     ${ktbl([
