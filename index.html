@@ -2487,6 +2487,20 @@ Object.assign(POOL, {
     ['胃内容排出','胃内容排出を促進する薬物は？','メトクロプラミド',['モルヒネ','イミプラミン','プロパンテリン'],'抑制：抗コリン作用をもつ薬など'],
     ['小腸の構造','小腸上皮細胞の管腔側で微絨毛が密に詰まった膜を何という？','刷子縁膜',['側底膜','基底膜','漿膜'],'表面積は約600倍'],
   ],
+  gfx:[
+    ['非攪拌水層','非攪拌水層とは？','腸管表面近傍の十分に撹拌されない水の層',['胃の表面を覆う粘液の層','細胞膜の脂質二重層','血管内皮細胞の層'],'薬物は非攪拌水層を拡散したのち粘膜を透過する'],
+    ['非攪拌水層','脂溶性薬物の消化管吸収の律速段階は？','非攪拌水層の拡散',['消化管粘膜の透過','胃内容排出','血管への移行'],'膜透過しやすいため、非攪拌水層の拡散が律速（拡散律速）'],
+    ['非攪拌水層','水溶性薬物の消化管吸収の律速段階は？','消化管粘膜の透過',['非攪拌水層の拡散','胃内容排出','血管への移行'],'膜透過しにくいため膜透過律速'],
+    ['非攪拌水層','非攪拌水層内の拡散が一般に速いのは？','分子量が小さい薬物',['分子量が大きい薬物','タンパク結合率が高い薬物','イオン形の多い薬物'],'拡散は分子量が小さいほど速い'],
+    ['GER','胃内容排出速度（GER）を増大させる薬物は？','メトクロプラミド',['プロパンテリン','アトロピン','イミプラミン'],'抗ドパミン作用 → 副交感神経⬆ → 胃の蠕動運動⬆'],
+    ['GER','胃内容排出速度（GER）を低下させる薬物は？','アトロピン',['ドンペリドン','メトクロプラミド','ベタネコール'],'抗コリン作用 → 副交感神経⬇ → 胃の蠕動運動⬇'],
+    ['食事の影響','食後のGER低下で吸収量が増大するのは？','リボフラビン',['アセトアミノフェン','セファクロル','バンコマイシン'],'能動輸送で吸収 → 空腹時はトランスポーターが飽和'],
+    ['食事の影響','食後のGER低下で吸収が遅延するのは？','アセトアミノフェン',['リボフラビン','グリセオフルビン','プロプラノロール'],'単純拡散で吸収される薬物'],
+    ['食事の影響','空腹時にリボフラビンの吸収量が低下する理由は？','トランスポーターの飽和',['胃酸による分解','初回通過効果の増大','胆汁酸の不足'],'GER⬆ → 短時間に多くの薬物が吸収部位に到達'],
+    ['食事の影響','高脂肪食により溶解性が改善し吸収量が増大するのは？','グリセオフルビン',['アセトアミノフェン','メトクロプラミド','バンコマイシン'],'胆汁分泌⬆ → 胆汁酸の界面活性作用'],
+    ['食事の影響','食事による血流量増大で初回通過効果を受ける割合が減り、吸収が増大するのは？','プロプラノロール',['アセトアミノフェン','セファクロル','バンコマイシン'],'初回通過効果を大きく受ける薬物'],
+    ['食事の影響','バンコマイシンを経口投与する目的は？','腸管での局所作用',['全身感染症の治療','初回通過効果の回避','吸収の促進'],'消化管からほとんど吸収されない → 感染性腸炎の治療'],
+  ],
   absb:[
     ['吸収','吸収とは？','投与部位から薬物が血液循環系へ取り込まれること',['薬物が組織へ移行すること','薬物が化学構造を変えること','薬物が体外へ出ること'],'ADMEのA'],
     ['吸収','吸収過程がない投与経路は？','静脈内注射',['筋肉内注射','皮下注射','経口投与'],'直接全身循環系へ'],
@@ -2897,6 +2911,11 @@ const GX_PM_LESSONS = [
   { id:'g1', col:true, lid:'4-1', t:'妊娠と薬', sub:'配慮が必要な患者　1つ', plan:[], body:()=>`<section class="panel"><h3>催奇形性（絶対過敏期）</h3><img class="goro-img" src="goro/teratogen.png" alt="催奇形性（絶対過敏期）の覚え方。投与しない。し＝4、な＝7、4〜7週は投与しない" loading="lazy"></section>` },
   { id:'g2', col:true, lid:'4-3', t:'妊婦に投与可能な医薬品', sub:'配慮が必要な患者　2つ', plan:[], body:()=>`<section class="panel"><h3>妊娠高血圧症候群に使用可能な降圧薬</h3><img class="goro-img" src="goro/preg_bp.png" alt="妊娠高血圧症候群に使用可能な降圧薬の覚え方。めっちゃひどい！妊娠したらアムロに逃げられた。めっちゃ＝メチルドパ、ひど＝ヒドララジン、妊娠＝妊娠高血圧症、アムロ＝アムロジピン、に＝ニフェジピン、られた＝ラベタロール" loading="lazy"></section><section class="panel"><h3>妊婦に投与可能な抗菌薬</h3><img class="goro-img" src="goro/preg_abx.png" alt="妊婦に投与可能な抗菌薬の覚え方。マグロのシリはセーフ。マグロ＝マクロライド系、シリ＝ペニシリン系、セーフ＝セフェム系" loading="lazy"></section>` }
 ];
+const GX_BP_LESSONS = [
+  { id:'g1', col:true, lid:'1-2', t:'単純拡散', sub:'生体膜通過　1つ', plan:[], body:()=>`<section class="panel"><h3>フィックの式</h3><img class="goro-img" src="goro/fick.png" alt="フィックの式の覚え方。厚底ヒールだから。厚＝厚さh、底＝分母、ヒール＝Cin−Cout（高→低）、だ＝DA、か＝K、フィット＝フィックの式" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'1-3', t:'能動輸送', sub:'生体膜通過　1つ', plan:[], body:()=>`<section class="panel"><h3>一次性能動輸送</h3><img class="goro-img" src="goro/primary.png" alt="一次性能動輸送の覚え方。〜protein、〜pump、〜ATPase、タンパク質、ポンプというワードがあれば一次性能動輸送（ATPを直接利用）" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'3-3', t:'消化管吸収に影響する因子', sub:'吸収　1つ', plan:[], body:()=>`<section class="panel"><h3>単純拡散・能動輸送の消化管吸収</h3><img class="goro-img" src="goro/absdiff.png" alt="単純拡散・能動輸送の消化管吸収の覚え方。リボの納期にアセった。リボ＝リボフラビン、納＝能動輸送、ア＝アセトアミノフェン、セ＝セファクロル、た＝単純拡散" loading="lazy"></section>` }
+];
 const GX_HSCHEM_LESSONS = [
   { id:'bandA', band:'A　理論化学', col:true, plan:[], body:()=>'' },
   { id:'2-1', t:'周期表', wip:true, plan:[], body:()=>'' },
@@ -3089,7 +3108,32 @@ const ABS_LESSONS = [
     <section class="panel"><h3>〇 小腸における薬物吸収</h3>
     <p>小腸には<b>輪状ひだ</b>があり、その表面は<b>絨毛</b>で覆われている。<br>絨毛の表面は1層の小腸上皮細胞で覆われ、その管腔側は<b>微絨毛</b>が密に詰まった<b>刷子縁膜</b>となっている。<br>刷子縁膜は脂質二重層から成り、さまざまな機能をもつタンパク質（トランスポーターなど）が存在する。</p>
     <img class="goro-img" src="goro/si_struct.png" alt="小腸の構造。小腸の内面には輪状ひだがあり、その表面は絨毛で覆われる。絨毛の内部には毛細血管と中心乳び管があり、表面は吸収上皮細胞（管腔側に微絨毛）で覆われる。粘膜の下には粘膜筋板・リンパ管・動脈・静脈がある" loading="lazy">
-    <p class="small muted">小腸を単純な円筒としたときの内面積を1とすると、微絨毛の存在により表面積は約600倍に増加する。</p></section>` }
+    <p class="small muted">小腸を単純な円筒としたときの内面積を1とすると、微絨毛の存在により表面積は約600倍に増加する。</p></section>` },
+  { id:'3-3', t:'消化管吸収に影響する因子', sub:'非攪拌水層・胃内容排出速度（GER）・食事の影響', plan:['gfx','gfx','gfx','gfx','gfx'], body:()=>`
+    <section class="panel"><h3>〇 非攪拌水層</h3>
+    <p>腸管表面近傍に存在する、<b>十分に撹拌されない水の層</b>＝<b>非攪拌水層</b>。<br>薬物は非攪拌水層を拡散 → 消化管粘膜を透過 → 血管へ移行。</p>
+    <svg class="fig" viewBox="0 0 340 170" role="img" aria-label="非攪拌水層拡散過程と消化管粘膜透過過程の模式図。消化管管腔、非攪拌水層、消化管粘膜、血管の順。脂溶性薬物は膜透過しやすく非攪拌水層を通りにくいため拡散律速、水溶性薬物は膜透過しにくいため膜透過律速"><rect x="112" y="24" width="50" height="140" fill="#D5E6F3"/><line x1="112" y1="24" x2="112" y2="164" stroke="#6B8FB0" stroke-width="1" stroke-dasharray="3 2"/><path d="M162 24 Q178 31 162 38 Q178 45 162 52 Q178 59 162 66 Q178 73 162 80 Q178 87 162 94 Q178 101 162 108 Q178 115 162 122 Q178 129 162 136 Q178 143 162 150 Q178 157 162 164 L252 164 L252 24 Z" fill="#F1DBC5" stroke="#8C6A4A" stroke-width="1.1"/><rect x="268" y="24" width="50" height="140" fill="#F3CACA"/><line x1="268" y1="24" x2="268" y2="164" stroke="#B04040" stroke-width="1.2"/><line x1="318" y1="24" x2="318" y2="164" stroke="#B04040" stroke-width="1.2"/><text class="sm2" x="58" y="16" text-anchor="middle" style="font-size:9px;font-weight:700;fill:var(--ink)">消化管管腔</text><text class="sm2" x="137" y="16" text-anchor="middle" style="font-size:9px;font-weight:700;fill:var(--ink)">非攪拌水層</text><text class="sm2" x="207" y="16" text-anchor="middle" style="font-size:9px;font-weight:700;fill:var(--ink)">消化管粘膜</text><text class="sm2" x="293" y="16" text-anchor="middle" style="font-size:9px;font-weight:700;fill:var(--ink)">血管</text><line x1="8" y1="94" x2="332" y2="94" stroke="var(--ink)" stroke-width=".7" stroke-dasharray="4 3" opacity=".6"/><text class="sm2" x="58" y="40" text-anchor="middle" style="font-size:9.5px;font-weight:700;fill:var(--ink)">脂溶性薬物</text><circle cx="20" cy="50" r="3" fill="#E08A3C"/><circle cx="34" cy="62" r="3" fill="#E08A3C"/><circle cx="48" cy="52" r="3" fill="#E08A3C"/><circle cx="62" cy="64" r="3" fill="#E08A3C"/><circle cx="76" cy="54" r="3" fill="#E08A3C"/><circle cx="26" cy="72" r="3" fill="#E08A3C"/><circle cx="54" cy="74" r="3" fill="#E08A3C"/><circle cx="70" cy="72" r="3" fill="#E08A3C"/><text class="sm2" x="58" y="88" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#D9534F">＝拡散律速</text><line x1="98" y1="62" x2="153.0" y2="62.0" stroke="#444" stroke-width="1.1" stroke-dasharray="3 2.5"/><path d="M160 62 L153.0 65.6 L153.0 58.4 Z" fill="#444"/><line x1="176" y1="62" x2="257.0" y2="62.0" stroke="#444" stroke-width="2.6"/><path d="M264 62 L257.0 65.6 L257.0 58.4 Z" fill="#444"/><rect x="114" y="48" width="46" height="28" rx="4" fill="none" stroke="#D9534F" stroke-width="1.6"/><text class="sm2" x="137" y="87" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">通りにくい</text><text class="sm2" x="214" y="54" text-anchor="middle" style="font-size:8.5px;font-weight:400;fill:#222">膜透過しやすい</text><text class="sm2" x="58" y="110" text-anchor="middle" style="font-size:9.5px;font-weight:700;fill:var(--ink)">水溶性薬物</text><circle cx="20" cy="120" r="3" fill="#4A90C8"/><circle cx="34" cy="132" r="3" fill="#4A90C8"/><circle cx="48" cy="122" r="3" fill="#4A90C8"/><circle cx="62" cy="134" r="3" fill="#4A90C8"/><circle cx="76" cy="124" r="3" fill="#4A90C8"/><circle cx="26" cy="142" r="3" fill="#4A90C8"/><circle cx="54" cy="144" r="3" fill="#4A90C8"/><circle cx="70" cy="142" r="3" fill="#4A90C8"/><text class="sm2" x="58" y="158" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#D9534F">＝膜透過律速</text><line x1="98" y1="132" x2="153.0" y2="132.0" stroke="#444" stroke-width="2.6"/><path d="M160 132 L153.0 135.6 L153.0 128.4 Z" fill="#444"/><line x1="176" y1="132" x2="257.0" y2="132.0" stroke="#444" stroke-width="1.1" stroke-dasharray="3 2.5"/><path d="M264 132 L257.0 135.6 L257.0 128.4 Z" fill="#444"/><rect x="156" y="118" width="26" height="28" rx="4" fill="none" stroke="#D9534F" stroke-width="1.6"/><text class="sm2" x="222" y="124" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">膜透過しにくい</text></svg>
+    ${ktbl([['脂溶性薬物', '膜透過しやすい<br>→ 非攪拌水層を通りにくい<br>→ <b>拡散律速</b>'], ['水溶性薬物', '膜透過しにくい<br>→ <b>膜透過律速</b>']])}
+    <p>非攪拌水層内の拡散は、一般に<b>分子量が小さいほど速い</b>。<br>腸管腔内に排出されたH⁺（プロトン）が非攪拌水層内に滞留<br>→ プロトン勾配を駆動力とするトランスポーターの吸収に寄与。</p></section>
+    <section class="panel"><h3>〇 胃内容排出速度（GER）</h3>
+    <p>経口投与した薬物が胃を通過して小腸に到達する速度＝<b>胃内容排出速度（GER）</b>。<br>多くの薬物は主に小腸で吸収 → GERは吸収に影響する。</p>
+    <p><b>・GERの変動要因</b></p>
+    ${tbl(['','GER⬆','GER⬇'],[['食事','空腹時（食前）','食後'],['薬物','<b>抗ドパミン薬</b><br>例）<span class="dg">メトクロプラミド</span>、<span class="dg">ドンペリドン</span><br>→ 抗ドパミン作用<br>→ 副交感神経⬆<br>→ 胃の蠕動運動⬆','<b>抗コリン作用をもつ薬物</b><br>例）<span class="dg">プロパンテリン</span>、<span class="dg">イミプラミン</span>、<span class="dg">アトロピン</span><br>→ 抗コリン作用<br>→ 副交感神経⬇<br>→ 胃の蠕動運動⬇<br><span class="small muted">その他：<span class="dg">モルヒネ</span>、<span class="dg">アミトリプチリン</span>、<span class="dg">ジフェンヒドラミン</span></span>']])}
+    <p class="small muted">ドパミン：AChの遊離を抑えて胃腸運動を抑制・ACh：胃腸運動を促進</p></section>
+    <section class="panel"><h3>〇 食事により吸収の影響を受ける薬物</h3>
+    <p><b>・単純拡散で吸収される薬物</b></p>
+    ${ktbl([['例', '<span class="dg">アセトアミノフェン</span>、<span class="dg">セファクロル</span>'], ['食後', 'GER⬇<br>→ 吸収が<b>遅延</b>']])}
+    <p><b>・能動輸送で吸収される薬物</b></p>
+    <p class="small muted">小腸上部の局所でトランスポーターを介して吸収</p>
+    ${ktbl([['例', '<span class="dg">リボフラビン</span>'], ['空腹時', 'GER⬆<br>→ 短時間に多くの薬物が吸収部位に到達<br>→ トランスポーターが<b>飽和</b><br>→ 吸収量⬇'], ['食後', 'GER⬇<br>→ 徐々に吸収部位へ送り込まれる<br>→ 吸収量⬆']])}
+    <p><b>・難溶性薬物</b></p>
+    ${ktbl([['例', '<span class="dg">シクロスポリン</span>、<span class="dg">インドメタシン ファルネシル</span>、<span class="dg">フェニトイン</span>、<span class="dg">グリセオフルビン</span>、<span class="dg">イトラコナゾール</span>、脂溶性ビタミン、<span class="dg">イコサペント酸エチル</span>'], ['食後', '食事（特に高脂肪食）<br>→ 胆汁の分泌⬆<br>→ 胆汁酸の界面活性作用で薬物の溶解性が改善<br>→ 吸収量⬆']])}
+    <p><b>・初回通過効果を大きく受ける薬物</b></p>
+    ${ktbl([['例', '<span class="dg">プロプラノロール</span>'], ['食後', '食事により血流量⬆<br>→ 初回通過効果を受ける割合⬇<br>→ 吸収⬆']])}
+    <p><b>・腸管局所作用を期待して使用される抗菌薬</b></p>
+    ${ktbl([['例', 'アミノグリコシド系、グリコペプチド系（<span class="dg">バンコマイシン</span>）'], ['特徴', '消化管からほとんど吸収されない<br>→ 局所作用・腸内細菌の抑制を目的に経口投与']])}
+    <p class="small muted">バンコマイシンの経口投与：感染性腸炎の治療目的</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/absdiff.png" alt="単純拡散・能動輸送の消化管吸収の覚え方。リボの納期にアセった。リボ＝リボフラビン、納＝能動輸送、ア＝アセトアミノフェン、セ＝セファクロル、た＝単純拡散" loading="lazy"></section>` }
 ];
 const HS_LESSONS = [
   { id:'2-1', t:'保健統計の意義', sub:'集団の健康水準を数字でとらえる', plan:['hsmean','hsmean'], body:()=>`
@@ -3856,6 +3900,7 @@ const UNITS = {
   gx_aar: { no:'覚', title:'抗不整脈薬', subject:'覚え方', course:'goro', subj:6, goro:true, lessons:GX_AAR_LESSONS, cards:'gx_aar', drill:'gx_aar' },
   gx_onc: { no:'覚', title:'抗悪性腫瘍薬', subject:'覚え方', course:'goro', subj:17, goro:true, lessons:GX_ONC_LESSONS, cards:'gx_onc', drill:'gx_onc' },
   gx_pm: { no:'覚', title:'服薬指導', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_PM_LESSONS, cards:'gx_pm', drill:'gx_pm' },
+  gx_bp: { no:'覚', title:'薬物動態', subject:'覚え方', course:'goro', subj:20, goro:true, lessons:GX_BP_LESSONS, cards:'gx_bp', drill:'gx_bp' },
   gx_hschem: { no:'覚', title:'高校化学', subject:'覚え方', course:'goro', subj:0, goro:true, lessons:GX_HSCHEM_LESSONS, cards:'gx_hschem', drill:'gx_hschem' },
   gr: { no:'覚1', title:'降圧薬のゴロ', subject:'覚え方', course:'goro', subj:6, lessons:GR_LESSONS, cards:'gr', drill:'gr' },
   calc: { no:'計1', title:'濃度と希釈', subject:'計算', course:'calc', subj:0, lessons:CALC_LESSONS, cards:'calc', drill:'calc' },
@@ -4052,7 +4097,7 @@ const CATALOG = [
       { name:'悪性腫瘍', k:'悪', units:U({ t:'抗悪性腫瘍薬', ready:'gx_onc' }) },
       { name:'炎症', k:'炎', units:U() },
       { name:'法規・制度・倫理', k:'法', units:U('法規の数字のゴロ') },
-      { name:'薬剤', k:'剤', units:U() },
+      { name:'薬剤', k:'剤', units:U({ t:'薬物動態', ready:'gx_bp' }) },
       { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' }) },
       { name:'基準値', k:'基', units:U() },
       { name:'その他', k:'他', units:U() } ] },
