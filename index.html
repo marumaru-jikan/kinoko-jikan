@@ -2653,6 +2653,19 @@ Object.assign(POOL, {
     ['麻薬処方箋','麻薬処方箋を調剤する薬局の開設者に必要な免許は？','麻薬小売業者',['麻薬施用者','麻薬管理者','麻薬卸売業者'],'都道府県知事の免許'],
     ['麻薬処方箋','麻薬処方箋を保存する際に推奨されているのは？','一般処方箋とは別にする',['一般処方箋と一緒にする','1年で廃棄する','患者に返却する'],'区別して保存'],
   ],
+  inj43:[
+    ['抗がん剤の調剤','抗悪性腫瘍薬の調製に用いる設備は？','クラスⅡ以上の安全キャビネット',['クリーンベンチ','ドラフトチャンバー','オートクレーブ'],'外排泄型・クラス100環境'],
+    ['抗がん剤の調剤','抗悪性腫瘍薬の調製者から外すべきなのは？','妊婦・授乳婦',['高齢者','新人薬剤師','男性薬剤師'],'被ばくの回避'],
+    ['抗がん剤の調剤','抗悪性腫瘍薬調製時の保護手袋は？','パウダーフリーを二重に装着',['パウダー付きを一重に装着','素手で行う','綿手袋を装着'],'保護ガウンは背開き'],
+    ['抗がん剤の調剤','抗悪性腫瘍薬の調製に望ましい注射シリンジは？','ルアーロック式',['ルアースリップ式','ルアーチップ式','ガラス製の差し込み式'],'注射針が簡単に外れない'],
+    ['抗がん剤の調剤','調製時にバイアル内をどうする？','少し陰圧にする',['強く陽圧にする','大気圧に保つ','真空にする'],'エアと薬液を少しずつ交換'],
+    ['抗がん剤の調剤','常温で気化しやすく閉鎖系器具が必要な抗がん剤は？','シクロホスファミド',['リツキシマブ','トラスツズマブ','ベバシズマブ'],'イホスファミド、ベンダムスチンも'],
+    ['抗がん剤の調剤','抗悪性腫瘍薬が皮膚に付着したときの対処は？','直ちに流水で洗い流し、石けんで洗う',['アルコール綿でふく','そのまま乾燥させる','中和剤を塗る'],'すぐに洗い流す'],
+    ['抗がん剤の調剤','床を汚染したときのふきとり方向は？','外側から中心へ',['中心から外側へ','左から右へ','方向は問わない'],'汚染を広げない'],
+    ['抗がん剤の調剤','血管外漏出が疑われたとき、まず行うのは？','注入を止める',['点滴速度を上げる','患部を温める','留置針をそのまま残す'],'その後、薬液を吸引して抜針'],
+    ['抗がん剤の調剤','アントラサイクリン系の血管外漏出に用いる薬は？','デクスラゾキサン',['ホリナート','メスナ','パロノセトロン'],'静脈内投与'],
+    ['抗がん剤の調剤','血管外漏出時、冷却ではなく温めることがあるのは？','ビンカアルカロイド',['アントラサイクリン系','白金製剤','アルキル化薬'],'エトポシドも'],
+  ],
   gbbb:[
     ['血液脳関門','血液脳関門の実体である細胞は？','脳毛細血管内皮細胞',['脈絡叢上皮細胞','周皮細胞（ペリサイト）','星状膠細胞（アストロサイト）'],'内皮細胞が密着結合している'],
     ['血液脳脊髄液関門','血液脳脊髄液関門の実体である細胞は？','脈絡叢上皮細胞',['脳毛細血管内皮細胞','神経細胞','周皮細胞（ペリサイト）'],'上皮細胞が密着結合している'],
@@ -3257,8 +3270,47 @@ const INJ3_LESSONS = [
 const INJ4_LESSONS = [
   { id:'4-1', t:'補正（当量（Eq））', wip:true, plan:[], body:()=>'' },
   { id:'4-2', t:'補正（浸透圧（Osm））', wip:true, plan:[], body:()=>'' },
-  { id:'4-3', t:'抗がん剤の調剤', wip:true, plan:[], body:()=>'' },
+  { id:'4-3', t:'抗がん剤の調剤', sub:'細胞毒性のある注射剤の調製', plan:['inj43','inj43','inj43','inj43','inj43'], body:()=>`
+    <section class="panel"><h3>〇 注意点</h3>
+    <p>・日本病院薬剤師会「抗悪性腫瘍薬のガイドライン」<br>→ 抗悪性腫瘍薬の調製を<b>薬剤師の業務</b>として位置づけ。</p>
+    <p>・調剤手順は注射剤調剤の流れに準拠。<br>大きく異なる点＝注射処方箋受付時の<b>レジメン</b>情報をもとにした注射処方箋監査。</p>
+    <p>・レジメンは、リスクマネジメントの点で<b>薬剤師が管理</b>。</p>
+    <p>・調製者の<b>被ばくの回避</b>が重要<br>→ <b>妊婦・授乳婦</b>は調製者から外す。</p>
+    <p>・調製後の廃棄物や輸送中の破損による、薬剤の外部への<b>飛散</b>に注意。</p>
+    <p><b>・調製時の注意事項</b></p>
+    <p>・バイアルから薬液を吸引する場合、バイアルに注射針を刺す前に、あらかじめシリンジ内に適量のエア（空気）を入れておく。</p>
+    <p>・調製時は、バイアル内のエアを少量吸い上げてバイアル内を少し<b>陰圧</b>にする<br>→ シリンジ内のエアとバイアル内の薬液が、自然に少しずつ交換されるように採取。</p>
+    <p>・バイアルから注射針を抜く場合、バイアル内のエアを吸引してから抜き取る。</p>
+    <p>・溶解操作を行ったときは、<b>目視</b>で溶解を確認する。</p></section>
+    <section class="panel"><h3>〇 設備</h3>
+    <p><b>外排泄型</b>の<b>クラスⅡ以上安全キャビネット</b>を用い、<b>クラス100</b>環境で調製する。<br>→ ケミカルハザードを防止し、調製者の被ばくを防ぐ。</p>
+    <svg class="fig" viewBox="0 0 340 212" role="img" aria-label="安全キャビネットの模式図。HEPAフィルターを通した清浄な給気流が作業面へ下向きに流れ、前面の吸気流がエアーバリアとなる。排気もHEPAフィルターを通して外へ出す"><path d="M86 44 H246 V204 H86 V156" fill="#EEF2F6" stroke="#555" stroke-width="1.2"/><path d="M86 44 V112" stroke="#555" stroke-width="1.2"/><line x1="86" y1="112" x2="104" y2="122" stroke="#7FA6C9" stroke-width="2.4"/><rect x="150" y="48" width="44" height="14" fill="#fff" stroke="#555"/><line x1="150" y1="48" x2="194" y2="62" stroke="#888" stroke-width=".7"/><line x1="150" y1="62" x2="194" y2="48" stroke="#888" stroke-width=".7"/><rect x="100" y="76" width="132" height="12" fill="#fff" stroke="#555"/><line x1="100" y1="76" x2="232" y2="88" stroke="#888" stroke-width=".7"/><line x1="100" y1="88" x2="232" y2="76" stroke="#888" stroke-width=".7"/><line x1="160" y1="46" x2="160.0" y2="31.0" stroke="#555" stroke-width="1.2"/><path d="M160 26 L162.6 31.0 L157.4 31.0 Z" fill="#555"/><line x1="172" y1="46" x2="172.0" y2="31.0" stroke="#555" stroke-width="1.2"/><path d="M172 26 L174.6 31.0 L169.4 31.0 Z" fill="#555"/><line x1="184" y1="46" x2="184.0" y2="31.0" stroke="#555" stroke-width="1.2"/><path d="M184 26 L186.6 31.0 L181.4 31.0 Z" fill="#555"/><text class="sm2" x="200" y="24" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:var(--ink)">排気</text><text class="sm2" x="254" y="58" text-anchor="start" style="font-size:8.5px;font-weight:400;fill:var(--ink)">HEPAフィルター</text><line x1="194" y1="55" x2="252" y2="55" stroke="#888" stroke-width=".7"/><line x1="114" y1="90" x2="114.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M114 146 L111.4 141.0 L116.6 141.0 Z" fill="#2B6CB0"/><line x1="134" y1="90" x2="134.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M134 146 L131.4 141.0 L136.6 141.0 Z" fill="#2B6CB0"/><line x1="154" y1="90" x2="154.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M154 146 L151.4 141.0 L156.6 141.0 Z" fill="#2B6CB0"/><line x1="174" y1="90" x2="174.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M174 146 L171.4 141.0 L176.6 141.0 Z" fill="#2B6CB0"/><line x1="194" y1="90" x2="194.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M194 146 L191.4 141.0 L196.6 141.0 Z" fill="#2B6CB0"/><line x1="214" y1="90" x2="214.0" y2="141.0" stroke="#2B6CB0" stroke-width="1.2"/><path d="M214 146 L211.4 141.0 L216.6 141.0 Z" fill="#2B6CB0"/><text class="sm2" x="254" y="104" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:var(--ink)">給気流</text><text class="sm2" x="254" y="115" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:var(--ink)">（Supply Air）</text><line x1="214" y1="110" x2="252" y2="106" stroke="#888" stroke-width=".7"/><text class="sm2" x="160" y="126" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">清浄空間</text><line x1="90" y1="156" x2="240" y2="156" stroke="#555" stroke-width="2"/><line x1="40" y1="138" x2="91.0" y2="139.8" stroke="#C0392B" stroke-width="1.2"/><path d="M96 140 L90.9 142.4 L91.1 137.2 Z" fill="#C0392B"/><line x1="40" y1="150" x2="91.0" y2="148.2" stroke="#C0392B" stroke-width="1.2"/><path d="M96 148 L91.1 150.8 L90.9 145.6 Z" fill="#C0392B"/><text class="sm2" x="8" y="130" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:var(--ink)">吸気流</text><text class="sm2" x="8" y="166" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:var(--ink)">（Intake Air）</text><text class="sm2" x="8" y="100" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:var(--ink)">エアーバリア</text><line x1="60" y1="103" x2="92" y2="132" stroke="#888" stroke-width=".7"/><line x1="238" y1="150" x2="238" y2="94" stroke="#2B6CB0" stroke-width="1.1" stroke-dasharray="3 2"/><circle cx="214" cy="182" r="11" fill="#fff" stroke="#555"/><path d="M214 182 l6 -6 M214 182 l-6 6 M214 182 l6 6 M214 182 l-6 -6" stroke="#555"/><text class="sm2" x="254" y="186" text-anchor="start" style="font-size:8.5px;font-weight:400;fill:var(--ink)">ファン</text><line x1="225" y1="183" x2="252" y2="183" stroke="#888" stroke-width=".7"/><text class="sm2" x="8" y="16" text-anchor="start" style="font-size:9.5px;font-weight:700;fill:var(--ink)">安全キャビネット</text></svg></section>
+    <section class="panel"><h3>〇 服装</h3>
+    ${ktbl([['保護ガウン','前面と両腕に薬剤不透過処理された<b>背開き</b>の長袖ガウン<br>袖口がしまるもの'],['保護手袋','<b>パウダーフリー</b>が望ましい<br>手袋は<b>二重</b>に装着'],['保護キャップ','頭髪を完全に覆う'],['保護メガネ','目を飛沫から保護'],['保護マスク','薬剤のエアロゾルや微粉末の吸入を防止<br>フィルターマスクが望ましい']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 器具・用具</h3>
+    <p><b>・注射シリンジ・針</b></p>
+    <p>注射針が簡単に外れない<b>ルアーロック式</b>が望ましい。</p>
+    <svg class="fig" viewBox="0 0 340 92" role="img" aria-label="注射シリンジの種類。ルアーロック式（ねじ込み式）は先端にねじがあり針が外れにくい。ルアーチップ式・ルアースリップ式は差し込み式"><rect x="38" y="40" width="80" height="18" fill="#F4F4F4" stroke="#555"/><line x1="46" y1="40" x2="46" y2="49" stroke="#555" stroke-width=".7"/><line x1="54" y1="40" x2="54" y2="46" stroke="#555" stroke-width=".7"/><line x1="62" y1="40" x2="62" y2="49" stroke="#555" stroke-width=".7"/><line x1="70" y1="40" x2="70" y2="46" stroke="#555" stroke-width=".7"/><line x1="78" y1="40" x2="78" y2="49" stroke="#555" stroke-width=".7"/><line x1="86" y1="40" x2="86" y2="46" stroke="#555" stroke-width=".7"/><line x1="94" y1="40" x2="94" y2="49" stroke="#555" stroke-width=".7"/><line x1="102" y1="40" x2="102" y2="46" stroke="#555" stroke-width=".7"/><line x1="110" y1="40" x2="110" y2="49" stroke="#555" stroke-width=".7"/><rect x="78" y="41" width="5" height="16" fill="#555"/><rect x="83" y="47" width="52" height="4" fill="#9A9A9A"/><rect x="117" y="32" width="3" height="34" fill="#555"/><rect x="135" y="38" width="3" height="22" fill="#555"/><rect x="22" y="38" width="16" height="22" fill="#DDD" stroke="#555"/><line x1="25.0" y1="38" x2="25.0" y2="60" stroke="#777" stroke-width=".8"/><line x1="28.5" y1="38" x2="28.5" y2="60" stroke="#777" stroke-width=".8"/><line x1="32.0" y1="38" x2="32.0" y2="60" stroke="#777" stroke-width=".8"/><line x1="35.5" y1="38" x2="35.5" y2="60" stroke="#777" stroke-width=".8"/><rect x="18" y="46" width="4" height="6" fill="#555"/><rect x="216" y="40" width="80" height="18" fill="#F4F4F4" stroke="#555"/><line x1="224" y1="40" x2="224" y2="49" stroke="#555" stroke-width=".7"/><line x1="232" y1="40" x2="232" y2="46" stroke="#555" stroke-width=".7"/><line x1="240" y1="40" x2="240" y2="49" stroke="#555" stroke-width=".7"/><line x1="248" y1="40" x2="248" y2="46" stroke="#555" stroke-width=".7"/><line x1="256" y1="40" x2="256" y2="49" stroke="#555" stroke-width=".7"/><line x1="264" y1="40" x2="264" y2="46" stroke="#555" stroke-width=".7"/><line x1="272" y1="40" x2="272" y2="49" stroke="#555" stroke-width=".7"/><line x1="280" y1="40" x2="280" y2="46" stroke="#555" stroke-width=".7"/><line x1="288" y1="40" x2="288" y2="49" stroke="#555" stroke-width=".7"/><rect x="256" y="41" width="5" height="16" fill="#555"/><rect x="261" y="47" width="52" height="4" fill="#9A9A9A"/><rect x="295" y="32" width="3" height="34" fill="#555"/><rect x="313" y="38" width="3" height="22" fill="#555"/><path d="M216 44 L204 47 L204 51 L216 54 Z" fill="#DDD" stroke="#555"/><text class="sm2" x="84" y="20" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#C0392B">ルアーロック式</text><text class="sm2" x="84" y="82" text-anchor="middle" style="font-size:8px;font-weight:400;fill:var(--ink)">（ねじ込み式）</text><text class="sm2" x="262" y="20" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:var(--ink)">ルアーチップ式・ルアースリップ式</text><text class="sm2" x="262" y="82" text-anchor="middle" style="font-size:8px;font-weight:400;fill:var(--ink)">（差し込み式）</text></svg>
+    <p><b>・廃棄物用容器</b></p>
+    <p>使用済みのシリンジ、針、バイアルなどの廃棄。</p>
+    <p><b>・閉鎖系の調製器具</b></p>
+    <p>細胞毒性を有する抗悪性腫瘍薬のばく露防止。<br>例）<span class="dg">ベンダムスチン塩酸塩</span>、<span class="dg">シスプラチン</span>、<span class="dg">カルボプラチン</span>、<span class="dg">シクロホスファミド水和物</span>、<span class="dg">イホスファミド</span>、<span class="dg">エピルビシン塩酸塩</span>、<span class="dg">ドキソルビシン塩酸塩</span>など</p>
+    <p class="small muted">リツキシマブ：細胞毒性なし</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/kika.png" alt="常温で気化しやすい抗がん剤の覚え方。違法な白い便出した。違法＝イホスファミド、白＝シクロホスファミド、便出＝ベンダムスチン" loading="lazy"></section>
+    <section class="panel"><h3>〇 汚染時の対処</h3>
+    <p>・<b>皮膚や手指</b>などに付着した場合<br>→ 直ちに<b>流水で洗い流し、石けんで洗う</b>。</p>
+    <p>・<b>床・作業台</b>などを汚染した場合<br>→ 手袋を着用し、ペーパータオルなどで<b>外側から中心へ向かい</b>ふきとる<br>→ 所定のゴミ袋に入れ、廃棄物として扱う。<br>床はさらにアルコール綿でふく。</p></section>
+    <section class="panel"><h3>〇 血管外への漏出が疑われる場合の処置</h3>
+    <p>① 直ちに抗悪性腫瘍薬の<b>注入を止める</b>。</p>
+    <p>② 留置針に残っている<b>薬液を吸引</b>し、留置針を抜去する。</p>
+    <p>③ 漏出した部位のある手や足を<b>高く上げる</b>。</p>
+    <p>④ 抗悪性腫瘍薬の種類により適切な処置を施す。<br>・副腎皮質ステロイド性薬の局所注射<br>・副腎皮質ステロイド性薬の軟膏塗布<br>・アントラサイクリン系薬剤の場合、<span class="dg">デクスラゾキサン</span>の静脈内投与<br>・冷湿布の貼付や冷水での冷却による抗悪性腫瘍薬の限局化</p>
+    <p class="small muted">ただし、ビンカアルカロイドやエトポシドは冷やすと悪化するおそれ → 温めることあり</p>
+    <p>⑤ 点滴を再開する場合は、<b>反対側の腕</b>か、漏出した部位より<b>上側</b>から投与する。</p></section>` },
   { id:'4-4', t:'医療材料', wip:true, plan:[], body:()=>'' }
+];
+const GX_INJ_LESSONS = [
+  { id:'g1', col:true, lid:'4-3', t:'抗がん剤の調剤', sub:'注射剤・輸液の調剤　1つ', plan:[], body:()=>`<section class="panel"><h3>常温で気化しやすい抗がん剤</h3><img class="goro-img" src="goro/kika.png" alt="常温で気化しやすい抗がん剤の覚え方。違法な白い便出した。違法＝イホスファミド、白＝シクロホスファミド、便出＝ベンダムスチン" loading="lazy"></section>` }
 ];
 const GX_RAD_LESSONS = [
   { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
@@ -4336,6 +4388,7 @@ const UNITS = {
   dist: { no:'剤1', title:'分布', subject:'薬剤', course:'pmcy', subj:0, lessons:DIST_LESSONS, cards:'dist', drill:'dist' },
   absr: { no:'剤1', title:'吸収', subject:'薬剤', course:'pmcy', subj:0, lessons:ABS_LESSONS, cards:'absr', drill:'absr' },
   pk: { no:'剤2', title:'薬物速度論', subject:'薬剤', course:'pmcy', subj:1, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
+  gx_inj: { no:'覚', title:'注射剤・輸液の調剤', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_INJ_LESSONS, cards:'gx_inj', drill:'gx_inj' },
   gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
   gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
   gx_hjp: { no:'覚', title:'日本の現状', subject:'覚え方', course:'goro', subj:4, goro:true, lessons:GX_HJP_LESSONS, cards:'gx_hjp', drill:'gx_hjp' },
@@ -4541,7 +4594,7 @@ const CATALOG = [
       { name:'炎症', k:'炎', units:U() },
       { name:'法規・制度・倫理', k:'法', units:U('法規の数字のゴロ') },
       { name:'薬剤', k:'剤', units:U({ t:'薬物動態', ready:'gx_bp' }) },
-      { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' }) },
+      { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' },{ t:'注射剤・輸液の調剤', ready:'gx_inj' }) },
       { name:'基準値', k:'基', units:U() },
       { name:'その他', k:'他', units:U() } ] },
     { id:'calc', name:'計算', k:'計', note:'薬学計算', subjects:[
