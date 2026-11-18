@@ -2717,6 +2717,18 @@ Object.assign(POOL, {
     ['抗菌薬療法','原因菌判明後に狭域抗菌薬で行う治療は？','根治治療（標的治療）',['経験的治療','予防投与','併用療法'],'培養・感受性試験の結果に基づく'],
     ['抗菌薬療法','経験的治療を始める前に行うべきことは？','培養検体の採取',['抗菌薬の増量','狭域抗菌薬への変更','TDMの実施'],'抗菌薬投与後は菌が検出されにくい'],
   ],
+  ict:[
+    ['ICT・AST','ICTとは？','感染制御チーム',['抗菌薬適正使用支援チーム','栄養サポートチーム','緩和ケアチーム'],'Infection Control Team'],
+    ['ICT・AST','ASTとは？','抗菌薬適正使用支援チーム',['感染制御チーム','褥瘡対策チーム','呼吸サポートチーム'],'Antimicrobial Stewardship Team'],
+    ['ICT・AST','標準予防策の対象は？','すべての患者',['感染症と診断された患者','免疫不全患者','手術患者'],'血液・体液などを感染性ありとして扱う'],
+    ['ICT・AST','空気感染する感染症は？','結核',['インフルエンザ','MRSA感染症','ノロウイルス感染症'],'ほかに麻疹、水痘'],
+    ['ICT・AST','飛沫感染する感染症は？','インフルエンザ',['結核','麻疹','水痘'],'マイコプラズマ、風疹、百日咳も'],
+    ['ICT・AST','空気感染対策で用いるマスクは？','N95マスク',['サージカルマスク','布マスク','マスクは不要'],'陰圧個室で管理'],
+    ['ICT・AST','飛沫感染対策で用いるマスクは？','サージカルマスク',['N95マスク','防毒マスク','マスクは不要'],'飛沫は約1 mで落下'],
+    ['ICT・AST','MRSAの主な感染経路は？','接触感染',['空気感染','飛沫感染','経口感染のみ'],'手袋・ガウンの着用'],
+    ['ICT・AST','空気感染の原因となる粒子の大きさは？','5 µm以下',['5 µmより大きい','50 µm以上','1 mm以上'],'飛沫核が空気中を浮遊'],
+    ['ICT・AST','抗菌薬の適正使用に特化したチームは？','AST',['ICT','NST','PCT'],'TDM、デエスカレーションなど'],
+  ],
   gbbb:[
     ['血液脳関門','血液脳関門の実体である細胞は？','脳毛細血管内皮細胞',['脈絡叢上皮細胞','周皮細胞（ペリサイト）','星状膠細胞（アストロサイト）'],'内皮細胞が密着結合している'],
     ['血液脳脊髄液関門','血液脳脊髄液関門の実体である細胞は？','脈絡叢上皮細胞',['脳毛細血管内皮細胞','神経細胞','周皮細胞（ペリサイト）'],'上皮細胞が密着結合している'],
@@ -3500,12 +3512,31 @@ const TM1_LESSONS = [
 ];
 const TM2_LESSONS = [
   { id:'2-1', t:'チーム医療のメンバー', wip:true, plan:[], body:()=>'' },
-  { id:'2-2', t:'ICT・AST', wip:true, plan:[], body:()=>'' },
+  { id:'2-2', t:'ICT・AST', sub:'院内感染・標準予防策・感染経路別予防策', plan:['ict','ict','ict','ict','ict'], body:()=>`
+    <section class="panel"><h3>〇 用語</h3>
+    ${ktbl([['ICT','Infection Control Team<br>＝<b>感染制御チーム</b>'],['AST','Antimicrobial Stewardship Team<br>＝<b>抗菌薬適正使用支援チーム</b>']])}</section>
+    <section class="panel"><h3>〇 院内感染</h3>
+    <p>病院内で新たに感染症にかかること＝<b>院内感染</b>。<br>患者だけでなく、医療従事者や面会者が感染する場合も含む。</p>
+    <p class="small muted">入院後48時間以降に発症したものが目安・易感染患者が多い → 重症化しやすい</p></section>
+    <section class="panel"><h3>〇 院内感染予防</h3>
+    <p><b>① 標準予防策（スタンダードプリコーション）</b></p>
+    <p><b>すべての患者</b>の血液・体液・分泌物・排泄物・粘膜・損傷した皮膚を、感染性があるものとして扱う。</p>
+    <p>・手指衛生（手洗い・手指消毒）<br>・個人防護具（手袋・マスク・ガウン・ゴーグル）の使用<br>・咳エチケット<br>・使用した器具・リネンの適切な処理</p>
+    <p><b>② 感染経路別予防策</b></p>
+    <p>標準予防策に加えて、感染経路に応じた対策を行う。</p>
+    ${tbl(['感染経路','主な感染症','対策'],[["接触感染", "MRSA、VRE、ノロウイルス、腸管出血性大腸菌、疥癬など", "手袋・ガウンの着用<br>器具の専用化<br>個室管理"], ["飛沫感染<br><span class=\"small muted\">5 µm超・約1 m</span>", "インフルエンザ、マイコプラズマ、風疹、百日咳、流行性耳下腺炎など", "<b>サージカルマスク</b><br>患者間距離1 m以上<br>個室管理"], ["空気感染<br><span class=\"small muted\">5 µm以下・浮遊</span>", "<b>結核、麻疹、水痘</b>", "<b>N95マスク</b><br><b>陰圧</b>個室"]]).replace('class="tbl"','class="tbl fpt3"')}
+    <svg class="fig" viewBox="0 0 340 190" role="img" aria-label="感染経路の模式図。接触感染は手や器具を介し、飛沫感染は5マイクロメートルより大きい飛沫が約1メートルで落下し、空気感染は5マイクロメートル以下の飛沫核が空気中を浮遊して遠くまで広がる"><rect x="4" y="10" width="332" height="54" rx="6" fill="#fff" stroke="#E9C46A" stroke-width="1.4"/><text class="sm2" x="12" y="26" text-anchor="start" style="font-size:9.5px;font-weight:700;fill:var(--ink)">接触感染</text><text class="sm2" x="12" y="40" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:var(--ink)">直接・間接の接触</text><circle cx="170" cy="24" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M160 52 Q160 34 170 34 Q180 34 180 52 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><circle cx="300" cy="24" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M290 52 Q290 34 300 34 Q310 34 310 52 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><line x1="184" y1="40" x2="278.0" y2="40.0" stroke="#B8860B" stroke-width="1.2"/><path d="M284 40 L278.0 43.0 L278.0 37.0 Z" fill="#B8860B"/><text class="sm2" x="234" y="34" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">手・器具を介して</text><rect x="4" y="70" width="332" height="54" rx="6" fill="#fff" stroke="#7FB3D5" stroke-width="1.4"/><text class="sm2" x="12" y="86" text-anchor="start" style="font-size:9.5px;font-weight:700;fill:var(--ink)">飛沫感染</text><text class="sm2" x="12" y="100" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:var(--ink)">5 µmより大きい飛沫・約1 m</text><circle cx="170" cy="84" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M160 112 Q160 94 170 94 Q180 94 180 112 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><circle cx="300" cy="84" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M290 112 Q290 94 300 94 Q310 94 310 112 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><circle cx="192" cy="88" r="2.6" fill="#2B6CB0"/><circle cx="202" cy="92" r="2.6" fill="#2B6CB0"/><circle cx="212" cy="88" r="2.6" fill="#2B6CB0"/><circle cx="224" cy="92" r="2.6" fill="#2B6CB0"/><text class="sm2" x="238" y="116" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">約1 mで落下</text><path d="M226 94 Q240 100 246 110" fill="none" stroke="#2B6CB0" stroke-dasharray="2 2"/><rect x="4" y="130" width="332" height="54" rx="6" fill="#fff" stroke="#C39BD3" stroke-width="1.4"/><text class="sm2" x="12" y="146" text-anchor="start" style="font-size:9.5px;font-weight:700;fill:var(--ink)">空気感染</text><text class="sm2" x="12" y="160" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:var(--ink)">5 µm以下の飛沫核・空気中を浮遊</text><circle cx="170" cy="144" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M160 172 Q160 154 170 154 Q180 154 180 172 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><circle cx="300" cy="144" r="7" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><path d="M290 172 Q290 154 300 154 Q310 154 310 172 Z" fill="#fff" stroke="#5A7FA0" stroke-width="1.3"/><circle cx="190" cy="142" r="1.3" fill="#7D3C98"/><circle cx="204" cy="147" r="1.3" fill="#7D3C98"/><circle cx="220" cy="152" r="1.3" fill="#7D3C98"/><circle cx="238" cy="142" r="1.3" fill="#7D3C98"/><circle cx="258" cy="147" r="1.3" fill="#7D3C98"/><circle cx="276" cy="152" r="1.3" fill="#7D3C98"/><circle cx="288" cy="142" r="1.3" fill="#7D3C98"/><text class="sm2" x="234" y="176" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">遠くまで浮遊</text></svg>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/himatsu.png" alt="飛沫感染する感染症の覚え方。ひまな夫婦は100日家にいる。ひ＝飛沫感染、ま＝マイコプラズマ、夫婦＝風疹、100日＝百日咳、家＝インフルエンザ" loading="lazy"><img class="goro-img" src="goro/kuuki.png" alt="空気感染する感染症の覚え方。結果空気吸います。結＝結核、空気＝空気感染、吸＝水痘、ます＝麻疹" loading="lazy"></section>
+    <section class="panel"><h3>〇 チーム医療における役割の変化</h3>
+    <svg class="fig" viewBox="0 0 340 178" role="img" aria-label="チーム医療における役割の変化。ICTは院内感染の防止・監視を担い、そこから抗菌薬の適正使用に特化したASTが分かれ、個々の患者への抗菌薬の最適化を担う"><rect x="10" y="8" width="320" height="58" rx="8" fill="#FBEBD8" stroke="#C9822B" stroke-width="1.3"/><text class="sm2" x="170" y="24" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#222">ICT（感染制御チーム）</text><text class="sm2" x="170" y="40" text-anchor="middle" style="font-size:8.5px;font-weight:400;fill:#222">院内感染の防止・監視</text><text class="sm2" x="170" y="54" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">サーベイランス・アウトブレイク対応・手指衛生などの教育</text><line x1="170" y1="68" x2="170.0" y2="86.0" stroke="#C9822B" stroke-width="1.6"/><path d="M170 92 L167.0 86.0 L173.0 86.0 Z" fill="#C9822B"/><text class="sm2" x="178" y="84" text-anchor="start" style="font-size:8px;font-weight:400;fill:var(--ink)">抗菌薬の適正使用に特化</text><rect x="10" y="94" width="320" height="58" rx="8" fill="#DDEFE3" stroke="#2E7D4F" stroke-width="1.3"/><text class="sm2" x="170" y="110" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#222">AST（抗菌薬適正使用支援チーム）</text><text class="sm2" x="170" y="126" text-anchor="middle" style="font-size:8.5px;font-weight:400;fill:#222">個々の患者への抗菌薬の最適化</text><text class="sm2" x="170" y="140" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">TDM・デエスカレーション・投与期間の適正化・耐性菌の抑制</text><text class="sm2" x="170" y="170" text-anchor="middle" style="font-size:8px;font-weight:400;fill:var(--ink)">メンバー：医師・看護師・薬剤師・臨床検査技師など</text></svg></section>` },
   { id:'2-3', t:'PUT', wip:true, plan:[], body:()=>'' },
   { id:'2-4', t:'緩和ケア', wip:true, plan:[], body:()=>'' },
   { id:'2-5', t:'NST', wip:true, plan:[], body:()=>'' },
   { id:'2-6', t:'医療用語①', wip:true, plan:[], body:()=>'' },
   { id:'2-7', t:'医療用語②', wip:true, plan:[], body:()=>'' }
+];
+const GX_TM_LESSONS = [
+  { id:'g1', col:true, lid:'2-2', t:'ICT・AST', sub:'チーム医療　2つ', plan:[], body:()=>`<section class="panel"><h3>飛沫感染する感染症</h3><img class="goro-img" src="goro/himatsu.png" alt="飛沫感染する感染症の覚え方。ひまな夫婦は100日家にいる。ひ＝飛沫感染、ま＝マイコプラズマ、夫婦＝風疹、100日＝百日咳、家＝インフルエンザ" loading="lazy"></section><section class="panel"><h3>空気感染する感染症</h3><img class="goro-img" src="goro/kuuki.png" alt="空気感染する感染症の覚え方。結果空気吸います。結＝結核、空気＝空気感染、吸＝水痘、ます＝麻疹" loading="lazy"></section>` }
 ];
 const GX_RAD_LESSONS = [
   { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
@@ -4590,6 +4621,7 @@ const UNITS = {
   pk: { no:'剤2', title:'薬物速度論', subject:'薬剤', course:'pmcy', subj:1, lessons:PK_LESSONS, cards:'pk', drill:'pk' },
   gx_inj: { no:'覚', title:'注射剤・輸液の調剤', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_INJ_LESSONS, cards:'gx_inj', drill:'gx_inj' },
   gx_ae: { no:'覚', title:'副作用', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_AE_LESSONS, cards:'gx_ae', drill:'gx_ae' },
+  gx_tm: { no:'覚', title:'チーム医療', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_TM_LESSONS, cards:'gx_tm', drill:'gx_tm' },
   gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
   gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
   gx_hjp: { no:'覚', title:'日本の現状', subject:'覚え方', course:'goro', subj:4, goro:true, lessons:GX_HJP_LESSONS, cards:'gx_hjp', drill:'gx_hjp' },
@@ -4795,7 +4827,7 @@ const CATALOG = [
       { name:'炎症', k:'炎', units:U() },
       { name:'法規・制度・倫理', k:'法', units:U('法規の数字のゴロ') },
       { name:'薬剤', k:'剤', units:U({ t:'薬物動態', ready:'gx_bp' }) },
-      { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' },{ t:'注射剤・輸液の調剤', ready:'gx_inj' },{ t:'副作用', ready:'gx_ae' }) },
+      { name:'実務', k:'実', units:U({ t:'服薬指導', ready:'gx_pm' },{ t:'注射剤・輸液の調剤', ready:'gx_inj' },{ t:'副作用', ready:'gx_ae' },{ t:'チーム医療', ready:'gx_tm' }) },
       { name:'基準値', k:'基', units:U() },
       { name:'その他', k:'他', units:U() } ] },
     { id:'calc', name:'計算', k:'計', note:'薬学計算', subjects:[
