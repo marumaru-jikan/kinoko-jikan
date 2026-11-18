@@ -3429,7 +3429,8 @@ const AE_LESSONS = [
   { id:'8-3', t:'副作用③', sub:'口腔・電解質異常・代謝異常', plan:['ae3','ae3','ae3','ae3','ae3'], body:()=>`
     <section class="panel"><h3>〇 口腔の副作用</h3>
     <p><b>・顎骨壊死（ARONJ）</b></p>
-    ${ktbl([['初期症状','口中の痛み<br>歯ぐきに白色あるいは灰色の硬いものが出てきた<br>歯がぐらついてきて自然に抜けた<br><span class="small muted">J＝Jaw（顎）</span>'],['起因薬物','ビスホスホネート製剤（<span class="dg">ゾレドロン酸</span>など）、<span class="dg">デノスマブ</span>']])}
+    <p class="small muted">J＝Jaw（顎）</p>
+    ${ktbl([['初期症状','口中の痛み<br>歯ぐきに白色あるいは灰色の硬いものが出てきた<br>歯がぐらついてきて自然に抜けた'],['起因薬物','ビスホスホネート製剤（<span class="dg">ゾレドロン酸</span>など）、<span class="dg">デノスマブ</span>']])}
     <p><b>・歯肉肥厚</b></p>
     ${ktbl([['初期症状','歯ぐきの腫れ'],['起因薬物','<span class="dg">フェニトイン</span>、<span class="dg">ニフェジピン</span>、<span class="dg">シクロスポリン</span>']])}
     <p><b>・味覚障害</b></p>
@@ -3438,13 +3439,16 @@ const AE_LESSONS = [
     <p><b>・低マグネシウム血症</b></p>
     ${ktbl([['起因薬物','<span class="dg">セツキシマブ</span>、<span class="dg">パニツムマブ</span><br><span class="small muted">抗EGFR抗体・Mg再吸収阻害</span>']])}
     <p><b>・高マグネシウム血症</b></p>
-    ${ktbl([['初期症状','悪心・嘔吐<br>徐脈<br>口渇<br>血圧低下'],['起因薬物','<span class="dg">酸化マグネシウム</span>、水酸化マグネシウム']])}
+    <p class="small muted">※ 基準値 1.8〜2.4 mg/dL</p>
+    ${ktbl([['初期症状','悪心・嘔吐<br>徐脈<br>口渇<br>血圧低下'],['起因薬物','<span class="dg">酸化マグネシウム</span>、<span class="dg">水酸化マグネシウム</span>']])}
     <p><b>・高ナトリウム血症</b></p>
-    ${ktbl([['初期症状','口渇<br>昏睡<br><span class="small muted">基準値 135〜147 mEq/L</span>'],['起因薬物','<span class="dg">トルバプタン</span>、生理食塩液']])}
+    <p class="small muted">※ 基準値 135〜147 mEq/L</p>
+    ${ktbl([['初期症状','口渇<br>昏睡'],['起因薬物','<span class="dg">トルバプタン</span>、生理食塩液']])}
     <p><b>・低ナトリウム血症</b></p>
     ${ktbl([['初期症状','疲労感<br>頭痛'],['起因薬物','<span class="dg">デスモプレシン</span>、ACE阻害薬<br><span class="small muted">ARB・ヒドロクロロチアジド</span>']])}
     <p><b>・高カリウム血症</b></p>
-    ${ktbl([['初期症状','筋力低下<br>知覚異常<br>嘔気・嘔吐<br><span class="small muted">基準値 3.5〜5.0 mEq/L</span>'],['起因薬物','カリウム保持性利尿薬、<span class="dg">ナファモスタット</span>、アンギオテンシンⅡ AT<sub>1</sub>受容体遮断薬、ACE阻害薬<br><span class="small muted">シクロスポリン・タクロリムス・サクビトリルバルサルタン</span>']])}
+    <p class="small muted">※ 基準値 3.5〜5.0 mEq/L</p>
+    ${ktbl([['初期症状','筋力低下<br>知覚異常<br>嘔気・嘔吐'],['起因薬物','カリウム保持性利尿薬、<span class="dg">ナファモスタット</span>、アンギオテンシンⅡ AT<sub>1</sub>受容体遮断薬、ACE阻害薬<br><span class="small muted">シクロスポリン・タクロリムス・サクビトリルバルサルタン</span>']])}
     <p><b>・低カリウム血症</b></p>
     ${ktbl([['初期症状','四肢の脱力・筋肉痛<br>動悸<br>血圧上昇'],['起因薬物','ループ利尿薬等、甘草含有漢方薬、グリチルリチン製剤、アミノグリコシド系抗生物質、<span class="dg">シスプラチン</span>、<span class="dg">インスリン</span>、アドレナリンβ<sub>2</sub>受容体刺激薬<br><span class="small muted">アビラテロン</span>']])}</section>
     <section class="panel"><h3>〇 代謝異常の副作用</h3>
@@ -3453,7 +3457,7 @@ const AE_LESSONS = [
     <p><b>・高血糖</b></p>
     ${ktbl([['初期症状','口渇（喉が渇く）<br>多飲<br>多尿<br>体重減少'],['起因薬物','ステロイド、<span class="dg">アリピプラゾール</span>、<span class="dg">オランザピン</span>、<span class="dg">クエチアピン</span>、チアジド系利尿薬、<span class="dg">シクロスポリン</span>、<span class="dg">タクロリムス</span>']])}
     <p><b>・偽アルドステロン症</b></p>
-    ${ktbl([['初期症状','手足のだるさ・しびれ・つっぱり感に加えて力が抜ける感じ<br>こむら返り<br>筋力低下<br>筋肉痛が現れる<br><span class="small muted">ミオパチー（筋肉障害）</span>'],['起因薬物','漢方薬（カンゾウ含有製剤）<br><span class="small muted">低カリウム血症・高血圧</span>']])}
+    ${ktbl([['初期症状','手足のだるさ・しびれ・つっぱり感に加えて力が抜ける感じ<br>こむら返り<br>筋力低下<br>筋肉痛が現れる<br><span class="small muted">ミオパチー（筋肉障害）<br>低カリウム血症・高血圧</span>'],['起因薬物','漢方薬（カンゾウ含有製剤）']])}
     <p><b>・腫瘍崩壊症候群</b></p>
     ${ktbl([['初期症状','尿量減少、浮腫<br><span class="small muted">初期症状の自覚が難しい</span>'],['起因薬物','<span class="dg">レナリドミド</span>、<span class="dg">イマチニブ</span>、<span class="dg">ニロチニブ</span>、<span class="dg">サリドマイド</span>、<span class="dg">リツキシマブ</span>']])}</section>` }
 ];
