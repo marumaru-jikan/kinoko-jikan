@@ -4919,7 +4919,7 @@ const CATALOG = [
       { name:'薬学研究', k:'3', units:U() },
       { name:'コミュニケーション', k:'4', units:U() },
       { name:'自己研鑽', k:'5', units:U() },
-      { name:'薬学関係法規', k:'6', units:U('薬機法','薬剤師法','麻薬・向精神薬','＋α') },
+      { name:'薬学関係法規', k:'6', units:U('薬機法','薬剤師法','麻薬・向精神薬',{ t:'まとめ', ch:'＋α' }) },
       { name:'社会保障制度', k:'7', units:U('医療保険制度') },
       { name:'医療経済学', k:'8', units:U() },
       { name:'地域における薬剤師', k:'9', units:U() } ] },
@@ -5229,10 +5229,10 @@ function vSubject(){
   const c=courseById(S.course), sb=c.subjects[S.subj];
   return `${top(c.name+'　'+sb.name)}<div class="stack"><p class="muted small">準備ができた章から順に公開します。この項目の章をぜんぶ終えると、きのこカードが1まい届きます。</p><div class="list">
   ${sb.units.map((un,i)=>{ const u=un.ready&&UNITS[un.ready];
-    if(u&&u.goro) return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${(n=>n?n+'つの胞子の覚え方':'準備中')(u.lessons.filter(l=>!l.band&&!l.wip).length)}</span></span><span class="chev">›</span></button>`;
+    if(u&&u.goro) return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${un.ch||(i+1)+'章'}</span><span class="body"><b>${un.t}</b><br><span class="small muted">${(n=>n?n+'つの胞子の覚え方':'準備中')(u.lessons.filter(l=>!l.band&&!l.wip).length)}</span></span><span class="chev">›</span></button>`;
     if(u){ const d=doneCount(un.ready), n=QL(un.ready).length;
-      return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
-    return `<button class="item" disabled><span class="lid">${i+1}章</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
+      return `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid">${un.ch||(i+1)+'章'}</span><span class="body"><b>${un.t}</b><br><span class="small muted">${n}つの胞子　1つ約5分</span></span><span class="tag ${d===n?'done':d?'mid':''}">${d}/${n}</span><span class="chev">›</span></button>`; }
+    return `<button class="item" disabled><span class="lid">${un.ch||(i+1)+'章'}</span><span class="body"><b>${un.t}</b><br><span class="small muted">準備中</span></span></button>`; }).join('')}</div></div>`;
 }
 // まだ中身がない胞子（準備中）
 const wipItem = l => `<button class="item" disabled><span class="lid">${l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub?l.sub+'（準備中）':'準備中'}</span></span></button>`;
