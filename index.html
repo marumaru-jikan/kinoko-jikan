@@ -3013,6 +3013,16 @@ Object.assign(POOL, {
     ['IBD','クローン病の非薬物治療で重要なのは？','栄養療法',['白血球除去療法のみ','安静のみ','高脂肪食'],'経腸栄養・中心静脈栄養で腸管の安静'],
     ['IBD','男女比が約2：1なのは？','クローン病',['潰瘍性大腸炎','両方とも1：1','両方とも2：1'],'潰瘍性大腸炎は1：1'],
   ],
+  csf:[
+    ['髄液検査','髄液の採取方法は？','腰椎穿刺',['骨髄穿刺','胸腔穿刺','腹腔穿刺'],'脳脊髄液（CSF）'],
+    ['髄液検査','正常な髄液の外観は？','無色透明',['淡黄色透明','乳白色','淡赤色'],'混濁・血性は異常'],
+    ['髄液検査','髄液の細胞数の基準値は？','5/μL以下（単核球のみ）',['50/μL以下','5/μL以下（多核球のみ）','500/μL以下'],'多核球は正常では認めない'],
+    ['髄液検査','髄液の糖濃度の目安は？','血糖の約2/3',['血糖と同じ','血糖の約1/10','血糖の約2倍'],'45〜80 mg/dL'],
+    ['髄液検査','髄液の総蛋白量の基準値は？','45 mg/dL以下',['4.5 g/dL以下','450 mg/dL以下','7 g/dL以下'],'炎症で上昇'],
+    ['髄液検査','細菌性髄膜炎の髄液所見は？','多核球⬆・糖⬇・蛋白⬆',['単核球⬆・糖正常・蛋白正常','単核球⬆・糖⬆・蛋白⬇','多核球⬇・糖⬆・蛋白⬇'],'ウイルス性は単核球⬆・糖正常'],
+    ['髄液検査','髄圧の基準値は？','60〜180 mmH₂O',['6〜18 mmH₂O','600〜1800 mmH₂O','60〜180 mmHg'],'頭蓋内圧亢進時は腰椎穿刺禁忌'],
+    ['髄液検査','IgGインデックスの上昇が示すのは？','中枢神経内でのIgG産生',['血液脳関門の障害のみ','血清IgGの低下','髄液の糖の低下'],'多発性硬化症など'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4260,6 +4270,19 @@ const IBD_LESSONS = [
     <svg class="fig" viewBox="0 0 340 110" role="img" aria-label="病変の深さ。腸管壁は粘膜、粘膜下層、固有筋層、漿膜。クローン病は全層性、潰瘍性大腸炎は粘膜から粘膜下層まで"><rect x="70" y="10" width="170" height="18" fill="#F6D5DA" stroke="#999" stroke-width=".6"/><text x="64" y="22" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">粘膜</text><rect x="70" y="28" width="170" height="18" fill="#F9E5D0" stroke="#999" stroke-width=".6"/><text x="64" y="40" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">粘膜下層</text><rect x="70" y="46" width="170" height="18" fill="#F3C8A8" stroke="#999" stroke-width=".6"/><text x="64" y="58" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">固有筋層</text><rect x="70" y="64" width="170" height="18" fill="#EAD9F0" stroke="#999" stroke-width=".6"/><text x="64" y="76" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">漿膜</text><path d="M262 10 V82" stroke="#7D3C98" stroke-width="7"/><text x="262" y="94" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#7D3C98">クローン病</text><text x="262" y="104" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#444">全層性</text><path d="M310 10 V46" stroke="#2E86C1" stroke-width="7"/><text x="310" y="94" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#2E86C1">潰瘍性大腸炎</text><text x="310" y="104" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#444">粘膜〜粘膜下層</text><text x="250" y="22" text-anchor="start" style="font-size:7px;font-weight:400;fill:#666">浅</text><text x="250" y="78" text-anchor="start" style="font-size:7px;font-weight:400;fill:#666">深</text></svg>
     <p class="small muted">クローン病：縦走潰瘍・敷石像 → 瘻孔・狭窄</p></section>` }
 ];
+const LCSF_LESSONS = [
+  { id:'6-1', t:'髄液検査', sub:'腰椎穿刺・髄液の基準値', plan:['csf','csf','csf','csf','csf'], body:()=>`
+    <section class="panel"><h3>〇 髄液検査</h3>
+    <p><b>腰椎穿刺</b>で脳脊髄液（CSF）を採取して調べる。</p>
+    <p>髄膜炎・脳炎・くも膜下出血・多発性硬化症などの診断</p>
+    <p class="small muted">頭蓋内圧亢進時は禁忌（脳ヘルニアの危険）</p>
+    ${tbl(['','細胞','糖','蛋白'],[['細菌性髄膜炎','<b>多核球</b>⬆','<b>⬇</b>','⬆'],['ウイルス性髄膜炎','<b>単核球</b>⬆','→','→〜⬆'],['結核性・真菌性髄膜炎','単核球⬆','⬇','⬆']])}</section>
+    <section class="panel"><h3>〇 基準値</h3>
+    ${ktbl([['外観','<b>無色透明</b>'],['髄圧','60〜180 mmH<sub>2</sub>O'],['細胞数','<b>5/μL以下</b>（単核球のみ）'],['総蛋白量','<b>45 mg/dL以下</b>'],['糖濃度','45〜80 mg/dL<br>（<b>血糖の2/3</b>が目安）'],['Cl⁻','120〜130 mEq/L'],['IgG','上限値 4.0〜5.0 mg/dL'],['IgGインデックス','上限値 0.6〜0.7'],['アルブミン比','上限値 5〜7（×10⁻³）']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small">IgGインデックス ＝ <span class="frac"><span>CSF-IgG</span><span>血清IgG</span></span> ／ <span class="frac"><span>CSFアルブミン</span><span>血清アルブミン</span></span></p>
+    <p class="small">アルブミン比 ＝ <span class="frac"><span>CSFアルブミン</span><span>血清アルブミン</span></span></p>
+    <p class="small muted">IgGインデックス⬆：中枢神経内でのIgG産生（多発性硬化症など）<br>アルブミン比⬆：血液脳関門の障害</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5407,6 +5430,7 @@ const UNITS = {
   lbnp: { no:'検1-9', title:'心臓マーカー', subject:'検査室', course:'lab', subj:0, lessons:LBNP_LESSONS, cards:'lbnp', drill:'lbnp' },
   lrsp: { no:'検5-1', title:'呼吸機能検査', subject:'検査室', course:'lab', subj:4, lessons:LRSP_LESSONS, cards:'lrsp', drill:'lrsp' },
   ibd: { no:'薬17', title:'炎症性腸疾患', subject:'薬理・病態・薬物治療', course:'pharm', subj:16, lessons:IBD_LESSONS, cards:'ibd', drill:'ibd' },
+  lcsf: { no:'検5-6', title:'髄液検査', subject:'検査室', course:'lab', subj:4, lessons:LCSF_LESSONS, cards:'lcsf', drill:'lcsf' },
   lpro: { no:'検5-5', title:'前立腺の検査', subject:'検査室', course:'lab', subj:4, lessons:LPRO_LESSONS, cards:'lpro', drill:'lpro' },
   lecg: { no:'検3-1', title:'波形の基本', subject:'検査室', course:'lab', subj:2, lessons:LECG_LESSONS, cards:'lecg', drill:'lecg' },
   larr: { no:'検3-2', title:'不整脈', subject:'検査室', course:'lab', subj:2, lessons:LARR_LESSONS, cards:'larr', drill:'larr' },
@@ -5533,7 +5557,7 @@ const CATALOG = [
       { name:'尿検査', k:'尿', units:U('尿定性（たんぱく・糖・潜血）','尿沈渣') },
       { name:'心電図', k:'心', units:U({ t:'波形の基本', ready:'lecg' },{ t:'不整脈', ready:'larr' },{ t:'虚血性心疾患', ready:'lisch' },{ t:'薬と心電図（QT延長など）', ready:'lqt' }) },
       { name:'評価スケール', k:'評', units:U({ t:'認知機能の検査', ready:'cog' },{ t:'身体機能・ADLの評価', ready:'phy' },'意識レベル（JCS・GCS）','栄養・嚥下の評価','こころの評価（うつ・不安）','痛みの評価') },
-      { name:'その他', k:'他', units:U({ t:'呼吸機能検査', ready:'lrsp' },'内視鏡','病理・細胞診','画像検査',{ t:'前立腺の検査', ready:'lpro' },'髄液検査') } ] },
+      { name:'その他', k:'他', units:U({ t:'呼吸機能検査', ready:'lrsp' },'内視鏡','病理・細胞診','画像検査',{ t:'前立腺の検査', ready:'lpro' },{ t:'髄液検査', ready:'lcsf' }) } ] },
     { id:'drawer', name:'医薬品棚', k:'棚', note:'医薬品単語集', subjects:[
       { name:'自律神経系', k:'自', units:U() },
       { name:'体性神経系', k:'体', units:U() },
