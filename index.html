@@ -2885,6 +2885,16 @@ Object.assign(POOL, {
     ['漢方薬の副作用','インターフェロン製剤との併用が禁忌の漢方薬は？','小柴胡湯',['葛根湯','芍薬甘草湯','八味地黄丸'],'間質性肺炎'],
     ['漢方薬の副作用','高齢者で狭心症・心筋梗塞を誘発しうる生薬は？','マオウ',['ダイオウ','サンシシ','ジオウ'],'循環器系の既往歴に注意'],
   ],
+  vent:[
+    ['換気障害','閉塞性換気障害の基準は？','1秒率 ＜ 70%',['%肺活量 ＜ 80%','1秒率 ＜ 80%','%肺活量 ＜ 70%'],'気道閉塞で呼出しづらい'],
+    ['換気障害','拘束性換気障害の基準は？','%肺活量 ＜ 80%',['1秒率 ＜ 70%','%肺活量 ＜ 70%','1秒率 ＜ 80%'],'肺・胸郭が広がりにくく吸入しづらい'],
+    ['換気障害','閉塞性換気障害を示す疾患は？','COPD',['間質性肺炎','肺線維症','肺結核後遺症'],'COPD・気管支喘息'],
+    ['換気障害','拘束性換気障害を示す疾患は？','間質性肺炎',['COPD','気管支喘息','急性気管支炎'],'間質性肺炎・肺線維症・肺結核後遺症・胸郭変形'],
+    ['換気障害','%肺活量80%未満かつ1秒率70%未満は？','混合性換気障害',['閉塞性換気障害','拘束性換気障害','正常'],'COPDは進行で混合性へ'],
+    ['換気障害','1秒率の式は？','1秒量 ÷ 努力肺活量 ×100',['1秒量 ÷ 予測肺活量 ×100','実測肺活量 ÷ 予測肺活量 ×100','努力肺活量 ÷ 1秒量 ×100'],'%肺活量は実測肺活量 ÷ 予測肺活量 ×100'],
+    ['換気障害','予測肺活量が大きくなるのは？','男性・若年者・高身長',['女性・高齢者・低身長','男性・高齢者・低身長','女性・若年者・高身長'],'性別・年齢・身長から算出'],
+    ['換気障害','閉塞性換気障害で障害されるのは？','呼気（呼出）',['吸気のみ','肺・胸郭の広がり','ガス交換のみ'],'肺・胸郭は正常に広がるため吸気はスムーズ'],
+  ],
   lab:[
     ['表示','毒薬の表示は？','黒地に白枠、白字',['白地に赤枠、赤字','赤地に白字','白地に黒枠、黒字'],'品名と「毒」'],
     ['表示','劇薬の表示は？','白地に赤枠、赤字',['黒地に白枠、白字','赤地に白字','白地に黒枠、黒字'],'品名と「劇」'],
@@ -3951,6 +3961,40 @@ const LMT_LESSONS = [
     <section class="panel"><p><b>覚え方</b></p>
     <p>・<b>「薬」は枠あり</b><br>劇薬、毒薬、生物由来製品、特定生物由来製品</p>
     <p>・<b>「毒」系は色地</b><br>毒薬（黒地）、毒物（赤地）</p></section>` }
+];
+const RSM_LESSONS = [
+  { id:'α-1', t:'換気障害', sub:'%肺活量・1秒率・閉塞性・拘束性', plan:['vent','vent','vent','vent','vent'], body:()=>`
+    <section class="panel"><h3>〇 換気障害</h3>
+    <p>%肺活量（%VC）と1秒率（FEV<sub>1.0</sub>%）から分類。</p>
+    <svg class="fig" viewBox="0 0 340 236" role="img" aria-label="換気障害の分類。横軸は%肺活量、縦軸は1秒率。%肺活量80%以上かつ1秒率70%以上が正常、%肺活量80%未満かつ1秒率70%以上が拘束性換気障害、%肺活量80%以上かつ1秒率70%未満が閉塞性換気障害、両方低下が混合性換気障害。COPDは進行すると閉塞性から混合性へ"><rect x="70" y="16" width="192" height="54" fill="#F9D3B4"/><rect x="262" y="16" width="48" height="54" fill="#CFEFF5"/><rect x="70" y="70" width="192" height="126" fill="#E2CFF4"/><rect x="262" y="70" width="48" height="126" fill="#D3E8CF"/><rect x="70" y="16" width="240" height="180" fill="none" stroke="#222" stroke-width="1.4"/><line x1="70" y1="70" x2="310" y2="70" stroke="#D9822B" stroke-width="1.3"/><line x1="262" y1="16" x2="262" y2="196" stroke="#C0392B" stroke-width="1.3"/><text x="166" y="38" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">拘束性換気障害</text><text x="166" y="54" text-anchor="middle" style="font-size:7.5px;fill:#444">間質性肺炎・肺線維症など</text><text x="286" y="47" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">正常</text><text x="166" y="124" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">混合性換気障害</text><text x="286" y="98" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">閉塞性</text><text x="286" y="110" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">換気障害</text><text x="286" y="126" text-anchor="middle" style="font-size:7px;fill:#444">COPD</text><text x="286" y="136" text-anchor="middle" style="font-size:7px;fill:#444">気管支喘息</text><defs><marker id="ventar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6C3483"/></marker></defs><path d="M282 182 L218 150" stroke="#6C3483" stroke-width="2.4" fill="none" marker-end="url(#ventar)"/><text x="240" y="178" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#6C3483">進行</text><text x="64" y="20" text-anchor="end" style="font-size:8px;fill:#222">100</text><text x="64" y="73" text-anchor="end" style="font-size:8.5px;font-weight:700;fill:#D9822B">70</text><text x="64" y="199" text-anchor="end" style="font-size:8px;fill:#222">0</text><text x="70" y="208" text-anchor="middle" style="font-size:8px;fill:#222">0</text><text x="262" y="208" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#C0392B">80</text><text x="310" y="208" text-anchor="middle" style="font-size:8px;fill:#222">100</text><text x="190" y="226" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">%肺活量（%VC）</text><text transform="translate(28 106) rotate(-90)" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">1秒率（FEV<tspan style="font-size:6.5px" dy="2">1.0</tspan><tspan dy="-2">%）</tspan></text></svg>
+    ${tbl(['','%VC','FEV<sub>1.0</sub>%'],[['正常','80%以上','70%以上'],['<b>拘束性</b>','<b>80%未満</b>','70%以上'],['<b>閉塞性</b>','80%以上','<b>70%未満</b>'],['<b>混合性</b>','<b>80%未満</b>','<b>70%未満</b>']])}</section>
+    <section class="panel"><p><b>・%肺活量（%VC）</b></p>
+    <p>実測肺活量が予測肺活量の何%か。</p>
+    <p>%VC ＝ <span class="frac"><span>実測肺活量</span><span>予測肺活量</span></span> ×100（%）</p>
+    <p class="small muted">予測肺活量：性別・年齢・身長から算出</p>
+    ${ktbl([['予測肺活量⬆','男性・若年者・高身長'],['予測肺活量⬇','女性・高齢者・低身長']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><p><b>・1秒率（FEV<sub>1.0</sub>%）</b></p>
+    <p>努力肺活量のうち、最初の1秒間に吐き出せる割合。</p>
+    <p>FEV<sub>1.0</sub>% ＝ <span class="frac"><span>1秒量（FEV<sub>1.0</sub>）</span><span>努力肺活量（FVC）</span></span> ×100（%）</p>
+    <p class="small muted">努力肺活量：最大吸気から一気に吐き出した量</p></section>
+    <section class="panel"><p><b>・閉塞性換気障害</b></p>
+    <p><b>FEV<sub>1.0</sub>% ＜ 70%</b></p>
+    <p>気道閉塞<br>→ ゆっくりでないと<b>呼出しづらい</b></p>
+    <p>肺・胸郭は正常に広がる<br>→ 吸気はスムーズ</p>
+    <p>例）<b>COPD</b>・<b>気管支喘息</b></p>
+    <p class="small muted">重症では吸気もしづらい・COPD：肺の過膨張・喘息：吸気時にも気道閉塞</p>
+    <p class="small muted">COPD：初期は1秒率⬇のみ → 進行で残気量⬆・%VC⬇ → 混合性換気障害</p></section>
+    <section class="panel"><p><b>・拘束性換気障害</b></p>
+    <p><b>%VC ＜ 80%</b></p>
+    <p>肺・胸郭が広がりにくい<br>→ <b>吸入しづらい</b></p>
+    <p>気道閉塞なし<br>→ 呼気はスムーズ</p>
+    <p>例）<b>間質性肺炎</b>・<b>肺線維症</b>・肺結核後遺症・胸郭変形</p></section>
+    <section class="panel"><p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/vent_restrict.png" alt="拘束性換気障害の覚え方。後輩先輩、関係ない！後輩＝拘束性換気障害、先輩＝肺線維症、関係＝間質性肺炎" loading="lazy">
+    <img class="goro-img" src="goro/vent_obstruct.png" alt="閉塞性換気障害の覚え方。へい！シオは効かんし！へい＝閉塞性換気障害、シオ＝COPD、効かんし＝気管支喘息" loading="lazy"></section>` }
+];
+const GX_RESP_LESSONS = [
+  { id:'g1', col:true, lid:'α-1', t:'換気障害', sub:'まとめ　2つ', plan:[], body:()=>`<section class="panel"><h3>拘束性換気障害</h3><img class="goro-img" src="goro/vent_restrict.png" alt="拘束性換気障害の覚え方。後輩先輩、関係ない！後輩＝拘束性換気障害、先輩＝肺線維症、関係＝間質性肺炎" loading="lazy"></section><section class="panel"><h3>閉塞性換気障害</h3><img class="goro-img" src="goro/vent_obstruct.png" alt="閉塞性換気障害の覚え方。へい！シオは効かんし！へい＝閉塞性換気障害、シオ＝COPD、効かんし＝気管支喘息" loading="lazy"></section>` }
 ];
 const DEM_LESSONS = [
   { id:'15-1', t:'認知症', wip:true, plan:[], body:()=>'' },
@@ -5220,6 +5264,8 @@ const UNITS = {
   gx_ae: { no:'覚', title:'副作用', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_AE_LESSONS, cards:'gx_ae', drill:'gx_ae' },
   gx_tm: { no:'覚', title:'チーム医療', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_TM_LESSONS, cards:'gx_tm', drill:'gx_tm' },
   gx_pd: { no:'覚', title:'パーキンソン病治療薬', subject:'覚え方', course:'goro', subj:5, goro:true, lessons:GX_PD_LESSONS, cards:'gx_pd', drill:'gx_pd' },
+  rsm:{ no:'薬16', title:'まとめ', subject:'薬理・病態・薬物治療', course:'pharm', subj:15, lessons:RSM_LESSONS, cards:'rsm', drill:'rsm' },
+  gx_resp: { no:'覚', title:'換気障害', subject:'覚え方', course:'goro', subj:8, goro:true, lessons:GX_RESP_LESSONS, cards:'gx_resp', drill:'gx_resp' },
   gx_uro: { no:'覚', title:'頻尿治療薬', subject:'覚え方', course:'goro', subj:10, goro:true, lessons:GX_URO_LESSONS, cards:'gx_uro', drill:'gx_uro' },
   gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
   gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
@@ -5303,7 +5349,7 @@ const CATALOG = [
       { name:'血液・造血系', k:'13', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子','貧血','血栓症・DIC','白血病・リンパ腫') },
       { name:'腎・泌尿器系', k:'14', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' },'腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
       { name:'生殖器系', k:'15', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
-      { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎',{ t:'まとめ', ch:'α' }) },
+      { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎',{ t:'まとめ', ch:'α', ready:'rsm' }) },
       { name:'消化器系', k:'17', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD','炎症性腸疾患','肝炎・肝硬変','膵炎') },
       { name:'代謝系', k:'18', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
       { name:'内分泌系', k:'19', units:U('甲状腺疾患治療薬','副腎皮質ホルモン関連薬','視床下部・下垂体ホルモン関連薬','甲状腺疾患','副腎疾患','下垂体疾患') },
@@ -5398,7 +5444,7 @@ const CATALOG = [
       { name:'神経系', k:'神', units:U('抗精神病薬のゴロ','抗うつ薬のゴロ','抗てんかん薬のゴロ',{ t:'パーキンソン病治療薬', ready:'gx_pd' }) },
       { name:'循環器系', k:'循', units:U({ t:'降圧薬のゴロ', ready:'gr' },{ t:'心不全治療薬', ready:'gx_hf' },{ t:'抗不整脈薬', ready:'gx_aar' }) },
       { name:'消化器系', k:'消', units:U() },
-      { name:'呼吸器系', k:'呼', units:U() },
+      { name:'呼吸器系', k:'呼', units:U({ t:'換気障害', ready:'gx_resp' }) },
       { name:'血液・造血系', k:'血', units:U('抗血栓薬のゴロ') },
       { name:'腎・泌尿器系', k:'腎', units:U({ t:'頻尿治療薬', ready:'gx_uro' }) },
       { name:'生殖器系', k:'殖', units:U() },
