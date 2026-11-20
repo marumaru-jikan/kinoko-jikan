@@ -1267,7 +1267,7 @@ const CNS1_LESSONS = [
   { id:'1-5', t:'麻酔前投薬', wip:true, plan:[], body:()=>'' }
 ];
 const CNS2_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'中枢神経系', u:'不安障害・睡眠障害' }, t:'不眠症・不安症について', sub:'薬理・病態・薬物治療・8 中枢神経系・12 不安障害・睡眠障害', plan:[], body:()=>'' },
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'中枢神経系', u:'不安障害・睡眠障害' }, t:'不眠症・不安症について', sub:'薬理・病態・薬物治療・9 中枢神経系・12 不安障害・睡眠障害', plan:[], body:()=>'' },
   { id:'2-1', t:'催眠薬・抗不安薬の作用機序', wip:true, plan:[], body:()=>'' },
   { id:'2-2', t:'バルビツール酸系催眠薬', wip:true, plan:[], body:()=>'' },
   { id:'2-3', t:'ベンゾジアゼピン系催眠薬', wip:true, plan:[], body:()=>'' },
@@ -1298,7 +1298,7 @@ const GEN2_LESSONS = [
   { id:'2-2', t:'子宮弛緩薬', wip:true, plan:[], body:()=>'' }
 ];
 const GEN3_LESSONS = [
-  { id:'3-0', lid:'3-0', col:true, ref:{ c:'pharm', s:'腎・泌尿器系', u:'前立腺肥大症・過活動膀胱' }, t:'前立腺肥大症について', sub:'薬理・病態・薬物治療・13 腎・泌尿器系・6 前立腺肥大症・過活動膀胱', plan:[], body:()=>'' },
+  { id:'3-0', lid:'3-0', col:true, ref:{ c:'pharm', s:'腎・泌尿器系', u:'前立腺肥大症・過活動膀胱' }, t:'前立腺肥大症について', sub:'薬理・病態・薬物治療・14 腎・泌尿器系・6 前立腺肥大症・過活動膀胱', plan:[], body:()=>'' },
   { id:'3-1', t:'前立腺肥大症治療薬', sub:'抗アンドロゲン薬・5α還元酵素阻害薬', plan:['gen31','gen31','gen31','gen31','gen31'], body:()=>`
     <section class="panel"><h3>〇 抗アンドロゲン薬</h3>
     <p><span class="dg">オキセンドロン</span>、<span class="dg">クロルマジノン</span>、<span class="dg">アリルエストレノール</span>、<span class="dg">ゲストノロン</span></p>
@@ -1314,10 +1314,10 @@ const GEN3_LESSONS = [
     <p class="small muted">経皮吸収されるため、女性や小児はカプセルから漏れた薬剤に触れない・男性型脱毛症（AGA）にも用いる</p></section>
     <section class="panel"><h3>〇 α<sub>1</sub>受容体遮断薬との違い</h3>
     ${tbl(['','α<sub>1</sub>受容体遮断薬','抗アンドロゲン薬<br>5α還元酵素阻害薬'],[['作用','前立腺・膀胱括約筋の平滑筋を<b>弛緩</b>','前立腺を<b>縮小</b>'],['効果','<b>速い</b>','<b>遅い</b>（数か月）']]).replace('class="tbl"','class="tbl fpt3"')}
-    <p class="small muted">α<sub>1</sub>受容体遮断薬：13 腎・泌尿器系 ▶ 2章 排尿困難治療薬 ▶ 2-3</p></section>` }
+    <p class="small muted">α<sub>1</sub>受容体遮断薬：14 腎・泌尿器系 ▶ 2章 排尿困難治療薬 ▶ 2-3</p></section>` }
 ];
 const GEN4_LESSONS = [
-  { id:'4-0', lid:'4-0', col:true, ref:{ c:'pharm', s:'生殖器系', u:'勃起不全' }, t:'勃起不全について', sub:'薬理・病態・薬物治療・14 生殖器系・8 勃起不全', plan:[], body:()=>'' },
+  { id:'4-0', lid:'4-0', col:true, ref:{ c:'pharm', s:'生殖器系', u:'勃起不全' }, t:'勃起不全について', sub:'薬理・病態・薬物治療・15 生殖器系・8 勃起不全', plan:[], body:()=>'' },
   { id:'4-1', t:'勃起不全治療薬', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 理10 腎・泌尿器系に作用する薬 ===== */
@@ -1369,7 +1369,7 @@ const URO2_LESSONS = [
     <p>〈適応〉<b>前立腺肥大症に伴う排尿障害</b></p>
     <p>→ <b>起立性低血圧</b>に注意</p>
     <p class="small muted">ウラピジル：神経因性膀胱に伴う排尿困難にも適応（女性にも使える）</p></section>` },
-  { id:'2-4', lid:'2-4', col:true, ref:{ c:'pharm', s:'生殖器系', u:'前立腺肥大症治療薬' }, t:'前立腺肥大症治療薬', sub:'薬理・病態・薬物治療・14 生殖器系・3 前立腺肥大症治療薬', plan:[], body:()=>'' }
+  { id:'2-4', lid:'2-4', col:true, ref:{ c:'pharm', s:'生殖器系', u:'前立腺肥大症治療薬' }, t:'前立腺肥大症治療薬', sub:'薬理・病態・薬物治療・15 生殖器系・3 前立腺肥大症治療薬', plan:[], body:()=>'' }
 ];
 const URO3_LESSONS = [
   { id:'3-1', t:'ムスカリン受容体遮断薬', sub:'神経因性膀胱・過活動膀胱', plan:['uro31','uro31','uro31','uro31','uro31'], body:()=>`
@@ -1419,12 +1419,12 @@ const EYE1_LESSONS = [
   { id:'1-3', t:'縮瞳薬', wip:true, plan:[], body:()=>'' }
 ];
 const EYE2_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'眼', u:'緑内障' }, t:'緑内障について', sub:'薬理・病態・薬物治療・19 眼・4 緑内障', plan:[], body:()=>'' },
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'眼', u:'緑内障' }, t:'緑内障について', sub:'薬理・病態・薬物治療・20 眼・4 緑内障', plan:[], body:()=>'' },
   { id:'2-1', t:'眼房水排出促進薬', wip:true, plan:[], body:()=>'' },
   { id:'2-2', t:'眼房水産生・供給抑制薬', wip:true, plan:[], body:()=>'' }
 ];
 const EYE3_LESSONS = [
-  { id:'3-0', lid:'3-0', col:true, ref:{ c:'pharm', s:'眼', u:'白内障' }, t:'白内障について', sub:'薬理・病態・薬物治療・19 眼・5 白内障', plan:[], body:()=>'' },
+  { id:'3-0', lid:'3-0', col:true, ref:{ c:'pharm', s:'眼', u:'白内障' }, t:'白内障について', sub:'薬理・病態・薬物治療・20 眼・5 白内障', plan:[], body:()=>'' },
   { id:'3-1', t:'白内障治療薬', wip:true, plan:[], body:()=>'' }
 ];
 /* ===== 理2 安全性 ===== */
@@ -1981,7 +1981,7 @@ const MOA2_LESSONS = [
 ];
 /* ===== 理8-2 抗不整脈薬 ===== */
 const AAR_LESSONS = [
-  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'循環器系', u:'不整脈' }, t:'不整脈について', sub:'薬理・病態・薬物治療・11 循環器系・8 不整脈', plan:[], body:()=>'' },
+  { id:'2-0', lid:'2-0', col:true, ref:{ c:'pharm', s:'循環器系', u:'不整脈' }, t:'不整脈について', sub:'薬理・病態・薬物治療・12 循環器系・8 不整脈', plan:[], body:()=>'' },
   { id:'2-1', t:'頻脈性不整脈治療薬①', sub:'ヴォーン・ウィリアムズ分類・活動電位', plan:['vw','vw','vw','ap','ap'], body:()=>`
     <section class="panel"><h3>〇 ヴォーン・ウィリアムズ分類</h3>
     ${tbl(['クラス','作用','薬物'],[['Ⅰa','Na⁺チャネル遮断<br>活動電位持続時間 延長','<span class="dg">キニジン</span><br><span class="dg">ジソピラミド</span><br><span class="dg">プロカインアミド</span><br><span class="dg">シベンゾリン</span><br><span class="dg">ピルメノール</span>'],['Ⅰb','Na⁺チャネル遮断<br>活動電位持続時間 短縮','<span class="dg">リドカイン</span><br><span class="dg">メキシレチン</span><br><span class="dg">アプリンジン</span>'],['Ⅰc','Na⁺チャネル遮断<br>活動電位持続時間 不変','<span class="dg">プロパフェノン</span><br><span class="dg">ピルシカイニド</span><br><span class="dg">フレカイニド</span>'],['Ⅱ','β受容体遮断','<span class="dg">プロプラノロール</span><br><span class="dg">ナドロール</span>'],['Ⅲ','K⁺チャネル遮断<br>不応期延長','<span class="dg">アミオダロン</span><br><span class="dg">ソタロール</span><br><span class="dg">ニフェカラント</span>'],['Ⅳ','Ca²⁺チャネル遮断','<span class="dg">ベラパミル</span><br><span class="dg">ジルチアゼム</span><br><span class="dg">ベプリジル</span>']])}
@@ -2121,7 +2121,7 @@ const AAR_LESSONS = [
 const ktbl = rows => `<div class="scroll"><table class="tbl ktbl">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table></div>`;
 const kdrug = (n,p) => `<div class="kdrug"><span class="dg">${n}</span>${p?`<span class="kp">${p}</span>`:''}</div>`;
 const HF_LESSONS = [
-  { id:'1-0', lid:'1-0', col:true, ref:{ c:'pharm', s:'循環器系', u:'心不全' }, t:'心不全について', sub:'薬理・病態・薬物治療・11 循環器系・7 心不全', plan:[], body:()=>'' },
+  { id:'1-0', lid:'1-0', col:true, ref:{ c:'pharm', s:'循環器系', u:'心不全' }, t:'心不全について', sub:'薬理・病態・薬物治療・12 循環器系・7 心不全', plan:[], body:()=>'' },
   { id:'1-1', t:'急性心不全治療薬①', sub:'強心薬・強心配糖体', plan:['cgly','cgly','cgly','cgly','cgly'], body:()=>`
     <section class="panel"><h3>〇 強心薬</h3><p>弱った心筋の収縮力を高める。</p></section>
     <section class="panel"><h3>〇 強心配糖体</h3><p>心筋収縮力を直接増強する。</p><p><b>基本構造</b></p><svg class="fig" viewBox="27 24 317 215" role="img" aria-label="強心配糖体の基本構造。ステロイド骨格の17位にラクトン環、3位に糖。ステロイド骨格とラクトン環でアグリコン、糖とアグリコンで配糖体"><polygon class="bd" points="118.0,96.0 138.8,108.0 138.8,132.0 118.0,144.0 97.2,132.0 97.2,108.0"/><polygon class="bd" points="159.6,96.0 180.4,108.0 180.4,132.0 159.6,144.0 138.8,132.0 138.8,108.0"/><polygon class="bd" points="180.4,60.0 201.1,72.0 201.1,96.0 180.4,108.0 159.6,96.0 159.6,72.0"/><polygon class="bd" points="201.1,72.0 224.0,64.6 238.1,84.0 224.0,103.4 201.1,96.0"/><text class="nm" x="118.0" y="108.0" text-anchor="middle">1</text><text class="nm" x="105.0" y="115.5" text-anchor="middle">2</text><text class="nm" x="105.0" y="130.5" text-anchor="middle">3</text><text class="nm" x="118.0" y="138.0" text-anchor="middle">4</text><text class="nm" x="131.0" y="130.5" text-anchor="middle">5</text><text class="nm" x="131.0" y="115.5" text-anchor="middle">10</text><text class="nm" x="159.6" y="138.0" text-anchor="middle">6</text><text class="nm" x="172.6" y="130.5" text-anchor="middle">7</text><text class="nm" x="172.6" y="115.5" text-anchor="middle">8</text><text class="nm" x="159.6" y="108.0" text-anchor="middle">9</text><text class="nm" x="167.4" y="79.5" text-anchor="middle">11</text><text class="nm" x="180.4" y="72.0" text-anchor="middle">12</text><text class="nm" x="193.3" y="79.5" text-anchor="middle">13</text><text class="nm" x="193.3" y="94.5" text-anchor="middle">14</text><text class="nm" x="221.2" y="76.1" text-anchor="middle">17</text><text class="nm" x="229.1" y="87.0" text-anchor="middle">16</text><text class="nm" x="221.2" y="97.9" text-anchor="middle">15</text><line class="bd" x1="138.8" y1="108.0" x2="138.8" y2="94.0"/><text class="at" x="138.8" y="91.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="72.0" x2="201.1" y2="58.0"/><text class="at" x="201.1" y="55.0" text-anchor="middle">CH₃</text><line class="bd" x1="201.1" y1="96.0" x2="201.1" y2="109.0"/><text class="at" x="201.1" y="121.0" text-anchor="middle">OH</text><line class="bd" x1="138.8" y1="132.0" x2="138.8" y2="144.0"/><text class="at" x="138.8" y="155.0" text-anchor="middle">H</text><line class="bd" x1="224.0" y1="64.6" x2="263.1" y2="56.9"/><polygon class="bd" points="263.1,56.9 270.5,34.1 294.5,34.1 301.9,56.9 282.5,71.0"/><line class="bd" x1="266.9" y1="55.6" x2="282.5" y2="66.9"/><line class="bd" x1="301.1" y1="59.2" x2="314.5" y2="63.5"/><line class="bd" x1="302.6" y1="54.6" x2="315.9" y2="59.0"/><circle cx="294.5" cy="34.1" r="6.5" class="bg"/><text class="at" x="294.5" y="38.1" text-anchor="middle">O</text><circle cx="320.0" cy="62.8" r="6.5" class="bg"/><text class="at" x="320.0" y="66.8" text-anchor="middle">O</text><line class="bd" x1="97.2" y1="132.0" x2="86.2" y2="138.0"/><text class="at" x="81.2" y="145.0" text-anchor="middle">O</text><line class="bd" x1="75.2" y1="141.0" x2="65.2" y2="141.0"/><rect class="sg" x="35.2" y="131.0" width="30" height="20" rx="5"/><text class="lb" x="50.2" y="145.5" text-anchor="middle">糖</text><line class="tl" x1="82.7" y1="169.0" x2="82.7" y2="181.0"/><line class="tl" x1="240.6" y1="169.0" x2="240.6" y2="181.0"/><line class="tl" x1="83.7" y1="175.0" x2="119.1" y2="175.0"/><line class="tl" x1="204.1" y1="175.0" x2="239.6" y2="175.0"/><path class="ah" d="M84.2 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M239.1 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="161.6" y="179.0" text-anchor="middle" style="font-size:11px">ステロイド骨格</text><line class="tl" x1="243.6" y1="169.0" x2="243.6" y2="181.0"/><line class="tl" x1="328.0" y1="169.0" x2="328.0" y2="181.0"/><line class="tl" x1="244.6" y1="175.0" x2="254.3" y2="175.0"/><line class="tl" x1="317.3" y1="175.0" x2="327.0" y2="175.0"/><path class="ah" d="M245.1 175.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 175.0 l-6 -3.2 v6.4z"/><text class="lb" x="285.8" y="179.0" text-anchor="middle" style="font-size:11px">ラクトン環</text><line class="tl" x1="35.2" y1="195.0" x2="35.2" y2="207.0"/><line class="tl" x1="79.7" y1="195.0" x2="79.7" y2="207.0"/><line class="tl" x1="36.2" y1="201.0" x2="48.0" y2="201.0"/><line class="tl" x1="67.0" y1="201.0" x2="78.7" y2="201.0"/><path class="ah" d="M36.7 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M78.2 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="57.5" y="205.0" text-anchor="middle" style="font-size:11px">糖</text><line class="tl" x1="82.7" y1="195.0" x2="82.7" y2="207.0"/><line class="tl" x1="328.0" y1="195.0" x2="328.0" y2="207.0"/><line class="tl" x1="83.7" y1="201.0" x2="173.8" y2="201.0"/><line class="tl" x1="236.8" y1="201.0" x2="327.0" y2="201.0"/><path class="ah" d="M84.2 201.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 201.0 l-6 -3.2 v6.4z"/><text class="lb" x="205.3" y="205.0" text-anchor="middle" style="font-size:11px">アグリコン</text><line class="tl" x1="35.2" y1="221.0" x2="35.2" y2="233.0"/><line class="tl" x1="328.0" y1="221.0" x2="328.0" y2="233.0"/><line class="tl" x1="36.2" y1="227.0" x2="161.1" y2="227.0"/><line class="tl" x1="202.1" y1="227.0" x2="327.0" y2="227.0"/><path class="ah" d="M36.7 227.0 l6 -3.2 v6.4z"/><path class="ah" d="M326.5 227.0 l-6 -3.2 v6.4z"/><text class="lb" x="181.6" y="231.0" text-anchor="middle" style="font-size:11px">配糖体</text></svg>
@@ -5166,20 +5166,20 @@ const UNITS = {
   pm3:{ no:'実14', title:'記録', subject:'実務', course:'prac', subj:13, lessons:PM3_LESSONS, cards:'pm3', drill:'pm3' },
   pm4:{ no:'実14', title:'配慮が必要な患者', subject:'実務', course:'prac', subj:13, lessons:PM4_LESSONS, cards:'pm4', drill:'pm4' },
   pm5:{ no:'実14', title:'使い方の指導が必要な剤形', subject:'実務', course:'prac', subj:13, lessons:PM5_LESSONS, cards:'pm5', drill:'pm5' },
-  cns1:{ no:'薬8', title:'全身麻酔薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:CNS1_LESSONS, cards:'cns1', drill:'cns1' },
-  cns2:{ no:'薬8', title:'催眠薬・抗不安薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:CNS2_LESSONS, cards:'cns2', drill:'cns2' },
-  cns3:{ no:'薬8', title:'麻薬性鎮痛薬（オピオイド）', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:CNS3_LESSONS, cards:'cns3', drill:'cns3' },
-  som1:{ no:'薬7', title:'知覚神経に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:6, lessons:SOM1_LESSONS, cards:'som1', drill:'som1' },
-  som2:{ no:'薬7', title:'運動神経・筋に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:6, lessons:SOM2_LESSONS, cards:'som2', drill:'som2' },
-  gen2:{ no:'薬14', title:'子宮に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:GEN2_LESSONS, cards:'gen2', drill:'gen2' },
-  gen3:{ no:'薬14', title:'前立腺肥大症治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:GEN3_LESSONS, cards:'gen3', drill:'gen3' },
-  gen4:{ no:'薬14', title:'勃起不全治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:GEN4_LESSONS, cards:'gen4', drill:'gen4' },
-  uro1:{ no:'薬13', title:'利尿薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:12, lessons:URO1_LESSONS, cards:'uro1', drill:'uro1' },
-  uro2:{ no:'薬13', title:'排尿困難治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:12, lessons:URO2_LESSONS, cards:'uro2', drill:'uro2' },
-  uro3:{ no:'薬13', title:'頻尿治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:12, lessons:URO3_LESSONS, cards:'uro3', drill:'uro3' },
-  eye1:{ no:'薬19', title:'散瞳薬・縮瞳薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:18, lessons:EYE1_LESSONS, cards:'eye1', drill:'eye1' },
-  eye2:{ no:'薬19', title:'緑内障治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:18, lessons:EYE2_LESSONS, cards:'eye2', drill:'eye2' },
-  eye3:{ no:'薬19', title:'白内障治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:18, lessons:EYE3_LESSONS, cards:'eye3', drill:'eye3' },
+  cns1:{ no:'薬9', title:'全身麻酔薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:CNS1_LESSONS, cards:'cns1', drill:'cns1' },
+  cns2:{ no:'薬9', title:'催眠薬・抗不安薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:CNS2_LESSONS, cards:'cns2', drill:'cns2' },
+  cns3:{ no:'薬9', title:'麻薬性鎮痛薬（オピオイド）', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:CNS3_LESSONS, cards:'cns3', drill:'cns3' },
+  som1:{ no:'薬8', title:'知覚神経に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:SOM1_LESSONS, cards:'som1', drill:'som1' },
+  som2:{ no:'薬8', title:'運動神経・筋に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:SOM2_LESSONS, cards:'som2', drill:'som2' },
+  gen2:{ no:'薬15', title:'子宮に作用する薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:14, lessons:GEN2_LESSONS, cards:'gen2', drill:'gen2' },
+  gen3:{ no:'薬15', title:'前立腺肥大症治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:14, lessons:GEN3_LESSONS, cards:'gen3', drill:'gen3' },
+  gen4:{ no:'薬15', title:'勃起不全治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:14, lessons:GEN4_LESSONS, cards:'gen4', drill:'gen4' },
+  uro1:{ no:'薬14', title:'利尿薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:URO1_LESSONS, cards:'uro1', drill:'uro1' },
+  uro2:{ no:'薬14', title:'排尿困難治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:URO2_LESSONS, cards:'uro2', drill:'uro2' },
+  uro3:{ no:'薬14', title:'頻尿治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:13, lessons:URO3_LESSONS, cards:'uro3', drill:'uro3' },
+  eye1:{ no:'薬20', title:'散瞳薬・縮瞳薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:19, lessons:EYE1_LESSONS, cards:'eye1', drill:'eye1' },
+  eye2:{ no:'薬20', title:'緑内障治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:19, lessons:EYE2_LESSONS, cards:'eye2', drill:'eye2' },
+  eye3:{ no:'薬20', title:'白内障治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:19, lessons:EYE3_LESSONS, cards:'eye3', drill:'eye3' },
   saf1:{ no:'薬2', title:'副作用と有害事象', subject:'薬理・病態・薬物治療', course:'pharm', subj:1, lessons:SAF1_LESSONS, cards:'saf1', drill:'saf1' },
   saf4:{ no:'薬2', title:'薬物依存', subject:'薬理・病態・薬物治療', course:'pharm', subj:1, lessons:SAF4_LESSONS, cards:'saf4', drill:'saf4' },
   rad2:{ no:'物6', title:'放射性医薬品', subject:'物理', course:'phys', subj:5, lessons:RAD2_LESSONS, cards:'rad2', drill:'rad2' },
@@ -5196,18 +5196,18 @@ const UNITS = {
   pc5:{ no:'物3', title:'溶液の性質', subject:'物理', course:'phys', subj:2, lessons:PC5_LESSONS, cards:'pc5', drill:'pc5' },
   kmp:{ no:'化9', title:'漢方医学', subject:'化学', course:'chem', subj:8, lessons:KMP_LESSONS, cards:'kmp', drill:'kmp' },
   lmt:{ no:'法6', title:'まとめ', subject:'法規・制度・倫理', course:'law', subj:5, lessons:LMT_LESSONS, cards:'lmt', drill:'lmt' },
-  pd:{ no:'薬8', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
-  dem:{ no:'薬8', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:7, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
+  pd:{ no:'薬9', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
+  dem:{ no:'薬9', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
   ana1:{ no:'物5', title:'分析の基本', subject:'物理', course:'phys', subj:4, lessons:ANA1_LESSONS, cards:'ana1', drill:'ana1' },
   moa1:{ no:'薬1', title:'用量と作用', subject:'薬理・病態・薬物治療', course:'pharm', subj:0, lessons:MOA1_LESSONS, cards:'moa1', drill:'moa1' },
   moa2:{ no:'薬1', title:'受容体と情報伝達', subject:'薬理・病態・薬物治療', course:'pharm', subj:0, lessons:MOA2_LESSONS, cards:'moa2', drill:'moa2' },
-  aar:{ no:'薬11', title:'抗不整脈薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:10, lessons:AAR_LESSONS, cards:'aar', drill:'aar' },
-  onc1:{ no:'薬26', title:'抗悪性腫瘍薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:25, lessons:ONC1_LESSONS, cards:'onc1', drill:'onc1' },
-  onc2:{ no:'薬26', title:'細胞障害性抗悪性腫瘍薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:25, lessons:ONC2_LESSONS, cards:'onc2', drill:'onc2' },
-  onc3:{ no:'薬26', title:'分子標的薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:25, lessons:ONC3_LESSONS, cards:'onc3', drill:'onc3' },
-  onc5:{ no:'薬26', title:'抗腫瘍ホルモン関連薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:25, lessons:ONC5_LESSONS, cards:'onc5', drill:'onc5' },
-  hf:{ no:'薬11', title:'心不全治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:10, lessons:HF_LESSONS, cards:'hf', drill:'hf' },
-  ans:{ no:'薬6', title:'自律神経系の薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:5, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
+  aar:{ no:'薬12', title:'抗不整脈薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:11, lessons:AAR_LESSONS, cards:'aar', drill:'aar' },
+  onc1:{ no:'薬27', title:'抗悪性腫瘍薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:26, lessons:ONC1_LESSONS, cards:'onc1', drill:'onc1' },
+  onc2:{ no:'薬27', title:'細胞障害性抗悪性腫瘍薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:26, lessons:ONC2_LESSONS, cards:'onc2', drill:'onc2' },
+  onc3:{ no:'薬27', title:'分子標的薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:26, lessons:ONC3_LESSONS, cards:'onc3', drill:'onc3' },
+  onc5:{ no:'薬27', title:'抗腫瘍ホルモン関連薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:26, lessons:ONC5_LESSONS, cards:'onc5', drill:'onc5' },
+  hf:{ no:'薬12', title:'心不全治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:11, lessons:HF_LESSONS, cards:'hf', drill:'hf' },
+  ans:{ no:'薬7', title:'自律神経系の薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:6, lessons:ANS_LESSONS, cards:'ans', drill:'ans' },
   fp: { no:'衛4', title:'食中毒と食品汚染', subject:'衛生', course:'hyg', subj:3, lessons:FP_LESSONS, cards:'fp', drill:'fp' },
   bm1: { no:'剤1', title:'生体膜通過', subject:'薬剤', course:'pmcy', subj:0, lessons:BM1_LESSONS, cards:'bm1', drill:'bm1' },
   pkd: { no:'剤1', title:'薬物動態', subject:'薬剤', course:'pmcy', subj:0, lessons:PKD_LESSONS, cards:'pkd', drill:'pkd' },
@@ -5291,29 +5291,33 @@ const CATALOG = [
       { name:'作用機序', k:'1', band:'薬理学', units:U({ t:'用量と作用', ready:'moa1' },{ t:'受容体と情報伝達', ready:'moa2' }) },
       { name:'安全性', k:'2', units:U({ t:'副作用と有害事象', ready:'saf1' },'薬物相互作用','中毒と解毒',{ t:'薬物依存', ready:'saf4' },'妊婦・授乳婦・小児・高齢者への投与') },
       { name:'薬物治療の位置づけ', k:'3', band:'薬物治療', units:U('薬物治療と非薬物治療','診療ガイドライン') },
-      { name:'医薬品情報', k:'4', units:U('医薬品情報源','EBMと臨床研究','生物統計') },
-      { name:'個別化医療', k:'5', units:U('遺伝的素因（薬物代謝酵素の遺伝子多型）','年齢（小児・高齢者）','妊婦・授乳婦','腎疾患・肝疾患がある患者','TDM') },
-      { name:'自律神経系', k:'6', band:'薬理・病態・薬物治療', units:U({ t:'自律神経系の薬', ready:'ans' }) },
-      { name:'体性神経系・筋', k:'7', units:U({ t:'知覚神経に作用する薬', ready:'som1' },{ t:'運動神経・筋に作用する薬', ready:'som2' },'重症筋無力症','筋ジストロフィー・ALS') },
-      { name:'中枢神経系', k:'8', units:U({ t:'全身麻酔薬', ready:'cns1' },{ t:'催眠薬・抗不安薬', ready:'cns2' },{ t:'麻薬性鎮痛薬（オピオイド）', ready:'cns3' },'抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬',{ t:'パーキンソン病治療薬', ready:'pd' },'認知症治療薬','片頭痛治療薬','統合失調症','うつ病・双極性障害','不安障害・睡眠障害','てんかん','パーキンソン病',{ t:'認知症', ready:'dem' },'脳血管疾患','片頭痛') },
-      { name:'炎症・免疫・アレルギー', k:'9', units:U('ステロイド性抗炎症薬','非ステロイド性抗炎症薬（NSAIDs）','抗アレルギー薬','アレルギー疾患','関節リウマチ','全身性エリテマトーデス','臓器移植と免疫抑制') },
-      { name:'骨・関節', k:'10', units:U('骨粗鬆症治療薬','関節リウマチ治療薬','痛風・高尿酸血症治療薬') },
-      { name:'循環器系', k:'11', units:U({ t:'心不全治療薬', ready:'hf' },{ t:'抗不整脈薬', ready:'aar' },'狭心症治療薬','降圧薬','肺動脈性肺高血圧症治療薬','昇圧薬','心不全','不整脈','高血圧症','虚血性心疾患') },
-      { name:'血液・造血系', k:'12', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子','貧血','血栓症・DIC','白血病・リンパ腫') },
-      { name:'腎・泌尿器系', k:'13', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' },'腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
-      { name:'生殖器系', k:'14', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
-      { name:'呼吸器系', k:'15', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎') },
-      { name:'消化器系', k:'16', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD','炎症性腸疾患','肝炎・肝硬変','膵炎') },
-      { name:'代謝系', k:'17', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
-      { name:'内分泌系', k:'18', units:U('甲状腺疾患治療薬','副腎皮質ホルモン関連薬','視床下部・下垂体ホルモン関連薬','甲状腺疾患','副腎疾患','下垂体疾患') },
-      { name:'眼', k:'19', units:U({ t:'散瞳薬・縮瞳薬', ready:'eye1' },{ t:'緑内障治療薬', ready:'eye2' },{ t:'白内障治療薬', ready:'eye3' },'緑内障','白内障','網膜疾患') },
-      { name:'耳鼻咽喉科', k:'20', units:U('めまい治療薬','アレルギー性鼻炎の薬','めまい（メニエール病など）','アレルギー性鼻炎','中耳炎') },
-      { name:'皮膚', k:'21', units:U('外用剤の基本','皮膚疾患治療薬','アトピー性皮膚炎','乾癬','薬疹','褥瘡') },
-      { name:'細菌感染症', k:'22', units:U('細胞壁合成阻害薬','タンパク質合成阻害薬','核酸合成阻害薬・葉酸代謝阻害薬','抗結核薬','抗菌薬の使い方','呼吸器感染症','尿路感染症','結核','薬剤耐性菌') },
-      { name:'ウイルス感染症', k:'23', units:U('抗インフルエンザ薬','抗ヘルペス薬','抗HIV薬','抗肝炎ウイルス薬','インフルエンザ','ヘルペスウイルス感染症','HIV感染症','ウイルス性肝炎') },
-      { name:'真菌感染症', k:'24', units:U('抗真菌薬') },
-      { name:'原虫・寄生虫感染症', k:'25', units:U('抗マラリア薬','抗原虫薬','駆虫薬','マラリア','原虫感染症','寄生虫症') },
-      { name:'悪性腫瘍', k:'26', units:U({ t:'抗悪性腫瘍薬', ready:'onc1' },{ t:'細胞障害性抗悪性腫瘍薬', ready:'onc2' },{ t:'分子標的薬', ready:'onc3' },'免疫チェックポイント阻害薬',{ t:'抗腫瘍ホルモン関連薬', ready:'onc5' },'がん化学療法の基本','肺がん','胃がん・大腸がん','乳がん','血液がん','緩和ケア') } ] },
+      { name:'症候・病態・臨床検査', k:'4', units:U('おもな症候','臨床検査値の読み方') },
+      { name:'医薬品情報', k:'5', units:U('医薬品情報源','EBMと臨床研究','生物統計') },
+      { name:'個別化医療', k:'6', units:U('遺伝的素因（薬物代謝酵素の遺伝子多型）','年齢（小児・高齢者）','妊婦・授乳婦','腎疾患・肝疾患がある患者','TDM') },
+      { name:'自律神経系', k:'7', band:'薬理・病態・薬物治療', units:U({ t:'自律神経系の薬', ready:'ans' }) },
+      { name:'体性神経系・筋', k:'8', units:U({ t:'知覚神経に作用する薬', ready:'som1' },{ t:'運動神経・筋に作用する薬', ready:'som2' },'重症筋無力症','筋ジストロフィー・ALS') },
+      { name:'中枢神経系', k:'9', units:U({ t:'全身麻酔薬', ready:'cns1' },{ t:'催眠薬・抗不安薬', ready:'cns2' },{ t:'麻薬性鎮痛薬（オピオイド）', ready:'cns3' },'抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬',{ t:'パーキンソン病治療薬', ready:'pd' },'認知症治療薬','片頭痛治療薬','統合失調症','うつ病・双極性障害','不安障害・睡眠障害','てんかん','パーキンソン病',{ t:'認知症', ready:'dem' },'脳血管疾患','片頭痛') },
+      { name:'炎症・免疫・アレルギー', k:'10', units:U('ステロイド性抗炎症薬','非ステロイド性抗炎症薬（NSAIDs）','抗アレルギー薬','アレルギー疾患','関節リウマチ','全身性エリテマトーデス','臓器移植と免疫抑制') },
+      { name:'骨・関節', k:'11', units:U('骨粗鬆症治療薬','関節リウマチ治療薬','痛風・高尿酸血症治療薬') },
+      { name:'循環器系', k:'12', units:U({ t:'心不全治療薬', ready:'hf' },{ t:'抗不整脈薬', ready:'aar' },'狭心症治療薬','降圧薬','肺動脈性肺高血圧症治療薬','昇圧薬','心不全','不整脈','高血圧症','虚血性心疾患') },
+      { name:'血液・造血系', k:'13', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子','貧血','血栓症・DIC','白血病・リンパ腫') },
+      { name:'腎・泌尿器系', k:'14', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' },'腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
+      { name:'生殖器系', k:'15', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
+      { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎') },
+      { name:'消化器系', k:'17', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD','炎症性腸疾患','肝炎・肝硬変','膵炎') },
+      { name:'代謝系', k:'18', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
+      { name:'内分泌系', k:'19', units:U('甲状腺疾患治療薬','副腎皮質ホルモン関連薬','視床下部・下垂体ホルモン関連薬','甲状腺疾患','副腎疾患','下垂体疾患') },
+      { name:'眼', k:'20', units:U({ t:'散瞳薬・縮瞳薬', ready:'eye1' },{ t:'緑内障治療薬', ready:'eye2' },{ t:'白内障治療薬', ready:'eye3' },'緑内障','白内障','網膜疾患') },
+      { name:'耳鼻咽喉科', k:'21', units:U('めまい治療薬','アレルギー性鼻炎の薬','めまい（メニエール病など）','アレルギー性鼻炎','中耳炎') },
+      { name:'皮膚', k:'22', units:U('外用剤の基本','皮膚疾患治療薬','アトピー性皮膚炎','乾癬','薬疹','褥瘡') },
+      { name:'細菌感染症', k:'23', units:U('細胞壁合成阻害薬','タンパク質合成阻害薬','核酸合成阻害薬・葉酸代謝阻害薬','抗結核薬','抗菌薬の使い方','呼吸器感染症','尿路感染症','結核','薬剤耐性菌') },
+      { name:'ウイルス感染症', k:'24', units:U('抗インフルエンザ薬','抗ヘルペス薬','抗HIV薬','抗肝炎ウイルス薬','インフルエンザ','ヘルペスウイルス感染症','HIV感染症','ウイルス性肝炎') },
+      { name:'真菌感染症', k:'25', units:U('抗真菌薬') },
+      { name:'原虫・寄生虫感染症', k:'26', units:U('抗マラリア薬','抗原虫薬','駆虫薬','マラリア','原虫感染症','寄生虫症') },
+      { name:'悪性腫瘍', k:'27', units:U({ t:'抗悪性腫瘍薬', ready:'onc1' },{ t:'細胞障害性抗悪性腫瘍薬', ready:'onc2' },{ t:'分子標的薬', ready:'onc3' },'免疫チェックポイント阻害薬',{ t:'抗腫瘍ホルモン関連薬', ready:'onc5' },'がん化学療法の基本','肺がん','胃がん・大腸がん','乳がん','血液がん','緩和ケア') },
+      { name:'漢方薬', k:'28', units:U('漢方の考え方（証・気血水）','おもな漢方処方','漢方薬の副作用') },
+      { name:'バイオ・細胞医薬品', k:'29', units:U('バイオ医薬品・抗体医薬','細胞医薬品・遺伝子治療','ゲノム情報と薬物治療') } ] },
+
 
 
     { id:'pmcy', name:'薬剤', k:'剤', note:'薬物動態・製剤', subjects:[
