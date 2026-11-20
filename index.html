@@ -3023,6 +3023,15 @@ Object.assign(POOL, {
     ['髄液検査','髄圧の基準値は？','60〜180 mmH₂O',['6〜18 mmH₂O','600〜1800 mmH₂O','60〜180 mmHg'],'頭蓋内圧亢進時は腰椎穿刺禁忌'],
     ['髄液検査','IgGインデックスの上昇が示すのは？','中枢神経内でのIgG産生',['血液脳関門の障害のみ','血清IgGの低下','髄液の糖の低下'],'多発性硬化症など'],
   ],
+  pneu:[
+    ['肺炎','市中肺炎の原因菌で最も多いのは？','肺炎球菌',['緑膿菌','MRSA','肺炎桿菌'],'次いでインフルエンザ菌・マイコプラズマ'],
+    ['肺炎','院内肺炎の原因菌として重要なのは？','緑膿菌',['肺炎マイコプラズマ','肺炎クラミジア','インフルエンザ菌'],'MRSAも重要'],
+    ['肺炎','院内肺炎の定義は？','入院48時間以降に発症した肺炎',['入院24時間以内に発症した肺炎','病院外で発症した肺炎','退院後に発症した肺炎'],'市中肺炎は病院外で発症'],
+    ['肺炎','β-ラクタム系抗菌薬が無効な市中肺炎の原因菌は？','肺炎マイコプラズマ',['肺炎球菌','インフルエンザ菌','モラクセラ・カタラーリス'],'細胞壁をもたない'],
+    ['肺炎','マイコプラズマ肺炎に用いるのは？','マクロライド系抗菌薬',['セフェム系抗菌薬','ペニシリン系抗菌薬','カルバペネム系抗菌薬'],'テトラサイクリン系・ニューキノロン系も'],
+    ['肺炎','院内肺炎でMRSAを疑うときに追加するのは？','バンコマイシン',['アモキシシリン','クラリスロマイシン','セファゾリン'],'抗MRSA薬'],
+    ['肺炎','市中肺炎の原因菌でないのは？','MRSA',['肺炎球菌','インフルエンザ菌','肺炎マイコプラズマ'],'MRSAは院内肺炎'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4283,6 +4292,20 @@ const LCSF_LESSONS = [
     <p class="small">アルブミン比 ＝ <span class="frac"><span>CSFアルブミン</span><span>血清アルブミン</span></span></p>
     <p class="small muted">IgGインデックス⬆：中枢神経内でのIgG産生（多発性硬化症など）<br>アルブミン比⬆：血液脳関門の障害</p></section>` }
 ];
+const INFA_LESSONS = [
+  { id:'α-1', t:'市中肺炎と院内肺炎', sub:'定義・原因菌・治療', plan:['pneu','pneu','pneu','pneu','pneu'], body:()=>`
+    <section class="panel"><h3>〇 市中肺炎</h3>
+    <p>病院外の日常生活の中で発症した肺炎。</p>
+    <p><b>・主な原因菌</b><br><b>肺炎球菌</b>（最多）<br><b>インフルエンザ菌</b><br><b>肺炎マイコプラズマ</b><br>肺炎クラミジア・レジオネラ</p>
+    <p class="small muted">マイコプラズマ・クラミジア・レジオネラ：非定型肺炎<br>→ β-ラクタム系無効（マイコプラズマ・クラミジアは細胞壁なし）<br>→ マクロライド系・テトラサイクリン系・ニューキノロン系</p></section>
+    <section class="panel"><h3>〇 院内肺炎</h3>
+    <p>入院<b>48時間以降</b>に新たに発症した肺炎。</p>
+    <p><b>・主な原因菌</b><br><b>緑膿菌</b><br><b>MRSA</b><br>肺炎桿菌などの腸内細菌目細菌</p>
+    <p>高齢・基礎疾患・耐性菌<br>→ 重症化しやすい<br>→ 抗緑膿菌作用のある<b>広域</b>抗菌薬で経験的治療</p>
+    <p class="small muted">MRSAを疑う → <span class="dg">バンコマイシン</span>などの抗MRSA薬を追加</p></section>
+    <section class="panel"><h3>〇 比較</h3>
+    ${tbl(['','院内肺炎','市中肺炎'],[['発症','入院48時間以降','病院外'],['主な原因菌','<b>緑膿菌</b><br><b>MRSA</b>','<b>肺炎球菌</b><br><b>インフルエンザ菌</b><br><b>肺炎マイコプラズマ</b>'],['患者','高齢・基礎疾患あり<br>重症化しやすい','比較的若年・健常者も'],['耐性菌','多い','少ない']])}</section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5340,6 +5363,7 @@ const UNITS = {
   inj4:{ no:'実9', title:'その他', subject:'実務', course:'prac', subj:8, lessons:INJ4_LESSONS, cards:'inj4', drill:'inj4' },
   ae1:{ no:'実7', title:'副作用', subject:'実務', course:'prac', subj:6, lessons:AE_LESSONS, cards:'ae1', drill:'ae1' },
   inf1:{ no:'実17', title:'感染症', subject:'実務', course:'prac', subj:16, lessons:INF1_LESSONS, cards:'inf1', drill:'inf1' },
+  infa:{ no:'実17', title:'まとめ', subject:'実務', course:'prac', subj:16, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
   inf2:{ no:'実17', title:'感染症治療薬', subject:'実務', course:'prac', subj:16, lessons:INF2_LESSONS, cards:'inf2', drill:'inf2' },
   tm1:{ no:'実1', title:'薬剤師の倫理と役割', subject:'実務', course:'prac', subj:0, lessons:TM1_LESSONS, cards:'tm1', drill:'tm1' },
   tm2:{ no:'実1', title:'チーム医療', subject:'実務', course:'prac', subj:0, lessons:TM2_LESSONS, cards:'tm2', drill:'tm2' },
@@ -5541,7 +5565,7 @@ const CATALOG = [
       { name:'服薬指導', k:'14', units:U({ t:'服薬指導', ready:'pm1' },{ t:'生活指導', ready:'pm2' },{ t:'記録', ready:'pm3' },{ t:'配慮が必要な患者', ready:'pm4' },{ t:'使い方の指導が必要な剤形', ready:'pm5' }) },
       { name:'地域', k:'15', units:U() },
       { name:'薬学的管理【がん】', k:'16', units:U() },
-      { name:'薬学的管理【感染症】', k:'17', units:U({ t:'感染症', ready:'inf1' },{ t:'感染症治療薬', ready:'inf2' }) } ] },
+      { name:'薬学的管理【感染症】', k:'17', units:U({ t:'感染症', ready:'inf1' },{ t:'感染症治療薬', ready:'inf2' },{ t:'まとめ', ch:'α', ready:'infa' }) } ] },
     { id:'hissu', name:'必須問題', k:'必', note:'国試の必須問題レベルの一問一答', subjects:[
       { name:'物理', k:'物', units:U({ t:'物理・分析', ready:'nx_phy' }) },
       { name:'化学', k:'化', units:U() },
