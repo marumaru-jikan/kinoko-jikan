@@ -2979,6 +2979,28 @@ Object.assign(POOL, {
     ['BNP','サクビトリルバルサルタン服用中の心不全の評価に用いるのは？','NT-proBNP',['BNP','ANP','CK-MB'],'BNPは分解⬇で高く出る'],
     ['BNP','BNPが低めに出やすいのは？','肥満',['腎不全','心房細動','高齢'],'腎不全・高齢では高くなる'],
   ],
+  rspg:[
+    ['ガス交換','PaO₂の基準値は？','80〜100 Torr',['35〜45 Torr','95〜100 Torr','60〜80 Torr'],'年齢で低下'],
+    ['ガス交換','PaCO₂の基準値は？','35〜45 Torr',['80〜100 Torr','20〜30 Torr','50〜60 Torr'],'換気の指標'],
+    ['ガス交換','SpO₂の基準値は？','95〜100%',['80〜100%','90〜95%','85〜90%'],'パルスオキシメータで測定'],
+    ['ガス交換','SpO₂ 90%に対応するPaO₂は？','約60 Torr',['約40 Torr','約80 Torr','約100 Torr'],'呼吸不全の目安'],
+    ['ガス交換','PaCO₂が上昇すると？','呼吸性アシドーシス',['呼吸性アルカローシス','代謝性アシドーシス','代謝性アルカローシス'],'肺胞低換気'],
+    ['ガス交換','過換気で起こるのは？','PaCO₂⬇・呼吸性アルカローシス',['PaCO₂⬆・呼吸性アシドーシス','PaO₂⬇・呼吸性アシドーシス','PaCO₂⬆・代謝性アルカローシス'],'CO₂の排出⬆'],
+    ['ガス交換','パルスオキシメータの原理は？','酸化Hbと還元Hbの光の透過性の違い',['動脈血を採取して直接測定','CO₂の赤外線吸収','電極による酸素の還元電流'],'SpO₂を経皮的に測定'],
+    ['ガス交換','パルスオキシメータで誤差が生じるのは？','マニキュア',['発熱','食後','高血圧'],'貧血・多血症・一酸化炭素中毒・血流低下も'],
+  ],
+  rspi:[
+    ['スパイロメトリー','スパイロメトリーで測定できないのは？','残気量',['肺活量','1回換気量','予備吸気量'],'残気量を含むFRC・TLCも測定不可'],
+    ['スパイロメトリー','肺活量（VC）は？','IRV＋TV＋ERV',['IRV＋TV','ERV＋RV','VC＋RV'],'IRV＋TV＝IC・ERV＋RV＝FRC'],
+    ['スパイロメトリー','機能的残気量（FRC）は？','ERV＋RV',['IRV＋TV','IRV＋TV＋ERV','TV＋ERV'],'安静呼気位で肺に残る量'],
+    ['スパイロメトリー','最大吸気量（IC）は？','IRV＋TV',['ERV＋RV','TV＋ERV','IRV＋TV＋ERV'],'安静呼気位から最大吸気位まで'],
+    ['フローボリューム曲線','V̇₂₅の低下が反映するのは？','末梢気道の閉塞性変化',['中枢気道の閉塞性変化','肺活量の増加','拘束性換気障害の改善'],'努力肺活量の75%を呼出した瞬間'],
+    ['フローボリューム曲線','V̇₅₀は努力肺活量の何%を呼出した瞬間？','50%',['25%','75%','100%'],'V̇₂₅は75%呼出時'],
+    ['フローボリューム曲線','早期の閉塞性換気障害の発見に役立つのは？','V̇₅₀・V̇₂₅の低下',['1秒率の上昇','%肺活量の上昇','ピークフローの上昇'],'1秒率の低下より鋭敏'],
+    ['ピークフローメータ','ピークフロー値とよく相関するのは？','1秒量',['残気量','%肺活量','PaO₂'],'喘息の自己管理の指標'],
+    ['ピークフローメータ','ピークフローメータの記録方法は？','3回測定し最も高い値',['1回測定した値','3回測定した平均値','3回測定し最も低い値'],'1日2回（朝・就寝前）'],
+    ['ピークフローメータ','PEFの日内変動が大きいことが示すのは？','気道過敏性の亢進',['拘束性換気障害','肺活量の増加','気道過敏性の低下'],'朝と夜の測定で評価'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4166,6 +4188,51 @@ const LBNP_LESSONS = [
     <p><span class="dg">サクビトリルバルサルタン</span><br>→ ネプリライシン阻害でBNPの分解⬇<br>→ <b>BNP⬆</b>（心不全が悪くなったわけではない）<br>→ 効果の評価は<b>NT-proBNP</b>で行う。</p>
     <p class="small muted">NT-proBNPはネプリライシンで分解されない</p></section>` }
 ];
+const LRSP_LESSONS = [
+  { id:'1-1', t:'ガス交換', sub:'PaO₂・PaCO₂・SpO₂', plan:['rspg','rspg','rspg','rspg','rspg'], body:()=>`
+    <section class="panel"><p>呼吸機能（ガス交換）の指標。</p>
+    ${ktbl([['動脈血液ガス分析','動脈血を採取し、PaO<sub>2</sub>・PaCO<sub>2</sub>を<b>直接測定</b>'],['パルスオキシメータ','指先の光の透過で<b>SpO<sub>2</sub></b>を測定']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">血液ガス分析では pH・HCO₃⁻・ブドウ糖・Hbなども同時に測定可能</p></section>
+    <section class="panel"><h3>〇 PaO<sub>2</sub></h3>
+    <p>動脈血酸素分圧。<br>動脈血中に溶け込んだO<sub>2</sub>の圧。</p>
+    <p>基準値：<b>80〜100 Torr</b></p>
+    <p class="small muted">年齢で⬇・60 Torr以下 → 呼吸不全</p></section>
+    <section class="panel"><h3>〇 PaCO<sub>2</sub></h3>
+    <p>動脈血二酸化炭素分圧。<br>換気の指標。</p>
+    <p>基準値：<b>35〜45 Torr</b></p>
+    ${ktbl([['PaCO<sub>2</sub>⬆','換気⬇（肺胞低換気）<br>→ 呼吸性アシドーシス'],['PaCO<sub>2</sub>⬇','換気⬆（過換気）<br>→ 呼吸性アルカローシス']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>※ SpO<sub>2</sub></h3>
+    <p>経皮的動脈血酸素飽和度。<br><b>パルスオキシメータ</b>で測定。</p>
+    <p>酸化Hbと還元Hbの光の透過性の違い<br>→ 存在比から酸素飽和度を算出</p>
+    <p>基準値：<b>95〜100%</b></p>
+    <svg class="fig" viewBox="0 0 340 204" role="img" aria-label="酸素解離曲線。横軸PaO2、縦軸SaO2・SpO2のS字曲線。SpO2 90%はPaO2 60 Torrに対応し呼吸不全の目安。SpO2基準値は95〜100%"><rect x="50.0" y="20.0" width="260.0" height="7.5" fill="#D6F0F5"/><text x="54.0" y="26.2" text-anchor="start" style="font-size:6.5px;font-weight:400;fill:#2A7A8C">SpO₂ 基準 95〜100%</text><path d="M50.0 170.0 H316.0 M50.0 170.0 V14.0" stroke="#222" stroke-width="1.2" fill="none"/><path d="M50.0 170.0 L52.6 170.0 L55.2 169.9 L57.8 169.6 L60.4 169.1 L63.0 168.4 L65.6 167.5 L68.2 166.2 L70.8 164.6 L73.4 162.7 L76.0 160.4 L78.6 157.8 L81.2 154.9 L83.8 151.7 L86.4 148.2 L89.0 144.5 L91.6 140.6 L94.2 136.6 L96.8 132.4 L99.4 128.1 L102.0 123.8 L104.6 119.5 L107.2 115.2 L109.8 111.0 L112.4 106.8 L115.0 102.8 L117.6 98.8 L120.2 95.0 L122.8 91.3 L125.4 87.8 L128.0 84.4 L130.6 81.2 L133.2 78.1 L135.8 75.2 L138.4 72.4 L141.0 69.7 L143.6 67.3 L146.2 64.9 L148.8 62.7 L151.4 60.6 L154.0 58.6 L156.6 56.7 L159.2 54.9 L161.8 53.2 L164.4 51.7 L167.0 50.2 L169.6 48.8 L172.2 47.4 L174.8 46.2 L177.4 45.0 L180.0 43.9 L182.6 42.8 L185.2 41.8 L187.8 40.9 L190.4 40.0 L193.0 39.2 L195.6 38.4 L198.2 37.6 L200.8 36.9 L203.4 36.2 L206.0 35.6 L208.6 35.0 L211.2 34.4 L213.8 33.8 L216.4 33.3 L219.0 32.8 L221.6 32.3 L224.2 31.9 L226.8 31.4 L229.4 31.0 L232.0 30.6 L234.6 30.3 L237.2 29.9 L239.8 29.6 L242.4 29.3 L245.0 28.9 L247.6 28.6 L250.2 28.4 L252.8 28.1 L255.4 27.8 L258.0 27.6 L260.6 27.3 L263.2 27.1 L265.8 26.9 L268.4 26.7 L271.0 26.5 L273.6 26.3 L276.2 26.1 L278.8 25.9 L281.4 25.8 L284.0 25.6 L286.6 25.4 L289.2 25.3 L291.8 25.1 L294.4 25.0 L297.0 24.9 L299.6 24.7 L302.2 24.6 L304.8 24.5 L307.4 24.4 L310.0 24.2" stroke="#2C3E8C" stroke-width="2" fill="none"/><path d="M50.0 35.6 H206.0 V170.0" stroke="#C0392B" stroke-width="1" stroke-dasharray="3 2" fill="none"/><circle cx="206.0" cy="35.6" r="3" fill="#C0392B"/><text x="46.0" y="173.0" text-anchor="end" style="font-size:7px;font-weight:400;fill:#222">0</text><text x="46.0" y="98.0" text-anchor="end" style="font-size:7px;font-weight:400;fill:#222">50</text><text x="46.0" y="23.0" text-anchor="end" style="font-size:7px;font-weight:400;fill:#222">100</text><text x="46.0" y="38.0" text-anchor="end" style="font-size:7.5px;font-weight:700;fill:#C0392B">90</text><text x="50.0" y="181.0" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">0</text><text x="310.0" y="181.0" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">100</text><text x="206.0" y="181.0" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#C0392B">60</text><text x="180.0" y="194.0" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">PaO₂（Torr）</text><text transform="translate(16 95.0) rotate(-90)" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">SaO₂・SpO₂（%）</text><text x="221.6" y="51.6" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">SpO₂ 90% ≒ PaO₂ 60 Torr</text><text x="221.6" y="61.6" text-anchor="start" style="font-size:7px;font-weight:400;fill:#C0392B">＝呼吸不全の目安</text></svg>
+    <p>酸素解離曲線から、SpO<sub>2</sub>とPaO<sub>2</sub>は一方から他方を推測できる。</p>
+    <p><b>SpO<sub>2</sub> 90% ≒ PaO<sub>2</sub> 60 Torr</b></p>
+    <p class="small muted">SaO<sub>2</sub>：動脈血液ガス分析のPaO<sub>2</sub>から計算した値・SpO<sub>2</sub>：パルスオキシメータの値・区別する</p>
+    <p class="small muted">誤差の原因：マニキュア・血流⬇・貧血・多血症・一酸化炭素中毒（異常Hb）</p></section>` },
+  { id:'1-2', t:'スパイロメトリー', sub:'肺気量分画・フローボリューム曲線・ピークフローメータ', plan:['rspi','rspi','rspi','rspi','rspi'], body:()=>`
+    <section class="panel"><h3>〇 スパイロメトリー</h3>
+    <p>肺に出入りする空気の量を測定。<br>→ 拘束性・閉塞性換気障害の有無</p>
+    <svg class="fig" viewBox="0 0 340 214" role="img" aria-label="スパイログラム。最大吸気位、安静吸気位、安静呼気位、最大呼気位。予備吸気量IRV、1回換気量TV、予備呼気量ERV、残気量RV。最大吸気量IC＝IRV＋TV、機能的残気量FRC＝ERV＋RV、肺活量VC＝IRV＋TV＋ERV、全肺気量TLC＝VC＋RV。残気量は測定できない"><rect x="56" y="168" width="176" height="36" fill="#EEE"/><line x1="56" y1="28" x2="232" y2="28" stroke="#888" stroke-width=".8" stroke-dasharray="3 2"/><text x="52.0" y="30.5" text-anchor="end" style="font-size:6.5px;font-weight:700;fill:#333">最大吸気位</text><line x1="56" y1="78" x2="232" y2="78" stroke="#888" stroke-width=".8" stroke-dasharray="3 2"/><text x="52.0" y="80.5" text-anchor="end" style="font-size:6.5px;font-weight:700;fill:#333">安静吸気位</text><line x1="56" y1="108" x2="232" y2="108" stroke="#888" stroke-width=".8" stroke-dasharray="3 2"/><text x="52.0" y="110.5" text-anchor="end" style="font-size:6.5px;font-weight:700;fill:#333">安静呼気位</text><line x1="56" y1="168" x2="232" y2="168" stroke="#888" stroke-width=".8" stroke-dasharray="3 2"/><text x="52.0" y="170.5" text-anchor="end" style="font-size:6.5px;font-weight:700;fill:#333">最大呼気位</text><text x="144.0" y="192.0" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#666">残気（測定不可）</text><path d="M60 108 C65 108 65 78 70 78 C75 78 75 108 80 108 C85 108 85 78 90 78 C95 78 95 108 100 108 C105 108 105 78 110 78 C115 78 115 108 120 108 C128 108 128 168 136 168 C148 168 148 28 160 28 C172 28 172 168 184 168 C192 168 192 108 200 108 C205 108 205 78 210 78 C215 78 215 108 220 108 C225 108 225 78 230 78 C235 78 235 108 240 108" stroke="#2E86C1" stroke-width="1.8" fill="none"/><path d="M237 29 H240 V77 H237" stroke="#222" stroke-width="1" fill="none"/><text x="243.0" y="56.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">IRV</text><path d="M237 79 H240 V107 H237" stroke="#222" stroke-width="1" fill="none"/><text x="243.0" y="96.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">TV</text><path d="M237 109 H240 V167 H237" stroke="#222" stroke-width="1" fill="none"/><text x="243.0" y="141.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">ERV</text><path d="M237 169 H240 V203 H237" stroke="#777" stroke-width="1" fill="none"/><text x="243.0" y="189.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#777">RV</text><path d="M263 29 H266 V107 H263" stroke="#6C3483" stroke-width="1" fill="none"/><text x="269.0" y="71.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#6C3483">IC</text><path d="M263 109 H266 V203 H263" stroke="#777" stroke-width="1" fill="none"/><text x="269.0" y="159.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#777">FRC</text><path d="M289 29 H292 V167 H289" stroke="#C0392B" stroke-width="1" fill="none"/><text x="295.0" y="101.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">VC</text><path d="M313 29 H316 V203 H313" stroke="#777" stroke-width="1" fill="none"/><text x="319.0" y="119.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#777">TLC</text><text x="252.0" y="16.0" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">volume</text><text x="304.0" y="16.0" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">capacity</text></svg>
+    ${tbl(['','',''],[['<b>IRV</b>','予備吸気量',''],['<b>TV</b>','1回換気量',''],['<b>ERV</b>','予備呼気量',''],['<b>RV</b>','残気量','測定不可'],['<b>IC</b>','最大吸気量','IRV＋TV'],['<b>FRC</b>','機能的残気量','ERV＋RV'],['<b>VC</b>','肺活量','IRV＋TV＋ERV'],['<b>TLC</b>','全肺気量','VC＋RV']]).replace('<tr><th></th><th></th><th></th></tr>','')}
+    <p>残気量：限界まで吐いても肺に残る空気<br>→ スパイロメトリーでは<b>測定できない</b></p>
+    <p class="small muted">吸気肺活量：吐ききってから限界まで吸ったとき・呼気肺活量：限界まで吸ってから吐ききったとき</p>
+    <p class="small muted">閉塞性換気障害では吸気肺活量＞呼気肺活量 → 両方測定し大きい値を採用</p></section>
+    <section class="panel"><h3>〇 フローボリューム曲線</h3>
+    <p>努力呼出曲線をもとに描く。<br>縦軸：気流速度（L/秒）・横軸：肺気量（L）</p>
+    <svg class="fig" viewBox="0 0 340 202" role="img" aria-label="フローボリューム曲線。縦軸は気流速度、横軸は肺気量で、左が最大吸気位100%、右が最大呼気位0%。努力性呼気で気流速度は急に最大値ピークフローに達し、直線的に低下する。肺活量50%呼出時がV50、75%呼出時がV25"><path d="M50 150 H304.0 M60.0 196 V22" stroke="#222" stroke-width="1.2" fill="none"/><path d="M60.0 150 C62.3 80 76.1 40 94.5 40 L290.0 150" stroke="#A04000" stroke-width="2" fill="none"/><path d="M290.0 150 C255.49999999999997 192 94.5 192 60.0 150" stroke="#C2549A" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/><text x="175.0" y="196.0" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#C2549A">吸気</text><path d="M60.0 85.3 H175.0 V150" stroke="#2E86C1" stroke-width=".8" stroke-dasharray="2 2" fill="none"/><circle cx="175.0" cy="85.3" r="3" fill="#2E86C1"/><text x="181.0" y="81.3" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#2E86C1">V̇₅₀</text><path d="M60.0 117.6 H232.5 V150" stroke="#2E86C1" stroke-width=".8" stroke-dasharray="2 2" fill="none"/><circle cx="232.5" cy="117.6" r="3" fill="#2E86C1"/><text x="238.5" y="113.6" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#2E86C1">V̇₂₅</text><path d="M60.0 40 H94.5" stroke="#A04000" stroke-width=".8" stroke-dasharray="2 2" fill="none"/><circle cx="94.5" cy="40" r="3" fill="#A04000"/><text x="100.5" y="36.0" text-anchor="start" style="font-size:8px;font-weight:700;fill:#A04000">ピークフロー（PEF）</text><text x="63.0" y="161.0" text-anchor="start" style="font-size:7px;font-weight:400;fill:#222">100%</text><text x="175.0" y="161.0" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">50%</text><text x="232.5" y="161.0" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">25%</text><text x="290.0" y="161.0" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">0%</text><text x="296.0" y="153.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">肺気量</text><text x="56.0" y="161.0" text-anchor="end" style="font-size:6.5px;font-weight:400;fill:#555">最大吸気位</text><text x="290.0" y="171.0" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">最大呼気位</text><text transform="translate(40 86) rotate(-90)" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">呼気気流速度（V̇）</text><text x="232.5" y="70.0" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#A04000">努力性呼気</text></svg>
+    ${ktbl([['ピークフロー<br>（PEF）','呼気気流速度の<b>最大値</b><br>⬇ → <b>中枢</b>気道の閉塞性変化・肺活量⬇'],['V̇₅₀','努力肺活量の<b>50%</b>を呼出した瞬間の呼気気流速度'],['V̇₂₅','努力肺活量の<b>75%</b>を呼出した瞬間の呼気気流速度<br>⬇ → <b>末梢</b>気道の閉塞性変化']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p>V̇₅₀・V̇₂₅⬇は1秒率⬇より<b>鋭敏</b><br>→ <b>早期</b>の閉塞性換気障害の発見</p></section>
+    <section class="panel"><h3>※ ピークフローメータ</h3>
+    <p>PEF値を測定する器具。<br>自宅・外出先で<b>患者自身</b>が測定可能。</p>
+    <p>PEF値は<b>1秒量</b>とよく相関<br>→ 喘息の<b>自己管理</b>の指標</p>
+    <svg class="fig" viewBox="0 0 340 150" role="img" aria-label="ピークフロー値の変化。症状が改善するとPEFは高くなり、悪化すると低くなる"><path d="M60 128 H300 M60 128 V18" stroke="#222" stroke-width="1.2" fill="none"/><path d="M60 128 C61 70 98 30 110 30 L270 128" stroke="#2E86C1" stroke-width="1.8" fill="none" stroke-dasharray="4 2"/><path d="M60 30 H110" stroke="#2E86C1" stroke-width=".7" stroke-dasharray="2 2"/><path d="M60 128 C61 70 88 52 100 52 C130 52 140 112.8 250 128" stroke="#6C3483" stroke-width="1.8" fill="none"/><path d="M60 52 H100" stroke="#6C3483" stroke-width=".7" stroke-dasharray="2 2"/><path d="M60 128 C61 70 80 80 92 80 C122 80 132 118.4 240 128" stroke="#C0392B" stroke-width="1.8" fill="none" stroke-dasharray="4 2"/><path d="M60 80 H92" stroke="#C0392B" stroke-width=".7" stroke-dasharray="2 2"/><text x="118.0" y="26.0" text-anchor="start" style="font-size:8px;font-weight:700;fill:#2E86C1">症状改善</text><text x="108.0" y="50.0" text-anchor="start" style="font-size:8px;font-weight:700;fill:#6C3483">普段</text><text x="100.0" y="78.0" text-anchor="start" style="font-size:8px;font-weight:700;fill:#C0392B">症状悪化</text><text x="56.0" y="33.0" text-anchor="end" style="font-size:7px;font-weight:700;fill:#2E86C1">PEF</text><text x="56.0" y="55.0" text-anchor="end" style="font-size:7px;font-weight:700;fill:#6C3483">PEF</text><text x="56.0" y="83.0" text-anchor="end" style="font-size:7px;font-weight:700;fill:#C0392B">PEF</text><text x="180.0" y="142.0" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">肺気量</text><text transform="translate(28 74) rotate(-90)" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">呼気気流速度</text></svg>
+    <p><b>・測定方法</b></p>
+    <p>① 深呼吸してくわえる（毎回同じ姿勢）<br>② 唇で覆い、すばやく一気に吹く<br>③ <b>3回</b>測定し、<b>最も高い値</b>を記録</p>
+    <p><b>・1日2回（朝・就寝前）</b><br>コントローラー使用前の決まった時間に測定</p>
+    <p>日内変動が大きい<br>→ <b>気道過敏性</b>の亢進</p>
+    <p class="small muted">主治医は喘息症状を把握し治療計画に活用</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5311,6 +5378,7 @@ const UNITS = {
   nx_law: { no:'必6', title:'法規の基本', subject:'必須問題', course:'hissu', subj:7, lessons:NX_LAW_LESSONS, cards:'nx_law', drill:'nx_law' },
   nx_pr: { no:'必7', title:'調剤と服薬指導', subject:'必須問題', course:'hissu', subj:8, lessons:NX_PR_LESSONS, cards:'nx_pr', drill:'nx_pr' },
   lbnp: { no:'検1-9', title:'心臓マーカー', subject:'検査室', course:'lab', subj:0, lessons:LBNP_LESSONS, cards:'lbnp', drill:'lbnp' },
+  lrsp: { no:'検5-1', title:'呼吸機能検査', subject:'検査室', course:'lab', subj:4, lessons:LRSP_LESSONS, cards:'lrsp', drill:'lrsp' },
   lpro: { no:'検5-5', title:'前立腺の検査', subject:'検査室', course:'lab', subj:4, lessons:LPRO_LESSONS, cards:'lpro', drill:'lpro' },
   lecg: { no:'検3-1', title:'波形の基本', subject:'検査室', course:'lab', subj:2, lessons:LECG_LESSONS, cards:'lecg', drill:'lecg' },
   larr: { no:'検3-2', title:'不整脈', subject:'検査室', course:'lab', subj:2, lessons:LARR_LESSONS, cards:'larr', drill:'larr' },
@@ -5437,7 +5505,7 @@ const CATALOG = [
       { name:'尿検査', k:'尿', units:U('尿定性（たんぱく・糖・潜血）','尿沈渣') },
       { name:'心電図', k:'心', units:U({ t:'波形の基本', ready:'lecg' },{ t:'不整脈', ready:'larr' },{ t:'虚血性心疾患', ready:'lisch' },{ t:'薬と心電図（QT延長など）', ready:'lqt' }) },
       { name:'評価スケール', k:'評', units:U({ t:'認知機能の検査', ready:'cog' },{ t:'身体機能・ADLの評価', ready:'phy' },'意識レベル（JCS・GCS）','栄養・嚥下の評価','こころの評価（うつ・不安）','痛みの評価') },
-      { name:'その他', k:'他', units:U('呼吸機能検査','内視鏡','病理・細胞診','画像検査',{ t:'前立腺の検査', ready:'lpro' }) } ] },
+      { name:'その他', k:'他', units:U({ t:'呼吸機能検査', ready:'lrsp' },'内視鏡','病理・細胞診','画像検査',{ t:'前立腺の検査', ready:'lpro' }) } ] },
     { id:'drawer', name:'医薬品棚', k:'棚', note:'医薬品単語集', subjects:[
       { name:'自律神経系', k:'自', units:U() },
       { name:'体性神経系', k:'体', units:U() },
