@@ -2854,6 +2854,15 @@ Object.assign(POOL, {
     ['抗パーキンソン病薬','A型インフルエンザにも有効な抗パーキンソン病薬は？','アマンタジン',['セレギリン','エンタカポン','プラミペキソール'],'DA遊離促進・M2イオンチャネル阻害'],
     ['抗パーキンソン病薬','セレギリンの作用は？','MAO-B阻害によるDAの不活化抑制',['COMT阻害','DA遊離促進','D2受容体刺激'],'ドパミン効率⬆'],
   ],
+  pd4:[
+    ['抗パーキンソン病薬','レボドパ賦活薬は？','ゾニサミド',['ドロキシドパ','イストラデフィリン','ビペリデン'],'もとは抗てんかん薬'],
+    ['抗パーキンソン病薬','すくみ足に著効を示す薬は？','ドロキシドパ',['ゾニサミド','トリヘキシフェニジル','セレギリン'],'脱炭酸されてNAdに変換'],
+    ['抗パーキンソン病薬','ドロキシドパが変換されるのは？','ノルアドレナリン',['ドパミン','セロトニン','アセチルコリン'],'NAd前駆体'],
+    ['抗パーキンソン病薬','アデノシンA₂A受容体拮抗薬は？','イストラデフィリン',['アマンタジン','エンタカポン','ドロキシドパ'],'GABA作動性神経の過剰興奮を抑制'],
+    ['抗パーキンソン病薬','中枢性抗コリン薬は？','トリヘキシフェニジル',['ゾニサミド','イストラデフィリン','カルビドパ'],'ビペリデンも'],
+    ['抗パーキンソン病薬','中枢性抗コリン薬が特に有効なのは？','薬剤性パーキンソン症候群',['すくみ足','wearing-off現象','起立性低血圧'],'D2受容体遮断で起こる'],
+    ['抗パーキンソン病薬','中枢性抗コリン薬の副作用は？','口渇',['低血糖','下痢','流涎'],'便秘、排尿困難も'],
+  ],
   gbbb:[
     ['血液脳関門','血液脳関門の実体である細胞は？','脳毛細血管内皮細胞',['脈絡叢上皮細胞','周皮細胞（ペリサイト）','星状膠細胞（アストロサイト）'],'内皮細胞が密着結合している'],
     ['血液脳脊髄液関門','血液脳脊髄液関門の実体である細胞は？','脈絡叢上皮細胞',['脳毛細血管内皮細胞','神経細胞','周皮細胞（ペリサイト）'],'上皮細胞が密着結合している'],
@@ -3872,10 +3881,31 @@ const PD_LESSONS = [
     <section class="panel"><h3>〇 ドパミン遊離促進薬</h3>
     <p><b>・<span class="dg">アマンタジン</span></b></p>
     <p>DA作動性神経から<b>DA遊離促進</b><br><b>A型インフルエンザウイルス</b>にも有効（M<sub>2</sub>イオンチャネル阻害）</p>
-    <p class="small muted">抗コリン作用ももつ</p></section>` }
+    <p class="small muted">抗コリン作用ももつ</p></section>` },
+  { id:'5-4', t:'抗パーキンソン病薬③', sub:'レボドパ賦活薬・NAd前駆体・A2A受容体拮抗薬・中枢性抗コリン薬', plan:['pd4','pd4','pd4','pd4','pd4'], body:()=>`
+    <section class="panel"><h3>〇 レボドパ賦活薬</h3>
+    <p><b>・<span class="dg">ゾニサミド</span></b></p>
+    <p>ドパミン合成⬆、MAO<sub>B</sub>阻害作用<br>→ レボドパの作用を増強</p>
+    <p class="small muted">もとは抗てんかん薬・レボドパ含有製剤と併用</p></section>
+    <section class="panel"><h3>〇 ノルアドレナリン前駆体</h3>
+    <p><b>・<span class="dg">ドロキシドパ</span></b></p>
+    <p><b>アミノ酸</b><br>ドパ脱炭酸酵素で脱炭酸されて<b>NAd</b>に変換<br>→ <b>すくみ足</b>に著効を示す</p>
+    <p class="small muted">中枢内NAd⬇ → すくみ足・起立性低血圧 → NAdを補充して改善</p></section>
+    <section class="panel"><h3>〇 アデノシンA<sub>2A</sub>受容体拮抗薬</h3>
+    <p><b>・<span class="dg">イストラデフィリン</span></b></p>
+    <p>アデノシン<b>A<sub>2A</sub>受容体</b>を<b>遮断</b><br>→ <b>GABA作動性神経</b>の過剰興奮を抑制<br>→ 運動機能回復</p>
+    <p class="small muted">A<sub>2A</sub>受容体：線条体、淡蒼球などに存在・wearing-off現象の改善</p></section>
+    <section class="panel"><h3>〇 中枢性抗コリン薬</h3>
+    <p>DA⬇により相対的に⬆したAChの作用を抑える。</p>
+    <p><span class="dg">トリヘキシフェニジル</span>、<span class="dg">ビペリデン</span></p>
+    <p><b>薬剤性パーキンソン症候群</b>に有効。</p>
+    <p class="small muted">薬剤性パーキンソン症候群：抗精神病薬などでD<sub>2</sub>受容体が遮断されて起こる</p>
+    <p>〈副作用〉口渇、便秘、排尿困難</p>
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/pd_anticho.png" alt="中枢性抗コリン薬の覚え方。中高生は鳥にビビり。中高生＝中枢性抗コリン薬、鳥＝トリヘキシフェニジル、ビビり＝ビペリデン" loading="lazy"></section>` }
 ];
 const GX_PD_LESSONS = [
-  { id:'g1', col:true, lid:'5-3', t:'抗パーキンソン病薬②', sub:'パーキンソン病　3つ', plan:[], body:()=>`<section class="panel"><h3>ドパ脱炭酸酵素阻害薬</h3><img class="goro-img" src="goro/pd_dci.png" alt="ドパ脱炭酸酵素阻害薬の覚え方。炭酸とカルビ弁当。炭酸＝ドパ脱炭酸酵素阻害、カルビ＝カルビドパ、弁＝ベンセラジド" loading="lazy"></section><section class="panel"><h3>麦角系ドパミンアゴニスト</h3><img class="goro-img" src="goro/pd_ergot.png" alt="麦角系ドパミンアゴニストの覚え方。どんなに指摘してもバカが壁をゴリゴリ栗をプチプチ。指摘＝D2刺激、バカ＝麦角アルカロイド、壁ゴリ＝カベルゴリン、ゴリ＝ペルゴリド、栗プチ＝ブロモクリプチン" loading="lazy"></section><section class="panel"><h3>非麦角系ドパミンアゴニスト</h3><img class="goro-img" src="goro/pd_nonergot.png" alt="非麦角系ドパミンアゴニストの覚え方。リールでドイツ刺激は馬鹿に非ず。リール＝プラミペキソール・ロピニロール、ドイツ刺激＝D2刺激、馬鹿に非ず＝非麦角アルカロイド" loading="lazy"></section>` }
+  { id:'g1', col:true, lid:'5-3', t:'抗パーキンソン病薬②', sub:'パーキンソン病　3つ', plan:[], body:()=>`<section class="panel"><h3>ドパ脱炭酸酵素阻害薬</h3><img class="goro-img" src="goro/pd_dci.png" alt="ドパ脱炭酸酵素阻害薬の覚え方。炭酸とカルビ弁当。炭酸＝ドパ脱炭酸酵素阻害、カルビ＝カルビドパ、弁＝ベンセラジド" loading="lazy"></section><section class="panel"><h3>麦角系ドパミンアゴニスト</h3><img class="goro-img" src="goro/pd_ergot.png" alt="麦角系ドパミンアゴニストの覚え方。どんなに指摘してもバカが壁をゴリゴリ栗をプチプチ。指摘＝D2刺激、バカ＝麦角アルカロイド、壁ゴリ＝カベルゴリン、ゴリ＝ペルゴリド、栗プチ＝ブロモクリプチン" loading="lazy"></section><section class="panel"><h3>非麦角系ドパミンアゴニスト</h3><img class="goro-img" src="goro/pd_nonergot.png" alt="非麦角系ドパミンアゴニストの覚え方。リールでドイツ刺激は馬鹿に非ず。リール＝プラミペキソール・ロピニロール、ドイツ刺激＝D2刺激、馬鹿に非ず＝非麦角アルカロイド" loading="lazy"></section>` },
+  { id:'g2', col:true, lid:'5-4', t:'抗パーキンソン病薬③', sub:'パーキンソン病　1つ', plan:[], body:()=>`<section class="panel"><h3>中枢性抗コリン薬</h3><img class="goro-img" src="goro/pd_anticho.png" alt="中枢性抗コリン薬の覚え方。中高生は鳥にビビり。中高生＝中枢性抗コリン薬、鳥＝トリヘキシフェニジル、ビビり＝ビペリデン" loading="lazy"></section>` }
 ];
 const GX_RAD_LESSONS = [
   { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
