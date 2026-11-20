@@ -1372,11 +1372,7 @@ const URO3_LESSONS = [
     <p class="small muted">トルテロジン・フェソテロジン：〜テロジン</p>
     <p>〈副作用〉口渇、便秘、排尿困難、眼圧⬆</p>
     <p class="small muted">閉塞隅角緑内障・尿閉には禁忌</p>
-    <p><b>覚え方</b></p>
-    <p><b>おしい</b>、<b>風呂場</b>で<b>ちびり</b>そうな<b>テロじゃん</b>！</p>
-    <p class="small muted">おしい＝オキシブチニン・風呂場＝プロピベリン・ちびり＝頻尿・そう＝ソリフェナシン・テロ＝〜テロジン</p>
-    <p>プロはオキニの神経尿、直接カット</p>
-    <p class="small muted">プロ＝プロピベリン・オキ＝オキシブチニン・神経＝神経因性膀胱・直接＝直接的な排尿筋弛緩（Ca<sup>2+</sup>チャネル遮断）</p></section>` },
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/uro_anticho.png" alt="頻尿治療薬（抗コリン薬）の覚え方。おしっこのプロ、反って通る。おし＝オキシブチニン、プロ＝プロピベリン、反って＝ソリフェナシン、通る＝トルテロジン" loading="lazy"></section>` },
   { id:'3-2', t:'三環系抗うつ薬', sub:'夜尿症・遺尿症', plan:['uro32','uro32','uro32','uro32','uro32'], body:()=>`
     <section class="panel"><h3>〇 三環系抗うつ薬</h3>
     <p><span class="dg">イミプラミン</span>、<span class="dg">クロミプラミン</span>、<span class="dg">アミトリプチリン</span></p>
@@ -4107,6 +4103,9 @@ const LPRO_LESSONS = [
     ${tbl(['スコア','悪性度'],[['6以下','低い'],['7','中間'],['8〜10','<b>高い</b>']])}
     <p class="small muted">数字が大きいほど悪性度⬆・予後不良・グレードグループ1〜5で表すこともある</p></section>` }
 ];
+const GX_URO_LESSONS = [
+  { id:'g1', col:true, lid:'3-1', t:'ムスカリン受容体遮断薬', sub:'頻尿治療薬　1つ', plan:[], body:()=>`<section class="panel"><h3>頻尿治療薬（抗コリン薬）</h3><img class="goro-img" src="goro/uro_anticho.png" alt="頻尿治療薬（抗コリン薬）の覚え方。おしっこのプロ、反って通る。おし＝オキシブチニン、プロ＝プロピベリン、反って＝ソリフェナシン、通る＝トルテロジン" loading="lazy"></section>` }
+];
 const GX_RAD_LESSONS = [
   { id:'g1', col:true, lid:'1-2', t:'放射壊変・放射転移', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>β⁺壊変</h3><img class="goro-img" src="goro/bplus.png" alt="β⁺壊変の覚え方。ビップないい古墳。ビップ＝β⁺、いい＝¹¹C、古＝¹⁵O、墳＝¹⁸F・¹³N" loading="lazy"></section><section class="panel"><h3>β⁻壊変</h3><img class="goro-img" src="goro/bminus.png" alt="β⁻壊変の覚え方。ビーチで散歩する。ビー＝β⁻壊変、チ＝¹⁴C・³H（低エネルギー）、散＝³⁵S、歩＝³²P、する＝⁹⁰Sr（高エネルギー）" loading="lazy"></section>` },
   { id:'g2', col:true, lid:'1-3', t:'放射線の分類', sub:'放射線と放射能　2つ', plan:[], body:()=>`<section class="panel"><h3>電磁波</h3><img class="goro-img" src="goro/emwave.png" alt="電磁波の覚え方。感度抜群！しかし、せまいラジオ局。感＝γ線、度＝X線、し＝紫外線、か＝可視光線、せ＝赤外線、まい＝マイクロ波、ラジオ局＝ラジオ波。左ほどエネルギー大・波長短" loading="lazy"></section><section class="panel"><h3>線スペクトル</h3><img class="goro-img" src="goro/linespec.png" alt="線スペクトルの覚え方。センスがあると得。センス＝線スペクトル、が＝γ、ある＝α、得＝特性X線" loading="lazy"></section>` },
@@ -5198,6 +5197,7 @@ const UNITS = {
   gx_ae: { no:'覚', title:'副作用', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_AE_LESSONS, cards:'gx_ae', drill:'gx_ae' },
   gx_tm: { no:'覚', title:'チーム医療', subject:'覚え方', course:'goro', subj:21, goro:true, lessons:GX_TM_LESSONS, cards:'gx_tm', drill:'gx_tm' },
   gx_pd: { no:'覚', title:'パーキンソン病治療薬', subject:'覚え方', course:'goro', subj:5, goro:true, lessons:GX_PD_LESSONS, cards:'gx_pd', drill:'gx_pd' },
+  gx_uro: { no:'覚', title:'頻尿治療薬', subject:'覚え方', course:'goro', subj:10, goro:true, lessons:GX_URO_LESSONS, cards:'gx_uro', drill:'gx_uro' },
   gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
   gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
   gx_hjp: { no:'覚', title:'日本の現状', subject:'覚え方', course:'goro', subj:4, goro:true, lessons:GX_HJP_LESSONS, cards:'gx_hjp', drill:'gx_hjp' },
@@ -5393,7 +5393,7 @@ const CATALOG = [
       { name:'消化器系', k:'消', units:U() },
       { name:'呼吸器系', k:'呼', units:U() },
       { name:'血液・造血系', k:'血', units:U('抗血栓薬のゴロ') },
-      { name:'腎・泌尿器系', k:'腎', units:U() },
+      { name:'腎・泌尿器系', k:'腎', units:U({ t:'頻尿治療薬', ready:'gx_uro' }) },
       { name:'生殖器系', k:'殖', units:U() },
       { name:'代謝系', k:'代', units:U('脂質異常症の薬のゴロ') },
       { name:'内分泌系', k:'内', units:U() },
