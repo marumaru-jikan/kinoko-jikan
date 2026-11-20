@@ -1318,8 +1318,22 @@ const URO1_LESSONS = [
   { id:'1-9', t:'利尿薬の副作用', wip:true, plan:[], body:()=>'' }
 ];
 const URO2_LESSONS = [
-  { id:'2-1', t:'排尿困難治療薬の作用機序', wip:true, plan:[], body:()=>'' },
-  { id:'2-2', t:'ムスカリン受容体刺激薬', wip:true, plan:[], body:()=>'' },
+  { id:'2-1', t:'排尿困難治療薬の作用機序', sub:'膀胱の受容体・作用点', plan:['uro21','uro21','uro21','uro21','uro21'], body:()=>`
+    <section class="panel"><h3>〇 作用点</h3>
+    <svg class="fig" viewBox="0 0 340 240" role="img" aria-label="膀胱と受容体。膀胱排尿筋にはβ2・β3・M3受容体、膀胱三角部・膀胱括約筋（内尿道括約筋）・前立腺間質にはα1受容体がある。外尿道括約筋は横紋筋で随意筋"><path d="M140 6 C140 40 146 52 152 62" fill="none" stroke="#8C6A4A" stroke-width="5"/><path d="M200 6 C200 40 194 52 188 62" fill="none" stroke="#8C6A4A" stroke-width="5"/><path d="M170 40 C118 40 104 80 112 112 C118 136 146 150 160 156 L160 170 L180 170 L180 156 C194 150 222 136 228 112 C236 80 222 40 170 40 Z" fill="#F1DBC5" stroke="#8C6A4A" stroke-width="1.4"/><path d="M170 52 C128 52 118 84 124 110 C130 130 152 140 164 146 L176 146 C188 140 210 130 216 110 C222 84 212 52 170 52 Z" fill="#FBF3EA" stroke="#B89070" stroke-width=".9"/><text class="sm2" x="170" y="92" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">膀胱</text><path d="M154 116 L186 116 L170 142 Z" fill="#E7C9A8" stroke="#B89070" stroke-width=".8"/><circle cx="152" cy="64" r="2.4" fill="#8C6A4A"/><circle cx="188" cy="64" r="2.4" fill="#8C6A4A"/><rect x="158" y="150" width="24" height="12" fill="#D9A6A6" stroke="#9B5A5A"/><ellipse cx="170" cy="182" rx="30" ry="16" fill="#DCE8D5" stroke="#5A7A4E" stroke-width="1.1"/><rect x="166" y="150" width="8" height="70" fill="#FBF3EA" stroke="#B89070" stroke-width=".8"/><rect x="156" y="204" width="28" height="7" fill="#C7C7E6" stroke="#5A5A9B"/><text class="sm2" x="170" y="232" text-anchor="middle" style="font-size:7.5px;font-weight:400;fill:#222">尿</text><path d="M170 222 v6" stroke="#444"/><text class="sm2" x="6" y="66" text-anchor="start" style="font-size:8px;font-weight:700;fill:#222">膀胱排尿筋</text><text class="sm2" x="6" y="78" text-anchor="start" style="font-size:6.8px;font-weight:400;fill:#555">（膀胱平滑筋）</text><text class="sm2" x="6" y="92" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:#2B6CB0">β<tspan baseline-shift="sub" style="font-size:5.5px">2</tspan>受容体</text><text class="sm2" x="6" y="104" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:#2B6CB0">β<tspan baseline-shift="sub" style="font-size:5.5px">3</tspan>受容体</text><text class="sm2" x="6" y="116" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">M<tspan baseline-shift="sub" style="font-size:5.5px">3</tspan>受容体</text><line x1="66" y1="90" x2="112" y2="92" stroke="#777" stroke-width=".8"/><text class="sm2" x="6" y="140" text-anchor="start" style="font-size:8px;font-weight:700;fill:#222">膀胱三角部</text><text class="sm2" x="6" y="152" text-anchor="start" style="font-size:7.5px;font-weight:400;fill:#2B6CB0">α<tspan baseline-shift="sub" style="font-size:5.5px">1</tspan>受容体</text><line x1="56" y1="140" x2="156" y2="128" stroke="#777" stroke-width=".8"/><text class="sm2" x="334" y="60" text-anchor="end" style="font-size:7.5px;font-weight:400;fill:#222">尿管</text><line x1="306" y1="58" x2="200" y2="30" stroke="#777" stroke-width=".8"/><text class="sm2" x="334" y="146" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">膀胱括約筋</text><text class="sm2" x="334" y="157" text-anchor="end" style="font-size:6.6px;font-weight:400;fill:#555">（内尿道括約筋）</text><text class="sm2" x="334" y="168" text-anchor="end" style="font-size:7.5px;font-weight:400;fill:#2B6CB0">α<tspan baseline-shift="sub" style="font-size:5.5px">1</tspan>受容体</text><line x1="270" y1="150" x2="182" y2="156" stroke="#777" stroke-width=".8"/><text class="sm2" x="334" y="188" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">前立腺間質</text><text class="sm2" x="334" y="199" text-anchor="end" style="font-size:7.5px;font-weight:400;fill:#2B6CB0">α<tspan baseline-shift="sub" style="font-size:5.5px">1</tspan>受容体</text><line x1="276" y1="186" x2="200" y2="184" stroke="#777" stroke-width=".8"/><text class="sm2" x="334" y="220" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">外尿道括約筋</text><text class="sm2" x="334" y="231" text-anchor="end" style="font-size:6.6px;font-weight:400;fill:#555">横紋筋・随意筋</text><line x1="270" y1="218" x2="184" y2="208" stroke="#777" stroke-width=".8"/></svg>
+    <p class="small muted">β<sub>3</sub>受容体：蓄尿時の膀胱弛緩に関与・外尿道括約筋：意志による排尿の開始・停止に関与</p>
+    ${tbl(['','蓄尿','排尿'],[['神経','<b>交感神経</b>','<b>副交感神経</b>'],['膀胱排尿筋','<b>弛緩</b>（β<sub>3</sub>）','<b>収縮</b>（M<sub>3</sub>）'],['膀胱括約筋・前立腺','<b>収縮</b>（α<sub>1</sub>）','<b>弛緩</b>']]).replace('class="tbl"','class="tbl fpt3"')}
+    <p><b>・排尿困難を改善する方法</b></p>
+    <p>① 膀胱排尿筋を<b>収縮</b>させる<br>→ <b>ムスカリン受容体刺激薬</b>（M<sub>3</sub>受容体刺激）</p>
+    <p>② 膀胱括約筋・前立腺の平滑筋を<b>弛緩</b>させる<br>→ <b>α<sub>1</sub>受容体遮断薬</b></p></section>` },
+  { id:'2-2', t:'ムスカリン受容体刺激薬', sub:'コリン作動薬・コリンエステラーゼ阻害薬', plan:['uro22','uro22','uro22','uro22','uro22'], body:()=>`
+    <section class="panel"><h3>〇 コリン作動薬（直接型）</h3>
+    <p><b>・<span class="dg">ベタネコール</span></b></p>
+    <p>膀胱排尿筋の<b>M<sub>3</sub>受容体</b>を<b>直接刺激</b><br>→ 膀胱排尿筋<b>収縮</b></p></section>
+    <section class="panel"><h3>〇 コリンエステラーゼ阻害薬（間接型）</h3>
+    <p><b>・<span class="dg">ネオスチグミン</span>、<span class="dg">ジスチグミン</span></b></p>
+    <p><b>ChE阻害</b><br>→ ACh<b>分解抑制</b>（ACh量⬆）<br>→ 膀胱排尿筋のM<sub>3</sub>受容体刺激<br>→ 膀胱排尿筋<b>収縮</b></p>
+    <p class="small muted">ジスチグミン：コリン作動性クリーゼ（意識障害）に注意</p></section>` },
   { id:'2-3', t:'α₁受容体遮断薬', wip:true, plan:[], body:()=>'' }
 ];
 const URO3_LESSONS = [
@@ -2883,6 +2897,19 @@ Object.assign(POOL, {
     ['前立腺の検査','IPSSで重症とされる点数は？','20〜35点',['0〜7点','8〜19点','5〜10点'],'7項目×0〜5点'],
     ['前立腺の検査','グリソンスコアで評価するのは？','前立腺がんの病理組織の悪性度',['排尿症状の重さ','PSAの値','前立腺の大きさ'],'2つのパターンのグレードを合計'],
     ['前立腺の検査','グリソンスコアで悪性度が高いのは？','8〜10',['2〜4','5〜6','7'],'数字が大きいほど悪性度⬆'],
+  ],
+  uro21:[
+    ['排尿困難治療薬','膀胱排尿筋を収縮させる受容体は？','M₃受容体',['β₃受容体','α₁受容体','β₂受容体'],'副交感神経'],
+    ['排尿困難治療薬','蓄尿時の膀胱弛緩に関与する受容体は？','β₃受容体',['M₃受容体','α₁受容体','H₁受容体'],'交感神経'],
+    ['排尿困難治療薬','前立腺間質に存在する受容体は？','α₁受容体',['M₃受容体','β₃受容体','D₂受容体'],'膀胱三角部・膀胱括約筋にも'],
+    ['排尿困難治療薬','外尿道括約筋の特徴は？','横紋筋性で随意筋',['平滑筋で不随意筋','α₁受容体で収縮する平滑筋','M₃受容体で収縮する'],'意志による排尿の開始・停止'],
+    ['排尿困難治療薬','排尿時に起こるのは？','膀胱排尿筋の収縮',['膀胱括約筋の収縮','膀胱排尿筋の弛緩','交感神経の興奮'],'副交感神経優位'],
+  ],
+  uro22:[
+    ['排尿困難治療薬','M₃受容体を直接刺激する排尿困難治療薬は？','ベタネコール',['ネオスチグミン','ジスチグミン','タムスロシン'],'直接型コリン作動薬'],
+    ['排尿困難治療薬','ChE阻害により排尿筋を収縮させる薬は？','ジスチグミン',['ベタネコール','タムスロシン','プロピベリン'],'ネオスチグミンも'],
+    ['排尿困難治療薬','ネオスチグミンの作用は？','AChの分解を抑制',['M₃受容体を直接刺激','α₁受容体を遮断','β₃受容体を刺激'],'間接型'],
+    ['排尿困難治療薬','ムスカリン受容体刺激薬で膀胱排尿筋は？','収縮する',['弛緩する','変化しない','萎縮する'],'排尿を促す'],
   ],
   wo:[
     ['Wearing-off現象','wearing-off現象の原因は？','脳のDA貯蔵能の低下',['DA受容体の増加','レボドパの吸収増加','ACh受容体の減少'],'血中濃度の波がそのまま症状に'],
