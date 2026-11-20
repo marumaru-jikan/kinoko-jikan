@@ -5648,7 +5648,7 @@ function vSubject(){
 // まだ中身がない胞子（準備中）
 const wipItem = l => `<button class="item" disabled><span class="lid">${l.id}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub?l.sub+'（準備中）':'準備中'}</span></span></button>`;
 // 別の科目の章へ飛ぶ行（飛び先ができるまでは「準備中」）
-const refItem = l => { const c=CATALOG.find(x=>x.id===l.ref.c), s=c&&c.subjects.find(x=>x.name===l.ref.s), un=s&&s.units.find(x=>x.t===l.ref.u);
+const refItem = l => { const c=courseById(l.ref.c), s=c&&c.subjects.find(x=>x.name===l.ref.s), un=s&&s.units.find(x=>x.t===l.ref.u);
   return un&&un.ready ? `<button class="item" data-act="unit" data-arg="${un.ready}"><span class="lid col">${l.lid}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}</span></span><span class="chev">›</span></button>`
     : `<button class="item" disabled><span class="lid col">${l.lid}</span><span class="body"><b>${l.t}</b><br><span class="small muted">${l.sub}（準備中）</span></span></button>`; };
 function vUnit(){
