@@ -3001,6 +3001,18 @@ Object.assign(POOL, {
     ['ピークフローメータ','ピークフローメータの記録方法は？','3回測定し最も高い値',['1回測定した値','3回測定した平均値','3回測定し最も低い値'],'1日2回（朝・就寝前）'],
     ['ピークフローメータ','PEFの日内変動が大きいことが示すのは？','気道過敏性の亢進',['拘束性換気障害','肺活量の増加','気道過敏性の低下'],'朝と夜の測定で評価'],
   ],
+  ibd:[
+    ['IBD','非連続性（skip lesion）の病変がみられるのは？','クローン病',['潰瘍性大腸炎','偽膜性大腸炎','過敏性腸症候群'],'全消化管（特に回盲部）'],
+    ['IBD','直腸から口側に連続性の病変がみられるのは？','潰瘍性大腸炎',['クローン病','偽膜性大腸炎','虚血性大腸炎'],'病変は大腸のみ'],
+    ['IBD','クローン病の内視鏡所見は？','敷石像・縦走潰瘍',['血管透見像の消失','偽ポリポーシス','ハウストラの消失'],'非連続性病変'],
+    ['IBD','潰瘍性大腸炎の内視鏡・X線所見は？','ハウストラの消失',['敷石像','縦走潰瘍','非乾酪性類上皮細胞肉芽腫'],'血管透見像の消失・偽ポリポーシス'],
+    ['IBD','クローン病の病理所見は？','非乾酪性類上皮細胞肉芽腫',['陰窩膿瘍','粘膜層に限局した炎症','乾酪壊死'],'全層性炎症'],
+    ['IBD','潰瘍性大腸炎の病理所見は？','陰窩膿瘍',['非乾酪性類上皮細胞肉芽腫','全層性炎症','乾酪壊死'],'粘膜層に限局した炎症'],
+    ['IBD','潰瘍性大腸炎の主症状は？','粘血便',['腫瘤触知','肛門部病変','口腔内アフタ'],'クローン病は下血が少ない'],
+    ['IBD','潰瘍性大腸炎の合併症は？','中毒性巨大結腸症',['瘻孔','栄養吸収障害','肛門病変'],'長期経過で大腸がん'],
+    ['IBD','クローン病の非薬物治療で重要なのは？','栄養療法',['白血球除去療法のみ','安静のみ','高脂肪食'],'経腸栄養・中心静脈栄養で腸管の安静'],
+    ['IBD','男女比が約2：1なのは？','クローン病',['潰瘍性大腸炎','両方とも1：1','両方とも2：1'],'潰瘍性大腸炎は1：1'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4233,6 +4245,19 @@ const LRSP_LESSONS = [
     <p>日内変動が大きい<br>→ <b>気道過敏性</b>の亢進</p>
     <p class="small muted">主治医は喘息症状を把握し治療計画に活用</p></section>` }
 ];
+const IBD_LESSONS = [
+  { id:'6-1', t:'潰瘍性大腸炎（UC）', wip:true, plan:[], body:()=>'' },
+  { id:'6-2', t:'クローン病（CD）', wip:true, plan:[], body:()=>'' },
+  { id:'6-3', t:'潰瘍性大腸炎・クローン病比較', sub:'好発部位・所見・病理・治療', plan:['ibd','ibd','ibd','ibd','ibd'], body:()=>`
+    <section class="panel"><h3>〇 比較</h3>
+    ${tbl(['','クローン病<br>（CD）','潰瘍性大腸炎<br>（UC）'],[['原因','不明（免疫異常の関与）','不明（免疫異常の関与）'],['好発年齢','若年者（10〜20歳代）','若年者・中高年層'],['男女比','2：1','1：1'],['好発部位','<b>全消化管</b>（口腔〜肛門）<br>特に<b>回盲部</b><br><b>非連続性</b>（skip lesion）<br><span class="small muted">直腸病変はまれ</span>','<b>大腸のみ</b><br>特に<b>直腸</b><br>直腸から口側に<b>連続性</b>'],['経過','再燃と寛解を繰り返す','再燃と寛解を繰り返す<br>長期経過で<b>大腸がん</b>'],['主症状','腹痛・下痢<br>発熱・体重減少<br>腫瘤触知・貧血<br>全身倦怠感<br>肛門部病変・口腔内アフタ<br><span class="small muted">下血は少ない</span>','<b>粘血便</b>・下痢<br>腹痛・発熱<br>体重減少・貧血'],['合併症','肛門病変・<b>瘻孔</b>・<b>狭窄</b><br>穿孔<br>関節炎・関節痛<br>栄養吸収障害','<b>中毒性巨大結腸症</b><br><b>大腸がん</b>・穿孔<br>原発性硬化性胆管炎<br>壊疽性膿皮症・結節性紅斑'],['所見','<b>敷石像</b><br><b>縦走潰瘍</b><br>非連続性病変','<b>血管透見像の消失</b><br><b>偽ポリポーシス</b><br><b>ハウストラの消失</b>（鉛管像）<br>連続性病変'],['病理所見','<b>全層性</b>炎症<br><b>非乾酪性類上皮細胞肉芽腫</b>','<b>粘膜層</b>に限局した炎症<br>びらん・潰瘍<br>陰窩膿瘍'],['非薬物治療','<b>栄養療法</b><br>手術<br>顆粒球・単球吸着療法（GMA）','<b>手術</b><br>顆粒球・単球吸着療法（GMA）<br>白血球除去療法（LCAP）'],['薬物治療','<span class="dg">メサラジン</span>（5-ASA）<br><span class="dg">プレドニゾロン</span><br><span class="dg">インフリキシマブ</span>＊','<span class="dg">サラゾスルファピリジン</span><br><span class="dg">メサラジン</span>（5-ASA）<br>副腎皮質ステロイド<br><span class="dg">インフリキシマブ</span>＊']])}
+    <p class="small muted">根治治療なし<br>栄養療法：経腸栄養・中心静脈栄養（TPN）→ 腸管の安静・病状を悪化させる物質の除去<br>副腎皮質ステロイド：UCの中等症〜重症で第一選択<br>＊インフリキシマブ：既存治療で効果不十分な場合に限る<br>サラゾスルファピリジン：副作用 消化性潰瘍</p></section>
+    <section class="panel"><h3>〇 好発部位</h3>
+    <svg class="fig" viewBox="0 0 340 176" role="img" aria-label="好発部位。クローン病は口腔から肛門までの全消化管、特に回盲部に非連続性の病変。潰瘍性大腸炎は大腸のみで、直腸から口側へ連続性の病変"><text x="85" y="12" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">クローン病</text><path d="M86 18 V30" stroke="#C9A58A" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="98" cy="38" rx="16" ry="9" fill="#F2D7C4" stroke="#B08968" stroke-width="1"/><path d="M66 70 h46 q6 0 6 6 t-6 6 h-46 q-6 0 -6 6 t6 6 h46 q6 0 6 6 t-6 6 h-46 q-6 0 -6 6 L52 118" stroke="#E9C8B3" stroke-width="7" fill="none" stroke-linejoin="round"/><path d="M50 126 V58 H138 V118 Q138 134 116 132 Q96 130 94 142 V154" stroke="#D9A98A" stroke-width="10" fill="none" stroke-linejoin="round"/><path d="M50 126 V58 H138 V118 Q138 134 116 132 Q96 130 94 142 V154" stroke="#B08968" stroke-width="1" fill="none" stroke-dasharray="1 0" opacity=".0"/><circle cx="50" cy="118" r="6" fill="#7D3C98" opacity=".8"/><circle cx="52" cy="104" r="4" fill="#7D3C98" opacity=".8"/><circle cx="78" cy="76" r="4" fill="#7D3C98" opacity=".8"/><circle cx="106" cy="94" r="4" fill="#7D3C98" opacity=".8"/><circle cx="92" cy="106" r="3.5" fill="#7D3C98" opacity=".8"/><circle cx="110" cy="58" r="4" fill="#7D3C98" opacity=".8"/><circle cx="138" cy="92" r="4" fill="#7D3C98" opacity=".8"/><circle cx="94" cy="150" r="4" fill="#7D3C98" opacity=".8"/><circle cx="104" cy="40" r="3" fill="#7D3C98" opacity=".8"/><circle cx="50" cy="116" r="11" fill="none" stroke="#222" stroke-width=".8"/><text x="36" y="120" text-anchor="end" style="font-size:7px;font-weight:700;fill:#222">回盲部</text><text x="85" y="170" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#7D3C98">全消化管に非連続性（skip lesion）</text><text x="255" y="12" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">潰瘍性大腸炎</text><path d="M256 18 V30" stroke="#C9A58A" stroke-width="5" fill="none" stroke-linecap="round"/><ellipse cx="268" cy="38" rx="16" ry="9" fill="#F2D7C4" stroke="#B08968" stroke-width="1"/><path d="M236 70 h46 q6 0 6 6 t-6 6 h-46 q-6 0 -6 6 t6 6 h46 q6 0 6 6 t-6 6 h-46 q-6 0 -6 6 L222 118" stroke="#E9C8B3" stroke-width="7" fill="none" stroke-linejoin="round"/><path d="M220 126 V58 H308 V118 Q308 134 286 132 Q266 130 264 142 V154" stroke="#D9A98A" stroke-width="10" fill="none" stroke-linejoin="round"/><path d="M220 126 V58 H308 V118 Q308 134 286 132 Q266 130 264 142 V154" stroke="#B08968" stroke-width="1" fill="none" stroke-dasharray="1 0" opacity=".0"/><path d="M264 154 V142 Q266 130 286 132 Q308 134 308 118 V76" stroke="#7D3C98" stroke-width="10" fill="none" opacity=".8"/><text x="255" y="170" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#7D3C98">直腸から口側へ連続性</text><text x="320" y="150" text-anchor="start" style="font-size:7px;font-weight:400;fill:#444">直腸</text><text x="190" y="40" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#7D3C98">大腸のみ</text></svg></section>
+    <section class="panel"><h3>〇 病変の深さ</h3>
+    <svg class="fig" viewBox="0 0 340 110" role="img" aria-label="病変の深さ。腸管壁は粘膜、粘膜下層、固有筋層、漿膜。クローン病は全層性、潰瘍性大腸炎は粘膜から粘膜下層まで"><rect x="70" y="10" width="170" height="18" fill="#F6D5DA" stroke="#999" stroke-width=".6"/><text x="64" y="22" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">粘膜</text><rect x="70" y="28" width="170" height="18" fill="#F9E5D0" stroke="#999" stroke-width=".6"/><text x="64" y="40" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">粘膜下層</text><rect x="70" y="46" width="170" height="18" fill="#F3C8A8" stroke="#999" stroke-width=".6"/><text x="64" y="58" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">固有筋層</text><rect x="70" y="64" width="170" height="18" fill="#EAD9F0" stroke="#999" stroke-width=".6"/><text x="64" y="76" text-anchor="end" style="font-size:8px;font-weight:700;fill:#222">漿膜</text><path d="M262 10 V82" stroke="#7D3C98" stroke-width="7"/><text x="262" y="94" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#7D3C98">クローン病</text><text x="262" y="104" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#444">全層性</text><path d="M310 10 V46" stroke="#2E86C1" stroke-width="7"/><text x="310" y="94" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#2E86C1">潰瘍性大腸炎</text><text x="310" y="104" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#444">粘膜〜粘膜下層</text><text x="250" y="22" text-anchor="start" style="font-size:7px;font-weight:400;fill:#666">浅</text><text x="250" y="78" text-anchor="start" style="font-size:7px;font-weight:400;fill:#666">深</text></svg>
+    <p class="small muted">クローン病：縦走潰瘍・敷石像 → 瘻孔・狭窄</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5379,6 +5404,7 @@ const UNITS = {
   nx_pr: { no:'必7', title:'調剤と服薬指導', subject:'必須問題', course:'hissu', subj:8, lessons:NX_PR_LESSONS, cards:'nx_pr', drill:'nx_pr' },
   lbnp: { no:'検1-9', title:'心臓マーカー', subject:'検査室', course:'lab', subj:0, lessons:LBNP_LESSONS, cards:'lbnp', drill:'lbnp' },
   lrsp: { no:'検5-1', title:'呼吸機能検査', subject:'検査室', course:'lab', subj:4, lessons:LRSP_LESSONS, cards:'lrsp', drill:'lrsp' },
+  ibd: { no:'薬17', title:'炎症性腸疾患', subject:'薬理・病態・薬物治療', course:'pharm', subj:16, lessons:IBD_LESSONS, cards:'ibd', drill:'ibd' },
   lpro: { no:'検5-5', title:'前立腺の検査', subject:'検査室', course:'lab', subj:4, lessons:LPRO_LESSONS, cards:'lpro', drill:'lpro' },
   lecg: { no:'検3-1', title:'波形の基本', subject:'検査室', course:'lab', subj:2, lessons:LECG_LESSONS, cards:'lecg', drill:'lecg' },
   larr: { no:'検3-2', title:'不整脈', subject:'検査室', course:'lab', subj:2, lessons:LARR_LESSONS, cards:'larr', drill:'larr' },
@@ -5440,7 +5466,7 @@ const CATALOG = [
       { name:'腎・泌尿器系', k:'14', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' },'腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
       { name:'生殖器系', k:'15', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
       { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎',{ t:'まとめ', ch:'α', ready:'rsm' }) },
-      { name:'消化器系', k:'17', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD','炎症性腸疾患','肝炎・肝硬変','膵炎') },
+      { name:'消化器系', k:'17', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD',{ t:'炎症性腸疾患', ready:'ibd' },'肝炎・肝硬変','膵炎') },
       { name:'代謝系', k:'18', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
       { name:'内分泌系', k:'19', units:U('甲状腺疾患治療薬','副腎皮質ホルモン関連薬','視床下部・下垂体ホルモン関連薬','甲状腺疾患','副腎疾患','下垂体疾患') },
       { name:'眼', k:'20', units:U({ t:'散瞳薬・縮瞳薬', ready:'eye1' },{ t:'緑内障治療薬', ready:'eye2' },{ t:'白内障治療薬', ready:'eye3' },'緑内障','白内障','網膜疾患') },
