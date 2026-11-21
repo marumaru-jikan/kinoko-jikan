@@ -3300,6 +3300,14 @@ Object.assign(POOL, {
     ['輸液','等張性電解質輸液が主に補うのは？','細胞外液',['細胞内液','体液全体','自由水'],'細胞外液量が増加'],
     ['輸液','乳酸リンゲル液の乳酸Na濃度は？','28 mEq/L',['154 mEq/L','4 mEq/L','109 mEq/L'],'アルカリ化剤'],
   ],
+  hypo:[
+    ['輸液','病態が不明な時に用いる低張性電解質輸液は？','1号液（開始液）',['2号液（脱水補給液）','3号液（維持液）','4号液（術後回復液）'],'K⁺を含まない'],
+    ['輸液','K⁺を含まない低張性電解質輸液は？','1号液と4号液',['2号液と3号液','1号液と3号液','2号液と4号液'],'不明ならK⁺なしでいいよ'],
+    ['輸液','水分・電解質の1日必要量を基準とした輸液は？','3号液（維持液）',['1号液（開始液）','2号液（脱水補給液）','4号液（術後回復液）'],'最もよく使われる'],
+    ['輸液','低張性脱水時に用いる輸液は？','2号液（脱水補給液）',['1号液（開始液）','3号液（維持液）','4号液（術後回復液）'],'総合電解質濃度が高め'],
+    ['輸液','低張性電解質輸液が補うのは？','体液全体',['細胞外液のみ','血漿のみ','組織間液のみ'],'細胞内液・外液'],
+    ['輸液','電解質濃度が低く水分補給を目的とした輸液は？','4号液（術後回復液）',['1号液（開始液）','2号液（脱水補給液）','3号液（維持液）'],'細胞内への水補給効果が大きい'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4064,7 +4072,28 @@ const INJ2_LESSONS = [
     <p><b>・重炭酸リンゲル液</b></p>
     <p>アルカリ化剤として<b>炭酸水素ナトリウム</b>を配合</p>
     <p class="small muted">代謝を必要とせず直接HCO<sub>3</sub><sup>−</sup>を補給</p></section>` },
-  { id:'2-2', t:'低張性電解質輸液', wip:true, plan:[], body:()=>'' }
+  { id:'2-2', t:'低張性電解質輸液', sub:'1号液〜4号液', plan:['hypo','hypo','hypo','hypo','hypo'], body:()=>`
+    <section class="panel"><h3>〇 低張性電解質輸液</h3>
+    <p class="small muted">体液全てを補う</p>
+    <p>1〜4号液の4種類<br>→ 細胞<b>内液</b>・<b>外液</b>の補充が可能</p>
+    <p>電解質濃度は体液より<b>低い</b><br>→ 糖質などを加えて浸透圧は<b>等張</b>に調節</p>
+    <svg class="fig" viewBox="0 0 340 152" role="img" aria-label="低張性電解質輸液は細胞内液・組織間液・血漿の体液全体に分布し、体液全体が増加する"><defs><marker id="hya" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#222"/></marker></defs><rect x="10" y="56" width="320" height="54" fill="#CFE6F2"/><rect x="10" y="40" width="320" height="70" fill="none" stroke="#333" stroke-width="1.2"/><line x1="160" y1="40" x2="160" y2="110" stroke="#333"/><line x1="290" y1="40" x2="290" y2="110" stroke="#333" stroke-dasharray="2 2"/><line x1="10" y1="56" x2="330" y2="56" stroke="#888" stroke-dasharray="3 2"/><text x="85" y="100" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">細胞内液</text><text x="218" y="100" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">組織間液</text><path d="M310 6 V104" stroke="#222" stroke-width="2.2" fill="none" marker-end="url(#hya)"/><path d="M310 72 H40" stroke="#222" stroke-width="2.2" fill="none" marker-end="url(#hya)"/><path d="M225 72 V88" stroke="#222" stroke-width="2.2" fill="none" marker-end="url(#hya)"/><text x="200" y="28" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">体液全体が増加</text><text x="310" y="126" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#222">血漿</text><line x1="160" y1="132" x2="330" y2="132" stroke="#555"/><text x="230" y="146" text-anchor="middle" style="font-size:10px;font-weight:400;fill:#555">細胞外液</text></svg>
+    ${tbl(['','Na<sup>+</sup>','K<sup>+</sup>','Cl<sup>−</sup>','乳酸<br>Na'],[['1号液<br><span class="small muted">開始液</span>','77〜90','<b>−</b>','77','20'],['2号液<br><span class="small muted">脱水補給液</span>','84','20','66','20'],['3号液<br><span class="small muted">維持液</span>','35〜40','約20','35〜50','20'],['4号液<br><span class="small muted">術後回復液</span>','30','<b>−</b>','20','10']])}
+    <p class="small muted">単位：mEq/L</p></section>
+    <section class="panel"><p><b>・1号液</b><span class="small muted">（開始液）</span></p>
+    <p>K<sup>+</sup>負荷の可否が予測不可能な場合など、<b>病態が不明</b>な時に用いる<br><b>K<sup>+</sup>を含まない</b></p>
+    <p><b>・2号液</b><span class="small muted">（脱水補給液）</span></p>
+    <p>1号液に比べ総合電解質濃度が高め<br><b>低張性脱水</b>時に用いる</p>
+    <p class="small muted">K<sup>+</sup>・Mg<sup>2+</sup>など細胞内電解質を含む</p>
+    <p><b>・3号液</b><span class="small muted">（維持液）</span></p>
+    <p>水分・電解質の<b>1日必要量</b>が組成の基準<br>→ 数日であれば水と主要な電解質を維持できる</p>
+    <p class="small muted">最もよく使われる</p>
+    <p><b>・4号液</b><span class="small muted">（術後回復液）</span></p>
+    <p>電解質濃度が低く、<b>水分補給</b>を目的とした製剤<br><b>K<sup>+</sup>を含まない</b></p>
+    <p class="small muted">細胞内への水補給効果が大きい<br>腎機能低下がみられる術後・新生児・乳幼児・高齢者に適する</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/hypo_order.png" alt="低張性電解質輸液の覚え方。開始だいじ。開始＝開始液（1号）、だ＝脱水補給液（2号）、い＝維持液（3号）、じ＝術後回復液（4号）" loading="lazy">
+    <img class="goro-img" src="goro/hypo_k.png" alt="病態不明時の輸液選択の覚え方。不明ならK＋なしでいいよ。不明＝病態不明時、K＋なし＝K＋非含有、い＝1号、よ＝4号" loading="lazy"></section>` }
 ];
 const INJ3_LESSONS = [
   { id:'3-1', t:'栄養療法', wip:true, plan:[], body:()=>'' },
@@ -4116,7 +4145,8 @@ const INJ4_LESSONS = [
   { id:'4-4', t:'医療材料', wip:true, plan:[], body:()=>'' }
 ];
 const GX_INJ_LESSONS = [
-  { id:'g1', col:true, lid:'4-3', t:'抗がん剤の調剤', sub:'注射剤・輸液の調剤　1つ', plan:[], body:()=>`<section class="panel"><h3>常温で気化しやすい抗がん剤</h3><img class="goro-img" src="goro/kika.png" alt="常温で気化しやすい抗がん剤の覚え方。違法な白い便出した。違法＝イホスファミド、白＝シクロホスファミド、便出＝ベンダムスチン" loading="lazy"></section>` }
+  { id:'g1', col:true, lid:'4-3', t:'抗がん剤の調剤', sub:'注射剤・輸液の調剤　1つ', plan:[], body:()=>`<section class="panel"><h3>常温で気化しやすい抗がん剤</h3><img class="goro-img" src="goro/kika.png" alt="常温で気化しやすい抗がん剤の覚え方。違法な白い便出した。違法＝イホスファミド、白＝シクロホスファミド、便出＝ベンダムスチン" loading="lazy"></section>` },
+  { id:'g5', col:true, lid:'2-2', t:'低張性電解質輸液', sub:'輸液調剤　2つ', plan:[], body:()=>`<section class="panel"><h3>低張性電解質輸液</h3><img class="goro-img" src="goro/hypo_order.png" alt="低張性電解質輸液の覚え方。開始だいじ。開始＝開始液（1号）、だ＝脱水補給液（2号）、い＝維持液（3号）、じ＝術後回復液（4号）" loading="lazy"></section><section class="panel"><h3>病態不明時の輸液選択</h3><img class="goro-img" src="goro/hypo_k.png" alt="病態不明時の輸液選択の覚え方。不明ならK＋なしでいいよ。不明＝病態不明時、K＋なし＝K＋非含有、い＝1号、よ＝4号" loading="lazy"></section>` }
 ];
 const AE_LESSONS = [
   { id:'8-1', t:'副作用①', sub:'腎臓・血液・肝臓・過敏症状・呼吸器・消化器', plan:['ae1','ae1','ae1','ae1','ae1'], body:()=>`
