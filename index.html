@@ -3123,6 +3123,13 @@ Object.assign(POOL, {
     ['乳がん','ホルモン受容体陽性の乳がんの割合は？','約60〜70%',['約10%','約25〜30%','約90%'],'HER2陽性は約25〜30%'],
     ['乳がん','ホルモン受容体陽性・HER2陰性の乳がんの治療は？','ホルモン療法・化学療法',['分子標的治療薬のみ','ホルモン療法のみ','化学療法のみ'],'抗HER2薬は効果なし'],
   ],
+  brc2:[
+    ['乳がん','トラスツズマブの重大な副作用は？','心筋障害',['出血性膀胱炎','末梢神経障害','腎障害'],'インフュージョンリアクション・間質性肺炎も'],
+    ['乳がん','シクロホスファミドの調製で閉鎖式調製器具を用いる理由は？','常温で気化しやすい',['光で分解する','析出しやすい','アルミニウムと反応する'],'曝露防止'],
+    ['乳がん','ドキソルビシンの心筋障害のリスクが高まる総投与量は？','500 mg/m²超',['50 mg/m²超','1,500 mg/m²超','5,000 mg/m²超'],'アントラサイクリン系'],
+    ['乳がん','ドキソルビシン投与後にみられることがあるのは？','赤色尿',['緑色尿','黒色便','白色便'],'脱毛・血管外漏出にも注意'],
+    ['乳がん','シクロホスファミドの特徴的な副作用は？','出血性膀胱炎',['心筋障害','間質性肺炎','末梢神経障害'],'吐気も'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4655,7 +4662,14 @@ const ONP5_LESSONS = [
     <svg class="fig" viewBox="0 0 340 200" role="img" aria-label="乳がんのタイプと治療。ホルモン受容体陽性かつHER2陽性はホルモン療法・分子標的治療薬・化学療法。ホルモン受容体陰性かつHER2陽性は分子標的治療薬・化学療法。ホルモン受容体陽性かつHER2陰性はホルモン療法・化学療法。ともに陰性のtriple negative型は化学療法"><rect x="60" y="4" width="276" height="16" fill="#F3E3EE" stroke="#555" stroke-width=".6"/><text x="198" y="15" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">ホルモン受容体</text><rect x="60" y="20" width="150" height="16" fill="#F7E6CF" stroke="#555" stroke-width=".6"/><text x="135" y="31" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">陽性（約60〜70%）</text><rect x="210" y="20" width="126" height="16" fill="#E2DDF0" stroke="#555" stroke-width=".6"/><text x="273" y="31" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">陰性</text><rect x="4" y="36" width="20" height="160" fill="#E1EEDC" stroke="#555" stroke-width=".6"/><text transform="translate(17 116) rotate(-90)" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">HER2</text><rect x="24" y="36" width="36" height="80" fill="#F7E6CF" stroke="#555" stroke-width=".6"/><text x="42" y="72" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">陽性</text><text x="42" y="84" text-anchor="middle" style="font-size:5.8px;font-weight:400;fill:#222">約25〜30%</text><rect x="24" y="116" width="36" height="80" fill="#E2DDF0" stroke="#555" stroke-width=".6"/><text x="42" y="159" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">陰性</text><rect x="60" y="36" width="150" height="80" fill="#fff" stroke="#555" stroke-width=".6"/><rect x="210" y="36" width="126" height="80" fill="#fff" stroke="#555" stroke-width=".6"/><rect x="60" y="116" width="150" height="80" fill="#fff" stroke="#555" stroke-width=".6"/><rect x="210" y="116" width="126" height="80" fill="#fff" stroke="#555" stroke-width=".6"/><circle cx="86" cy="76" r="21" fill="#F4C6DA"/><text x="86" y="74" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">ホルモン</text><text x="86" y="84" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">療法</text><circle cx="135" cy="76" r="21" fill="#CFE8C0"/><text x="135" y="74" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">分子標的</text><text x="135" y="84" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">治療薬</text><circle cx="184" cy="76" r="21" fill="#C9E0F5"/><text x="184" y="79" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">化学療法</text><circle cx="248" cy="76" r="21" fill="#CFE8C0"/><text x="248" y="74" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">分子標的</text><text x="248" y="84" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">治療薬</text><circle cx="298" cy="76" r="21" fill="#C9E0F5"/><text x="298" y="79" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">化学療法</text><circle cx="108" cy="158" r="21" fill="#F4C6DA"/><text x="108" y="156" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">ホルモン</text><text x="108" y="166" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">療法</text><circle cx="162" cy="158" r="21" fill="#C9E0F5"/><text x="162" y="161" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">化学療法</text><text x="273" y="132" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#C0392B">triple negative型</text><circle cx="273" cy="164" r="21" fill="#C9E0F5"/><text x="273" y="167" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">化学療法</text></svg>
     <p><b>triple negative型</b><br>ER・PgR・HER2のいずれも陰性<br>→ <b>化学療法</b>のみ</p>
     <p><b>化学療法</b><br>細胞分裂が活発な細胞を障害<br>→ 基本的に全てのタイプに効果</p>
-    <p class="small muted">癌の増殖能・他の治療法の有効性・化学療法の副作用を考慮し優先順位を決める<br>サブタイプ：luminal・HER2-enriched・basal-like・normal cell-likeなど</p></section>` }
+    <p class="small muted">癌の増殖能・他の治療法の有効性・化学療法の副作用を考慮し優先順位を決める<br>サブタイプ：luminal・HER2-enriched・basal-like・normal cell-likeなど</p></section>` },
+  { id:'5-2', t:'乳がん治療に用いられる抗悪性腫瘍薬', sub:'トラスツズマブ・シクロホスファミド・ドキソルビシン', plan:['brc2','brc2','brc2','brc2','brc2'], body:()=>`
+    <section class="panel"><h3>〇 抗悪性腫瘍薬と副作用</h3>
+    ${ktbl([
+      [kdrug('トラスツズマブ','適応：HER2過剰発現の乳がん・胃がん'),'<b>心筋障害</b><br>インフュージョンリアクション<br>間質性肺炎・肺障害'],
+      [kdrug('シクロホスファミド','適応：乳がん・悪性リンパ腫'),'吐気<br><b>出血性膀胱炎</b><br><span class="small muted">常温で気化しやすい → 閉鎖式調製器具を用いる</span>'],
+      [kdrug('ドキソルビシン','適応：乳がん・悪性リンパ腫'),'<b>心筋障害</b><br><span class="small muted">総投与量500 mg/m²を超えるとリスク⬆</span><br><b>血管外漏出</b><br><span class="small muted">脱毛（多くは治療終了後半年〜1年で回復）<br>投与後、尿が赤くなることがある</span>']
+    ]).replace('tbl ktbl','tbl ktbl kw')}</section>` }
 ];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
