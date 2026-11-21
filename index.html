@@ -3235,6 +3235,15 @@ Object.assign(POOL, {
     ['アピアランスケア','脱毛に対するアピアランスケアは？','ウィッグ・帽子の使用',['保湿剤の塗布','補整下着','爪の保護'],'頭皮の保清・保護も'],
     ['アピアランスケア','アピアランスケアで用いる支援でないのは？','経済的支援のみ',['医学的支援','整容的支援','心理社会的支援'],'医学的・整容的・心理社会的'],
   ],
+  lph:[
+    ['地域の薬局','健康サポート薬局の要件は？','都道府県知事に届け出る',['都道府県知事の認定','厚生労働大臣の許可','市町村長への届出'],'かかりつけ機能＋健康サポート機能'],
+    ['地域の薬局','地域連携薬局の認定を行うのは？','都道府県知事',['厚生労働大臣','市町村長','保健所長'],'1年ごとの更新制'],
+    ['地域の薬局','地域連携薬局・専門医療機関連携薬局の認定の更新は？','1年ごと',['3年ごと','6年ごと','更新不要'],'2021年8月施行'],
+    ['地域の薬局','専門医療機関連携薬局の傷病区分は？','がん',['糖尿病','精神疾患','難病'],'現在はがんのみ'],
+    ['地域の薬局','専門的な薬学的知見に基づく指導を実施する薬局は？','専門医療機関連携薬局',['地域連携薬局','健康サポート薬局','かかりつけ薬局'],'がん専門病院と治療方針を共有'],
+    ['地域の薬局','かかりつけ薬剤師・薬局がもつべき機能でないのは？','高度薬学管理機能',['服薬情報の一元的・継続的把握','24時間対応・在宅対応','医療機関等との連携'],'高度薬学管理機能は充実・強化すべき機能'],
+    ['地域の薬局','健康サポート薬局である旨の表示ができるのは？','知事に届け出た薬局',['すべての薬局','認定を受けた病院','保険薬局のみ'],'健康サポート機能を備える'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4897,7 +4906,22 @@ const EBM_LESSONS = [
     <p class="small muted">薬物を投与した際は原則1未満（副作用の算出時は除く）<br>a×d と b×c のうち大きい方を分母にする</p></section>` }
 ];
 const LCF_LESSONS = [
-  { id:'1-1', t:'地域における薬局の機能', wip:true, plan:[], body:()=>'' },
+  { id:'1-1', t:'地域における薬局の機能', sub:'健康サポート薬局・地域連携薬局・専門医療機関連携薬局', plan:['lph','lph','lph','lph','lph'], body:()=>`
+    <section class="panel"><h3>〇 患者のための薬局ビジョン</h3>
+    ${tbl(['かかりつけ薬剤師・薬局がもつべき機能','患者等のニーズに応じて充実・強化すべき機能'],[['服薬情報の一元的・継続的把握<br><b>24時間対応</b>・在宅対応<br>医療機関等との連携','<b>健康サポート機能</b><br>高度薬学管理機能']])}
+    <p class="small muted">24時間対応：休日も含む</p></section>
+    <section class="panel"><h3>〇 健康サポート薬局</h3>
+    <p class="small muted">かかりつけ薬局の機能＋健康サポート機能</p>
+    ${ktbl([['定義','患者が継続して利用するために必要な機能及び個人の主体的な健康の保持増進への取組を<b>積極的に支援</b>する機能を有する薬局'],['要件','かかりつけ薬剤師・薬局の基本的な機能と<b>健康サポート機能</b>を備えているとして、<b>都道府県知事に届け出る</b>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p><b>※ 表示</b><br>知事に届け出た薬局は、<b>健康サポート薬局である旨を表示</b>できる。</p>
+    <p class="small muted">医薬品医療機器等法・「患者のための薬局ビジョン」を踏まえる</p></section>
+    <section class="panel"><h3>〇 地域連携薬局</h3>
+    <p class="small muted">2021年（令和3年）8月、医薬品医療機器等法の改正で新設</p>
+    ${ktbl([['定義','その機能が、医師・歯科医師・薬剤師が診療又は調剤に従事する他の医療提供施設と<b>連携</b>し、<b>地域</b>における薬剤及び医薬品の適正な使用の推進及び効率的な提供に必要な情報の提供及び薬学的知見に基づく指導を実施する薬局'],['要件','<b>都道府県知事の認定</b><br><b>1年ごとの更新</b>制<br><span class="small muted">入退院時などの医療機関との情報共有・夜間休日の対応・在宅医療への対応・地域包括ケアの研修を修了した常勤薬剤師の配置 など</span>']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 専門医療機関連携薬局</h3>
+    ${ktbl([['定義','その機能が、医師・歯科医師・薬剤師が診療又は調剤に従事する他の医療提供施設と連携し、薬剤の適正な使用の確保のために<b>専門的な薬学的知見</b>に基づく指導を実施する薬局'],['要件','<b>都道府県知事の認定</b><br><b>1年ごとの更新</b>制<br>傷病区分：<b>がん</b>（今はこれだけ）<br><span class="small muted">専門医療機関との治療方針の共有・専門性の認定を受けた常勤薬剤師（がん専門薬剤師など）の配置 など</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <svg class="fig" viewBox="0 0 340 96" role="img" aria-label="地域連携薬局は入退院時に医療機関と情報連携し、患者の居宅を訪問し、他の薬局とも情報連携する。専門医療機関連携薬局はがん専門病院と治療方針を共有する"><defs><marker id="pha" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#444"/></marker></defs><text x="84" y="12" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#2E5B8C">〈地域連携薬局〉</text><rect x="6" y="36" width="32" height="28" fill="#D6DEF2" stroke="#555"/><text x="22" y="54" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">＋</text><text x="22" y="78" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">入退院</text><line x1="44" y1="44" x2="78" y2="44" stroke="#444" stroke-width="1.2" marker-end="url(#pha)"/><line x1="78" y1="58" x2="44" y2="58" stroke="#444" stroke-width="1.2" marker-end="url(#pha)"/><text x="61" y="38" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#222">情報</text><text x="61" y="70" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#222">連携</text><rect x="80" y="36" width="32" height="28" fill="#E7EEF8" stroke="#555"/><text x="96" y="54" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">地</text><line x1="116" y1="50" x2="150" y2="50" stroke="#444" stroke-width="1.2" marker-end="url(#pha)"/><text x="133" y="44" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#222">訪問</text><text x="170" y="48" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">患者</text><text x="170" y="58" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#222">居宅</text><text x="96" y="88" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">他の薬局と情報連携</text><text x="266" y="12" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#8C2E5B">〈専門医療機関連携薬局〉</text><rect x="206" y="36" width="32" height="28" fill="#D6DEF2" stroke="#555"/><text x="222" y="54" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">＋</text><text x="222" y="78" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">がん専門病院</text><line x1="244" y1="44" x2="294" y2="44" stroke="#444" stroke-width="1.2" marker-end="url(#pha)"/><line x1="294" y1="58" x2="244" y2="58" stroke="#444" stroke-width="1.2" marker-end="url(#pha)"/><text x="269" y="72" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#222">治療方針の共有</text><rect x="298" y="36" width="32" height="28" fill="#F6E3EC" stroke="#555"/><text x="314" y="54" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">専</text></svg>
+    <p class="small muted">認定を受けた薬局は「地域連携薬局」「専門医療機関連携薬局（がん）」と表示できる<br>認定を受けていない薬局はこれらの名称・紛らわしい名称を用いてはならない</p></section>` },
   { id:'1-2', t:'地域フォーミュラリ', sub:'地域フォーミュラリとは', plan:['lcf','lcf','lcf','lcf','lcf'], body:()=>`
     <section class="panel"><h3>〇 地域フォーミュラリとは</h3>
     <p class="small muted">フォーミュラリ：医療機関などで、有効性・安全性・経済性を総合的に評価して作成した<b>医薬品の使用指針</b></p>
