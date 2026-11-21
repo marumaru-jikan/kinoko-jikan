@@ -3095,6 +3095,16 @@ Object.assign(POOL, {
     ['植物アルカロイド','タキサン系が主に作用する細胞周期は？','G₂〜M期',['G₁期','S期','G₀期'],'ビンカアルカロイドはM期'],
     ['植物アルカロイド','トポイソメラーゼⅠ阻害薬はどれ？','イリノテカン',['エトポシド','ドセタキセル','ビンブラスチン'],'Ⅰ → イリノテカン'],
   ],
+  oncb:[
+    ['がん治療','抗悪性腫瘍薬・支持療法薬の投与量や投与順などを時系列に明記した処方計画書は？','レジメン',['クリニカルパス','インフォームドコンセント','プロトコール逸脱'],'これに沿って化学療法を行う'],
+    ['がん治療','抗悪性腫瘍薬の副作用の評価に用いるのは？','CTCAE',['PS','TNM分類','RECIST'],'有害事象共通用語基準'],
+    ['がん治療','CTCAEのGrade 5は？','死亡',['軽症','重症','生命を脅かす'],'Grade 1〜5の5段階'],
+    ['がん治療','CTCAEを公表しているのは？','米国国立がん研究所（NCI）',['世界保健機関（WHO）','日本癌治療学会','米国食品医薬品局（FDA）'],'Common Terminology Criteria for Adverse Events'],
+    ['がん治療','がん患者の一般状態を医療側の尺度で測った指標は？','PS',['CTCAE','QOL','ADL'],'Performance Status'],
+    ['がん治療','日中の50%以上は就床しているPSは？','3',['1','2','4'],'PS 2は50%以上起居'],
+    ['がん治療','終日就床を必要とするPSは？','4',['2','3','1'],'常に介助がいる'],
+    ['がん治療','無症状で発病前と同等に振る舞えるPSは？','0',['1','2','3'],'社会的活動ができる'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4578,6 +4588,23 @@ const GX_LIP_LESSONS = [
   { id:'g2', col:true, lid:'4-3', t:'高コレステロール血症治療薬②', sub:'プロブコール・エボロクマブ・ロミタピド', plan:[], body:()=>`<section class="panel"><h3>コレステロール異化促進薬</h3><img class="goro-img" src="goro/lip_probucol.png" alt="コレステロール異化促進薬の覚え方。プロのコールで異化促進。プロのコール＝プロブコール、異化促進＝コレステロール異化促進" loading="lazy"></section><section class="panel"><h3>抗PCSK9抗体</h3><img class="goro-img" src="goro/lip_pcsk9.png" alt="抗PCSK9抗体の覚え方。抗PCSK9抗体のKとクがエボロクマブ" loading="lazy"></section><section class="panel"><h3>MTP阻害薬</h3><img class="goro-img" src="goro/lip_mtp.png" alt="MTP阻害薬の覚え方。MTP阻害薬のM・T・Pがロミタピドのミ・タ・ピ" loading="lazy"></section>` },
   { id:'g3', col:true, lid:'4-4', t:'高トリグリセリド血症治療薬', sub:'「ト」の入っている薬はTG⬇', plan:[], body:()=>`<section class="panel"><h3>高TG血症治療薬</h3><img class="goro-img" src="goro/lip_tg.png" alt="高TG血症治療薬の覚え方。トの入っている薬はトリグリセリド低下。イコサペント酸エチル、デキストラン硫酸エステル、フィブラート系" loading="lazy"></section>` }
 ];
+const ONP1_LESSONS = [
+  { id:'1-1', t:'がん治療における用語', sub:'レジメン・CTCAE・PS', plan:['oncb','oncb','oncb','oncb','oncb'], body:()=>`
+    <section class="panel"><h3>〇 レジメン</h3>
+    <p>抗悪性腫瘍薬・支持療法薬の<b>投与量・投与時間・投与方法・投与順・投与日</b>などを<b>時系列</b>に明記した処方計画書。</p>
+    <p>がん化学療法はレジメンに沿って行う。</p></section>
+    <section class="panel"><h3>〇 CTCAE分類</h3>
+    <p><b>有害事象共通用語基準</b>（CTCAE）<br>抗悪性腫瘍薬の<b>副作用</b>を評価する。</p>
+    <p class="small muted">Common Terminology Criteria for Adverse Events<br>米国国立がん研究所（NCI）が公表</p>
+    <p>副作用をカテゴリー分類し、<b>Grade 1〜5</b>の5段階で区分。</p>
+    ${ktbl([['Grade 1','軽症'],['Grade 2','中等症'],['Grade 3','重症'],['Grade 4','生命を脅かす'],['Grade 5','<b>死亡</b>']])}</section>
+    <section class="panel"><h3>〇 PS</h3>
+    <p class="small muted">Performance Status</p>
+    <p><b>がん患者の一般状態</b>を医療側の尺度で測った指標。</p>
+    <p>PSにより治療方針（推奨される治療薬など）が異なる場合がある<br>→ 考慮すべき患者情報として優先度が高い</p>
+    <p class="small muted">例）ステージⅣの非小細胞肺がん</p>
+    ${ktbl([['<b>PS 0</b>','無症状で社会的活動ができ、制限を受けることなく発病前と同等に振る舞える'],['<b>PS 1</b>','軽度の症状があり、肉体労働は制限を受けるが、歩行、軽労働や座業はできる'],['<b>PS 2</b>','歩行や身の回りのことはできるが、時に少し介助がいることもある<br>軽作業はできないが、日中の<b>50%以上は起居</b>している'],['<b>PS 3</b>','身の回りのことはある程度できるが、しばしば介助がいり、日中の<b>50%以上は就床</b>している'],['<b>PS 4</b>','身の回りのこともできず、常に介助がいり、<b>終日就床</b>を必要としている']])}</section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5637,6 +5664,7 @@ const UNITS = {
   inj4:{ no:'実9', title:'その他', subject:'実務', course:'prac', subj:8, lessons:INJ4_LESSONS, cards:'inj4', drill:'inj4' },
   ae1:{ no:'実7', title:'副作用', subject:'実務', course:'prac', subj:6, lessons:AE_LESSONS, cards:'ae1', drill:'ae1' },
   inf1:{ no:'実17', title:'感染症', subject:'実務', course:'prac', subj:16, lessons:INF1_LESSONS, cards:'inf1', drill:'inf1' },
+  onp1:{ no:'実16', title:'がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP1_LESSONS, cards:'onp1', drill:'onp1' },
   infa:{ no:'実17', title:'まとめ', subject:'実務', course:'prac', subj:16, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
   inf2:{ no:'実17', title:'感染症治療薬', subject:'実務', course:'prac', subj:16, lessons:INF2_LESSONS, cards:'inf2', drill:'inf2' },
   tm1:{ no:'実1', title:'薬剤師の倫理と役割', subject:'実務', course:'prac', subj:0, lessons:TM1_LESSONS, cards:'tm1', drill:'tm1' },
@@ -5840,7 +5868,7 @@ const CATALOG = [
       { name:'医薬品情報', k:'13', units:U() },
       { name:'服薬指導', k:'14', units:U({ t:'服薬指導', ready:'pm1' },{ t:'生活指導', ready:'pm2' },{ t:'記録', ready:'pm3' },{ t:'配慮が必要な患者', ready:'pm4' },{ t:'使い方の指導が必要な剤形', ready:'pm5' }) },
       { name:'地域', k:'15', units:U() },
-      { name:'薬学的管理【がん】', k:'16', units:U() },
+      { name:'薬学的管理【がん】', k:'16', units:U({ t:'がん治療', ready:'onp1' }) },
       { name:'薬学的管理【感染症】', k:'17', units:U({ t:'感染症', ready:'inf1' },{ t:'感染症治療薬', ready:'inf2' },{ t:'まとめ', ch:'α', ready:'infa' }) } ] },
     { id:'hissu', name:'必須問題', k:'必', note:'国試の必須問題レベルの一問一答', subjects:[
       { name:'物理', k:'物', units:U({ t:'物理・分析', ready:'nx_phy' }) },
