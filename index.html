@@ -178,6 +178,14 @@ p{margin:0}
 .day.on{background:var(--teal);color:var(--surface);font-weight:700}
 .kv{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
 .kv:first-child{border-top:0}
+.sbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.sbtn svg,.sbox svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.sbox{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 12px;color:var(--muted)}
+.sbox input[type=search]{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--ink);background:transparent;border:0;padding:8px 0;outline:none}
+.sbox input[type=search]::-webkit-search-cancel-button{display:none}
+.sclear{border:0;background:none;color:var(--muted);font:inherit;padding:4px}
+.sres .snip{display:block;margin-top:4px;line-height:1.6}
+mark.hit{background:#FFE58A;color:#222;border-radius:3px;padding:0 1px}
 input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
 input[type=text]:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
 ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
@@ -6416,6 +6424,7 @@ function vHome(){
   const acc=R.answered?Math.round(R.correct/R.answered*100):0, uid=UNITS[R.lastUnit]?R.lastUnit:'ans', u=UNITS[uid], n=nextOf(uid);
   return `<div class="stack" style="padding-top:8px"><div class="sky">${heroArt()}<div class="txt"><span class="name">蕈時間</span><h1>${greet()}${R.name?'、'+esc(R.name)+'さん':''}</h1><p>今日も5分だけ。<br>ゆっくり成長中。</p></div></div>
   <div class="stats"><div class="stat"><b>${R.days.length}</b><span>学習した日</span></div><div class="stat"><b>${streak()}</b><span>連続した日</span></div><div class="stat"><b>${R.answered}</b><span>解いた問題${R.answered?'（'+acc+'%）':''}</span></div></div>
+  <button class="sbtn" data-act="go" data-arg="search">${SI_ICON}<span>胞子を検索</span></button>
   <button class="continue" data-act="lesson" data-arg="${n.id}" data-uid="${uid}"><span><small>続きから　${u.subject}・${u.title}（${doneCount(uid)}/${QL(uid).length}）</small><strong>${LN(n)}</strong></span><span class="go" aria-hidden="true">→</span></button>
   ${CATALOG.map(g=>`<h2>${g.group}</h2><div class="subjects">${g.courses.map(c=>{ const r=readyCount(c);
     return `<button class="subj" data-act="course" data-arg="${c.id}"><span class="k">${c.k}</span><b>${c.name}</b><span class="small muted">${c.note||c.subjects.map(x=>x.name).join('・')}</span><span class="small ${r?'':'muted'}">${r?'公開中 '+c.subjects.filter(x=>x.units.some(u=>u.ready)).length+'項目':'準備中'}</span></button>`; }).join('')}</div>`).join('')}
@@ -6610,7 +6619,67 @@ async function renderPdf(){ const P=S.pdf, box=document.getElementById('pdfpages
       cv.width=vp.width; cv.height=vp.height; cv.className='pdfpage'; cv.style.width=W+'px'; box.appendChild(cv); await pg.render({ canvasContext:cv.getContext('2d'), viewport:vp }).promise; } }
   catch(e){ if(tok===P.tok) box.innerHTML='<p class="small muted" style="padding:24px;text-align:center">PDFを読みこめませんでした。下のボタンから開いてください。</p>'; } }
 
-const VIEWS={ setup:vSetup, home:vHome, course:vCourse, subject:vSubject, unit:vUnit, lesson:vLesson, cards:vCards, quiz:vQuiz, result:vResult, record:vRecord, settings:vSettings, install:vInstall, drill:vDrill, pdf:vPdf, sky:vSky };
+// ===== 検索 =====
+const SI_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>';
+// 全角英数→半角、ひらがな→カタカナ、英字は小文字（文字数は変えない）
+const snorm = s => String(s).replace(/[！-～]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0)).replace(/[ぁ-ゖ]/g,c=>String.fromCharCode(c.charCodeAt(0)+0x60)).replace(/　/g,' ').toLowerCase();
+const stext = h => String(h).replace(/<svg[\s\S]*?<\/svg>/gi,' ').replace(/<br\s*\/?>/gi,' ').replace(/<\/(p|td|th|tr|h3|li|div|section)>/gi,' ').replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
+let SIDX=null;
+function searchIndex(){
+  if(SIDX) return SIDX; SIDX=[];
+  for(const [uid,u] of Object.entries(UNITS)){
+    if(u.goro) continue; const c=courseById(u.course), sb=c&&c.subjects[u.subj]; if(!c||!sb) continue;
+    const un=sb.units.find(x=>x.ready===uid); if(!un) continue;
+    const path=c.name+'　'+sb.name+'　'+(un.ch||(sb.units.indexOf(un)+1)+'章')+' '+un.t;
+    for(const l of u.lessons){ if(l.band||l.wip||l.ref) continue;
+      let body=''; try{ body=stext(l.body()); }catch(e){}
+      const head=stext(l.t+' '+(l.sub||''));
+      SIDX.push({uid,lid:l.id,course:u.course,subj:u.subj,title:l.col?(l.lid||'')+'　'+l.t:LN(l),path,head,nhead:snorm(head),body,nbody:snorm(body)}); } }
+  return SIDX;
+}
+function searchRun(q){
+  const terms=snorm(q).split(/\s+/).filter(Boolean); if(!terms.length) return [];
+  const out=[];
+  for(const e of searchIndex()){
+    if(!terms.every(t=>e.nhead.includes(t)||e.nbody.includes(t))) continue;
+    const sc=terms.reduce((a,t)=>a+(e.nhead.includes(t)?10:0)+Math.min(5,e.nbody.split(t).length-1),0);
+    out.push({e,sc}); }
+  return out.sort((a,b)=>b.sc-a.sc).slice(0,60).map(x=>x.e);
+}
+function snipHTML(e,q){
+  const terms=snorm(q).split(/\s+/).filter(Boolean), t0=terms[0], i=e.nbody.indexOf(t0);
+  if(i<0) return '';
+  const a=Math.max(0,i-24), b=Math.min(e.body.length,i+t0.length+40);
+  let s=e.body.slice(a,b), ns=e.nbody.slice(a,b), out='', k=0;
+  const re=new RegExp(terms.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g'); let m;
+  while((m=re.exec(ns))){ out+=esc(s.slice(k,m.index))+'<mark class="hit">'+esc(s.slice(m.index,m.index+m[0].length))+'</mark>'; k=m.index+m[0].length; if(!m[0].length) re.lastIndex++; }
+  out+=esc(s.slice(k));
+  return (a>0?'…':'')+out+(b<e.body.length?'…':'');
+}
+function searchResults(q){
+  if(!q.trim()) return '<p class="small muted">胞子のタイトル・本文・表の中から探せます。スペースで区切るとすべてを含むものを探します。ひらがなで入力してもカタカナに一致します。</p>';
+  const r=searchRun(q);
+  if(!r.length) return '<p class="small muted">見つかりませんでした。</p>';
+  return `<p class="small muted">${r.length}${r.length>=60?'件以上':'件'}</p><div class="list">${r.map(e=>`<button class="item sres" data-act="sres" data-uid="${e.uid}" data-arg="${esc(e.lid)}" data-c="${e.course}" data-s="${e.subj}"><span class="body"><b>${esc(e.title)}</b><br><span class="small muted">${esc(e.path)}</span><span class="small snip">${snipHTML(e,q)}</span></span><span class="chev">›</span></button>`).join('')}</div>`;
+}
+function vSearch(){
+  return `${top('検索')}<div class="stack"><label class="sbox">${SI_ICON}<input type="search" id="sq" placeholder="薬の名前・用語など" value="${esc(S.q||'')}" autocomplete="off" enterkeyhint="search"><button class="sclear" data-act="sclear" aria-label="消す"${S.q?'':' hidden'}>✕</button></label><div id="sr">${searchResults(S.q||'')}</div></div>`;
+}
+// 検索から開いた胞子で、言葉に印をつけて最初の場所へ
+function markHits(root,q){
+  const terms=snorm(q).split(/\s+/).filter(Boolean); if(!terms.length) return;
+  const re=new RegExp(terms.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.nodeValue.trim()&&!n.parentNode.closest('svg,button,mark')?1:2});
+  const ns=[]; while(w.nextNode()) ns.push(w.currentNode);
+  let first=null;
+  for(const n of ns){ const t=n.nodeValue, nt=snorm(t); re.lastIndex=0; if(!re.test(nt)) continue; re.lastIndex=0;
+    const f=document.createDocumentFragment(); let k=0, m;
+    while((m=re.exec(nt))){ if(!m[0].length){ re.lastIndex++; continue; } f.append(t.slice(k,m.index)); const mk=document.createElement('mark'); mk.className='hit'; mk.textContent=t.slice(m.index,m.index+m[0].length); f.append(mk); if(!first) first=mk; k=m.index+m[0].length; }
+    f.append(t.slice(k)); n.replaceWith(f); }
+  if(first) setTimeout(()=>first.scrollIntoView({block:'center'}),0);
+}
+
+const VIEWS={ setup:vSetup, home:vHome, course:vCourse, subject:vSubject, unit:vUnit, lesson:vLesson, cards:vCards, quiz:vQuiz, result:vResult, record:vRecord, settings:vSettings, install:vInstall, drill:vDrill, pdf:vPdf, sky:vSky, search:vSearch };
 function render(){
   if(S.view!=='result') clearLeaves();
   app.innerHTML=VIEWS[S.view]();
@@ -6621,6 +6690,12 @@ function render(){
   const n=document.getElementById('st-name');
   if(n) n.addEventListener('input',e=>{ R.name=e.target.value.trim(); save(); });
   if (S.view==='pdf') renderPdf();
+  if (S.view==='search'){ const i=document.getElementById('sq'), sr=document.getElementById('sr'), cl=app.querySelector('.sclear');
+    i.addEventListener('input',()=>{ S.q=i.value; cl.hidden=!S.q; sr.innerHTML=searchResults(S.q); });
+    i.addEventListener('keydown',e=>{ if(e.key==='Enter') i.blur(); });
+    if(!S.q) i.focus(); }
+  if (S.view==='lesson' && S.hl){ const L=app.querySelector('.lesson'); if(L) markHits(L,S.hl); }
+  if (S.view!=='lesson') S.hl='';
 }
 function answerQ(picked){
   const Q=S.quiz, q=Q.qs[Q.i], ok=picked===q.answer; Q.picked=picked; R.answered++;
@@ -6648,6 +6723,8 @@ document.addEventListener('click', e=>{
   else if(a==='setupDone'){ const nm=document.getElementById('su-name').value.trim(); if(!nm){ document.getElementById('su-err').hidden=false; return; }
     R.done=true; R.name=nm; save(); S.stack=[]; S.view='home'; render(); }
   else if(a==='lesson'){ if(b.dataset.uid) S.uid=b.dataset.uid; S.lid=arg; go('lesson'); }
+  else if(a==='sres'){ S.uid=b.dataset.uid; S.course=b.dataset.c; S.subj=+b.dataset.s; S.lid=arg; S.hl=S.q||''; go('lesson'); }
+  else if(a==='sclear'){ S.q=''; render(); }
   else if(a==='lessonNext'){ const u=CU(); S.lid=arg; S.course=u.course; S.subj=u.subj; S.stack=['home','course','subject','unit']; S.view='lesson'; render(); window.scrollTo(0,0); }
   else if(a==='quiz') startQuiz();
   else if(a==='cards'){ S.deck={cur:deckNext()}; S.flipped=false; markDay(); go('cards'); }
