@@ -3179,6 +3179,12 @@ Object.assign(POOL, {
     ['EBM','オッズ比は何の近似値？','相対リスク',['絶対リスク減少率','治療必要数','寄与危険度'],'症例対照研究で用いる'],
     ['EBM','ARR＝0.05のときのNNTは？','20',['5','0.05','95'],'1 ÷ 0.05'],
   ],
+  lcf:[
+    ['地域フォーミュラリ','地域フォーミュラリとは？','地域全体で作成・運用する医薬品の使用指針',['病院内だけの採用医薬品リスト','製薬企業の推奨品リスト','国が定める保険収載医薬品の一覧'],'医療機関・薬局・医師会・薬剤師会などが協働'],
+    ['地域フォーミュラリ','フォーミュラリで医薬品を選定する際に考慮するのは？','有効性・安全性・経済性',['売上・利益率','新薬であること','包装の大きさのみ'],'総合的に評価'],
+    ['地域フォーミュラリ','地域フォーミュラリの目的として正しいのは？','医療費の適正化',['新薬の使用拡大','処方権の制限','薬価の引き上げ'],'後発医薬品の使用促進も'],
+    ['地域フォーミュラリ','病院内で作成・運用するフォーミュラリは？','院内フォーミュラリ',['地域フォーミュラリ','診療ガイドライン','添付文書'],'地域全体なら地域フォーミュラリ'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4827,6 +4833,16 @@ const EBM_LESSONS = [
     <p>オッズ比 ＝ <span class="frac"><span>a × d</span><span>b × c</span></span></p>
     <p class="small muted">薬物を投与した際は原則1未満（副作用の算出時は除く）<br>a×d と b×c のうち大きい方を分母にする</p></section>` }
 ];
+const LCF_LESSONS = [
+  { id:'1-1', t:'地域における薬局の機能', wip:true, plan:[], body:()=>'' },
+  { id:'1-2', t:'地域フォーミュラリ', sub:'地域フォーミュラリとは', plan:['lcf','lcf','lcf','lcf','lcf'], body:()=>`
+    <section class="panel"><h3>〇 地域フォーミュラリとは</h3>
+    <p class="small muted">フォーミュラリ：医療機関などで、有効性・安全性・経済性を総合的に評価して作成した<b>医薬品の使用指針</b></p>
+    <p>地域の医療機関・薬局・医師会・薬剤師会などが協働し、<b>地域全体</b>で作成・運用するフォーミュラリ。</p>
+    <p>有効性・安全性に加えて<b>経済性</b>も考慮<br>→ 推奨医薬品を選定</p>
+    <p>・地域で標準的な薬物治療を共有<br>・後発医薬品の使用促進<br>・医療費の適正化<br>・医療機関と薬局の医薬品在庫の効率化</p>
+    <p class="small muted">院内フォーミュラリ：病院内で作成・運用するもの</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5929,6 +5945,7 @@ const UNITS = {
   ana2:{ no:'物5', title:'定性分析', subject:'物理', course:'phys', subj:4, lessons:ANA2_LESSONS, cards:'ana2', drill:'ana2' },
   pc5:{ no:'物3', title:'溶液の性質', subject:'物理', course:'phys', subj:2, lessons:PC5_LESSONS, cards:'pc5', drill:'pc5' },
   kmp:{ no:'化9', title:'漢方医学', subject:'化学', course:'chem', subj:8, lessons:KMP_LESSONS, cards:'kmp', drill:'kmp' },
+  lcf:{ no:'法9', title:'地域における薬局の機能', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCF_LESSONS, cards:'lcf', drill:'lcf' },
   lmt:{ no:'法6', title:'まとめ', subject:'法規・制度・倫理', course:'law', subj:5, lessons:LMT_LESSONS, cards:'lmt', drill:'lmt' },
   pd:{ no:'薬9', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
   dem:{ no:'薬9', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
@@ -6076,7 +6093,7 @@ const CATALOG = [
       { name:'薬学関係法規', k:'6', units:U('薬機法','薬剤師法','麻薬・向精神薬',{ t:'まとめ', ch:'＋α', ready:'lmt' }) },
       { name:'社会保障制度', k:'7', units:U('医療保険制度') },
       { name:'医療経済学', k:'8', units:U() },
-      { name:'地域における薬剤師', k:'9', units:U() } ] },
+      { name:'地域における薬剤師', k:'9', units:U({ t:'地域における薬局の機能', ready:'lcf' },'地域包括ケアシステム') } ] },
     { id:'prac', name:'実務', k:'実', note:'薬剤師・調剤・地域', subjects:[
       { name:'薬剤師の倫理と役割', k:'1', units:U({ t:'薬剤師の倫理と役割', ready:'tm1' },{ t:'チーム医療', ready:'tm2' }) },
       { name:'リスクマネジメント', k:'2', units:U() },
