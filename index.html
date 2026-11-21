@@ -3105,6 +3105,14 @@ Object.assign(POOL, {
     ['がん治療','終日就床を必要とするPSは？','4',['2','3','1'],'常に介助がいる'],
     ['がん治療','無症状で発病前と同等に振る舞えるPSは？','0',['1','2','3'],'社会的活動ができる'],
   ],
+  lungc:[
+    ['肺がん','PE療法の組合せは？','プラチナ製剤＋エトポシド',['パクリタキセル＋エトポシド','ペメトレキセド＋エトポシド','プラチナ製剤＋パクリタキセル'],'P：プラチナ・E：エトポシド'],
+    ['肺がん','カルボプラチンの投与量算出に用いる式は？','カルバート式',['Cockcroft-Gault式','Du Bois式','Henderson-Hasselbalch式'],'目標AUC ×（GFR＋25）'],
+    ['肺がん','エトポシドを0.4 mg/mL以下に調製する理由は？','結晶の析出を防ぐため',['光分解を防ぐため','血管痛を防ぐため','吸着を防ぐため'],'30分以上かけて投与'],
+    ['肺がん','シスプラチンで特に注意する副作用は？','腎障害',['間質性肺炎','心筋障害','出血性膀胱炎'],'悪心・嘔吐も'],
+    ['肺がん','パクリタキセルの副作用は？','末梢神経障害',['出血性膀胱炎','心筋障害','肺線維症'],'骨髄抑制・腫瘍崩壊症候群も'],
+    ['肺がん','総投与回数が多いとショックなどの報告が増えるのは？','カルボプラチン',['エトポシド','パクリタキセル','シスプラチン'],'過敏症に注意'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4605,6 +4613,17 @@ const ONP1_LESSONS = [
     <p class="small muted">例）ステージⅣの非小細胞肺がん</p>
     ${ktbl([['<b>PS 0</b>','無症状で社会的活動ができ、制限を受けることなく発病前と同等に振る舞える'],['<b>PS 1</b>','軽度の症状があり、肉体労働は制限を受けるが、歩行、軽労働や座業はできる'],['<b>PS 2</b>','歩行や身の回りのことはできるが、時に少し介助がいることもある<br>軽作業はできないが、日中の<b>50%以上は起居</b>している'],['<b>PS 3</b>','身の回りのことはある程度できるが、しばしば介助がいり、日中の<b>50%以上は就床</b>している'],['<b>PS 4</b>','身の回りのこともできず、常に介助がいり、<b>終日就床</b>を必要としている']])}</section>` }
 ];
+const ONP4_LESSONS = [
+  { id:'4-1', t:'肺がん治療に用いられる抗悪性腫瘍薬', sub:'シスプラチン・カルボプラチン・エトポシド・パクリタキセル', plan:['lungc','lungc','lungc','lungc','lungc'], body:()=>`
+    <section class="panel"><h3>〇 肺がん治療に用いられる抗悪性腫瘍薬</h3>
+    <p class="small muted">PE療法：プラチナ製剤（P）＋エトポシド（E）</p>
+    ${ktbl([
+      [kdrug('シスプラチン',''),'骨髄抑制<br><b>腎障害</b><br><b>悪心・嘔吐</b>'],
+      [kdrug('カルボプラチン',''),'下痢<br>骨髄抑制<br><span class="small muted">総投与回数が多い → ショックなど⬆</span><br><b>カルバート式</b>で投与量を算出<br>投与量＝目標AUC ×（GFR＋25）'],
+      [kdrug('エトポシド',''),'骨髄抑制<br><span class="small muted">結晶析出を防ぐため0.4 mg/mL以下に調製<br>→ 30分以上かけて投与</span>'],
+      [kdrug('パクリタキセル',''),'骨髄抑制<br>末梢神経障害<br>腫瘍崩壊症候群']
+    ]).replace('tbl ktbl','tbl ktbl kw')}</section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5664,6 +5683,7 @@ const UNITS = {
   inj4:{ no:'実9', title:'その他', subject:'実務', course:'prac', subj:8, lessons:INJ4_LESSONS, cards:'inj4', drill:'inj4' },
   ae1:{ no:'実7', title:'副作用', subject:'実務', course:'prac', subj:6, lessons:AE_LESSONS, cards:'ae1', drill:'ae1' },
   inf1:{ no:'実17', title:'感染症', subject:'実務', course:'prac', subj:16, lessons:INF1_LESSONS, cards:'inf1', drill:'inf1' },
+  onp4:{ no:'実16', title:'肺がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP4_LESSONS, cards:'onp4', drill:'onp4' },
   onp1:{ no:'実16', title:'がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP1_LESSONS, cards:'onp1', drill:'onp1' },
   infa:{ no:'実17', title:'まとめ', subject:'実務', course:'prac', subj:16, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
   inf2:{ no:'実17', title:'感染症治療薬', subject:'実務', course:'prac', subj:16, lessons:INF2_LESSONS, cards:'inf2', drill:'inf2' },
@@ -5868,7 +5888,7 @@ const CATALOG = [
       { name:'医薬品情報', k:'13', units:U() },
       { name:'服薬指導', k:'14', units:U({ t:'服薬指導', ready:'pm1' },{ t:'生活指導', ready:'pm2' },{ t:'記録', ready:'pm3' },{ t:'配慮が必要な患者', ready:'pm4' },{ t:'使い方の指導が必要な剤形', ready:'pm5' }) },
       { name:'地域', k:'15', units:U() },
-      { name:'薬学的管理【がん】', k:'16', units:U({ t:'がん治療', ready:'onp1' },'胃がん治療','大腸がん治療','肺がん治療','乳がん治療','悪性リンパ腫治療') },
+      { name:'薬学的管理【がん】', k:'16', units:U({ t:'がん治療', ready:'onp1' },'胃がん治療','大腸がん治療',{ t:'肺がん治療', ready:'onp4' },'乳がん治療','悪性リンパ腫治療') },
       { name:'薬学的管理【感染症】', k:'17', units:U({ t:'感染症', ready:'inf1' },{ t:'感染症治療薬', ready:'inf2' },{ t:'まとめ', ch:'α', ready:'infa' }) } ] },
     { id:'hissu', name:'必須問題', k:'必', note:'国試の必須問題レベルの一問一答', subjects:[
       { name:'物理', k:'物', units:U({ t:'物理・分析', ready:'nx_phy' }) },
