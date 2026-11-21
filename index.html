@@ -3084,6 +3084,17 @@ Object.assign(POOL, {
     ['抗腫瘍抗生物質','アントラサイクリン系はどれ？','エピルビシン',['ブレオマイシン','マイトマイシンC','シスプラチン'],'～ルビシン'],
     ['抗腫瘍抗生物質','ドキソルビシン投与後にみられることがあるのは？','赤色尿',['緑色尿','黒色便','白色便'],'薬物の色による'],
   ],
+  plal:[
+    ['植物アルカロイド','ビンクリスチンの作用機序は？','チューブリンに結合し微小管重合を阻害',['微小管の重合を促進','トポイソメラーゼⅠ阻害','DNAのアルキル化'],'M期特異的'],
+    ['植物アルカロイド','パクリタキセルの作用機序は？','微小管の重合促進（脱重合抑制）',['微小管の重合阻害','トポイソメラーゼⅡ阻害','インターカレーション'],'微小管を安定化'],
+    ['植物アルカロイド','ビンカアルカロイドの特徴的な副作用は？','末梢神経障害',['出血性膀胱炎','心筋障害','肺線維症'],'便秘も'],
+    ['植物アルカロイド','イリノテカンの活性本体は？','SN-38',['5-FU','アクロレイン','4-ヒドロキシシクロホスファミド'],'プロドラッグ'],
+    ['植物アルカロイド','イリノテカンの重症の下痢に用いる漢方薬は？','半夏瀉心湯',['芍薬甘草湯','牛車腎気丸','葛根湯'],'トポイソメラーゼⅠ阻害薬'],
+    ['植物アルカロイド','イリノテカンで好中球減少が起こりやすい遺伝子多型は？','UGT1A1',['CYP2D6','TPMT','DPD'],'SN-38のグルクロン酸抱合⬇'],
+    ['植物アルカロイド','エトポシドが阻害するのは？','トポイソメラーゼⅡ',['トポイソメラーゼⅠ','チューブリン','ジヒドロ葉酸還元酵素'],'S〜G₂期'],
+    ['植物アルカロイド','タキサン系が主に作用する細胞周期は？','G₂〜M期',['G₁期','S期','G₀期'],'ビンカアルカロイドはM期'],
+    ['植物アルカロイド','トポイソメラーゼⅠ阻害薬はどれ？','イリノテカン',['エトポシド','ドセタキセル','ビンブラスチン'],'Ⅰ → イリノテカン'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -3518,7 +3529,49 @@ const ONC2_LESSONS = [
     <p><b>・オキサリプラチン</b><br>Cl⁻と反応して分解<br>→ <b>5%ブドウ糖液</b></p>
     <p class="small muted">白金製剤はアルミニウムと反応 → アルミニウムを含む器具を使わない<br>シスプラチンは光で分解 → 遮光</p></section>` },
   { id:'2-3', t:'代謝拮抗薬', wip:true, plan:[], body:()=>'' },
-  { id:'2-4', t:'抗腫瘍植物アルカロイド', wip:true, plan:[], body:()=>'' },
+  { id:'2-4', t:'抗腫瘍植物アルカロイド', sub:'ビンカアルカロイド・タキサン系・トポイソメラーゼ阻害薬', plan:['plal','plal','plal','plal','plal'], body:()=>`
+    <section class="panel"><h3>〇 微小管関連薬</h3>
+    <p><b>・ビンカアルカロイド</b></p>
+    <p><span class="dg">ビンクリスチン</span>・<span class="dg">ビンブラスチン</span></p>
+    <p class="small muted">ビン～<br>ニチニチソウ由来</p>
+    <p><b>作用機序</b></p>
+    <p>微小管タンパク質（<b>チューブリン</b>）と結合<br>→ 微小管<b>重合阻害</b><br>→ 細胞分裂抑制</p>
+    <p><b>M期</b>に特異的に作用</p>
+    <p><b>副作用</b></p>
+    <p>骨髄抑制<br><b>末梢神経障害</b> → 便秘</p>
+    <p class="small muted">血管外漏出に注意</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/vinca.png" alt="ビンカアルカロイド系の覚え方。脱いだらビンビン。脱＝脱重合、ビン＝ビンクリスチン、ビン＝ビンブラスチン" loading="lazy">
+    <p style="margin-top:18px"><b>・タキサン系</b></p>
+    <p><span class="dg">パクリタキセル</span>・<span class="dg">ドセタキセル</span></p>
+    <p class="small muted">～タキセル<br>西洋イチイ由来<br>適応：肺がんなど</p>
+    <p><b>作用機序</b></p>
+    <p>微小管の<b>重合促進</b>（脱重合抑制）<br>→ 微小管の安定化・過剰形成<br>→ 細胞分裂抑制</p>
+    <p>主に<b>G<sub>2</sub>〜M期</b>に作用</p>
+    <p><b>副作用</b></p>
+    <p><b>末梢神経障害</b><br>骨髄抑制<br><b>間質性肺炎</b><br>腫瘍崩壊症候群</p>
+    <p class="small muted">過敏症予防：抗ヒスタミン薬などの事前投与が必須</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/taxane.png" alt="タキサン系の覚え方。薪が重い。薪＝タキサン系、重＝重合" loading="lazy"></section>
+    <section class="panel"><h3>〇 トポイソメラーゼ阻害薬</h3>
+    <p><b>・トポイソメラーゼⅠ阻害薬</b></p>
+    <p><span class="dg">イリノテカン</span></p>
+    <p class="small muted">Ⅰ → <span style="text-emphasis:filled dot;-webkit-text-emphasis:filled dot;text-emphasis-position:under right;-webkit-text-emphasis-position:under">イ</span>リノテカン<br>喜樹（キジュ）由来<br>適応：大腸がん・肺がん</p>
+    <p><b>作用機序</b></p>
+    <p><b>プロドラッグ</b><br>→ 活性本体 <b>SN-38</b><br>→ <b>トポイソメラーゼⅠ</b>阻害<br>→ DNA合成阻害</p>
+    <p><b>S期</b>に作用</p>
+    <p><b>副作用</b></p>
+    <p>骨髄抑制<br>重症の<b>下痢</b> → <span class="dg">半夏瀉心湯</span></p>
+    <p class="small muted">UGT1A1の遺伝子多型（活性⬇）<br>→ SN-38が分解されにくい<br>→ 好中球減少症になりやすい</p></section>
+    <section class="panel"><h3>〇 トポイソメラーゼⅡ阻害薬</h3>
+    <p><span class="dg">エトポシド</span></p>
+    <p class="small muted">メギ科植物抽出物の半合成体</p>
+    <p><b>作用機序</b></p>
+    <p><b>トポイソメラーゼⅡ</b>阻害<br>→ DNA合成阻害</p>
+    <p><b>S〜G<sub>2</sub>期</b>に作用</p>
+    <p class="small muted">副作用：骨髄抑制<br>結晶析出を防ぐため0.4 mg/mL以下に調製<br>→ 30分以上かけて投与</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/topo2.png" alt="トポイソメラーゼII阻害の覚え方。ハクビシンは干支ポジションに見初められず。ハクビシン＝～ビシン、干支ポジション＝エトポシド、に＝II、見初められず＝トポイソメラーゼ阻害" loading="lazy"></section>` },
   { id:'2-5', t:'抗腫瘍抗生物質', sub:'アントラサイクリン系・ブレオマイシン・マイトマイシンC', plan:['abx','abx','abx','abx','abx'], body:()=>`
     <section class="panel"><h3>〇 アントラサイクリン系</h3>
     <p><span class="dg">ドキソルビシン</span>・<span class="dg">ダウノルビシン</span>・<span class="dg">エピルビシン</span></p>
@@ -4590,7 +4643,8 @@ const GX_AAR_LESSONS = [
 ];
 const GX_ONC_LESSONS = [
   { id:'g1', col:true, lid:'2-1', t:'アルキル化薬', sub:'細胞障害性抗悪性腫瘍薬　1つ', plan:[], body:()=>`<section class="panel"><h3>アルキル化薬</h3><img class="goro-img" src="goro/alkyl.png" alt="アルキル化薬の覚え方。歩くファミリー、ブスなムスメ。歩く＝アルキル化薬、ファミ＝イホスファミド・シクロホスファミド、ブス＝ブスルファン、ムス＝ニムスチン・ラニムスチン、メ＝メルファラン" loading="lazy"></section>` },
-  { id:'g2', col:true, lid:'2-5', t:'抗腫瘍抗生物質', sub:'細胞障害性抗悪性腫瘍薬　1つ', plan:[], body:()=>`<section class="panel"><h3>アントラサイクリン系</h3><img class="goro-img" src="goro/anthra.png" alt="アントラサイクリン系の覚え方。あんたら美人で、ドキドキ。あんたら＝アントラサイクリン系、美人＝～ビシン、ドキドキ＝心毒性" loading="lazy"></section>` }
+  { id:'g2', col:true, lid:'2-5', t:'抗腫瘍抗生物質', sub:'細胞障害性抗悪性腫瘍薬　1つ', plan:[], body:()=>`<section class="panel"><h3>アントラサイクリン系</h3><img class="goro-img" src="goro/anthra.png" alt="アントラサイクリン系の覚え方。あんたら美人で、ドキドキ。あんたら＝アントラサイクリン系、美人＝～ビシン、ドキドキ＝心毒性" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'2-4', t:'抗腫瘍植物アルカロイド', sub:'細胞障害性抗悪性腫瘍薬　3つ', plan:[], body:()=>`<section class="panel"><h3>ビンカアルカロイド</h3><img class="goro-img" src="goro/vinca.png" alt="ビンカアルカロイド系の覚え方。脱いだらビンビン。脱＝脱重合、ビン＝ビンクリスチン、ビン＝ビンブラスチン" loading="lazy"></section><section class="panel"><h3>タキサン系</h3><img class="goro-img" src="goro/taxane.png" alt="タキサン系の覚え方。薪が重い。薪＝タキサン系、重＝重合" loading="lazy"></section><section class="panel"><h3>トポイソメラーゼⅡ阻害薬</h3><img class="goro-img" src="goro/topo2.png" alt="トポイソメラーゼII阻害の覚え方。ハクビシンは干支ポジションに見初められず。ハクビシン＝～ビシン、干支ポジション＝エトポシド、に＝II、見初められず＝トポイソメラーゼ阻害" loading="lazy"></section>` }
 ];
 const GX_PM_LESSONS = [
   { id:'g3', col:true, lid:'1-6', t:'服薬指導内容④', sub:'服薬指導　1つ', plan:[], body:()=>`<section class="panel"><h3>術前休薬</h3><img class="goro-img" src="goro/jutsuzen.png" alt="術前休薬の覚え方。さっしー、悪い子明日チクる。さ＝サルポグレラート1日、しー＝シロスタゾール3日、悪＝ワルファリン5日、い＝イコサペント酸エチル7日、明日＝アスピリン7日、チ＝チクロピジン14日、クる＝クロピドグレル14日" loading="lazy"></section>` },
