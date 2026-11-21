@@ -6426,6 +6426,7 @@ function vHome(){
   <div class="stats"><div class="stat"><b>${R.days.length}</b><span>学習した日</span></div><div class="stat"><b>${streak()}</b><span>連続した日</span></div><div class="stat"><b>${R.answered}</b><span>解いた問題${R.answered?'（'+acc+'%）':''}</span></div></div>
   <button class="sbtn" data-act="go" data-arg="search">${SI_ICON}<span>胞子を検索</span></button>
   <button class="continue" data-act="lesson" data-arg="${n.id}" data-uid="${uid}"><span><small>続きから　${u.subject}・${u.title}（${doneCount(uid)}/${QL(uid).length}）</small><strong>${LN(n)}</strong></span><span class="go" aria-hidden="true">→</span></button>
+  ${recHTML()}
   ${CATALOG.map(g=>`<h2>${g.group}</h2><div class="subjects">${g.courses.map(c=>{ const r=readyCount(c);
     return `<button class="subj" data-act="course" data-arg="${c.id}"><span class="k">${c.k}</span><b>${c.name}</b><span class="small muted">${c.note||c.subjects.map(x=>x.name).join('・')}</span><span class="small ${r?'':'muted'}">${r?'公開中 '+c.subjects.filter(x=>x.units.some(u=>u.ready)).length+'項目':'準備中'}</span></button>`; }).join('')}</div>`).join('')}
   <button class="item panel" data-act="go" data-arg="install"><span class="body"><b>ホーム画面に追加</b><br><span class="small muted">アプリのようにアイコンから開けます</span></span><span class="chev">›</span></button></div>`;
@@ -6679,6 +6680,42 @@ function markHits(root,q){
   if(first) setTimeout(()=>first.scrollIntoView({block:'center'}),0);
 }
 
+// ===== おすすめ胞子 =====
+function recPool(){
+  const out=[];
+  for(const [uid,u] of Object.entries(UNITS)){
+    if(u.goro) continue; const c=courseById(u.course), sb=c&&c.subjects[u.subj]; if(!c||!sb||!sb.units.some(x=>x.ready===uid)) continue;
+    u.lessons.forEach((l,i)=>{ if(l.band||l.wip||l.ref||l.col) return; out.push({uid,l,i,u,sb}); }); }
+  return out;
+}
+function recommend(){
+  const P=recPool(), now=Date.now(), DAY=864e5, rnd=seeded(+today().replace(/\D/g,'')%100000);
+  const rec=x=>R.lessons[lkey(x.uid,x.l.id)];
+  // 未演習：手をつけた章の続きを優先、残りは日替わり
+  const started=new Set(P.filter(x=>rec(x)).map(x=>x.uid));
+  const fresh=P.filter(x=>!rec(x)), freshA=fresh.filter(x=>started.has(x.uid)), freshB=fresh.filter(x=>!started.has(x.uid)).map(x=>[rnd(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+  const seenU=new Set(), freshList=[];
+  for(const x of freshA) if(!seenU.has(x.uid)){ seenU.add(x.uid); freshList.push(x); }
+  for(const x of freshB) if(!seenU.has(x.uid)){ seenU.add(x.uid); freshList.push(x); }
+  // 間違いが多い：前回の正答率が低い順
+  const rate=x=>{ const s=rec(x); return (s.last!=null?s.last:s.best)/(s.total||1); };
+  const miss=P.filter(x=>rec(x)&&rate(x)<1).sort((a,b)=>rate(a)-rate(b));
+  // 時間が経っている：前回から3日以上、古い順
+  const age=x=>{ const s=rec(x); return s.at?now-s.at:Infinity; };
+  const old=P.filter(x=>rec(x)&&age(x)>=3*DAY).sort((a,b)=>age(b)-age(a));
+  const picks=[], used=new Set(), add=(x,why)=>{ const k=lkey(x.uid,x.l.id); if(used.has(k)) return false; used.add(k); picks.push({x,why}); return true; };
+  const take=(list,n,why)=>{ let c=0; for(const x of list){ if(c>=n||picks.length>=5) break; if(add(x,why(x))) c++; } };
+  const wMiss=x=>{ const s=rec(x); return '正答 '+(s.last!=null?s.last:s.best)+'/'+s.total; };
+  const wOld=x=>{ const s=rec(x); return s.at?Math.floor((now-s.at)/DAY)+'日前':'しばらく前'; };
+  take(miss,2,wMiss); take(old,1,wOld); take(freshList,2,()=>'未演習');
+  take(miss,5,wMiss); take(old,5,wOld); take(freshList,5,()=>'未演習');
+  return picks;
+}
+function recHTML(){
+  const r=recommend(); if(!r.length) return '';
+  return `<h2>おすすめ胞子</h2><div class="list">${r.map(({x,why})=>`<button class="item" data-act="rec" data-uid="${x.uid}" data-arg="${esc(x.l.id)}" data-c="${x.u.course}" data-s="${x.u.subj}"><span class="lid">${esc(x.l.test?'まとめ':x.l.id)}</span><span class="body"><b>${esc(x.l.t)}</b><br><span class="small muted">${esc(x.sb.name+'　'+x.u.title)}</span></span><span class="tag ${why==='未演習'?'':'mid'}">${why}</span><span class="chev">›</span></button>`).join('')}</div>`;
+}
+
 const VIEWS={ setup:vSetup, home:vHome, course:vCourse, subject:vSubject, unit:vUnit, lesson:vLesson, cards:vCards, quiz:vQuiz, result:vResult, record:vRecord, settings:vSettings, install:vInstall, drill:vDrill, pdf:vPdf, sky:vSky, search:vSearch };
 function render(){
   if(S.view!=='result') clearLeaves();
@@ -6724,6 +6761,7 @@ document.addEventListener('click', e=>{
     R.done=true; R.name=nm; save(); S.stack=[]; S.view='home'; render(); }
   else if(a==='lesson'){ if(b.dataset.uid) S.uid=b.dataset.uid; S.lid=arg; go('lesson'); }
   else if(a==='sres'){ S.uid=b.dataset.uid; S.course=b.dataset.c; S.subj=+b.dataset.s; S.lid=arg; S.hl=S.q||''; go('lesson'); }
+  else if(a==='rec'){ S.uid=b.dataset.uid; S.course=b.dataset.c; S.subj=+b.dataset.s; S.lid=arg; S.hl=''; go('lesson'); }
   else if(a==='sclear'){ S.q=''; render(); }
   else if(a==='lessonNext'){ const u=CU(); S.lid=arg; S.course=u.course; S.subj=u.subj; S.stack=['home','course','subject','unit']; S.view='lesson'; render(); window.scrollTo(0,0); }
   else if(a==='quiz') startQuiz();
@@ -6738,7 +6776,7 @@ document.addEventListener('click', e=>{
     if(Q.i+1<Q.qs.length){ Q.i++; Q.picked=null; Q.hint=false; render(); window.scrollTo(0,0); return; }
     S.reward=null; S.gotShard=false; let leafNow=false;
     if(!Q.retry){ skyInit(); const u=CU(), l=LX(S.lid), k=lkey(S.uid,l.id), first=!R.lessons[k], wasDone=unitDone(S.uid), wasItem=itemDone(S.uid), n=Q.qs.length, s=R.lessons[k]||{best:0,tries:0,total:n};
-      s.tries++; s.best=Math.max(s.best,Q.score); s.total=n; R.lessons[k]=s; R.lastUnit=S.uid; save();
+      s.tries++; s.best=Math.max(s.best,Q.score); s.last=Q.score; s.at=Date.now(); s.total=n; R.lessons[k]=s; R.lastUnit=S.uid; save();
       // 項目（章をぜんぶ）クリアできのこカード
       if(!wasItem&&itemDone(S.uid)){ const sb=courseById(u.course).subjects[u.subj]; S.reward=drawReward(); S.reward.title=sb.name; }
       if(first){ R.sky.shards++; R.sky.total++; S.gotShard=true; save(); }
