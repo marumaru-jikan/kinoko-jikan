@@ -3139,6 +3139,15 @@ Object.assign(POOL, {
     ['乳がん','全てのホルモン療法でみられる副作用は？','更年期障害様症状',['骨髄抑制','脱毛','心筋障害'],'ほてり・発汗・のぼせ'],
     ['乳がん','閉経前の乳がんでGnRHアゴニストを用いる目的は？','卵巣からのエストロゲン分泌を抑える',['アロマターゼを阻害する','HER2を阻害する','子宮体癌を予防する'],'下垂体のGnRH受容体を脱感作'],
   ],
+  ebm:[
+    ['EBM','EBMのステップ3は？','情報の批判的吟味',['問題の定式化','情報収集','振り返り'],'内的妥当性の評価'],
+    ['EBM','情報の患者への適用で評価するのは？','外的妥当性',['内的妥当性','信頼性','再現性'],'結果を一般化できるか'],
+    ['EBM','内的妥当性とは？','因果関係の確信の程度',['結果を一般化できる程度','測定の再現性','研究の実施可能性'],'批判的吟味で評価'],
+    ['EBM','エビデンスレベルが最も高い研究デザインは？','システマティック・レビュー',['コホート研究','症例対照研究','専門家の意見'],'次いで介入研究・RCT'],
+    ['EBM','エビデンスレベルが最も低いのは？','総説・専門家の意見',['症例報告','コホート研究','RCT'],'ピラミッドの底辺'],
+    ['EBM','コホート研究よりエビデンスレベルが高いのは？','ランダム化比較試験（RCT）',['症例対照研究','症例報告','専門家の意見'],'介入研究'],
+    ['EBM','EBMのステップ1は？','問題の定式化',['情報収集','振り返り','情報の患者への適用'],'PICO/PECO'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4698,6 +4707,17 @@ const ONP5_LESSONS = [
     <p class="small muted">リスク上昇より乳癌の抑制効果の方がはるかに大きい</p>
     <p>アロマターゼ阻害薬<br>→ <b>骨粗鬆症</b></p></section>` }
 ];
+const EBM_LESSONS = [
+  { id:'2-1', t:'EBM', sub:'EBMのプロセス・エビデンスレベル', plan:['ebm','ebm','ebm','ebm','ebm'], body:()=>`
+    <section class="panel"><h3>〇 EBMのプロセス</h3>
+    <p class="small muted">EBM：Evidence-Based Medicine（根拠に基づく医療）</p>
+    <svg class="fig" viewBox="0 0 340 176" role="img" aria-label="EBMのプロセス。ステップ1問題の定式化、ステップ2情報収集、ステップ3情報の批判的吟味（内的妥当性の評価）、ステップ4情報の患者への適用（外的妥当性の評価）、ステップ5振り返り"><defs><marker id="ebar" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#5B4F8C"/></marker></defs><rect x="10" y="6" width="190" height="22" rx="4" fill="#E9E6F4" stroke="#5B4F8C" stroke-width="1.2"/><text x="20" y="21" text-anchor="start" style="font-size:8px;font-weight:700;fill:#5B4F8C">ステップ1</text><text x="68" y="21" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#222">「問題の定式化」</text><line x1="105" y1="29" x2="105" y2="38" stroke="#5B4F8C" stroke-width="3" marker-end="url(#ebar)"/><rect x="10" y="40" width="190" height="22" rx="4" fill="#E9E6F4" stroke="#5B4F8C" stroke-width="1.2"/><text x="20" y="55" text-anchor="start" style="font-size:8px;font-weight:700;fill:#5B4F8C">ステップ2</text><text x="68" y="55" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#222">「情報収集」</text><line x1="105" y1="63" x2="105" y2="72" stroke="#5B4F8C" stroke-width="3" marker-end="url(#ebar)"/><rect x="10" y="74" width="190" height="22" rx="4" fill="#E9E6F4" stroke="#5B4F8C" stroke-width="1.2"/><text x="20" y="89" text-anchor="start" style="font-size:8px;font-weight:700;fill:#5B4F8C">ステップ3</text><text x="68" y="89" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#222">「情報の批判的吟味」</text><line x1="105" y1="97" x2="105" y2="106" stroke="#5B4F8C" stroke-width="3" marker-end="url(#ebar)"/><rect x="10" y="108" width="190" height="22" rx="4" fill="#E9E6F4" stroke="#5B4F8C" stroke-width="1.2"/><text x="20" y="123" text-anchor="start" style="font-size:8px;font-weight:700;fill:#5B4F8C">ステップ4</text><text x="68" y="123" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#222">「情報の患者への適用」</text><line x1="105" y1="131" x2="105" y2="140" stroke="#5B4F8C" stroke-width="3" marker-end="url(#ebar)"/><rect x="10" y="142" width="190" height="22" rx="4" fill="#E9E6F4" stroke="#5B4F8C" stroke-width="1.2"/><text x="20" y="157" text-anchor="start" style="font-size:8px;font-weight:700;fill:#5B4F8C">ステップ5</text><text x="68" y="157" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#222">「振り返り」</text><path d="M204 85 H214" stroke="#B9770E" stroke-width="1.2"/><text x="218" y="88" text-anchor="start" style="font-size:8px;font-weight:700;fill:#B9770E">内的妥当性の評価</text><path d="M204 119 H214" stroke="#2E86C1" stroke-width="1.2"/><text x="218" y="122" text-anchor="start" style="font-size:8px;font-weight:700;fill:#2E86C1">外的妥当性の評価</text></svg>
+    ${ktbl([['内的妥当性','<b>因果関係</b>の確信の程度<br><span class="small muted">原因 → 結果は正しいか</span>'],['外的妥当性','得られた結果が<b>一般化</b>できる程度<br><span class="small muted">目の前の患者に当てはまるか</span>']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 エビデンスレベル</h3>
+    <svg class="fig" viewBox="-26 0 366 204" role="img" aria-label="エビデンスレベルのピラミッド。上から、エビデンスに基づく診療ガイドライン、システマティック・レビュー、介入研究・RCT、コホート研究、症例対照研究・症例集積研究・症例報告、総説・専門家の意見。上ほどエビデンスレベルが高い"><path d="M110 8 L122 30 L98 30 Z" fill="none" stroke="#C9A06B" stroke-width="1"/><text x="128" y="14" text-anchor="start" style="font-size:7px;font-weight:700;fill:#C0392B">エビデンスに基づく診療ガイドライン</text><path d="M96.84782608695652 30 L123.15217391304348 30 L142.2826086956522 62 L77.71739130434781 62 Z" fill="#F2B632"/><line x1="130.7173913043478" y1="46.0" x2="150.2826086956522" y2="46.0" stroke="#333" stroke-width=".7"/><text x="154.2826086956522" y="49.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">システマティック・レビュー</text><path d="M77.71739130434781 62 L142.2826086956522 62 L161.41304347826087 94 L58.586956521739125 94 Z" fill="#E0453A"/><line x1="149.84782608695653" y1="78.0" x2="169.41304347826087" y2="78.0" stroke="#333" stroke-width=".7"/><text x="173.41304347826087" y="81.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">介入研究・RCT</text><path d="M58.586956521739125 94 L161.41304347826087 94 L180.54347826086956 126 L39.45652173913044 126 Z" fill="#8DC63F"/><line x1="168.97826086956522" y1="110.0" x2="188.54347826086956" y2="110.0" stroke="#333" stroke-width=".7"/><text x="192.54347826086956" y="113.0" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">コホート研究</text><path d="M39.45652173913044 126 L180.54347826086956 126 L199.67391304347825 158 L20.32608695652175 158 Z" fill="#2F8FCF"/><line x1="188.1086956521739" y1="142.0" x2="236" y2="142.0" stroke="#333" stroke-width=".7"/><path d="M20.32608695652175 158 L199.67391304347825 158 L218.80434782608694 190 L1.1956521739130466 190 Z" fill="#24527F"/><line x1="207.2391304347826" y1="174.0" x2="236" y2="174.0" stroke="#333" stroke-width=".7"/><text x="238" y="139" text-anchor="start" style="font-size:7px;font-weight:700;fill:#222">症例対照研究</text><text x="238" y="149" text-anchor="start" style="font-size:6.5px;font-weight:700;fill:#222">症例集積研究・症例報告</text><text x="238" y="177" text-anchor="start" style="font-size:7px;font-weight:700;fill:#222">総説・専門家の意見</text><line x1="-18" y1="188" x2="-4" y2="24" stroke="#C0392B" stroke-width="2"/><path d="M-4 18 l-4 8 l7 0 z" fill="#C0392B"/><text x="2" y="24" text-anchor="start" style="font-size:8px;font-weight:700;fill:#C0392B">高</text><text x="-18" y="200" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#C0392B">低</text></svg>
+    <p>上ほどエビデンスレベルが<b>高い</b></p>
+    <p class="small muted">真のエンドポイント＝「治療目的は何か」</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5758,6 +5778,7 @@ const UNITS = {
   ae1:{ no:'実7', title:'副作用', subject:'実務', course:'prac', subj:6, lessons:AE_LESSONS, cards:'ae1', drill:'ae1' },
   inf1:{ no:'実17', title:'感染症', subject:'実務', course:'prac', subj:16, lessons:INF1_LESSONS, cards:'inf1', drill:'inf1' },
   onp4:{ no:'実16', title:'肺がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP4_LESSONS, cards:'onp4', drill:'onp4' },
+  ebm:{ no:'薬5', title:'EBMと臨床研究', subject:'薬理・病態・薬物治療', course:'pharm', subj:4, lessons:EBM_LESSONS, cards:'ebm', drill:'ebm' },
   onp5:{ no:'実16', title:'乳がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP5_LESSONS, cards:'onp5', drill:'onp5' },
   onp1:{ no:'実16', title:'がん治療', subject:'実務', course:'prac', subj:15, lessons:ONP1_LESSONS, cards:'onp1', drill:'onp1' },
   infa:{ no:'実17', title:'まとめ', subject:'実務', course:'prac', subj:16, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
@@ -5903,7 +5924,7 @@ const CATALOG = [
       { name:'安全性', k:'2', units:U({ t:'副作用と有害事象', ready:'saf1' },'薬物相互作用','中毒と解毒',{ t:'薬物依存', ready:'saf4' },'妊婦・授乳婦・小児・高齢者への投与') },
       { name:'薬物治療の位置づけ', k:'3', band:'薬物治療', units:U('薬物治療と非薬物治療','診療ガイドライン') },
       { name:'症候・病態・臨床検査', k:'4', units:U('おもな症候','臨床検査値の読み方') },
-      { name:'医薬品情報', k:'5', units:U('医薬品情報源','EBMと臨床研究','生物統計') },
+      { name:'医薬品情報', k:'5', units:U('医薬品情報源',{ t:'EBMと臨床研究', ready:'ebm' },'生物統計') },
       { name:'個別化医療', k:'6', units:U('遺伝的素因（薬物代謝酵素の遺伝子多型）','年齢（小児・高齢者）','妊婦・授乳婦','腎疾患・肝疾患がある患者','TDM') },
       { name:'自律神経系', k:'7', band:'薬理・病態・薬物治療', units:U({ t:'自律神経系の薬', ready:'ans' }) },
       { name:'体性神経系・筋', k:'8', units:U({ t:'知覚神経に作用する薬', ready:'som1' },{ t:'運動神経・筋に作用する薬', ready:'som2' },'重症筋無力症','筋ジストロフィー・ALS') },
