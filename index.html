@@ -3032,6 +3032,17 @@ Object.assign(POOL, {
     ['肺炎','院内肺炎でMRSAを疑うときに追加するのは？','バンコマイシン',['アモキシシリン','クラリスロマイシン','セファゾリン'],'抗MRSA薬'],
     ['肺炎','市中肺炎の原因菌でないのは？','MRSA',['肺炎球菌','インフルエンザ菌','肺炎マイコプラズマ'],'MRSAは院内肺炎'],
   ],
+  lipa:[
+    ['脂質異常症','スタチン系の作用機序は？','HMG-CoA還元酵素阻害',['胆汁酸の吸着','小腸コレステロールトランスポーター阻害','PPARα刺激'],'メバロン酸合成阻害'],
+    ['脂質異常症','スタチン系で増加するのは？','肝細胞膜LDL受容体数',['肝コレステロール合成','血中LDL','メバロン酸合成'],'血中LDLの取り込み促進'],
+    ['脂質異常症','スタチン系の重大な副作用は？','横紋筋融解症',['便秘','低血糖','間質性肺炎'],'CK上昇・ミオグロビン尿'],
+    ['脂質異常症','HMG-CoA還元酵素が触媒する反応は？','HMG-CoA → メバロン酸',['アセチルCoA → HMG-CoA','メバロン酸 → コレステロール','コレステロール → 胆汁酸'],'コレステロール合成の律速段階'],
+    ['脂質異常症','陰イオン交換樹脂はどれ？','コレスチミド',['プラバスタチン','エゼチミブ','ベザフィブラート'],'コレスチラミンも'],
+    ['脂質異常症','陰イオン交換樹脂の作用機序は？','腸内で胆汁酸を吸着・排泄',['HMG-CoA還元酵素阻害','LDL受容体の分解促進','リポタンパクリパーゼ活性化'],'外因性コレステロール吸収抑制'],
+    ['脂質異常症','陰イオン交換樹脂の主な副作用は？','便秘',['横紋筋融解症','下痢','低血糖'],'腸内でふくらむ'],
+    ['脂質異常症','陰イオン交換樹脂を服用するときは？','水で服用する',['お湯で服用する','牛乳で服用する','スタチンと同時に服用する'],'お湯でふくらむ・他剤を吸着'],
+    ['脂質異常症','陰イオン交換樹脂で肝内で促進されるのは？','コレステロールから胆汁酸への合成',['コレステロール合成の抑制','LDL受容体の分解','胆汁酸の再吸収'],'腸肝循環の胆汁酸が不足するため'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4306,6 +4317,39 @@ const INFA_LESSONS = [
     <section class="panel"><h3>〇 比較</h3>
     ${tbl(['','院内肺炎','市中肺炎'],[['発症','入院48時間以降','病院外'],['主な原因菌','<b>緑膿菌</b><br><b>MRSA</b>','<b>肺炎球菌</b><br><b>インフルエンザ菌</b><br><b>肺炎マイコプラズマ</b>'],['患者','高齢・基礎疾患あり<br>重症化しやすい','比較的若年・健常者も'],['耐性菌','多い','少ない']])}</section>` }
 ];
+const LIP_LESSONS = [
+  { id:'4-1', t:'脂質異常症', wip:true, plan:[], body:()=>'' },
+  { id:'4-2', t:'高コレステロール血症治療薬①', sub:'スタチン系・陰イオン交換樹脂', plan:['lipa','lipa','lipa','lipa','lipa'], body:()=>`
+    <section class="panel"><h3>〇 HMG-CoA還元酵素阻害薬</h3>
+    <p><span class="dg">プラバスタチン</span>・<span class="dg">シンバスタチン</span>・<span class="dg">フルバスタチン</span>・<span class="dg">アトルバスタチン</span>・<span class="dg">ピタバスタチン</span>・<span class="dg">ロスバスタチン</span></p>
+    <p class="small muted">スタチン系</p>
+    <p><b>・作用機序</b></p>
+    <p><b>HMG-CoA還元酵素</b>阻害<br>→ メバロン酸合成⬇<br>→ 肝コレステロール合成⬇<br>→ 肝細胞膜<b>LDL受容体数⬆</b><br>→ 血中LDLの肝への取り込み⬆<br>→ 血中コレステロール⬇</p>
+    <svg class="fig" viewBox="0 0 340 200" role="img" aria-label="スタチンの作用機序。肝細胞内でアセチルCoAからHMG-CoA、HMG-CoA還元酵素によりメバロン酸、コレステロールが合成される。スタチンはHMG-CoA還元酵素を阻害し肝のコレステロールを減らす。その結果肝細胞膜のLDL受容体が増え、血中LDLの取り込みが増えて血中LDLが下がる"><defs><marker id="lipar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#444"/></marker></defs><rect x="8" y="8" width="196" height="186" rx="12" fill="#FFF3E6" stroke="#D9A06B" stroke-width="1.2"/><text x="20" y="24" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#8A5A2B">肝細胞</text><text x="88" y="44" text-anchor="middle" style="font-size:8.5px;font-weight:400;fill:#222">アセチルCoA</text><line x1="88" y1="49" x2="88" y2="62" stroke="#444" stroke-width="1.3" marker-end="url(#lipar)"/><text x="88" y="74" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">HMG-CoA</text><line x1="88" y1="79" x2="88" y2="104" stroke="#444" stroke-width="1.3" marker-end="url(#lipar)"/><text x="96" y="90" text-anchor="start" style="font-size:6.5px;font-weight:400;fill:#555">HMG-CoA還元酵素</text><text x="96" y="99" text-anchor="start" style="font-size:6.5px;font-weight:400;fill:#555">（律速酵素）</text><path d="M83 86 L93 96 M93 86 L83 96" stroke="#C0392B" stroke-width="2.2"/><text x="72" y="94" text-anchor="end" style="font-size:8px;font-weight:700;fill:#C0392B">スタチン</text><text x="88" y="116" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">メバロン酸</text><line x1="88" y1="121" x2="88" y2="140" stroke="#444" stroke-width="1.3" marker-end="url(#lipar)"/><text x="88" y="152" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">コレステロール⬇</text><path d="M140 150 Q180 150 196 108" stroke="#2E86C1" stroke-width="1.2" fill="none" stroke-dasharray="3 2" marker-end="url(#lipar)"/><text x="88" y="178" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#2E86C1">→ LDL受容体数⬆</text><path d="M212 58 H202 V70 H212" stroke="#2E86C1" stroke-width="2.2" fill="none"/><path d="M212 98 H202 V110 H212" stroke="#2E86C1" stroke-width="2.2" fill="none"/><path d="M212 138 H202 V150 H212" stroke="#2E86C1" stroke-width="2.2" fill="none"/><text x="272" y="22" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#555">血中</text><circle cx="250" cy="64" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="292" cy="52" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="244" cy="104" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="300" cy="96" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="250" cy="144" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="296" cy="150" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="318" cy="120" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><line x1="240" y1="64" x2="216" y2="64" stroke="#B9770E" stroke-width="1.3" marker-end="url(#lipar)"/><line x1="240" y1="104" x2="216" y2="104" stroke="#B9770E" stroke-width="1.3" marker-end="url(#lipar)"/><line x1="240" y1="144" x2="216" y2="144" stroke="#B9770E" stroke-width="1.3" marker-end="url(#lipar)"/><text x="214" y="40" text-anchor="start" style="font-size:7px;font-weight:700;fill:#2E86C1">LDL受容体</text><text x="272" y="182" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#B9770E">血中LDL⬇</text></svg>
+    <p class="small muted">HMG-CoA → メバロン酸：2NADPH → 2NADP⁺（還元）</p>
+    <p><b>・特徴</b></p>
+    <p>血中HDL⬆<br>弱いトリグリセリド合成阻害作用</p>
+    <p class="small muted">陰イオン交換樹脂と同時服用 ×<br>→ スタチンが吸着され吸収⬇</p>
+    <p><b>・副作用</b></p>
+    <p><b>横紋筋融解症</b></p>
+    <p class="small muted">筋肉痛・脱力・CK⬆・ミオグロビン尿（赤褐色尿）<br>フィブラート系との併用でリスク⬆</p></section>
+    <section class="panel"><h3>〇 陰イオン交換樹脂</h3>
+    <p><span class="dg">コレスチラミン</span>・<span class="dg">コレスチミド</span></p>
+    <p><b>・作用機序</b></p>
+    <p>腸内で<b>胆汁酸を吸着</b>・排泄<br>→ 外因性コレステロール吸収⬇<br>→ コレステロールの排泄⬆</p>
+    <svg class="fig" viewBox="0 0 340 196" role="img" aria-label="陰イオン交換樹脂の作用機序。腸管内で樹脂が胆汁酸を吸着し便中へ排泄するため腸肝循環による胆汁酸の再吸収が減る。肝臓ではコレステロールから胆汁酸の合成が増え、LDL受容体数が増えて血中LDLが下がる"><defs><marker id="lipar2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#444"/></marker></defs><rect x="8" y="8" width="178" height="88" rx="12" fill="#F7E0D6" stroke="#C98B74" stroke-width="1.2"/><text x="20" y="24" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#8A4B36">肝臓</text><text x="110" y="40" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">コレステロール</text><line x1="110" y1="45" x2="110" y2="62" stroke="#444" stroke-width="1.3" marker-end="url(#lipar2)"/><text x="116" y="57" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">合成⬆</text><text x="110" y="74" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#222">胆汁酸</text><path d="M194 46 H184 V58 H194" stroke="#2E86C1" stroke-width="2.2" fill="none"/><circle cx="226" cy="52" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="258" cy="40" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><circle cx="262" cy="66" r="6" fill="#F5CBA7" stroke="#B9770E" stroke-width="1"/><line x1="218" y1="52" x2="198" y2="52" stroke="#B9770E" stroke-width="1.3" marker-end="url(#lipar2)"/><text x="234" y="20" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#B9770E">血中LDL</text><text x="192" y="84" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#2E86C1">LDL受容体数⬆ → 血中LDL⬇</text><rect x="8" y="132" width="250" height="56" rx="12" fill="#FCEBD2" stroke="#C9A06B" stroke-width="1.2"/><text x="20" y="148" text-anchor="start" style="font-size:8.5px;font-weight:700;fill:#8A5A2B">腸管</text><line x1="130" y1="80" x2="130" y2="128" stroke="#444" stroke-width="1.3" marker-end="url(#lipar2)"/><text x="136" y="112" text-anchor="start" style="font-size:7px;font-weight:400;fill:#444">胆汁中へ排泄</text><line x1="54" y1="132" x2="54" y2="98" stroke="#444" stroke-width="1.3" marker-end="url(#lipar2)"/><path d="M49 110 L59 120 M59 110 L49 120" stroke="#C0392B" stroke-width="2.2"/><text x="46" y="108" text-anchor="end" style="font-size:7px;font-weight:700;fill:#C0392B">腸肝循環</text><text x="46" y="118" text-anchor="end" style="font-size:6.5px;font-weight:400;fill:#C0392B">（再吸収）</text><rect x="90" y="158" width="12" height="12" rx="2" fill="#2E86C1" opacity=".85"/><circle cx="96" cy="164" r="3.2" fill="#F4D03F"/><rect x="106" y="158" width="12" height="12" rx="2" fill="#2E86C1" opacity=".85"/><circle cx="112" cy="164" r="3.2" fill="#F4D03F"/><rect x="122" y="158" width="12" height="12" rx="2" fill="#2E86C1" opacity=".85"/><circle cx="128" cy="164" r="3.2" fill="#F4D03F"/><text x="112" y="183" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#2E86C1">樹脂が胆汁酸を吸着</text><line x1="150" y1="164" x2="312" y2="164" stroke="#444" stroke-width="1.3" marker-end="url(#lipar2)"/><text x="232" y="158" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">便中へ排泄</text><text x="232" y="180" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#444">コレステロール排泄⬆</text></svg>
+    <p class="small muted">コレステロール → コール酸（一次胆汁酸）→ グリココール酸・タウロコール酸 → 胆汁中へ排泄</p>
+    <p><b>・特徴</b></p>
+    <p>腸肝循環で肝へ戻るはずの胆汁酸が不足<br>→ 肝でコレステロールから胆汁酸への合成⬆<br>→ 肝細胞膜<b>LDL受容体数⬆</b><br>→ 血中LDLの取り込み⬆<br>→ 血中コレステロール⬇</p>
+    <p><b>・副作用</b></p>
+    <p><b>便秘</b>（腸内でふくらむ）</p>
+    <p class="small muted">水で飲む・お湯 ×（ふくらむため）<br>他剤を吸着 → 同時服用を避ける</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/lip_resin.png" alt="陰イオン交換樹脂の覚え方。これ捨てていいんか？これ＝コレスチラミン・コレスチミド、捨てて＝コレステロール排泄促進、いいんか＝陰イオン交換樹脂" loading="lazy"></section>` }
+];
+const GX_LIP_LESSONS = [
+  { id:'g1', col:true, lid:'4-2', t:'陰イオン交換樹脂', sub:'これ捨てていいんか？', plan:[], body:()=>`<section class="panel"><h3>陰イオン交換樹脂</h3><img class="goro-img" src="goro/lip_resin.png" alt="陰イオン交換樹脂の覚え方。これ捨てていいんか？これ＝コレスチラミン・コレスチミド、捨てて＝コレステロール排泄促進、いいんか＝陰イオン交換樹脂" loading="lazy"></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -5429,6 +5473,8 @@ const UNITS = {
   gx_pd: { no:'覚', title:'パーキンソン病治療薬', subject:'覚え方', course:'goro', subj:5, goro:true, lessons:GX_PD_LESSONS, cards:'gx_pd', drill:'gx_pd' },
   rsm:{ no:'薬16', title:'まとめ', subject:'薬理・病態・薬物治療', course:'pharm', subj:15, lessons:RSM_LESSONS, cards:'rsm', drill:'rsm' },
   gx_resp: { no:'覚', title:'換気障害', subject:'覚え方', course:'goro', subj:8, goro:true, lessons:GX_RESP_LESSONS, cards:'gx_resp', drill:'gx_resp' },
+  lip:{ no:'薬18', title:'脂質異常症', subject:'薬理・病態・薬物治療', course:'pharm', subj:17, lessons:LIP_LESSONS, cards:'lip', drill:'lip' },
+  gx_lip: { no:'覚', title:'脂質異常症治療薬', subject:'覚え方', course:'goro', subj:12, goro:true, lessons:GX_LIP_LESSONS, cards:'gx_lip', drill:'gx_lip' },
   gx_uro: { no:'覚', title:'頻尿治療薬', subject:'覚え方', course:'goro', subj:10, goro:true, lessons:GX_URO_LESSONS, cards:'gx_uro', drill:'gx_uro' },
   gx_rad: { no:'覚', title:'放射化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_RAD_LESSONS, cards:'gx_rad', drill:'gx_rad' },
   gx_ana: { no:'覚', title:'分析化学', subject:'覚え方', course:'goro', subj:1, goro:true, lessons:GX_ANA_LESSONS, cards:'gx_ana', drill:'gx_ana' },
@@ -5517,7 +5563,7 @@ const CATALOG = [
       { name:'生殖器系', k:'15', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
       { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎',{ t:'まとめ', ch:'α', ready:'rsm' }) },
       { name:'消化器系', k:'17', units:U('消化性潰瘍治療薬','制吐薬・消化管運動改善薬','下剤・止瀉薬','肝・胆・膵に作用する薬','消化性潰瘍・GERD',{ t:'炎症性腸疾患', ready:'ibd' },'肝炎・肝硬変','膵炎') },
-      { name:'代謝系', k:'18', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病','脂質異常症','高尿酸血症・痛風','骨粗鬆症') },
+      { name:'代謝系', k:'18', units:U('糖尿病治療薬','脂質異常症治療薬','糖尿病',{ t:'脂質異常症', ready:'lip' },'高尿酸血症・痛風','骨粗鬆症') },
       { name:'内分泌系', k:'19', units:U('甲状腺疾患治療薬','副腎皮質ホルモン関連薬','視床下部・下垂体ホルモン関連薬','甲状腺疾患','副腎疾患','下垂体疾患') },
       { name:'眼', k:'20', units:U({ t:'散瞳薬・縮瞳薬', ready:'eye1' },{ t:'緑内障治療薬', ready:'eye2' },{ t:'白内障治療薬', ready:'eye3' },'緑内障','白内障','網膜疾患') },
       { name:'耳鼻咽喉科', k:'21', units:U('めまい治療薬','アレルギー性鼻炎の薬','めまい（メニエール病など）','アレルギー性鼻炎','中耳炎') },
@@ -5614,7 +5660,7 @@ const CATALOG = [
       { name:'血液・造血系', k:'血', units:U('抗血栓薬のゴロ') },
       { name:'腎・泌尿器系', k:'腎', units:U({ t:'頻尿治療薬', ready:'gx_uro' }) },
       { name:'生殖器系', k:'殖', units:U() },
-      { name:'代謝系', k:'代', units:U('脂質異常症の薬のゴロ') },
+      { name:'代謝系', k:'代', units:U({ t:'脂質異常症治療薬', ready:'gx_lip' }) },
       { name:'内分泌系', k:'内', units:U() },
       { name:'感覚器系', k:'覚', units:U() },
       { name:'免疫系', k:'免', units:U() },
