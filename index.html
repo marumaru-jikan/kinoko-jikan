@@ -3292,6 +3292,14 @@ Object.assign(POOL, {
     ['片頭痛','エルゴタミンの禁忌は？','妊婦',['高齢者','小児','授乳婦のみ'],'狭心症も'],
     ['片頭痛','片頭痛発作時の血管に対する治療薬の作用は？','血管収縮',['血管拡張','血管透過性亢進','血小板凝集'],'発作は脳血管の拡張による'],
   ],
+  isoi:[
+    ['輸液','生理食塩液のNaCl濃度は？','0.9%',['5%','0.45%','9%'],'Na⁺・Cl⁻ 各154 mEq/L'],
+    ['輸液','生理食塩液にK⁺・Ca²⁺を加えた輸液は？','リンゲル液',['乳酸リンゲル液','1号液','5%ブドウ糖液'],'血漿組成に近づけた'],
+    ['輸液','乳酸リンゲル液の乳酸が代謝される臓器は？','肝臓',['腎臓','肺','筋肉のみ'],'HCO₃⁻に代謝'],
+    ['輸液','肝障害がある場合に安全な等張性電解質輸液は？','酢酸リンゲル液',['乳酸リンゲル液','リンゲル液','生理食塩液'],'酢酸は肝臓以外でも代謝'],
+    ['輸液','等張性電解質輸液が主に補うのは？','細胞外液',['細胞内液','体液全体','自由水'],'細胞外液量が増加'],
+    ['輸液','乳酸リンゲル液の乳酸Na濃度は？','28 mEq/L',['154 mEq/L','4 mEq/L','109 mEq/L'],'アルカリ化剤'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4037,7 +4045,25 @@ const INJ1_LESSONS = [
   { id:'1-4', t:'配合変化②', wip:true, plan:[], body:()=>'' }
 ];
 const INJ2_LESSONS = [
-  { id:'2-1', t:'等張性電解質輸液', wip:true, plan:[], body:()=>'' },
+  { id:'2-1', t:'等張性電解質輸液', sub:'生理食塩液・リンゲル液・乳酸／酢酸／重炭酸リンゲル液', plan:['isoi','isoi','isoi','isoi','isoi'], body:()=>`
+    <section class="panel"><h3>〇 等張性電解質輸液</h3>
+    <p class="small muted">細胞外液を補う</p>
+    <svg class="fig" viewBox="0 0 340 152" role="img" aria-label="等張性電解質輸液は細胞外液（組織間液・血漿）に分布し、細胞外液量が増加する。細胞内液には移行しにくい"><defs><marker id="isa" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#222"/></marker></defs><rect x="10" y="40" width="320" height="70" fill="none" stroke="#333" stroke-width="1.2"/><rect x="160" y="56" width="170" height="54" fill="#CFE6F2"/><line x1="160" y1="40" x2="160" y2="110" stroke="#333"/><line x1="290" y1="40" x2="290" y2="110" stroke="#333" stroke-dasharray="2 2"/><line x1="10" y1="56" x2="330" y2="56" stroke="#888" stroke-dasharray="3 2"/><text x="85" y="90" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">細胞内液</text><text x="218" y="100" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">組織間液</text><path d="M310 6 V104" stroke="#222" stroke-width="2.2" fill="none" marker-end="url(#isa)"/><path d="M310 72 H178" stroke="#222" stroke-width="2.2" fill="none" marker-end="url(#isa)"/><text x="230" y="28" text-anchor="middle" style="font-size:11px;font-weight:700;fill:#222">細胞外液量が増加</text><text x="310" y="126" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#222">血漿</text><line x1="160" y1="132" x2="330" y2="132" stroke="#555"/><text x="230" y="146" text-anchor="middle" style="font-size:10px;font-weight:400;fill:#555">細胞外液</text></svg>
+    ${tbl(['','Na<sup>+</sup>','K<sup>+</sup>','Ca<sup>2+</sup>','Cl<sup>−</sup>','乳酸<br>Na'],[['血漿','142','4','5','103','<span class="small muted">HCO<sub>3</sub><sup>−</sup> 27</span>'],['生理食塩液','<b>154</b>','−','−','<b>154</b>','−'],['リンゲル液','147','4','5','156','−'],['乳酸リンゲル液','130','4','3','109','<b>28</b>']])}
+    <p class="small muted">単位：mEq/L</p></section>
+    <section class="panel"><p><b>・生理食塩液</b></p>
+    <p>最も単純な組成の輸液剤<br><b>0.9%のNaCl</b>溶液<br>血漿と等張でNa<sup>+</sup>・Cl<sup>−</sup>を含む</p>
+    <p><b>・リンゲル液</b></p>
+    <p>生理食塩液に<b>K<sup>+</sup>・Ca<sup>2+</sup></b>を加え、血漿組成に近づけた製剤</p>
+    <p><b>・乳酸リンゲル液</b></p>
+    <p>リンゲル液に<b>乳酸ナトリウム</b>（アルカリ化剤）を配合<br>→ 乳酸は<b>肝臓</b>で<b>重炭酸イオン（HCO<sub>3</sub><sup>−</sup>）</b>に代謝<br>→ <b>アシドーシス是正</b>にも用いる</p>
+    <p class="small muted">乳酸 → 肝 → HCO<sub>3</sub><sup>−</sup>（重炭酸体）</p>
+    <p><b>・酢酸リンゲル液</b></p>
+    <p>アルカリ化剤として<b>酢酸ナトリウム</b>を配合</p>
+    <p class="small muted">酢酸は肝臓以外（筋肉など）でも代謝される → <b>肝障害</b>があれば酢酸リンゲル液が安全</p>
+    <p><b>・重炭酸リンゲル液</b></p>
+    <p>アルカリ化剤として<b>炭酸水素ナトリウム</b>を配合</p>
+    <p class="small muted">代謝を必要とせず直接HCO<sub>3</sub><sup>−</sup>を補給</p></section>` },
   { id:'2-2', t:'低張性電解質輸液', wip:true, plan:[], body:()=>'' }
 ];
 const INJ3_LESSONS = [
