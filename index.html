@@ -3168,6 +3168,17 @@ Object.assign(POOL, {
     ['臨床研究','過去に記録されたデータを使うコホート研究は？','後ろ向きコホート研究',['前向きコホート研究','症例対照研究','横断研究'],'短時間・低コスト'],
     ['臨床研究','調査期間が長く費用が多いのは？','コホート研究',['症例対照研究','症例報告','横断研究'],'将来に向かって追跡'],
   ],
+  rri:[
+    ['EBM','相対リスク（RR）の式は？','実薬のイベント発生率 ÷ プラセボのイベント発生率',['プラセボの発生率 − 実薬の発生率','1 − 実薬の発生率','1 ÷ 絶対リスク減少率'],'何倍のリスクか'],
+    ['EBM','相対リスク減少率（RRR）の式は？','1 − RR',['1 ÷ RR','RR − 1','1 ÷ ARR'],'治療で減少する程度'],
+    ['EBM','絶対リスク減少率（ARR）の式は？','プラセボの発生率 − 実薬の発生率',['実薬の発生率 ÷ プラセボの発生率','1 − RR','1 ÷ NNT ÷ 2'],'絶対的な差'],
+    ['EBM','治療必要数（NNT）の式は？','1 ÷ ARR',['1 ÷ RR','1 − ARR','1 − RRR'],'小さいほど治療効果大'],
+    ['EBM','NNTが小さいことが示すのは？','治療効果が大きい',['治療効果が小さい','副作用が多い','プラセボ効果が大きい'],'ARRが大きい'],
+    ['EBM','毒物ばく露での相対リスクは？','1より大きい',['1未満','0','必ず1'],'薬物服用時は1未満'],
+    ['EBM','オッズ比が1のとき？','罹りやすさが両群で同じ',['治療効果が最大','必ず有意差あり','罹患率が0'],'1より大はその群が罹りやすい'],
+    ['EBM','オッズ比は何の近似値？','相対リスク',['絶対リスク減少率','治療必要数','寄与危険度'],'症例対照研究で用いる'],
+    ['EBM','ARR＝0.05のときのNNTは？','20',['5','0.05','95'],'1 ÷ 0.05'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4784,7 +4795,37 @@ const EBM_LESSONS = [
     <svg class="fig" viewBox="0 0 340 156" role="img" aria-label="観察研究の時間軸による分類。症例対照研究は現在から過去へさかのぼる後ろ向き研究。後ろ向きコホート研究は過去の記録から現在へ。コホート研究は現在から未来へ追跡する前向き研究。横断研究は現在の一時点"><defs><marker id="tlar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="context-stroke"/></marker></defs><line x1="20" y1="132" x2="320" y2="132" stroke="#C9A06B" stroke-width="3"/><text x="30" y="148" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">過去</text><text x="170" y="148" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">現在</text><text x="310" y="148" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#222">未来</text><line x1="40" y1="58" x2="160" y2="58" stroke="#B9770E" stroke-width="2.5" marker-end="url(#tlar)"/><rect x="46" y="34" width="88" height="16" rx="3" fill="#B9770E"/><text x="90" y="45" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#fff">後ろ向きコホート研究</text><line x1="160" y1="100" x2="40" y2="100" stroke="#7D6E5A" stroke-width="2.5" marker-end="url(#tlar)"/><rect x="46" y="76" width="88" height="16" rx="3" fill="#7D6E5A"/><text x="90" y="87" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#fff">症例対照研究</text><line x1="180" y1="92" x2="310" y2="92" stroke="#7B2D26" stroke-width="2.5" marker-end="url(#tlar)"/><rect x="211" y="68" width="88" height="16" rx="3" fill="#7B2D26"/><text x="255" y="79" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#fff">コホート研究</text><line x1="170" y1="30" x2="170" y2="126" stroke="#9C6B30" stroke-width="2.5" marker-end="url(#tlar)"/><rect x="136" y="12" width="68" height="16" rx="3" fill="#9C6B30"/><text x="170" y="23" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#fff">横断研究</text><text x="255" y="112" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#555">（前向き）</text><text x="90" y="118" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#555">（後ろ向き）</text></svg></section>
     <section class="panel"><h3>〇 症例対照研究と要因対照研究の比較</h3>
     ${tbl(['','症例対照研究<br><span class="small muted">後ろ向き</span>','要因対照研究<br><span class="small muted">前向き</span>'],[['調査集団設定','<b>疾病有−疾病無</b><br><span class="small muted">対照群の選定が難しい</span>','<b>ばく露有−ばく露無</b>'],['調査する研究','それぞれの群の<b>ばく露要因</b>について','研究対象となる<b>疾病の発生率</b>を比較'],['調査方法','<b>過去</b>へさかのぼって調査','<b>将来</b>に向かって追跡調査'],['調査対象者','少なくてよい','多い'],['調査期間','短い','長い'],['調査費用','少ない','多い'],['まれな疾患<br>ばく露頻度低い','<b>可能</b>','不可能'],['まれな要因','不可能','<b>可能</b>'],['要因に関する<br>データの信頼度','<b>低い</b><br>ばく露情報の偏り（バイアス）が大<br><span class="small muted">患者の記憶・カルテに頼る</span>','<b>高い</b><br><span class="small muted">注目する要因が設定されている</span>'],['検討できる疾病','少ない','多い'],['罹患率・発生率・死亡率','計算<b>不可能</b>','計算可能'],['寄与危険度','計算<b>不可能</b>','<b>直接</b>計算'],['相対危険度','近似計算<br>（<b>オッズ比</b>）','<b>直接</b>計算']])}
-    <p class="small muted">症例対照研究：症例（まれな疾患）→ 要因<br>要因対照研究：要因（遺伝子など）→ 症例</p></section>` }
+    <p class="small muted">症例対照研究：症例（まれな疾患）→ 要因<br>要因対照研究：要因（遺伝子など）→ 症例</p></section>` },
+  { id:'2-4', t:'EBMにおける指標', sub:'RR・RRR・ARR・NNT・オッズ比', plan:['rri','rri','rri','rri','rri'], body:()=>`
+    <section class="panel"><h3>〇 相対リスク（RR）</h3>
+    <p class="small muted">relative risk</p>
+    <p>薬物を飲んで何倍のリスクとなるか。<br>治療群と対照群での<b>罹患率の比</b>。</p>
+    <p>RR ＝ <span class="frac"><span>実薬でのイベント発生率</span><span>プラセボのイベント発生率</span></span></p>
+    ${tbl(['','治療群<br>（死亡）','（生存）'],[['治療群','a','b'],['対照群','c','d']]).replace('<th>治療群<br>（死亡）</th>','<th>死亡数</th>').replace('<th>（生存）</th>','<th>生存数</th>')}
+    <p>RR ＝ <span class="frac"><span>a /（a＋b）</span><span>c /（c＋d）</span></span></p>
+    <p class="small muted">治療群のリスク ÷ 対照群のリスク</p>
+    <p style="margin-top:14px"><b>※ 相対リスクの考え方</b></p>
+    ${ktbl([['薬物を服用しての相対リスク<br><span class="small muted">副作用を見るときを除く</span>','<b>1未満</b>'],['毒物にばく露しての相対リスク','<b>1より大きく</b>']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 相対リスク減少率（RRR）</h3>
+    <p class="small muted">relative risk reduction</p>
+    <p>治療しない場合の罹患率のうち、治療によって減少する程度。</p>
+    <p><b>RRR ＝ 1 − RR</b></p></section>
+    <section class="panel"><h3>〇 絶対リスク減少率（ARR）</h3>
+    <p class="small muted">absolute risk reduction</p>
+    <p>実薬でのイベント発生率とプラセボのイベント発生率の<b>絶対的な差</b>。</p>
+    <p><b>ARR ＝ プラセボのイベント発生率 − 実薬でのイベント発生率</b></p></section>
+    <section class="panel"><h3>〇 治療必要数（NNT）</h3>
+    <p class="small muted">number needed to treat</p>
+    <p>何人の患者を治療して1人のイベントを予防できるか。</p>
+    <p><b>NNT ＝ <span class="frac"><span>1</span><span>ARR</span></span></b></p>
+    <p>NNTが<b>小さい</b>（ARRが大きい）ほど治療効果が<b>大きい</b></p>
+    <p class="small muted">例）NNT 20：20人に投与すると1人を治療・予防できる</p></section>
+    <section class="panel"><h3>〇 オッズ比</h3>
+    <p>ある疾患などへの<b>罹りやすさ</b>を2つの群で比較して示す尺度。</p>
+    ${ktbl([['オッズ比 ＝ 1','罹りやすさが両群で同じ'],['オッズ比 ＞ 1','ある群の方が罹りやすい']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p>オッズ比は<b>相対リスクの近似値</b></p>
+    <p>オッズ比 ＝ <span class="frac"><span>a × d</span><span>b × c</span></span></p>
+    <p class="small muted">薬物を投与した際は原則1未満（副作用の算出時は除く）<br>a×d と b×c のうち大きい方を分母にする</p></section>` }
 ];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
