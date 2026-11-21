@@ -6328,7 +6328,9 @@ function rewardCard(rw){ const c=ALLC[rw.i];
 /* ===== きのこを育てる（胞子をあげて、きのこを生やす） ===== */
 const SKY_NEED = 30;
 const GROW = [ {n:'胞子', at:0, d:'森の土に、小さな胞子がおちました。'}, {n:'菌糸', at:8, d:'土の中で、白い糸がのびはじめました。'}, {n:'幼菌', at:15, d:'地面から、小さな頭が顔を出しました。'}, {n:'若いきのこ', at:23, d:'傘がひらいてきました。もうすぐです。'} ];
-const SP = [
+const ZSTY={1:{cap:'#EFE6D8',shape:'dome'},2:{cap:'#F2EEE6',shape:'dome'},3:{cap:'#E9E2C8',shape:'dome'},4:{cap:'#8A6A4E',shape:'spot'},5:{cap:'#B9B27A',shape:'dome'},6:{cap:'#F6F3EA',shape:'dome'},7:{cap:'#B07A60',shape:'spot'},9:{cap:'#C9A26A',shape:'dome'},10:{cap:'#8E5A3A',shape:'dome',stem:'#C9402E'},12:{cap:'#C98A2E',shape:'dome',stem:'#E6C45A'},14:{cap:'#8A5A2E',shape:'dome',stem:'#E8D9A8'},15:{cap:'#9A6A3E',shape:'dome',stem:'#E6D8B8'},16:{cap:'#F4EEE2',shape:'dome'},17:{cap:'#F2A830',shape:'flat',stem:'#F2B84A'},18:{cap:'#E8462E',shape:'cone',stem:'#F3C3A8'},19:{cap:'#9A958C',shape:'dome'},20:{cap:'#6E9C9A',shape:'dome'},21:{cap:'#B8A48C',shape:'flat'},22:{cap:'#8A8378',shape:'flat'},23:{cap:'#9A5A32',shape:'dome'},24:{cap:'#ECE7DC',shape:'cone'},25:{cap:'#C9A57E',shape:'cone'},26:{cap:'#7A4E9A',shape:'dome',stem:'#B79BCB'},27:{cap:'#A89A84',shape:'dome'},28:{cap:'#B8382A',shape:'flat',stem:'#B8382A'},29:{cap:'#9A7A54',shape:'dome'},30:{cap:'#3A3632',shape:'cone',stem:'#2E2A26'},31:{cap:'#E8C68A',shape:'flat'},32:{cap:'#7E5A3E',shape:'flat'},33:{cap:'#9AA0A6',shape:'dome'},34:{cap:'#E0442A',shape:'cone',stem:'#F0A040'},35:{cap:'#C9B07A',shape:'dome'},36:{cap:'#B46A7A',shape:'dome'},37:{cap:'#B87A84',shape:'dome'},38:{cap:'#E0C040',shape:'dome',stem:'#E6CC5A'},39:{cap:'#C97A4E',shape:'flat'},40:{cap:'#7E6A58',shape:'dome'},41:{cap:'#B86A30',shape:'flat'},42:{cap:'#E6DCC8',shape:'flat'},43:{cap:'#E07A30',shape:'flat'},44:{cap:'#F2EEE4',shape:'flat'},46:{cap:'#BDB4A6',shape:'flat',stem:'#A89C8C'},47:{cap:'#C9B89A',shape:'spot'},49:{cap:'#F4F0E8',shape:'dome'},50:{cap:'#D8B88A',shape:'dome'},52:{cap:'#8A6A44',shape:'cone',net:1},53:{cap:'#B8A48A',shape:'dome'},56:{cap:'#E86A2A',shape:'dome',stem:'#F2D27A'},57:{cap:'#9A7A54',shape:'flat'},58:{cap:'#6E4A34',shape:'flat'},59:{cap:'#5A5A3A',shape:'cone',stem:'#F4F0E6'},61:{cap:'#F0EEE6',shape:'flat'},62:{cap:'#7A6A58',shape:'flat'},63:{cap:'#E8E2D4',shape:'flat'},64:{cap:'#7A5A8A',shape:'flat'},65:{cap:'#C8402E',shape:'flat'},66:{cap:'#E0342A',shape:'dome'},67:{cap:'#C9A060',shape:'dome'},68:{cap:'#8A9A7E',shape:'flat'},71:{cap:'#6E9A6E',shape:'flat'},72:{cap:'#4E9A7A',shape:'dome'},73:{cap:'#6A5A44',shape:'dome'},74:{cap:'#D8C040',shape:'dome',stem:'#E8D870'},76:{cap:'#3A3430',shape:'cone',stem:'#3A3430'},77:{cap:'#2E2420',shape:'dome',stem:'#2E2420'},78:{cap:'#F0E8DA',shape:'dome',stem:'#F0E8DA'},79:{cap:'#F2EFEA',shape:'dome'},80:{cap:'#FAF8F2',shape:'dome'},81:{cap:'#E8402A',shape:'cone',stem:'#E8402A'},83:{cap:'#9A8A78',shape:'dome'},84:{cap:'#5A5048',shape:'flat'}};
+const ZNOTE={"食": "食べられるきのこ。", "毒": "毒きのこ。", "猛毒": "猛毒のきのこ。少量でも命に関わる。", "注意": "食べるには注意が必要なきのこ。", "不食": "食用に向かないきのこ。", "発光": "光るきのこ。"};
+const SP0 = [
   {id:'yakou', name:'ヤコウタケ', cap:'#C6F28A', shape:'dome', glow:1, note:'八丈島などに生える、黄緑色に光る小さなきのこ。'},
   {id:'tsukiyo', name:'ツキヨタケ', cap:'#8A6A4E', shape:'flat', glow:1, glowC:'#DFFFD0', gills:'#E9FFDA', note:'ひだが暗いところで光る毒きのこ。シイタケとまちがえやすい。'},
   {id:'shiitake', name:'シイタケ', cap:'#7A4E2E', shape:'dome', note:'干すとビタミンDがふえる。うまみ成分はグアニル酸。'},
@@ -6341,6 +6343,9 @@ const SP = [
   {id:'hitoyo', name:'ヒトヨタケ', cap:'#D8D2C4', shape:'cone', note:'一晩で傘がとけて黒い液になる。お酒と一緒に食べると悪酔いの症状が出る。'},
   {id:'amigasa', name:'アミガサタケ', cap:'#B08A5A', shape:'cone', net:1, note:'春に出る、網目もようの傘。フランス料理ではモリーユ。'},
   {id:'matsutake', name:'マツタケ', cap:'#9A7448', shape:'dome', note:'アカマツ林に生える。香りの成分はマツタケオール。'},
+];
+const SP = [ ...SP0,
+  ...ZUKAN.filter(z=>!SP0.some(s=>s.name===z.name)).map(z=>Object.assign({id:z.key,name:z.name,note:ZNOTE[z.note]||''},ZSTY[z.no]||{cap:'#B89A78',shape:'dome'})),
 ];
 const spOf = id => SP.find(x=>x.id===id) || SP[0];
 function skyInit(){
