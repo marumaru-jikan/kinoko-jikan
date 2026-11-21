@@ -3277,6 +3277,14 @@ Object.assign(POOL, {
     ['褥瘡','精製白糖・ポビドンヨードの白糖の役割は？','浸透圧による滲出液吸収',['殺菌','肉芽形成','保湿'],'ポビドンヨードは感染制御'],
     ['褥瘡','出血リスクに注意が必要な褥瘡治療薬は？','アルプロスタジルアルファデクス',['ブロメライン','酸化亜鉛','カデキソマー・ヨウ素'],'PGE₁製剤'],
   ],
+  migp:[
+    ['片頭痛','片頭痛の発作予防に用いるCa²⁺拮抗薬は？','ロメリジン',['ニフェジピン','ベラパミル','アムロジピン'],'脳血管選択性'],
+    ['片頭痛','CGRPの放出も抑制する抗てんかん薬は？','トピラマート',['バルプロ酸','カルバマゼピン','フェニトイン'],'神経の興奮も抑える'],
+    ['片頭痛','抗CGRP受容体抗体は？','エレヌマブ',['ガルカネズマブ','フレマネズマブ','リメゲパント'],'ガルカネズマブ・フレマネズマブは抗CGRP抗体'],
+    ['片頭痛','抗体製剤でないCGRP関連製剤は？','リメゲパント',['エレヌマブ','ガルカネズマブ','フレマネズマブ'],'CGRP受容体拮抗薬'],
+    ['片頭痛','片頭痛の発作予防に用いるβ遮断薬は？','プロプラノロール',['アテノロール','カルベジロール','ビソプロロール'],'痛みの閾値⬆'],
+    ['片頭痛','CGRPの正式名称は？','カルシトニン遺伝子関連ペプチド',['コルチコトロピン放出ペプチド','カルシウム依存性成長因子','セロトニン関連ペプチド'],'血管拡張を起こす'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -5023,6 +5031,32 @@ const SMED_LESSONS = [
     <p><b>・対象となる一定の取組</b></p>
     <p>①保険者（健康保険組合など）が実施する健康診査<span class="small muted">（人間ドック・各種健（検）診など）</span><br>②市区町村が健康増進事業として行う健康診査<br>③<b>予防接種</b><span class="small muted">（定期接種・インフルエンザワクチンの予防接種など）</span><br>④勤務先で実施する<b>定期健康診断</b><span class="small muted">（事業主検診）</span><br>⑤<b>特定健康診査</b>（いわゆるメタボ検診）・特定保健指導<br>⑥市区町村が健康増進事業として実施する<b>がん検診</b></p></section>` }
 ];
+const MIG_LESSONS = [
+  { id:'17-1', t:'片頭痛', wip:true, plan:[], body:()=>'' },
+  { id:'17-2', t:'発作予防薬', sub:'Ca²⁺拮抗薬・抗てんかん薬・β遮断薬・CGRP関連製剤', plan:['migp','migp','migp','migp','migp'], body:()=>`
+    <section class="panel"><h3>〇 Ca<sup>2+</sup>拮抗薬</h3>
+    <p><span class="dg">ロメリジン</span></p>
+    <p><b>・作用機序</b></p>
+    <p>脳血管のCa<sup>2+</sup>チャネル遮断<br>→ 脳血管の収縮⬇（脳血管選択性）<br>→ 片頭痛発作の予防</p></section>
+    <section class="panel"><h3>〇 抗てんかん薬</h3>
+    <p>脳の過剰興奮を抑える<br>→ 片頭痛のスイッチが入りにくくなる</p>
+    <p><span class="dg">バルプロ酸</span></p>
+    <p><b>・作用機序</b></p>
+    <p><b>GABA</b>の働き⬆</p>
+    <p><span class="dg">トピラマート</span></p>
+    <p><b>・作用機序</b></p>
+    <p>神経の興奮⬇<br><b>CGRP</b>の放出⬇</p></section>
+    <section class="panel"><h3>〇 β遮断薬</h3>
+    <p>血管の過剰な反応を抑え、痛みの閾値⬆</p>
+    <p><span class="dg">プロプラノロール</span></p>
+    <p class="small muted">リザトリプタンと併用禁忌</p></section>
+    <section class="panel"><h3>〇 CGRP関連製剤</h3>
+    <p class="small muted">CGRP：カルシトニン遺伝子関連ペプチド<br>→ 血管拡張を起こす・痛みのスイッチとして働く</p>
+    <p><b>・抗CGRP抗体</b><br><span class="dg">ガルカネズマブ</span>・<span class="dg">フレマネズマブ</span></p>
+    <p><b>・抗CGRP受容体抗体</b><br><span class="dg">エレヌマブ</span></p>
+    <p><b>・CGRP受容体拮抗薬</b><br><span class="dg">アトゲパント</span>・<span class="dg">リメゲパント</span></p>
+    <p class="small muted">CGRP受容体拮抗薬：抗体製剤ではない（経口）</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -6129,6 +6163,7 @@ const UNITS = {
   lcc:{ no:'法9', title:'地域包括ケアシステム', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCC_LESSONS, cards:'lcc', drill:'lcc' },
   lcf:{ no:'法9', title:'地域における薬局の機能', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCF_LESSONS, cards:'lcf', drill:'lcf' },
   lmt:{ no:'法6', title:'まとめ', subject:'法規・制度・倫理', course:'law', subj:5, lessons:LMT_LESSONS, cards:'lmt', drill:'lmt' },
+  mig:{ no:'薬9', title:'片頭痛', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:MIG_LESSONS, cards:'mig', drill:'mig' },
   pd:{ no:'薬9', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
   dem:{ no:'薬9', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
   ana1:{ no:'物5', title:'分析の基本', subject:'物理', course:'phys', subj:4, lessons:ANA1_LESSONS, cards:'ana1', drill:'ana1' },
@@ -6236,7 +6271,7 @@ const CATALOG = [
       { name:'個別化医療', k:'6', units:U('遺伝的素因（薬物代謝酵素の遺伝子多型）','年齢（小児・高齢者）','妊婦・授乳婦','腎疾患・肝疾患がある患者','TDM') },
       { name:'自律神経系', k:'7', band:'薬理・病態・薬物治療', units:U({ t:'自律神経系の薬', ready:'ans' }) },
       { name:'体性神経系・筋', k:'8', units:U({ t:'知覚神経に作用する薬', ready:'som1' },{ t:'運動神経・筋に作用する薬', ready:'som2' },'重症筋無力症','筋ジストロフィー・ALS') },
-      { name:'中枢神経系', k:'9', units:U({ t:'全身麻酔薬', ready:'cns1' },{ t:'催眠薬・抗不安薬', ready:'cns2' },{ t:'麻薬性鎮痛薬（オピオイド）', ready:'cns3' },'抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬',{ t:'パーキンソン病治療薬', ready:'pd' },'認知症治療薬','片頭痛治療薬','統合失調症','うつ病・双極性障害','不安障害・睡眠障害','てんかん','パーキンソン病',{ t:'認知症', ready:'dem' },'脳血管疾患','片頭痛') },
+      { name:'中枢神経系', k:'9', units:U({ t:'全身麻酔薬', ready:'cns1' },{ t:'催眠薬・抗不安薬', ready:'cns2' },{ t:'麻薬性鎮痛薬（オピオイド）', ready:'cns3' },'抗精神病薬','抗うつ薬・気分安定薬','抗てんかん薬',{ t:'パーキンソン病治療薬', ready:'pd' },'認知症治療薬','片頭痛治療薬','統合失調症','うつ病・双極性障害','不安障害・睡眠障害','てんかん','パーキンソン病',{ t:'認知症', ready:'dem' },'脳血管疾患',{ t:'片頭痛', ready:'mig' }) },
       { name:'炎症・免疫・アレルギー', k:'10', units:U('ステロイド性抗炎症薬','非ステロイド性抗炎症薬（NSAIDs）','抗アレルギー薬','アレルギー疾患','関節リウマチ','全身性エリテマトーデス','臓器移植と免疫抑制') },
       { name:'骨・関節', k:'11', units:U('骨粗鬆症治療薬','関節リウマチ治療薬','痛風・高尿酸血症治療薬') },
       { name:'循環器系', k:'12', units:U({ t:'心不全治療薬', ready:'hf' },{ t:'抗不整脈薬', ready:'aar' },'狭心症治療薬','降圧薬','肺動脈性肺高血圧症治療薬','昇圧薬','心不全','不整脈','高血圧症','虚血性心疾患') },
