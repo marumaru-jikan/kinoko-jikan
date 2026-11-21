@@ -252,7 +252,9 @@ ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
 
 /* grow a star */
 .skybox{border-radius:22px;overflow:hidden;background:linear-gradient(175deg,#1F3A2A 0%,#122219 58%,#07100B 100%);color:#E7F0DC}
-.skybox .night{display:block;width:100%;height:auto}
+.skybox .night{display:block;width:100%;height:auto;max-width:none}
+.nightscroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.skyhint{margin:0;padding:4px 14px 0;font-size:.75rem;color:#A9BFAE}
 .skycount{display:flex;justify-content:space-between;padding:8px 16px 12px;font-size:.82rem;color:#B5C9B9}
 .skycount b{color:#fff;font-size:1rem}
 .night .tw{animation-duration:4s}
@@ -6357,12 +6359,13 @@ function stageSVG(fed){
   return `<svg class="stg" viewBox="0 0 220 170" role="img" aria-label="${g}">${soil}<g class="bob">${s}</g></svg>`;
 }
 function nightSVG(born){
-  const n=born.length, rnd=seeded(11); let bg='';
-  for(let i=0;i<7;i++){ const x=10+i*55+rnd()*20; bg+=`<path d="M${x} 230 L${x} ${30+rnd()*50}" stroke="#06100B" stroke-width="${8+rnd()*10}" opacity=".6"/>`; }
-  for(let i=0;i<24;i++) bg+=`<circle class="${i%3===0?'tw':''}" cx="${(rnd()*360).toFixed(1)}" cy="${(rnd()*150).toFixed(1)}" r="${(.6+rnd()*1.2).toFixed(2)}" fill="#E6FFB0" opacity="${(.25+rnd()*.5).toFixed(2)}"/>`;
-  const show=born.slice(-30), k=n>16?.7:n>8?.85:1; let st='';
-  show.forEach((t,i)=>{ const r=seeded(i*31+7), x=24+r()*312, y=180+r()*36; st+=`<g>${mushG(spOf(t.sp),x.toFixed(1),y.toFixed(1),k)}</g>`; });
-  return `<svg class="night" viewBox="0 0 360 230" role="img" aria-label="森　きのこ ${n} 本">${bg}<path d="M0 178 Q70 166 140 176 T280 172 T360 176 V230 H0Z" fill="#0E1A12"/>${st}${n?'':`<text x="180" y="110" text-anchor="middle" fill="#A9BFAE" font-size="13">まだ生えたきのこはありません</text>`}</svg>`;
+  const n=born.length, rnd=seeded(11), PER=12, W=n>PER?360+Math.ceil((n-PER)*26/90)*90:360; let bg='';
+  for(let i=0;i<Math.round(W/52);i++){ const x=10+i*52+rnd()*20; bg+=`<path d="M${x.toFixed(1)} 230 L${x.toFixed(1)} ${(30+rnd()*50).toFixed(1)}" stroke="#06100B" stroke-width="${(8+rnd()*10).toFixed(1)}" opacity=".6"/>`; }
+  for(let i=0;i<Math.round(24*W/360);i++) bg+=`<circle class="${i%3===0?'tw':''}" cx="${(rnd()*W).toFixed(1)}" cy="${(rnd()*150).toFixed(1)}" r="${(.6+rnd()*1.2).toFixed(2)}" fill="#E6FFB0" opacity="${(.25+rnd()*.5).toFixed(2)}"/>`;
+  let gr='M0 178'; for(let x=0;x<W;x+=140) gr+=` Q${x+70} ${x%280?172:166} ${x+140} 176`; gr+=` V230 H0Z`;
+  const k=n>8?.85:1, pos=born.map((t,i)=>{ const r=seeded(i*31+7), slot=(W-48)/Math.max(n,1); return { t, x:n>PER?24+(i+.15+r()*.7)*slot:24+r()*312, y:180+r()*36 }; }).sort((a,b)=>a.y-b.y);
+  const st=pos.map(p=>`<g>${mushG(spOf(p.t.sp),p.x.toFixed(1),p.y.toFixed(1),k)}</g>`).join('');
+  return `<svg class="night" viewBox="0 0 ${W} 230" style="width:${(W/360*100).toFixed(2)}%" role="img" aria-label="森　きのこ ${n} 本">${bg}<path d="${gr}" fill="#0E1A12"/>${st}${n?'':`<text x="180" y="110" text-anchor="middle" fill="#A9BFAE" font-size="13">まだ生えたきのこはありません</text>`}</svg>`;
 }
 const SHARD_I = `<svg class="shard" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="7" r="1.6"/><circle cx="18" cy="19" r="1.8"/></svg>`;
 function skyFeed(arg){
@@ -6566,7 +6569,7 @@ function vRecord(){
 function vSky(){
   const s=skyInit(), g=growOf(s.fed), got=new Set(s.born.map(t=>t.sp)), b=S.born?spOf(S.born):null, nextG=GROW.find(x=>x.at>s.fed);
   return `<div class="stack"><div class="hello"><div class="eyebrow">森</div><h1>胞子を飛ばして蕈を育てよう</h1></div>
-  <div class="skybox">${nightSVG(s.born)}<div class="skycount"><span>森のきのこ <b class="num">${s.born.length}</b> 本</span><span>きのこ図鑑 <b class="num">${got.size}</b> / ${SP.length}</span></div></div>
+  <div class="skybox"><div class="nightscroll">${nightSVG(s.born)}</div>${s.born.length>12?'<p class="skyhint">← 横にスクロールして森を見わたせる</p>':''}<div class="skycount"><span>森のきのこ <b class="num">${s.born.length}</b> 本</span><span>きのこ図鑑 <b class="num">${got.size}</b> / ${SP.length}</span></div></div>
   ${b?`<div class="panel born pop"><svg viewBox="0 0 120 120" class="bsv">${mushG(b,60,104,2.6)}</svg><div><p class="small muted">きのこが生えました！</p><h3>${b.name}</h3><p class="small">${b.note}</p></div></div>`:''}
   <div class="panel grow"><div class="growtop"><div><p class="small muted">いま育てているきのこ</p><h3>${g.n}</h3><p class="small">${g.d}</p></div>${stageSVG(s.fed)}</div>
     <div class="meter"><i style="width:${s.fed/SKY_NEED*100}%"></i></div>
@@ -6727,6 +6730,7 @@ function render(){
   const n=document.getElementById('st-name');
   if(n) n.addEventListener('input',e=>{ R.name=e.target.value.trim(); save(); });
   if (S.view==='pdf') renderPdf();
+  if (S.view==='sky'){ const ns=app.querySelector('.nightscroll'); if(ns) ns.scrollLeft=ns.scrollWidth; }
   if (S.view==='search'){ const i=document.getElementById('sq'), sr=document.getElementById('sr'), cl=app.querySelector('.sclear');
     i.addEventListener('input',()=>{ S.q=i.value; cl.hidden=!S.q; sr.innerHTML=searchResults(S.q); });
     i.addEventListener('keydown',e=>{ if(e.key==='Enter') i.blur(); });
