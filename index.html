@@ -6288,8 +6288,7 @@ function mushG(sp,x,y,k){
   const glow = sp.glow ? `<ellipse cx="${x}" cy="${top-2*k}" rx="${w*1.9}" ry="${16*k}" fill="${sp.glowC||c}" opacity=".18"/><ellipse cx="${x}" cy="${top}" rx="${w*1.3}" ry="${10*k}" fill="${sp.glowC||c}" opacity=".22"/>` : '';
   const gills = sp.gills ? `<path d="M${x-w*.8} ${top+3*k} Q${x} ${top+7*k} ${x+w*.8} ${top+3*k}" stroke="${sp.gills}" stroke-width="${2*k}" fill="none"/>` : '';
   const ol = d => d ? ` stroke="#CFE3C4" stroke-width="${(1.1*k).toFixed(2)}" stroke-linejoin="round"` : '';
-  if(darkC(c)) cap=cap.replace(/fill="([^"]+)"\/>/,(m,f)=>`fill="${f}"${ol(1)}/>`);
-  return `${glow}<path d="M${x-3.4*k} ${y} Q${x-4*k} ${top+12*k} ${x-3*k} ${top+2*k} L${x+3*k} ${top+2*k} Q${x+4*k} ${top+12*k} ${x+3.4*k} ${y}Z" fill="${st}"${ol(darkC(st))}/>${cap}${gills}${spots}`;
+  return `${glow}<path d="M${x-3.4*k} ${y} Q${x-4*k} ${top+12*k} ${x-3*k} ${top+2*k} L${x+3*k} ${top+2*k} Q${x+4*k} ${top+12*k} ${x+3.4*k} ${y}Z" fill="${st}"/>${cap}${gills}${spots}`;
 }
 function illusSVG(id){
   const v=+id.slice(1), rnd=seeded(v*17+3);
