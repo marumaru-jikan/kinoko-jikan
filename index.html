@@ -3185,6 +3185,20 @@ Object.assign(POOL, {
     ['地域フォーミュラリ','地域フォーミュラリの目的として正しいのは？','医療費の適正化',['新薬の使用拡大','処方権の制限','薬価の引き上げ'],'後発医薬品の使用促進も'],
     ['地域フォーミュラリ','病院内で作成・運用するフォーミュラリは？','院内フォーミュラリ',['地域フォーミュラリ','診療ガイドライン','添付文書'],'地域全体なら地域フォーミュラリ'],
   ],
+  mterm:[
+    ['医療用語','「ムンテラ」の意味は？','患者・家族への説明',['手術','退院','転移'],'Mundtherapie〔独〕'],
+    ['医療用語','「クリーゼ」の意味は？','急性増悪',['れん縮','混入','強直'],'crisis'],
+    ['医療用語','「エンピリックセラピー」の意味は？','経験的治療',['化学療法','排液法','血管造影'],'Empiric therapy'],
+    ['医療用語','「ドレナージ」の意味は？','排液法',['化学療法','超音波検査','強直'],'Dränage〔独〕'],
+    ['医療用語','「テタニー」の意味は？','強直',['れん縮','潰瘍','転移'],'Tetany'],
+    ['医療用語','「スパズム」の意味は？','れん縮',['強直','急性増悪','混入'],'Spasm'],
+    ['医療用語','「ケモ」の意味は？','化学療法',['手術','超音波検査','経験的治療'],'Chemotherapy'],
+    ['病名略語','ASOは？','閉塞性動脈硬化症',['腹部大動脈瘤','筋萎縮性側索硬化症','脳卒中'],'arteriosclerosis obliterans'],
+    ['病名略語','AAAは？','腹部大動脈瘤',['閉塞性動脈硬化症','心房粗動','アルツハイマー病'],'abdominal aortic aneurysm'],
+    ['病名略語','DICは？','播種性血管内凝固症候群',['糖尿病','慢性腎臓病','多発性硬化症'],'disseminated intravascular coagulation'],
+    ['病名略語','Afは？','心房細動',['心房粗動','心不全','狭心症'],'AFは心房粗動'],
+    ['病名略語','CKDは？','慢性腎臓病',['慢性閉塞性肺疾患','糖尿病','関節リウマチ'],'chronic kidney disease'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4165,7 +4179,11 @@ const TM2_LESSONS = [
   { id:'2-3', t:'PUT', wip:true, plan:[], body:()=>'' },
   { id:'2-4', t:'緩和ケア', wip:true, plan:[], body:()=>'' },
   { id:'2-5', t:'NST', wip:true, plan:[], body:()=>'' },
-  { id:'2-6', t:'医療用語①', wip:true, plan:[], body:()=>'' },
+  { id:'2-6', t:'医療用語①', sub:'医療用語・略語・病名略語', plan:['mterm','mterm','mterm','mterm','mterm'], body:()=>`
+    <section class="panel"><h3>〇 代表的な医療用語・略語</h3>
+    ${tbl(['医療用語・略語','和文名','欧文名'],[['アナムネ','予診・現病歴・既往歴','Anamnese〔独〕'],['アルサー','潰瘍','Ulcer'],['アンギオ','血管造影','Angiography'],['イレウス','機能性イレウス（腸管麻痺）','Ileus'],['エーカーゲー','心電図','Electrokardiogramm〔独〕'],['エコー','超音波検査','Echography'],['エント<br>エントラッセン','退院','Entlassen〔独〕'],['エンピリックセラピー','経験的治療','Empiric therapy'],['オペ','手術','Operation〔独〕'],['クランケ','患者','Kranke〔独〕'],['クリーゼ','急性増悪','Krise〔独〕<br>crisis〔英〕'],['ケモ','化学療法','Chemotherapy'],['コンタミ','混入','Contamination'],['スパズム','れん縮','Spasm'],['ツッカー','ブドウ糖','Zucker〔独〕'],['テタニー','強直','Tetany'],['ドレナージ','排液法','Dränage〔独〕'],['ハルン','尿','Harn〔独〕'],['ムンテラ','患者・家族への説明','Mundtherapie〔独〕'],['メタ','転移','Metastasis'],['ワイセ','白血球','Weisse Blutkörperchen〔独〕']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:31%"><col style="width:31%"><col style="width:38%"></colgroup>')}</section>
+    <section class="panel"><h3>〇 代表的な病名略語</h3>
+    ${tbl(['略語','病名','正式名称'],[['AAA','腹部大動脈瘤','abdominal aortic aneurysm'],['AD','アルツハイマー病','Alzheimer’s disease'],['AF','心房粗動','atrial flutter'],['Af','心房細動','atrial fibrillation<br>auricular fibrillation'],['ALS','筋萎縮性側索硬化症','amyotrophic lateral sclerosis'],['AMD','加齢黄斑変性','age-related macular degeneration'],['APO','脳卒中','apoplexy'],['ASO','閉塞性動脈硬化症','arteriosclerosis obliterans'],['CKD','慢性腎臓病','chronic kidney disease'],['COPD','慢性閉塞性肺疾患','chronic obstructive pulmonary disease'],['DIC','播種性血管内凝固症候群','disseminated intravascular coagulation'],['DM','糖尿病','diabetes mellitus'],['FD','機能性ディスペプシア','functional dyspepsia'],['GERD','胃食道逆流症','gastroesophageal reflux disease'],['HAV','A型肝炎ウイルス','hepatitis A virus'],['HBV','B型肝炎ウイルス','hepatitis B virus'],['HCV','C型肝炎ウイルス','hepatitis C virus'],['IBS','過敏性腸症候群','irritable bowel syndrome'],['MS','多発性硬化症','multiple sclerosis'],['PMS','月経前症候群','premenstrual syndrome'],['RA','関節リウマチ','rheumatoid arthritis'],['SAS','睡眠時無呼吸症候群','sleep apnea syndrome']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:18%"><col style="width:38%"><col style="width:44%"></colgroup>')}</section>` },
   { id:'2-7', t:'医療用語②', wip:true, plan:[], body:()=>'' }
 ];
 const GX_TM_LESSONS = [
