@@ -3199,6 +3199,17 @@ Object.assign(POOL, {
     ['病名略語','Afは？','心房細動',['心房粗動','心不全','狭心症'],'AFは心房粗動'],
     ['病名略語','CKDは？','慢性腎臓病',['慢性閉塞性肺疾患','糖尿病','関節リウマチ'],'chronic kidney disease'],
   ],
+  mterm2:[
+    ['医療処置用語','腹膜を透析膜として利用する透析は？','CAPD',['HD','CHDF','HOT'],'持続携帯式腹膜透析'],
+    ['医療処置用語','24時間以上持続的に血液ろ過透析を行う方法は？','CHDF',['CAPD','HD','PEG'],'持続的血液ろ過透析法'],
+    ['医療処置用語','在宅酸素療法の略語は？','HOT',['HD','ICU','PEG'],'Home Oxygen Therapy'],
+    ['医療処置用語','体外から胃につながる穴を造設しチューブを留置する手術は？','PEG',['CAPD','ステント','シャント'],'経口摂取困難な患者'],
+    ['医療処置用語','カテーテル内にヘパリンを充てんしておくことは？','ヘパリンロック',['ドリップチャンバー','インフュージョン','シャント'],'ヘパロック'],
+    ['医療処置用語','負傷者を緊急性・重症度で分類し治療の優先順位を決めることは？','トリアージ',['サーベイランス','セカンドオピニオン','ムンテラ'],'災害医療'],
+    ['医療処置用語','内臓脂肪の蓄積で動脈硬化の危険因子を合併した状態は？','メタボリックシンドローム',['ロコモティブシンドローム','サルコペニア','フレイル'],'インスリン抵抗性・脂質異常症・高血圧'],
+    ['医療処置用語','運動器の機能低下で要介護のリスクが高い状態は？','ロコモティブシンドローム',['メタボリックシンドローム','ディスポ','トリアージ'],'骨・関節・筋肉'],
+    ['医療処置用語','ディスポの意味は？','使い捨て',['点滴筒','監視','埋め込み器具'],'ディスポーザブル'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4184,7 +4195,9 @@ const TM2_LESSONS = [
     ${tbl(['医療用語・略語','和文名','欧文名'],[['アナムネ','予診・現病歴・既往歴','Anamnese〔独〕'],['アルサー','潰瘍','Ulcer'],['アンギオ','血管造影','Angiography'],['イレウス','機能性イレウス（腸管麻痺）','Ileus'],['エーカーゲー','心電図','Electrokardiogramm〔独〕'],['エコー','超音波検査','Echography'],['エント<br>エントラッセン','退院','Entlassen〔独〕'],['エンピリックセラピー','経験的治療','Empiric therapy'],['オペ','手術','Operation〔独〕'],['クランケ','患者','Kranke〔独〕'],['クリーゼ','急性増悪','Krise〔独〕<br>crisis〔英〕'],['ケモ','化学療法','Chemotherapy'],['コンタミ','混入','Contamination'],['スパズム','れん縮','Spasm'],['ツッカー','ブドウ糖','Zucker〔独〕'],['テタニー','強直','Tetany'],['ドレナージ','排液法','Dränage〔独〕'],['ハルン','尿','Harn〔独〕'],['ムンテラ','患者・家族への説明','Mundtherapie〔独〕'],['メタ','転移','Metastasis'],['ワイセ','白血球','Weisse Blutkörperchen〔独〕']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:31%"><col style="width:31%"><col style="width:38%"></colgroup>')}</section>
     <section class="panel"><h3>〇 代表的な病名略語</h3>
     ${tbl(['略語','病名','正式名称'],[['AAA','腹部大動脈瘤','abdominal aortic aneurysm'],['AD','アルツハイマー病','Alzheimer’s disease'],['AF','心房粗動','atrial flutter'],['Af','心房細動','atrial fibrillation<br>auricular fibrillation'],['ALS','筋萎縮性側索硬化症','amyotrophic lateral sclerosis'],['AMD','加齢黄斑変性','age-related macular degeneration'],['APO','脳卒中','apoplexy'],['ASO','閉塞性動脈硬化症','arteriosclerosis obliterans'],['CKD','慢性腎臓病','chronic kidney disease'],['COPD','慢性閉塞性肺疾患','chronic obstructive pulmonary disease'],['DIC','播種性血管内凝固症候群','disseminated intravascular coagulation'],['DM','糖尿病','diabetes mellitus'],['FD','機能性ディスペプシア','functional dyspepsia'],['GERD','胃食道逆流症','gastroesophageal reflux disease'],['HAV','A型肝炎ウイルス','hepatitis A virus'],['HBV','B型肝炎ウイルス','hepatitis B virus'],['HCV','C型肝炎ウイルス','hepatitis C virus'],['IBS','過敏性腸症候群','irritable bowel syndrome'],['MS','多発性硬化症','multiple sclerosis'],['PMS','月経前症候群','premenstrual syndrome'],['RA','関節リウマチ','rheumatoid arthritis'],['SAS','睡眠時無呼吸症候群','sleep apnea syndrome']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:18%"><col style="width:38%"><col style="width:44%"></colgroup>')}</section>` },
-  { id:'2-7', t:'医療用語②', wip:true, plan:[], body:()=>'' }
+  { id:'2-7', t:'医療用語②', sub:'医療処置用語', plan:['mterm2','mterm2','mterm2','mterm2','mterm2'], body:()=>`
+    <section class="panel"><h3>〇 代表的な医療処置用語</h3>
+    ${ktbl([['CAPD<br><span class="small muted">持続携帯式腹膜透析</span>','<b>腹膜</b>を透析膜として利用する透析方法。浸透圧を高めた透析液を腹膜内に入れ、尿素をはじめとした老廃物や水分を除去する'],['CHDF<br><span class="small muted">持続的血液ろ過透析法</span>','一般的に<b>24時間以上</b>持続的に血液ろ過透析（限外ろ過＋透析）を行う血液浄化法。低分子から中分子の溶質を除去できる'],['HD<br><span class="small muted">血液透析</span>','腎不全で尿毒症になるのを防ぐため、血液を体外に導き出し、<b>ダイアライザー</b>に通して水分・老廃物・電解質を除去し再び体内に戻す治療法'],['HOT<br><span class="small muted">在宅酸素療法</span>','呼吸器系の疾患で酸素が不足しがちな患者が、<b>自宅</b>など病院以外の場所で酸素供給装置を使用して酸素を吸入する治療法'],['ICU<br><span class="small muted">集中治療室</span>','重篤な患者に対し、医師や看護師が<b>24時間体制</b>で高度な医療や看護を行う病院内の施設'],['PEG','経口摂取が困難な患者に対し、手術で体外から<b>胃</b>につながる穴を造設し、チューブを留置する手術'],['インフュージョン','注射針を使用して、薬液などを体内に直接注入すること'],['インプラント','体内に埋め込まれる器具の総称。人工歯根、骨を固定するボルトなど'],['サーベイランス','調査・監視すること。院内感染対策サーベイランス：院内感染や薬剤耐性菌による感染症の発生状況を調査'],['シャント','血液透析で血液を取り出しやすくするため、<b>静脈と動脈</b>が直接つながれている箇所'],['ステント','血管・気管・消化管などを管腔の内側から広げる医療機器。網目状の金属製の筒で、狭窄した血管や気管の拡張に用いる'],['セカンドオピニオン','患者が納得のいく治療法を選択できるよう、主治医とは別に、<b>他の医療機関の医師</b>に意見を求めること'],['ディスポ<br><span class="small muted">ディスポーザブル</span>','<b>使い捨て</b>の医療器具。消毒薬・ガーゼ・手袋など'],['トリアージ','災害医療で、限られた医療資源を最大限に活用するため、負傷者を緊急性・重症度に応じて分類し、<b>治療の優先順位</b>を決定すること'],['ドリップチャンバー','<b>点滴筒</b>。輸液セットに組み込まれている透明な筒で、点滴数などを観察する'],['ヘパリンロック','点滴を中断する際、血液の逆流・凝固によるカテーテル閉塞を防ぐため、<b>カテーテル内に抗凝固薬のヘパリンを充てん</b>しておくこと。ヘパロックともいう'],['メタボリックシンドローム','<b>内臓脂肪</b>の蓄積により、インスリン抵抗性・脂質異常症・高血圧などの動脈硬化の危険因子を合併している状態'],['ロコモティブシンドローム','骨・関節・筋肉など<b>運動器</b>の機能が低下し、要介護や寝たきりになるリスクが高い状態']]).replace('tbl ktbl','tbl ktbl kw')}</section>` }
 ];
 const GX_TM_LESSONS = [
   { id:'g1', col:true, lid:'2-2', t:'ICT・AST', sub:'チーム医療　2つ', plan:[], body:()=>`<section class="panel"><h3>飛沫感染する感染症</h3><img class="goro-img" src="goro/himatsu.png" alt="飛沫感染する感染症の覚え方。ひまな夫婦は100日家にいる。ひ＝飛沫感染、ま＝マイコプラズマ、夫婦＝風疹、100日＝百日咳、家＝インフルエンザ" loading="lazy"></section><section class="panel"><h3>空気感染する感染症</h3><img class="goro-img" src="goro/kuuki.png" alt="空気感染する感染症の覚え方。結果空気吸います。結＝結核、空気＝空気感染、吸＝水痘、ます＝麻疹" loading="lazy"></section>` }
