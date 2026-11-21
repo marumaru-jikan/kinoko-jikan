@@ -3063,6 +3063,17 @@ Object.assign(POOL, {
     ['脂質異常症','ニコモールの作用機序は？','ニコチン酸受容体に結合し遊離脂肪酸動員⬇',['PPARα活性化','HMG-CoA還元酵素阻害','胆汁酸吸着'],'肝でのTG生成⬇'],
     ['脂質異常症','ニコチン酸誘導体の副作用は？','皮膚紅潮',['横紋筋融解症','便秘','低血糖'],'過敏症（じん麻疹）も'],
   ],
+  plat:[
+    ['白金製剤','白金製剤が主に結合するDNAの塩基は？','グアニン',['シトシン','チミン','ウラシル'],'1本鎖内・2本鎖間に白金架橋'],
+    ['白金製剤','シスプラチンの腎毒性を軽減するために行うのは？','ハイドレーション',['アルカリ化','メスナの併用','ロイコボリン救援療法'],'大量輸液・利尿薬'],
+    ['白金製剤','カルボプラチンの投与量計算に用いるのは？','カルバート式',['Cockcroft-Gault式','Henderson-Hasselbalch式','Michaelis-Menten式'],'目標AUC ×（GFR＋25）'],
+    ['白金製剤','オキサリプラチンに特徴的な副作用は？','寒冷刺激で悪化する急性神経障害',['出血性膀胱炎','心毒性','間質性肺炎'],'冷たい飲食物を避ける'],
+    ['白金製剤','オキサリプラチンの希釈に用いる輸液は？','5%ブドウ糖液',['生理食塩液','乳酸リンゲル液','アミノ酸輸液'],'Cl⁻を含む輸液で分解'],
+    ['白金製剤','シスプラチンの溶解・希釈に用いる輸液は？','生理食塩液',['5%ブドウ糖液単独','注射用水単独','アミノ酸輸液'],'Cl⁻が少ないと分解'],
+    ['白金製剤','シスプラチンの高度な悪心・嘔吐に併用するのは？','5-HT₃受容体遮断薬',['H₂受容体遮断薬','プロトンポンプ阻害薬','抗コリン薬'],'高度催吐リスク'],
+    ['白金製剤','カルボプラチンの主な用量規制因子は？','骨髄抑制（血小板減少）',['腎毒性','聴覚障害','末梢神経障害'],'腎毒性・嘔吐はシスプラチンより軽い'],
+    ['白金製剤','白金製剤の調製で避けるべき器具は？','アルミニウムを含む器具',['ガラス製の器具','ポリプロピレン製の器具','ステンレス製の器具'],'アルミニウムと反応'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -3472,7 +3483,30 @@ const ONC2_LESSONS = [
       ['<div class="kgrp">（ニトロソウレア類）</div>'+kdrug('ニムスチン','適応：脳腫瘍')+kdrug('ラニムスチン',''), 'DNAをアルキル化<br>分解産物イソシアネート（R−N=C=O）→ タンパク質をカルバモイル化<br>血液脳関門を通過する。']
     ]).replace('tbl ktbl','tbl ktbl kw')}</section>
     <section class="panel"><h3>〇 覚え方</h3><img class="goro-img" src="goro/alkyl.png" alt="アルキル化薬の覚え方。歩くファミリー、ブスなムスメ。歩く＝アルキル化薬、ファミ＝イホスファミド・シクロホスファミド、ブス＝ブスルファン、ムス＝ニムスチン・ラニムスチン、メ＝メルファラン" loading="lazy"></section>` },
-  { id:'2-2', t:'白金製剤', wip:true, plan:[], body:()=>'' },
+  { id:'2-2', t:'白金製剤', sub:'シスプラチン・カルボプラチン・オキサリプラチン・ネダプラチン', plan:['plat','plat','plat','plat','plat'], body:()=>`
+    <section class="panel"><h3>〇 白金製剤とは</h3>
+    <p class="small muted">～プラチン（白金：プラチナ）</p>
+    <p>DNAの<b>グアニン</b>・アデニン残基に結合<br>→ 1本鎖内・2本鎖間に<b>白金架橋</b><br>→ DNA複製・RNA合成⬇</p>
+    <p>アルキル化薬に類似した作用。</p>
+    <svg class="fig" viewBox="0 0 340 138" role="img" aria-label="白金製剤。シスプラチンは白金Ptに塩素2つとアンモニア2つが結合した構造。DNAのグアニンなどに結合し、1本鎖内架橋や2本鎖間架橋を形成する"><line x1="70" y1="70" x2="46.0" y2="47.599999999999994" stroke="#222" stroke-width="1.4"/><text x="40" y="46" text-anchor="end" style="font-size:9px;font-weight:700;fill:#222">Cl</text><line x1="70" y1="70" x2="46.0" y2="92.4" stroke="#222" stroke-width="1.4"/><text x="40" y="102" text-anchor="end" style="font-size:9px;font-weight:700;fill:#222">Cl</text><line x1="70" y1="70" x2="94.0" y2="47.599999999999994" stroke="#222" stroke-width="1.4"/><text x="100" y="46" text-anchor="start" style="font-size:9px;font-weight:700;fill:#222">NH₃</text><line x1="70" y1="70" x2="94.0" y2="92.4" stroke="#222" stroke-width="1.4"/><text x="100" y="102" text-anchor="start" style="font-size:9px;font-weight:700;fill:#222">NH₃</text><circle cx="70" cy="70" r="11" fill="#9DC3E6" stroke="#2E75B6" stroke-width="1"/><text x="70" y="73.5" text-anchor="middle" style="font-size:9px;font-weight:700;fill:#222">Pt</text><text x="70" y="128" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:#C0392B">シスプラチン</text><line x1="150" y1="34" x2="334" y2="34" stroke="#222" stroke-width="2"/><line x1="150" y1="110" x2="334" y2="110" stroke="#222" stroke-width="2"/><text x="150" y="26" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#555">DNA</text><line x1="176" y1="34" x2="176" y2="44" stroke="#222" stroke-width="1.2"/><circle cx="176" cy="52" r="8" fill="#F7EFC8" stroke="#7D6608" stroke-width=".8"/><text x="176" y="55" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">G</text><line x1="204" y1="34" x2="204" y2="44" stroke="#222" stroke-width="1.2"/><circle cx="204" cy="52" r="8" fill="#F7EFC8" stroke="#7D6608" stroke-width=".8"/><text x="204" y="55" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">G</text><path d="M176 60 Q190 72 204 60" stroke="#2E75B6" stroke-width="2" fill="none"/><circle cx="190" cy="67" r="6" fill="#9DC3E6" stroke="#2E75B6"/><text x="190" y="69.5" text-anchor="middle" style="font-size:5.5px;font-weight:700;fill:#222">Pt</text><text x="190" y="128" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#2E75B6">1本鎖内架橋</text><line x1="282" y1="34" x2="282" y2="44" stroke="#222" stroke-width="1.2"/><circle cx="282" cy="52" r="8" fill="#F7EFC8" stroke="#7D6608" stroke-width=".8"/><text x="282" y="55" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">G</text><line x1="282" y1="110" x2="282" y2="100" stroke="#222" stroke-width="1.2"/><circle cx="282" cy="92" r="8" fill="#F7EFC8" stroke="#7D6608" stroke-width=".8"/><text x="282" y="95" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">G</text><line x1="282" y1="60" x2="282" y2="84" stroke="#2E75B6" stroke-width="2"/><circle cx="282" cy="72" r="6" fill="#9DC3E6" stroke="#2E75B6"/><text x="282" y="74.5" text-anchor="middle" style="font-size:5.5px;font-weight:700;fill:#222">Pt</text><text x="282" y="128" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#2E75B6">2本鎖間架橋</text></svg>
+    <p>殺細胞効果は<b>細胞周期非特異的</b>（濃度依存性）</p></section>
+    <section class="panel"><h3>〇 白金製剤</h3>
+    ${ktbl([
+      [kdrug('シスプラチン',''), '<b>腎毒性</b><br>→ <b>ハイドレーション</b>（大量輸液・利尿薬）<br>骨髄抑制<br><b>内耳障害</b>（聴覚障害）<br><b>悪心・嘔吐</b>（高度催吐リスク）<br>→ 5-HT<sub>3</sub>受容体遮断薬などを併用'],
+      [kdrug('カルボプラチン',''), '腎毒性・嘔吐はシスプラチンより軽い<br><b>骨髄抑制</b>（特に血小板減少）<br><b>カルバート式</b>で投与量を計算<br>投与量（mg）＝目標AUC ×（GFR＋25）<br><span class="small muted">総投与量⬆ → ショック⬆</span>'],
+      [kdrug('オキサリプラチン','適応：大腸がん'), '<b>急性神経障害</b><br>→ 冷たい刺激で悪化<br>→ 冷たい飲食物・冷気を避ける<br>末梢神経障害（蓄積性）<br><span class="small muted">対処：休薬・減量<br>プレガバリン・デュロキセチン・メコバラミン・牛車腎気丸など</span>'],
+      [kdrug('ネダプラチン','適応：肺がんなど'), '骨髄抑制（特に血小板減少）<br>腎毒性・悪心・嘔吐はシスプラチンより軽い']
+    ]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 輸液の選択</h3>
+    ${tbl(['','溶解・希釈','避ける'],[
+      ['<span class="dg">シスプラチン</span>','<b>生理食塩液</b>','Cl⁻の少ない輸液<br>（ブドウ糖液単独など）'],
+      ['<span class="dg">カルボプラチン</span>','5%ブドウ糖液<br>生理食塩液',''],
+      ['<span class="dg">オキサリプラチン</span>','<b>5%ブドウ糖液</b>','<b>生理食塩液</b>など<br>Cl⁻を含む輸液'],
+      ['<span class="dg">ネダプラチン</span>','生理食塩液<br>5%キシリトール','アミノ酸輸液<br>pH5以下の酸性輸液']
+    ])}
+    <p><b>・シスプラチン</b><br>Cl⁻濃度が低いとCl⁻が水に置き換わり分解<br>→ <b>Cl⁻を含む生理食塩液</b></p>
+    <p><b>・オキサリプラチン</b><br>Cl⁻と反応して分解<br>→ <b>5%ブドウ糖液</b></p>
+    <p class="small muted">白金製剤はアルミニウムと反応 → アルミニウムを含む器具を使わない<br>シスプラチンは光で分解 → 遮光</p></section>` },
   { id:'2-3', t:'代謝拮抗薬', wip:true, plan:[], body:()=>'' },
   { id:'2-4', t:'抗腫瘍抗生物質', wip:true, plan:[], body:()=>'' },
   { id:'2-5', t:'抗腫瘍植物アルカロイド', wip:true, plan:[], body:()=>'' },
