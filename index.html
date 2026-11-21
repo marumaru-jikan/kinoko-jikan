@@ -3052,6 +3052,17 @@ Object.assign(POOL, {
     ['脂質異常症','PCSK9の働きは？','LDL受容体のリソソームでの分解を促進',['LDL受容体の合成を促進','コレステロール合成を阻害','胆汁酸の再吸収を阻害'],'阻害でLDL受容体⬆'],
     ['脂質異常症','エボロクマブの投与経路は？','皮下注射',['経口','静脈内注射','吸入'],'抗PCSK9抗体'],
   ],
+  lipc:[
+    ['脂質異常症','フィブラート系薬が結合するのは？','PPARα',['PPARγ','NPC1L1','PCSK9'],'ペルオキシソーム増殖因子活性化受容体α'],
+    ['脂質異常症','フィブラート系薬の作用は？','アポC-Ⅲ発現抑制 → LPL活性化',['HMG-CoA還元酵素阻害','胆汁酸の吸着','NPC1L1阻害'],'脂肪酸のβ酸化促進も'],
+    ['脂質異常症','フィブラート系薬の重大な副作用は？','横紋筋融解症',['皮膚紅潮','便秘','低血糖'],'CK⬆・ミオグロビン⬆'],
+    ['脂質異常症','LDL受容体活性化作用をもつフィブラート系薬は？','ベザフィブラート',['クロフィブラート','フェノフィブラート','クリノフィブラート'],'コレステロール合成阻害作用も'],
+    ['脂質異常症','イコサペント酸エチルの服用時期は？','食直後',['食前','食間','就寝前'],'胆汁酸で吸収⬆'],
+    ['脂質異常症','イコサペント酸エチルが血小板凝集を抑制する機序は？','アラキドン酸と競合しTXA₂⬇',['COX不可逆阻害','P2Y12受容体遮断','PDE3阻害'],'EPA製剤'],
+    ['脂質異常症','デキストラン硫酸エステルの作用機序は？','リポタンパク質リパーゼ活性化',['PPARα刺激','ニコチン酸受容体刺激','MTP阻害'],'TGの加水分解⬆'],
+    ['脂質異常症','ニコモールの作用機序は？','ニコチン酸受容体に結合し遊離脂肪酸動員⬇',['PPARα活性化','HMG-CoA還元酵素阻害','胆汁酸吸着'],'肝でのTG生成⬇'],
+    ['脂質異常症','ニコチン酸誘導体の副作用は？','皮膚紅潮',['横紋筋融解症','便秘','低血糖'],'過敏症（じん麻疹）も'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4399,11 +4410,52 @@ const LIP_LESSONS = [
     <p><b>ミクロソームトリグリセリド転送タンパク質（MTP）</b>を阻害<br>→ VLDL・カイロミクロンの形成⬇<br>→ <b>LDL-C⬇</b></p>
     <p class="small muted">適応：ホモ接合体家族性高コレステロール血症<br>副作用：肝機能障害（脂肪肝）</p>
     <p><b>覚え方</b></p>
-    <img class="goro-img" src="goro/lip_mtp.png" alt="MTP阻害薬の覚え方。MTP阻害薬のM・T・Pがロミタピドのミ・タ・ピ" loading="lazy"></section>` }
+    <img class="goro-img" src="goro/lip_mtp.png" alt="MTP阻害薬の覚え方。MTP阻害薬のM・T・Pがロミタピドのミ・タ・ピ" loading="lazy"></section>` },
+  { id:'4-4', t:'高トリグリセリド血症治療薬', sub:'フィブラート系・EPA・LPL活性化薬・ニコチン酸誘導体', plan:['lipc','lipc','lipc','lipc','lipc'], body:()=>`
+    <section class="panel"><h3>〇 フィブラート系薬</h3>
+    <p><span class="dg">クロフィブラート</span>・<span class="dg">ベザフィブラート</span>・<span class="dg">フェノフィブラート</span>・<span class="dg">クリノフィブラート</span></p>
+    <p class="small muted">～フィブラート</p>
+    <p><b>・作用機序</b></p>
+    <p><b>PPARα</b>に結合・活性化</p>
+    <p>① 肝細胞内で脂肪酸の<b>β酸化⬆</b><br>→ 脂肪酸含量⬇<br>→ トリグリセリド合成⬇</p>
+    <p>② <b>アポC-Ⅲ</b>発現⬇<br>→ <b>リポタンパク質リパーゼ（LPL）</b>活性化<br>→ トリグリセリドの加水分解⬆</p>
+    <svg class="fig" viewBox="0 0 340 214" role="img" aria-label="フィブラート系薬の作用機序。肝細胞内でPPARαに結合して活性化し、核内でプロモーターに結合して標的遺伝子の転写を促す。LPL増加でVLDLとTGの分解促進、β酸化関連タンパク質増加で肝のTG合成抑制、アポC-III抑制、アポA-I・A-II増加でHDL増加"><defs><marker id="lipar4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#444"/></marker><marker id="lipar5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#C0392B"/></marker></defs><path d="M6 46 Q70 30 142 38" stroke="#555" stroke-width="1.2" fill="none"/><text x="20" y="64" text-anchor="start" style="font-size:8px;font-weight:700;fill:#555">肝細胞</text><path d="M36 14 h30 l-5 12 h-30 z" fill="#D7CCEB" stroke="#555" stroke-width=".8"/><text x="80" y="24" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">フィブラート系薬</text><line x1="50" y1="28" x2="64" y2="124" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><rect x="74" y="62" width="40" height="16" rx="4" fill="#F7EFC8" stroke="#555" stroke-width=".8"/><text x="94" y="73" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">PPARα</text><line x1="94" y1="78" x2="72" y2="124" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="30" y="108" text-anchor="start" style="font-size:7px;font-weight:400;fill:#444">結合して</text><text x="30" y="117" text-anchor="start" style="font-size:7px;font-weight:400;fill:#444">活性化</text><rect x="8" y="98" width="324" height="112" rx="10" fill="none" stroke="#999" stroke-width=".8" stroke-dasharray="3 2"/><text x="318" y="112" text-anchor="end" style="font-size:8px;font-weight:700;fill:#555">核内</text><rect x="40" y="126" width="40" height="16" rx="4" fill="#F7EFC8" stroke="#555" stroke-width=".8"/><text x="60" y="137" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">PPARα</text><path d="M74 118 h18 l-4 9 h-18 z" fill="#D7CCEB" stroke="#555" stroke-width=".8"/><rect x="20" y="146" width="290" height="14" fill="#fff" stroke="#333" stroke-width="1"/><rect x="38" y="146" width="48" height="14" fill="#C5E1A5" stroke="#333" stroke-width="1"/><rect x="160" y="146" width="100" height="14" fill="#2E5BCB" stroke="#333" stroke-width="1"/><text x="62" y="172" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">プロモーター</text><text x="210" y="172" text-anchor="middle" style="font-size:7px;font-weight:400;fill:#222">標的遺伝子</text><text x="318" y="157" text-anchor="start" style="font-size:7px;font-weight:700;fill:#333">DNA</text><path d="M92 166 Q122 196 154 166" stroke="#C0392B" stroke-width="1.6" fill="none" marker-end="url(#lipar5)"/><line x1="210" y1="144" x2="210" y2="100" stroke="#C0392B" stroke-width="1.3" marker-end="url(#lipar5)"/><text x="216" y="124" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#222">mRNA</text><rect x="150" y="6" width="184" height="88" rx="8" fill="#fff" stroke="#1F4E9C" stroke-width="1.3"/><text x="157" y="20" text-anchor="start" style="font-size:7px;font-weight:700;fill:#C0392B">LPL⬆ → VLDL分解⬆ → TG分解</text><text x="157" y="33" text-anchor="start" style="font-size:7px;font-weight:700;fill:#C0392B">β酸化関連タンパク質⬆ → 肝のTG合成⬇</text><text x="157" y="46" text-anchor="start" style="font-size:7px;font-weight:400;fill:#333">脂肪酸トランスポーター⬆</text><text x="157" y="59" text-anchor="start" style="font-size:7px;font-weight:400;fill:#333">→ カイロミクロンの肝への取り込み⬆</text><text x="157" y="72" text-anchor="start" style="font-size:7px;font-weight:400;fill:#333">アポC-Ⅲ⬇ → LPL抑制効果⬇</text><text x="157" y="85" text-anchor="start" style="font-size:7px;font-weight:400;fill:#333">アポA-Ⅰ・A-Ⅱ⬆ → HDL⬆</text><text x="170" y="206" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">PPARα：ペルオキシソーム増殖因子活性化受容体α</text></svg>
+    <p class="small muted">VLDLの異化促進・合成阻害<br>PPARα：ペルオキシソーム増殖因子活性化受容体α<br>ピオグリタゾン：PPARγ</p>
+    <p><b>・特徴</b></p>
+    <p>コレステロール合成阻害作用<br>LDL受容体活性化作用（<span class="dg">ベザフィブラート</span>）</p>
+    <p><b>・副作用</b></p>
+    <p><b>横紋筋融解症</b></p>
+    <p class="small muted">CK⬆・血中/尿中ミオグロビン⬆・血清クレアチニン⬆</p></section>
+    <section class="panel"><h3>〇 多価不飽和脂肪酸</h3>
+    <p><span class="dg">イコサペント酸エチル</span></p>
+    <p class="small muted">EPA（エイコサペンタエン酸）製剤</p>
+    <p><b>・作用機序</b></p>
+    <p>血清リポタンパク質に取り込まれ、リポタンパク質代謝を活性化<br>→ コレステロール・トリグリセリド⬇</p>
+    <p>LPL活性化 → TG分解⬆<br>肝でのTG合成⬇</p>
+    <p>アラキドン酸と<b>競合</b><br>→ トロンボキサンA<sub>2</sub>⬇<br>→ <b>血小板凝集⬇</b></p>
+    <p><b>食直後</b>に服用</p>
+    <p class="small muted">食事で分泌された胆汁酸で吸収⬆<br>EPA：C20・二重結合5つ・エチルエステル</p></section>
+    <section class="panel"><h3>〇 リポタンパク質リパーゼ活性化薬</h3>
+    <p><span class="dg">デキストラン硫酸エステル</span></p>
+    <p><b>・作用機序</b></p>
+    <p><b>LPL</b>活性化<br>→ トリグリセリドの加水分解⬆</p>
+    <p><b>覚え方</b></p>
+    <img class="goro-img" src="goro/lip_tg.png" alt="高TG血症治療薬の覚え方。トの入っている薬はトリグリセリド低下。イコサペント酸エチル、デキストラン硫酸エステル、フィブラート系" loading="lazy"></section>
+    <section class="panel"><h3>〇 脂肪酸放出抑制薬</h3>
+    <p><span class="dg">ニコモール</span>・<span class="dg">ニセリトロール</span></p>
+    <p class="small muted">ニコチン酸誘導体</p>
+    <p><b>・作用機序</b></p>
+    <p>脂肪細胞の<b>ニコチン酸受容体</b>に結合<br>→ cAMP⬇<br>→ ホルモン感受性リパーゼ⬇<br>→ 脂肪組織からの<b>遊離脂肪酸動員⬇</b><br>→ 肝でのトリグリセリド生成⬇</p>
+    <p>LPL活性化<br>→ トリグリセリドの加水分解⬆</p>
+    <svg class="fig" viewBox="0 0 340 216" role="img" aria-label="ニコチン酸誘導体の作用機序。脂肪細胞のニコチン酸受容体（Gi）に結合し、アデニル酸シクラーゼ、cAMP、PKA、ホルモン感受性リパーゼを抑制して脂肪酸の放出を減らす。肝臓へ行く遊離脂肪酸が減りTG合成とVLDL合成が低下する。LPL活性化、アポA-I増加でHDL増加"><defs><marker id="lipar4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#444"/></marker><marker id="lipar5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#C0392B"/></marker></defs><ellipse cx="96" cy="128" rx="84" ry="84" fill="#FBF3C9" stroke="#B03A2E" stroke-width="1.4"/><text x="96" y="206" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#1F4E9C">脂肪細胞</text><rect x="30" y="46" width="26" height="14" rx="3" fill="#D5B947" stroke="#7D6608" stroke-width=".8"/><text x="28" y="16" text-anchor="start" style="font-size:7.5px;font-weight:700;fill:#C0392B">ニコチン酸誘導体</text><line x1="44" y1="20" x2="44" y2="44" stroke="#C0392B" stroke-width="1.3" marker-end="url(#lipar5)"/><text x="62" y="54" text-anchor="start" style="font-size:6.5px;font-weight:700;fill:#333">ニコチン酸受容体</text><text x="62" y="62" text-anchor="start" style="font-size:6.5px;font-weight:400;fill:#333">（Gi）</text><text x="100" y="84" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">AC⬇</text><line x1="100" y1="87" x2="100" y2="97" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="100" y="104" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">cAMP⬇</text><line x1="100" y1="107" x2="100" y2="117" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="100" y="124" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">PKA⬇</text><line x1="100" y1="127" x2="100" y2="137" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="100" y="144" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">ホルモン感受性リパーゼ⬇</text><line x1="100" y1="147" x2="100" y2="158" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="76" y="170" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">TG</text><line x1="86" y1="167" x2="112" y2="167" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="136" y="170" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#C0392B">脂肪酸⬇</text><path d="M150 160 L222 36" stroke="#444" stroke-width="1.2" fill="none" marker-end="url(#lipar4)"/><text x="240" y="28" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#C0392B">遊離脂肪酸⬇</text><rect x="200" y="54" width="132" height="70" rx="14" fill="#F5D5C8" stroke="#B03A2E" stroke-width="1.2"/><text x="320" y="68" text-anchor="end" style="font-size:8px;font-weight:700;fill:#333">肝臓</text><text x="266" y="84" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#1F4E9C">TG合成⬇</text><line x1="266" y1="88" x2="266" y2="100" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="266" y="112" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#1F4E9C">VLDL合成⬇</text><line x1="240" y1="40" x2="258" y2="74" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/><text x="266" y="148" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#333">LDL⬇</text><text x="266" y="166" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">LPL活性化 → TG分解⬆</text><text x="266" y="182" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#333">アポA-Ⅰ⬆ → HDL⬆</text><line x1="266" y1="124" x2="266" y2="138" stroke="#444" stroke-width="1.3" marker-end="url(#lipar4)"/></svg>
+    <p class="small muted">ノルアドレナリン（β<sub>3</sub>受容体・Gs）は逆に脂肪酸放出⬆<br>アポA-Ⅰ（HDLの主要成分）発現⬆ → HDL⬆</p>
+    <p><b>・副作用</b></p>
+    <p><b>皮膚紅潮</b>・過敏症（じん麻疹）</p></section>` }
 ];
 const GX_LIP_LESSONS = [
   { id:'g1', col:true, lid:'4-2', t:'陰イオン交換樹脂', sub:'これ捨てていいんか？', plan:[], body:()=>`<section class="panel"><h3>陰イオン交換樹脂</h3><img class="goro-img" src="goro/lip_resin.png" alt="陰イオン交換樹脂の覚え方。これ捨てていいんか？これ＝コレスチラミン・コレスチミド、捨てて＝コレステロール排泄促進、いいんか＝陰イオン交換樹脂" loading="lazy"></section>` },
-  { id:'g2', col:true, lid:'4-3', t:'高コレステロール血症治療薬②', sub:'プロブコール・エボロクマブ・ロミタピド', plan:[], body:()=>`<section class="panel"><h3>コレステロール異化促進薬</h3><img class="goro-img" src="goro/lip_probucol.png" alt="コレステロール異化促進薬の覚え方。プロのコールで異化促進。プロのコール＝プロブコール、異化促進＝コレステロール異化促進" loading="lazy"></section><section class="panel"><h3>抗PCSK9抗体</h3><img class="goro-img" src="goro/lip_pcsk9.png" alt="抗PCSK9抗体の覚え方。抗PCSK9抗体のKとクがエボロクマブ" loading="lazy"></section><section class="panel"><h3>MTP阻害薬</h3><img class="goro-img" src="goro/lip_mtp.png" alt="MTP阻害薬の覚え方。MTP阻害薬のM・T・Pがロミタピドのミ・タ・ピ" loading="lazy"></section>` }
+  { id:'g2', col:true, lid:'4-3', t:'高コレステロール血症治療薬②', sub:'プロブコール・エボロクマブ・ロミタピド', plan:[], body:()=>`<section class="panel"><h3>コレステロール異化促進薬</h3><img class="goro-img" src="goro/lip_probucol.png" alt="コレステロール異化促進薬の覚え方。プロのコールで異化促進。プロのコール＝プロブコール、異化促進＝コレステロール異化促進" loading="lazy"></section><section class="panel"><h3>抗PCSK9抗体</h3><img class="goro-img" src="goro/lip_pcsk9.png" alt="抗PCSK9抗体の覚え方。抗PCSK9抗体のKとクがエボロクマブ" loading="lazy"></section><section class="panel"><h3>MTP阻害薬</h3><img class="goro-img" src="goro/lip_mtp.png" alt="MTP阻害薬の覚え方。MTP阻害薬のM・T・Pがロミタピドのミ・タ・ピ" loading="lazy"></section>` },
+  { id:'g3', col:true, lid:'4-4', t:'高トリグリセリド血症治療薬', sub:'「ト」の入っている薬はTG⬇', plan:[], body:()=>`<section class="panel"><h3>高TG血症治療薬</h3><img class="goro-img" src="goro/lip_tg.png" alt="高TG血症治療薬の覚え方。トの入っている薬はトリグリセリド低下。イコサペント酸エチル、デキストラン硫酸エステル、フィブラート系" loading="lazy"></section>` }
 ];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
