@@ -352,6 +352,8 @@ const KEY = 'kinoko-jikan.v1';
 const fresh = () => ({ name:'', code:'', days:[], answered:0, correct:0, lessons:{}, known:{}, cards:[], sky:null, lastUnit:'' });
 let R = fresh();
 try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) R = Object.assign(fresh(), s); } catch(e) {}
+// 胞子番号の付け直しに合わせて学習記録を移す
+try { const MV=[['ae1:8-','ae1:1-'],['rx1:6-','rx1:1-'],['fp:1-','fp:2-']]; const L=R.lessons||{}; for(const k of Object.keys(L)) for(const [a,b] of MV) if(k.startsWith(a)){ const n=b+k.slice(a.length); if(!L[n]) L[n]=L[k]; delete L[k]; } } catch(e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(R)); } catch(e) {} };
 const dkey = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const today = () => dkey(new Date());
@@ -2341,19 +2343,19 @@ const ANS_LESSONS = [
     <p class="small muted">有機リン中毒には、アトロピン＋プラリドキシム（PAM）。</p></section>` },
 ];
 const FP_LESSONS = [
-  { id:'1-1', t:'細菌性食中毒（感染型）', sub:'菌が体の中で増える', plan:['inf','inf','inf','inf','inf'], body:()=>`
+  { id:'2-1', t:'細菌性食中毒（感染型）', sub:'菌が体の中で増える', plan:['inf','inf','inf','inf','inf'], body:()=>`
     <section class="panel"><h3>代表的な菌</h3>${tbl(['菌','原因になりやすい食品','ポイント'],[['サルモネラ属菌','鶏卵・食肉','発熱をともなう'],['腸炎ビブリオ','生の魚介類','好塩性・夏'],['カンピロバクター','鶏肉','ギラン・バレー症候群'],['腸管出血性大腸菌','牛肉・野菜','ベロ毒素・HUS'],['ウェルシュ菌','カレーの作り置き','嫌気性・芽胞']])}
     ${rule('予防の三原則：つけない・増やさない・やっつける')}</section>` },
-  { id:'1-2', t:'細菌性食中毒（毒素型）', sub:'食品の中でできた毒素', plan:['tox','tox','tox','tox','tox'], body:()=>`
+  { id:'2-2', t:'細菌性食中毒（毒素型）', sub:'食品の中でできた毒素', plan:['tox','tox','tox','tox','tox'], body:()=>`
     <section class="panel"><h3>毒素型の3つ</h3>${tbl(['菌','毒素','ポイント'],[['黄色ブドウ球菌','エンテロトキシン（耐熱性）','潜伏期間 約3時間、おにぎり'],['ボツリヌス菌','ボツリヌス毒素','ACh放出阻害、弛緩性麻痺'],['セレウス菌（嘔吐型）','セレウリド（耐熱性）','チャーハン・ピラフ']])}
     ${rule('1歳未満の乳児に、はちみつを与えない（乳児ボツリヌス症）')}</section>` },
-  { id:'1-3', t:'ウイルスと寄生虫', sub:'ノロウイルスとアニサキス', plan:['vir','vir','vir','vir','vir'], body:()=>`
+  { id:'2-3', t:'ウイルスと寄生虫', sub:'ノロウイルスとアニサキス', plan:['vir','vir','vir','vir','vir'], body:()=>`
     <section class="panel"><h3>ノロウイルス</h3><p>冬に多く、食中毒の<b>患者数が最も多い</b>病因物質。二枚貝や調理者の手指から広がる。</p>
     ${rule('消毒は次亜塩素酸ナトリウム（アルコールは効きにくい）<br>加熱は中心温度 85〜90℃ で 90 秒以上')}</section>
     <section class="panel"><h3>アニサキス</h3><p>サバ・イカなどの生食で激しい腹痛。<b>−20℃で24時間以上の冷凍</b>か加熱で死滅。酢・しょうゆ・わさびでは死なない。</p></section>` },
-  { id:'1-4', t:'自然毒', sub:'動物・植物・きのこの毒', plan:['nat','nat','nat','nat','nat'], body:()=>`
+  { id:'2-4', t:'自然毒', sub:'動物・植物・きのこの毒', plan:['nat','nat','nat','nat','nat'], body:()=>`
     <section class="panel"><h3>覚えたい自然毒</h3>${tbl(['もとになるもの','毒','作用・症状'],[['フグ','テトロドトキシン','Na⁺チャネル遮断'],['二枚貝','サキシトキシン（麻痺性）','Na⁺チャネル遮断'],['ジャガイモの芽','ソラニン・チャコニン','腹痛・嘔吐'],['スイセン','リコリン','嘔吐（ニラとまちがえる）'],['ツキヨタケ','イルジンS','嘔吐・下痢'],['ドクツルタケ','α-アマニチン','RNAポリメラーゼⅡ阻害']])}</section>` },
-  { id:'1-5', t:'カビ毒', sub:'マイコトキシン', plan:['myc','myc','myc','myc','myc'], body:()=>`
+  { id:'2-5', t:'カビ毒', sub:'マイコトキシン', plan:['myc','myc','myc','myc','myc'], body:()=>`
     <section class="panel"><h3>代表的なカビ毒</h3>${tbl(['カビ毒','つくるカビ','ポイント'],[['アフラトキシンB₁','Aspergillus flavus','強い肝発がん性'],['アフラトキシンM₁','（B₁の代謝物）','牛乳に出てくる'],['パツリン','Penicillium expansum','りんご果汁'],['デオキシニバレノール','Fusarium属','小麦の赤かび病'],['オクラトキシンA','Aspergillus・Penicillium属','腎毒性']])}</section>` },
 ];
 const PK_LESSONS = [
@@ -4108,7 +4110,7 @@ const EXC_LESSONS = [
   { id:'6-8', t:'胆汁排泄過程における相互作用', wip:true, plan:[], body:()=>'' }
 ];
 const RX_LESSONS = [
-  { id:'6-1', t:'処方箋', sub:'保険処方箋・麻薬処方箋', plan:['rx1','rx1','rx1','rx1','rx1'], body:()=>`
+  { id:'1-1', t:'処方箋', sub:'保険処方箋・麻薬処方箋', plan:['rx1','rx1','rx1','rx1','rx1'], body:()=>`
     <section class="panel"><h3>〇 保険処方箋</h3>
     <p><b>・保険処方箋の記載事項</b></p>
     <p class="small muted">医師法施行規則 第21条</p>
@@ -4129,7 +4131,7 @@ const RX_LESSONS = [
     <p>・麻薬処方箋の発行者は、<b>麻薬施用者</b>としての免許証を所持している。</p>
     <p>・薬局の開設者は、<b>麻薬小売業者</b>の免許を受けなければならない。</p>
     <p>・麻薬処方箋を保存する際は、一般処方箋とは<b>別にする</b>ことが推奨されている。</p></section>` },
-  { id:'6-2', t:'後発医薬品への変更', wip:true, plan:[], body:()=>'' }
+  { id:'1-2', t:'後発医薬品への変更', wip:true, plan:[], body:()=>'' }
 ];
 const INJ1_LESSONS = [
   { id:'1-1', t:'注射剤', wip:true, plan:[], body:()=>'' },
