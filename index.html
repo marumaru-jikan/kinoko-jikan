@@ -3396,6 +3396,14 @@ Object.assign(POOL, {
     ['かぜ薬','鼻水を抑える抗コリン成分は？','ベラドンナ総アルカロイド',['ブロムヘキシン','アセトアミノフェン','デキストロメトルファン'],'緑内障・前立腺肥大に注意'],
     ['かぜ薬','非麻薬性の鎮咳成分は？','デキストロメトルファン',['ジヒドロコデイン','コデイン','メチルエフェドリン'],'コデイン類は麻薬性'],
   ],
+  hhv:[
+    ['ヘルペスウイルス','水痘・帯状疱疹の原因ウイルスは？','HHV-3',['HHV-1','HHV-4','HHV-5'],'初感染は水痘'],
+    ['ヘルペスウイルス','三叉神経に潜伏するのは？','HHV-1（HSV-1）',['HHV-2（HSV-2）','HHV-4','HHV-8'],'口唇・角膜ウイルス'],
+    ['ヘルペスウイルス','突発性発疹の原因ウイルスは？','HHV-6・HHV-7',['HHV-4','HHV-5','HHV-8'],'ほぼ100%感染'],
+    ['ヘルペスウイルス','カポジ肉腫の原因ウイルスは？','HHV-8',['HHV-4','HHV-5','HHV-6'],'AIDSの合併症'],
+    ['ヘルペスウイルス','伝染性単核球症の原因ウイルスは？','HHV-4（EBウイルス）',['HHV-3','HHV-5','HHV-7'],'唾液で感染'],
+    ['ヘルペスウイルス','帯状疱疹の症状が片側性なのはなぜ？','両側を支配する知覚神経が存在しないため',['ウイルス血症を起こすため','皮膚の片側だけに受容体があるため','免疫が片側だけ低下するため'],'知覚神経の軸索流に乗って移動'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -5351,6 +5359,12 @@ const PHC_LESSONS = [
     ${ktbl([['抗ヒスタミン薬','<span class="dg">クロルフェニラミン</span>'],['ビタミン類','<span class="dg">リボフラビン</span>（ビタミンB<sub>2</sub>）<br><span class="dg">ピリドキシン</span>（ビタミンB<sub>6</sub>）<br><span class="dg">パントテン酸カルシウム</span>']]).replace('tbl ktbl','tbl ktbl kw')}
     <p class="small muted">じんましん・湿疹・かゆみなど<br>ビタミンB群：皮膚・粘膜の健康維持<br>眠気 → 運転 ×</p></section>` }
 ];
+const HHV_LESSONS = [
+  { id:'6-1', t:'ヘルペスウイルス', sub:'HHV-1〜8', plan:['hhv','hhv','hhv','hhv','hhv'], body:()=>`
+    <section class="panel"><h3>〇 ヘルペスウイルス</h3>
+    ${tbl(['','疾患','特徴'],[['HHV-1<br><span class="small muted">HSV-1</span>','口唇ウイルス<br>角膜ウイルス','初感染は口腔粘膜<br><b>三叉神経</b>に潜伏'],['HHV-2<br><span class="small muted">HSV-2</span>','性器ウイルス','2〜12日で発症<br>初感染は発熱・全身痛など'],['HHV-3<br><span class="small muted">VZV</span>','水痘<br><b>帯状疱疹</b>','初感染は水痘（水ぼうそう）<br>症状は<b>片側性</b>'],['HHV-4<br><span class="small muted">EBV</span>','伝染性単核球症<br>バーキットリンパ腫','20〜30歳代が多い<br><b>唾液</b>で感染'],['HHV-5<br><span class="small muted">CMV</span>','<b>サイトメガロウイルス</b>','日本人の多くは抗サイトメガロウイルス抗体陽性'],['HHV-6<br>HHV-7','<b>突発性発疹</b>','6は1歳半までに、7は3歳までにほぼ100%感染<br>30〜40%は不顕性'],['HHV-8','カポジ肉腫','<b>AIDS</b>の合併症']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:21%"><col style="width:33%"><col style="width:46%"></colgroup>')}
+    <p class="small muted">帯状疱疹が片側性：両側を支配する知覚神経は存在しないため<br>→ 知覚神経の軸索流に乗って移動するため、ウイルス血症は稀</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -6460,6 +6474,7 @@ const UNITS = {
   lcc:{ no:'法9', title:'地域包括ケアシステム', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCC_LESSONS, cards:'lcc', drill:'lcc' },
   lcf:{ no:'法9', title:'地域における薬局の機能', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCF_LESSONS, cards:'lcf', drill:'lcf' },
   lmt:{ no:'法6', title:'まとめ', subject:'法規・制度・倫理', course:'law', subj:5, lessons:LMT_LESSONS, cards:'lmt', drill:'lmt' },
+  hhv:{ no:'薬24', title:'ヘルペスウイルス感染症', subject:'薬理・病態・薬物治療', course:'pharm', subj:23, lessons:HHV_LESSONS, cards:'hhv', drill:'hhv' },
   mig:{ no:'薬9', title:'片頭痛', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:MIG_LESSONS, cards:'mig', drill:'mig' },
   pd:{ no:'薬9', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
   dem:{ no:'薬9', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
@@ -6583,7 +6598,7 @@ const CATALOG = [
       { name:'耳鼻咽喉科', k:'21', units:U('めまい治療薬','アレルギー性鼻炎の薬','めまい（メニエール病など）','アレルギー性鼻炎','中耳炎') },
       { name:'皮膚', k:'22', units:U('外用剤の基本','皮膚疾患治療薬','アトピー性皮膚炎','乾癬','薬疹','褥瘡') },
       { name:'細菌感染症', k:'23', units:U('細胞壁合成阻害薬','タンパク質合成阻害薬','核酸合成阻害薬・葉酸代謝阻害薬','抗結核薬','抗菌薬の使い方','呼吸器感染症','尿路感染症','結核','薬剤耐性菌') },
-      { name:'ウイルス感染症', k:'24', units:U('抗インフルエンザ薬','抗ヘルペス薬','抗HIV薬','抗肝炎ウイルス薬','インフルエンザ','ヘルペスウイルス感染症','HIV感染症','ウイルス性肝炎') },
+      { name:'ウイルス感染症', k:'24', units:U('抗インフルエンザ薬','抗ヘルペス薬','抗HIV薬','抗肝炎ウイルス薬','インフルエンザ',{ t:'ヘルペスウイルス感染症', ready:'hhv' },'HIV感染症','ウイルス性肝炎') },
       { name:'真菌感染症', k:'25', units:U('抗真菌薬') },
       { name:'原虫・寄生虫感染症', k:'26', units:U('抗マラリア薬','抗原虫薬','駆虫薬','マラリア','原虫感染症','寄生虫症') },
       { name:'悪性腫瘍', k:'27', units:U({ t:'抗悪性腫瘍薬', ready:'onc1' },{ t:'細胞障害性抗悪性腫瘍薬', ready:'onc2' },{ t:'分子標的薬', ready:'onc3' },'免疫チェックポイント阻害薬',{ t:'抗腫瘍ホルモン関連薬', ready:'onc5' },'がん化学療法の基本','肺がん','胃がん・大腸がん','乳がん','血液がん','緩和ケア') },
