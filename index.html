@@ -3341,6 +3341,15 @@ Object.assign(POOL, {
     ['抗ヒスタミン薬','貼付剤の抗ヒスタミン薬は？','エメダスチン',['ロラタジン','フェキソフェナジン','セチリジン'],'飲み薬が苦手な患者に'],
     ['抗ヒスタミン薬','高齢者で避けるべき抗ヒスタミン薬は？','第1世代',['第2世代','すべて','なし'],'せん妄・転倒・尿閉・便秘'],
   ],
+  narc:[
+    ['麻薬','未調剤の麻薬を廃棄するときは？','事前に麻薬廃棄届を都道府県知事に提出',['廃棄後30日以内に調剤済麻薬廃棄届','事故後すみやかに麻薬事故届','届出不要'],'保健所職員などの立ち会いが必要'],
+    ['麻薬','調剤済みの麻薬を廃棄したときは？','廃棄後30日以内に調剤済麻薬廃棄届',['事前に麻薬廃棄届','事故後すみやかに麻薬事故届','厚生労働大臣に報告'],'職員の立ち会いは不要'],
+    ['麻薬','麻薬の盗難・紛失時に提出するのは？','麻薬事故届',['麻薬廃棄届','調剤済麻薬廃棄届','麻薬譲渡届'],'すみやかに都道府県知事へ'],
+    ['麻薬','麻薬と一緒に保管してよいのは？','覚醒剤',['向精神薬','毒薬','劇薬'],'鍵をかけた堅固な設備'],
+    ['麻薬','原則として施用が禁止されている麻薬は？','ジアセチルモルヒネ（ヘロイン）',['モルヒネ','コデイン','フェンタニル'],'厚生労働大臣の許可で研究のみ'],
+    ['麻薬','患者から返却された麻薬の廃棄に必要な届出は？','調剤済麻薬廃棄届',['麻薬廃棄届','麻薬事故届','届出不要'],'廃棄後30日以内'],
+    ['麻薬','合成麻薬はどれ？','フェンタニルクエン酸',['モルヒネ','コデイン','コカイン'],'メサドンも'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -5233,6 +5242,23 @@ const MIG_LESSONS = [
     <p><b>・禁忌</b></p>
     <p><b>血管障害</b>・<b>虚血性心疾患</b>（狭心症）</p></section>` }
 ];
+const MGT2_LESSONS = [
+  { id:'2-1', t:'麻薬の管理', sub:'規制対象・保管・帳簿・廃棄', plan:['narc','narc','narc','narc','narc'], body:()=>`
+    <section class="panel"><h3>〇 麻薬</h3>
+    ${ktbl([['あへんアルカロイド系','<span class="dg">モルヒネ</span>・<span class="dg">コデイン</span>・<span class="dg">ジアセチルモルヒネ</span>など'],['コカアルカロイド','<span class="dg">コカイン</span>など'],['合成麻薬','<span class="dg">メサドン</span>・<span class="dg">フェンタニルクエン酸</span>など']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p><b>・ジアセチルモルヒネ（ヘロイン）</b><br>原則：製造・施用・所持・交付・廃棄等は<b>禁止</b><br>例外：麻薬研究者等が<b>厚生労働大臣の許可</b>を受けて一部の取扱いが可能</p>
+    <p class="small muted">麻薬の中で依存性MAX<br>家庭麻薬は麻薬ではない</p></section>
+    <section class="panel"><h3>〇 保管</h3>
+    <p>ほかの医薬品（<b>覚醒剤を除く</b>）と区別</p>
+    <p><b>鍵をかけた堅固な設備</b>内に保管</p></section>
+    <section class="panel"><h3>〇 麻薬帳簿</h3>
+    <p>麻薬の受払い（譲受・譲渡・施用・廃棄など）を記録</p>
+    <p class="small muted">麻薬管理者（麻薬小売業者）が備える・最終記載日から2年間保存</p></section>
+    <section class="panel"><h3>〇 廃棄</h3>
+    ${tbl(['','未調剤の麻薬','調剤済みの麻薬','滅失・盗取・<br>所在不明等'],[['提出書類','麻薬<b>廃棄届</b>','<b>調剤済</b>麻薬<b>廃棄届</b>','麻薬<b>事故届</b>'],['提出時期','<b>事前</b>','廃棄後<b>30日以内</b>','事故後<b>すみやか</b>に'],['届出先','都道府県知事','都道府県知事','都道府県知事'],['職員の<br>立ち会い','<b>必要</b><br><span class="small muted">保健所職員／麻薬取締員</span>','<b>不要</b><br><span class="small muted">管理薬剤師が他の職員の立ち会いの下に廃棄</span>','<span class="small muted">必要に応じて保健所職員が立入検査</span>'],['廃棄方法','回収困難な方法','回収困難な方法','−'],['具体例','期限切れ<br>調剤中の破損<br>誤調剤','患者からの返却<br>調剤後の処方中止<br>輸液等に残った麻薬','回収不可能な破損・ミス<br>盗難・紛失<br>点滴中の流出事故']])}
+    <p><b>※ 「施用に伴う消耗」</b><br>届出は<b>いらない</b></p>
+    <p class="small muted">例）注射器内やアンプル内に残る微量の麻薬・点滴ルート内に残る量など</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -6296,6 +6322,7 @@ const UNITS = {
   ebm:{ no:'薬5', title:'EBMと臨床研究', subject:'薬理・病態・薬物治療', course:'pharm', subj:4, lessons:EBM_LESSONS, cards:'ebm', drill:'ebm' },
   onp5:{ no:'実17', title:'乳がん治療', subject:'実務', course:'prac', subj:16, lessons:ONP5_LESSONS, cards:'onp5', drill:'onp5' },
   smed:{ no:'実15', title:'セルフメディケーション', subject:'実務', course:'prac', subj:14, lessons:SMED_LESSONS, cards:'smed', drill:'smed' },
+  mgt2:{ no:'実12', title:'麻薬・向精神薬の管理', subject:'実務', course:'prac', subj:11, lessons:MGT2_LESSONS, cards:'mgt2', drill:'mgt2' },
   onp1:{ no:'実17', title:'がん治療', subject:'実務', course:'prac', subj:16, lessons:ONP1_LESSONS, cards:'onp1', drill:'onp1' },
   infa:{ no:'実18', title:'まとめ', subject:'実務', course:'prac', subj:17, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
   inf2:{ no:'実18', title:'感染症治療薬', subject:'実務', course:'prac', subj:17, lessons:INF2_LESSONS, cards:'inf2', drill:'inf2' },
@@ -6499,7 +6526,7 @@ const CATALOG = [
       { name:'注射剤・輸液の調剤', k:'9', units:U({ t:'注射剤調剤', ready:'inj1' },{ t:'輸液調剤', ready:'inj2' },{ t:'栄養療法', ready:'inj3' },{ t:'その他', ready:'inj4' }) },
       { name:'薬局製剤', k:'10', units:U() },
       { name:'消毒薬', k:'11', units:U() },
-      { name:'医薬品の管理', k:'12', units:U() },
+      { name:'医薬品の管理', k:'12', units:U('医薬品管理の流れと品質管理',{ t:'麻薬・向精神薬の管理', ready:'mgt2' }) },
       { name:'医薬品情報', k:'13', units:U() },
       { name:'服薬指導', k:'14', units:U({ t:'服薬指導', ready:'pm1' },{ t:'生活指導', ready:'pm2' },{ t:'記録', ready:'pm3' },{ t:'配慮が必要な患者', ready:'pm4' },{ t:'使い方の指導が必要な剤形', ready:'pm5' }) },
       { name:'地域', k:'15', units:U({ t:'セルフメディケーション', ready:'smed' },'災害時における薬剤師の役割','スポーツファーマシスト') },
