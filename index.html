@@ -3371,6 +3371,20 @@ Object.assign(POOL, {
     ['生薬','カンゾウ配合漢方で留意する検査値は？','血清カリウム値',['血清ナトリウム値','血糖値','AST/ALT'],'低K血症'],
     ['生薬','授乳中の婦人に慎重投与とされる生薬は？','ダイオウ',['カンゾウ','マオウ','ブシ'],'妊婦には投与しないことが望ましい'],
   ],
+  phc1:[
+    ['OTC成分','15歳未満に使用できない解熱鎮痛成分は？','アスピリン',['アセトアミノフェン','カフェイン','エテンザミド以外すべて'],'ライ症候群'],
+    ['OTC成分','小児にも使える解熱鎮痛成分は？','アセトアミノフェン',['アスピリン','イブプロフェン','ロキソプロフェン'],'大量で肝障害'],
+    ['OTC成分','依存性に注意が必要な催眠鎮静成分は？','ブロモバレリル尿素',['ジフェンヒドラミン','カノコソウ','カフェイン'],'濫用のおそれ'],
+    ['OTC成分','乗り物酔い薬の抗コリン成分は？','スコポラミン',['メクリジン','カフェイン','ジメンヒドリナート'],'緑内障・排尿障害に注意'],
+    ['OTC成分','一時的な不眠の緩和に用いる抗ヒスタミン成分は？','ジフェンヒドラミン',['クロルフェニラミン','メクリジン','フェキソフェナジン'],'15歳未満 ×'],
+  ],
+  phc2:[
+    ['かぜ薬','12歳未満に禁忌のかぜ薬の成分は？','ジヒドロコデイン',['デキストロメトルファン','アセトアミノフェン','グアイフェネシン'],'呼吸抑制'],
+    ['かぜ薬','かぜ薬の気管支拡張成分は？','メチルエフェドリン',['クロルフェニラミン','ブロムヘキシン','デキストロメトルファン'],'高血圧・甲状腺機能亢進症に注意'],
+    ['かぜ薬','かぜ薬の去痰成分は？','グアイフェネシン',['クロルフェニラミン','メチルエフェドリン','カフェイン'],'ブロムヘキシンも'],
+    ['かぜ薬','鼻水を抑える抗コリン成分は？','ベラドンナ総アルカロイド',['ブロムヘキシン','アセトアミノフェン','デキストロメトルファン'],'緑内障・前立腺肥大に注意'],
+    ['かぜ薬','非麻薬性の鎮咳成分は？','デキストロメトルファン',['ジヒドロコデイン','コデイン','メチルエフェドリン'],'コデイン類は麻薬性'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -5295,6 +5309,27 @@ const PHX_LESSONS = [
     <section class="panel"><h3>〇 小柴胡湯</h3>
     ${ktbl([['副作用','<b>間質性肺炎</b>'],['注意事項','<b>インターフェロン製剤</b>との併用は<b>禁忌</b>']]).replace('tbl ktbl','tbl ktbl kw')}</section>` }
 ];
+const PHC_LESSONS = [
+  { id:'2-1', t:'催眠鎮静薬・鎮暈薬・解熱鎮痛薬', sub:'代表的な成分と注意点', plan:['phc1','phc1','phc1','phc1','phc1'], body:()=>`
+    <section class="panel"><h3>〇 催眠鎮静薬</h3>
+    ${ktbl([['抗ヒスタミン薬','<span class="dg">ジフェンヒドラミン</span><br><span class="small muted">一時的な不眠の緩和・15歳未満 ×</span>'],['ブロム系','<span class="dg">ブロモバレリル尿素</span><br><span class="small muted">依存性・濫用に注意</span>'],['生薬','カノコソウ・チャボトケイソウなど']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">眠気 → 服用後の運転 ×・アルコールで作用⬆</p></section>
+    <section class="panel"><h3>〇 鎮暈薬（乗り物酔い）</h3>
+    ${ktbl([['抗ヒスタミン薬','<span class="dg">ジメンヒドリナート</span>・<span class="dg">メクリジン</span>'],['抗コリン薬','<span class="dg">スコポラミン</span>'],['中枢興奮薬','<span class="dg">カフェイン</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">抗コリン作用 → 閉塞隅角緑内障・前立腺肥大による排尿障害に注意<br>眠気 → 運転 ×</p></section>
+    <section class="panel"><h3>〇 解熱鎮痛薬</h3>
+    ${ktbl([['サリチル酸系','<span class="dg">アスピリン</span>・<span class="dg">エテンザミド</span><br><span class="small muted">アスピリン：15歳未満 ×（ライ症候群）</span>'],['アニリン系','<span class="dg">アセトアミノフェン</span><br><span class="small muted">小児にも使える・大量で肝障害</span>'],['プロピオン酸系','<span class="dg">イブプロフェン</span>・<span class="dg">ロキソプロフェン</span><br><span class="small muted">イブプロフェン：15歳未満 ×</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">補助成分：カフェイン・ブロモバレリル尿素<br>注意：アスピリン喘息・胃腸障害・妊娠後期</p></section>` },
+  { id:'2-2', t:'かぜ薬', sub:'総合感冒薬の配合成分', plan:['phc2','phc2','phc2','phc2','phc2'], body:()=>`
+    <section class="panel"><h3>〇 かぜ薬の配合成分</h3>
+    ${ktbl([['解熱鎮痛','<span class="dg">アセトアミノフェン</span>・<span class="dg">イブプロフェン</span>'],['抗ヒスタミン','<span class="dg">クロルフェニラミン</span><br><span class="small muted">鼻水・くしゃみ</span>'],['鎮咳','<span class="dg">ジヒドロコデイン</span>・<span class="dg">デキストロメトルファン</span>'],['去痰','<span class="dg">グアイフェネシン</span>・<span class="dg">ブロムヘキシン</span>'],['気管支拡張','<span class="dg">メチルエフェドリン</span>'],['抗コリン','ベラドンナ総アルカロイド<br><span class="small muted">鼻水を抑える</span>'],['その他','カフェイン・ビタミン類・生薬']]).replace('tbl ktbl','tbl ktbl kw')}</section>
+    <section class="panel"><h3>〇 注意点</h3>
+    <p><b>コデイン類</b>：<b>12歳未満</b>には禁忌<span class="small muted">（呼吸抑制）</span></p>
+    <p><b>濫用</b>のおそれ：<span class="dg">ジヒドロコデイン</span>・<span class="dg">メチルエフェドリン</span>など</p>
+    <p>抗ヒスタミン・抗コリン<br>→ 閉塞隅角緑内障・前立腺肥大に注意<br>→ 眠気 → 運転 ×</p>
+    <p><span class="dg">メチルエフェドリン</span><br>→ 高血圧・心疾患・甲状腺機能亢進症・糖尿病に注意</p>
+    <p class="small muted">かぜ薬は対症療法（ウイルスを治すものではない）</p></section>` }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -6359,6 +6394,7 @@ const UNITS = {
   onp5:{ no:'実17', title:'乳がん治療', subject:'実務', course:'prac', subj:16, lessons:ONP5_LESSONS, cards:'onp5', drill:'onp5' },
   smed:{ no:'実15', title:'セルフメディケーション', subject:'実務', course:'prac', subj:14, lessons:SMED_LESSONS, cards:'smed', drill:'smed' },
   mgt2:{ no:'実12', title:'麻薬・向精神薬の管理', subject:'実務', course:'prac', subj:11, lessons:MGT2_LESSONS, cards:'mgt2', drill:'mgt2' },
+  phc:{ no:'実10', title:'代表的な成分', subject:'実務', course:'prac', subj:9, lessons:PHC_LESSONS, cards:'phc', drill:'phc' },
   phx:{ no:'実10', title:'漢方薬', subject:'実務', course:'prac', subj:9, lessons:PHX_LESSONS, cards:'phx', drill:'phx' },
   onp1:{ no:'実17', title:'がん治療', subject:'実務', course:'prac', subj:16, lessons:ONP1_LESSONS, cards:'onp1', drill:'onp1' },
   infa:{ no:'実18', title:'まとめ', subject:'実務', course:'prac', subj:17, lessons:INFA_LESSONS, cards:'infa', drill:'infa' },
@@ -6561,7 +6597,7 @@ const CATALOG = [
       { name:'副作用', k:'7', units:U({ t:'副作用', ready:'ae1' }) },
       { name:'計数・計量調剤', k:'8', units:U() },
       { name:'注射剤・輸液の調剤', k:'9', units:U({ t:'注射剤調剤', ready:'inj1' },{ t:'輸液調剤', ready:'inj2' },{ t:'栄養療法', ready:'inj3' },{ t:'その他', ready:'inj4' }) },
-      { name:'薬局製剤', k:'10', units:U({ t:'漢方薬', ready:'phx' },'代表的な成分') },
+      { name:'薬局製剤', k:'10', units:U({ t:'漢方薬', ready:'phx' },{ t:'代表的な成分', ready:'phc' }) },
       { name:'消毒薬', k:'11', units:U() },
       { name:'医薬品の管理', k:'12', units:U('医薬品管理の流れと品質管理',{ t:'麻薬・向精神薬の管理', ready:'mgt2' }) },
       { name:'医薬品情報', k:'13', units:U() },
