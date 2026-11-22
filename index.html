@@ -5420,6 +5420,12 @@ const HHV_LESSONS = [
     <p>同種造血幹細胞移植（臓器移植）後の<b>サイトメガロウイルス</b>感染症の発症抑制</p>
     <p class="small muted">メリット：骨髄抑制を起こさない<br>副作用：消化器症状・肝障害</p></section>` }
 ];
+const ATB_LESSONS = [
+  { id:'1-1', t:'血栓と止血', wip:true, plan:[], body:()=>'' },
+  { id:'1-2', t:'抗血栓薬', wip:true, plan:[], body:()=>'' },
+  { id:'1-3', t:'抗凝固薬', wip:true, plan:[], body:()=>'' },
+  { id:'1-4', t:'抗血栓薬と抗凝固薬の比較', wip:true, plan:[], body:()=>'' }
+];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
     <section class="panel"><h3>〇 直腸診（直腸指診）</h3>
@@ -6530,6 +6536,7 @@ const UNITS = {
   lcf:{ no:'法9', title:'地域における薬局の機能', subject:'法規・制度・倫理', course:'law', subj:8, lessons:LCF_LESSONS, cards:'lcf', drill:'lcf' },
   lmt:{ no:'法6', title:'まとめ', subject:'法規・制度・倫理', course:'law', subj:5, lessons:LMT_LESSONS, cards:'lmt', drill:'lmt' },
   hhv:{ no:'薬24', title:'ヘルペス', subject:'薬理・病態・薬物治療', course:'pharm', subj:23, lessons:HHV_LESSONS, cards:'hhv', drill:'hhv' },
+  atb:{ no:'薬13', title:'抗血栓薬（抗凝固薬・抗血小板薬）', subject:'薬理・病態・薬物治療', course:'pharm', subj:12, lessons:ATB_LESSONS, cards:'atb', drill:'atb' },
   mig:{ no:'薬9', title:'片頭痛', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:MIG_LESSONS, cards:'mig', drill:'mig' },
   pd:{ no:'薬9', title:'パーキンソン病治療薬', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:PD_LESSONS, cards:'pd', drill:'pd' },
   dem:{ no:'薬9', title:'認知症', subject:'薬理・病態・薬物治療', course:'pharm', subj:8, lessons:DEM_LESSONS, cards:'dem', drill:'dem' },
@@ -6642,7 +6649,7 @@ const CATALOG = [
       { name:'炎症・免疫・アレルギー', k:'10', units:U('ステロイド性抗炎症薬','非ステロイド性抗炎症薬（NSAIDs）','抗アレルギー薬','アレルギー疾患','関節リウマチ','全身性エリテマトーデス','臓器移植と免疫抑制') },
       { name:'骨・関節', k:'11', units:U('骨粗鬆症治療薬','関節リウマチ治療薬','痛風・高尿酸血症治療薬') },
       { name:'循環器系', k:'12', units:U({ t:'心不全治療薬', ready:'hf' },{ t:'抗不整脈薬', ready:'aar' },'狭心症治療薬','降圧薬','肺動脈性肺高血圧症治療薬','昇圧薬','心不全','不整脈','高血圧症','虚血性心疾患') },
-      { name:'血液・造血系', k:'13', units:U('抗血栓薬（抗凝固薬・抗血小板薬）','血栓溶解薬・止血薬','貧血治療薬','造血因子','貧血','血栓症・DIC','白血病・リンパ腫') },
+      { name:'血液・造血系', k:'13', units:U({ t:'抗血栓薬（抗凝固薬・抗血小板薬）', ready:'atb' },'血栓溶解薬・止血薬','貧血治療薬','造血因子','貧血','血栓症・DIC','白血病・リンパ腫') },
       { name:'腎・泌尿器系', k:'14', units:U({ t:'利尿薬', ready:'uro1' },{ t:'排尿困難治療薬', ready:'uro2' },{ t:'頻尿治療薬', ready:'uro3' },'腎不全（急性・慢性）','ネフローゼ症候群','前立腺肥大症・過活動膀胱') },
       { name:'生殖器系', k:'15', units:U('性ホルモン関連薬',{ t:'子宮に作用する薬', ready:'gen2' },{ t:'前立腺肥大症治療薬', ready:'gen3' },{ t:'勃起不全治療薬', ready:'gen4' },'子宮内膜症・月経関連疾患','妊娠・分娩','更年期障害','勃起不全') },
       { name:'呼吸器系', k:'16', units:U('気管支喘息・COPD治療薬','鎮咳薬・去痰薬','気管支喘息','COPD','間質性肺炎',{ t:'まとめ', ch:'α', ready:'rsm' }) },
