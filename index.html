@@ -3404,6 +3404,16 @@ Object.assign(POOL, {
     ['ヘルペスウイルス','伝染性単核球症の原因ウイルスは？','HHV-4（EBウイルス）',['HHV-3','HHV-5','HHV-7'],'唾液で感染'],
     ['ヘルペスウイルス','帯状疱疹の症状が片側性なのはなぜ？','両側を支配する知覚神経が存在しないため',['ウイルス血症を起こすため','皮膚の片側だけに受容体があるため','免疫が片側だけ低下するため'],'知覚神経の軸索流に乗って移動'],
   ],
+  ahv:[
+    ['抗ヘルペス薬','アシクロビルを一リン酸化する酵素は？','ウイルス特異的チミジンキナーゼ',['宿主細胞のDNAポリメラーゼ','逆転写酵素','ノイラミニダーゼ'],'その後宿主キナーゼで三リン酸化'],
+    ['抗ヘルペス薬','アシクロビル三リン酸化体が競合するのは？','dGTP',['dATP','dCTP','dTTP'],'DNAポリメラーゼ阻害'],
+    ['抗ヘルペス薬','ヘリカーゼ・プライマーゼ複合体を阻害するのは？','アメナメビル',['アシクロビル','ビダラビン','ホスカルネット'],'DNA複製を抑制'],
+    ['抗ヘルペス薬','リン酸化を必要とせずDNAポリメラーゼを阻害するのは？','ホスカルネット',['ガンシクロビル','アシクロビル','ビダラビン'],'ピロリン酸結合部位に非競合的に作用'],
+    ['抗ヘルペス薬','DNAターミナーゼ複合体を阻害するのは？','レテルモビル',['ガンシクロビル','ホスカルネット','アメナメビル'],'DNA合成自体は止めない'],
+    ['抗ヘルペス薬','バルガンシクロビルは何のプロドラッグ？','ガンシクロビル',['アシクロビル','ビダラビン','ホスカルネット'],'バル＝バリン'],
+    ['抗ヘルペス薬','サイトメガロウイルス感染症に用いるのは？','ガンシクロビル',['アシクロビル','アメナメビル','ビダラビン'],'ホスカルネット・レテルモビルも'],
+    ['抗ヘルペス薬','レテルモビルの特徴は？','骨髄抑制を起こさない',['三リン酸化体となる','ヘリカーゼを阻害する','単純疱疹に用いる'],'CYP3A4で代謝'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -5362,7 +5372,53 @@ const PHC_LESSONS = [
 const HHV_LESSONS = [
   { id:'2-1', t:'ヘルペスウイルス', sub:'HHV-1〜8', plan:['hhv','hhv','hhv','hhv','hhv'], body:()=>`
     <section class="panel"><h3>〇 ヘルペスウイルス</h3>
-    ${tbl(['','疾患','特徴'],[['HHV-1<br><span class="small muted">HSV-1</span>','口唇ウイルス<br>角膜ウイルス','初感染は口腔粘膜<br><b>三叉神経</b>に潜伏'],['HHV-2<br><span class="small muted">HSV-2</span>','性器ウイルス','2〜12日で発症<br>初感染は発熱・全身痛など'],['HHV-3<br><span class="small muted">VZV</span>','水痘<br><b>帯状疱疹</b>','初感染は水痘（水ぼうそう）<br>症状は<b>片側性</b><br><span class="small muted">両側を支配する知覚神経はないため</span>'],['HHV-4<br><span class="small muted">EBV</span>','伝染性単核球症<br>バーキットリンパ腫','20〜30歳代が多い<br><b>唾液</b>で感染'],['HHV-5<br><span class="small muted">CMV</span>','<b>サイトメガロウイルス</b>','日本人の多くは抗サイトメガロウイルス抗体陽性'],['HHV-6<br>HHV-7','<b>突発性発疹</b>','6は1歳半までに、7は3歳までにほぼ100%感染<br>30〜40%は不顕性'],['HHV-8','カポジ肉腫','<b>AIDS</b>の合併症']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:21%"><col style="width:33%"><col style="width:46%"></colgroup>')}</section>` }
+    ${tbl(['','疾患','特徴'],[['HHV-1<br><span class="small muted">HSV-1</span>','口唇ウイルス<br>角膜ウイルス','初感染は口腔粘膜<br><b>三叉神経</b>に潜伏'],['HHV-2<br><span class="small muted">HSV-2</span>','性器ウイルス','2〜12日で発症<br>初感染は発熱・全身痛など'],['HHV-3<br><span class="small muted">VZV</span>','水痘<br><b>帯状疱疹</b>','初感染は水痘（水ぼうそう）<br>症状は<b>片側性</b><br><span class="small muted">両側を支配する知覚神経はないため</span>'],['HHV-4<br><span class="small muted">EBV</span>','伝染性単核球症<br>バーキットリンパ腫','20〜30歳代が多い<br><b>唾液</b>で感染'],['HHV-5<br><span class="small muted">CMV</span>','<b>サイトメガロウイルス</b>','日本人の多くは抗サイトメガロウイルス抗体陽性'],['HHV-6<br>HHV-7','<b>突発性発疹</b>','6は1歳半までに、7は3歳までにほぼ100%感染<br>30〜40%は不顕性'],['HHV-8','カポジ肉腫','<b>AIDS</b>の合併症']]).replace('<table class="tbl">','<table class="tbl" style="table-layout:fixed"><colgroup><col style="width:21%"><col style="width:33%"><col style="width:46%"></colgroup>')}</section>` },
+  { id:'2-2', t:'抗ヘルペス薬', sub:'アシクロビル・アメナメビル・ガンシクロビル・ホスカルネット・レテルモビル', plan:['ahv','ahv','ahv','ahv','ahv'], body:()=>`
+    <section class="panel"><h3>〇 アシクロビル</h3>
+    <p><span class="dg">アシクロビル</span>・<span class="dg">バラシクロビル</span></p>
+    <p class="small muted">バラシクロビル：アシクロビルのプロドラッグ（吸収性⬆）・バラ＝バリン</p>
+    <p><b>・作用機序</b></p>
+    <p>ウイルス感染細胞内で、ウイルス特異的な<b>チミジンキナーゼ</b>により一リン酸化<br>→ 宿主細胞のキナーゼで<b>三リン酸化体</b><br>→ <b>dGTP</b>と<b>競合</b><br>→ <b>DNA依存性DNAポリメラーゼ</b>阻害</p>
+    <p><b>・適応</b></p>
+    <p>単純疱疹・帯状疱疹</p>
+    <p class="small muted">副作用：精神神経症状（意識障害・麻痺・幻覚など）</p></section>
+    <section class="panel"><h3>〇 アメナメビル</h3>
+    <p><span class="dg">アメナメビル</span></p>
+    <p><b>・作用機序</b></p>
+    <p>ヘルペスウイルスの<b>ヘリカーゼ・プライマーゼ複合体</b>の<br>DNA依存性ATPase活性・プライマーゼ活性を阻害<br>→ DNA複製を抑制</p>
+    <p><b>・適応</b></p>
+    <p>帯状疱疹</p></section>
+    <section class="panel"><h3>※ アシクロビルとアメナメビル</h3>
+    <svg class="fig" viewBox="0 0 340 138" role="img" aria-label="ヘルペスウイルスのDNA複製と抗ヘルペス薬の作用点。ヘリカーゼが2本鎖DNAをほどき、プライマーゼがRNAプライマーを合成し、DNAポリメラーゼがDNA鎖を伸長する。アメナメビルはヘリカーゼ・プライマーゼ複合体を阻害し、アシクロビルはDNAポリメラーゼを阻害する"><defs><marker id="hva" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#555"/></marker><marker id="hvr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#C0392B"/></marker></defs><polyline points="6.0,80.0 8.0,82.0 10.0,83.7 12.0,85.0 14.0,85.8 16.0,86.0 18.0,85.5 20.0,84.3 22.0,82.7 24.0,80.8 26.0,78.9 28.0,77.0 30.0,75.5 32.0,74.4 34.0,74.0 36.0,74.2 38.0,75.1 40.0,76.5 42.0,78.3 44.0,80.3 46.0,82.2 48.0,83.9 50.0,85.2 52.0,85.9 54.0,85.9 56.0,85.3 58.0,84.1 60.0,82.5 62.0,80.5" fill="none" stroke="#333" stroke-width="1.4"/><polyline points="6.0,80.0 8.0,78.0 10.0,76.3 12.0,75.0 14.0,74.2 16.0,74.0 18.0,74.5 20.0,75.7 22.0,77.3 24.0,79.2 26.0,81.1 28.0,83.0 30.0,84.5 32.0,85.6 34.0,86.0 36.0,85.8 38.0,84.9 40.0,83.5 42.0,81.7 44.0,79.7 46.0,77.8 48.0,76.1 50.0,74.8 52.0,74.1 54.0,74.1 56.0,74.7 58.0,75.9 60.0,77.5 62.0,79.5" fill="none" stroke="#333" stroke-width="1.4"/><text x="34" y="104" text-anchor="middle" style="font-size:7.5px;font-weight:700;fill:#222">DNA</text><path d="M96 80 Q121.0 58 146 80 Q121.0 102 96 80" fill="none" stroke="#333" stroke-width="1.4"/><path d="M186 80 Q211.0 58 236 80 Q211.0 102 186 80" fill="none" stroke="#333" stroke-width="1.4"/><rect x="205.0" y="67" width="12" height="5" fill="#E67E22"/><rect x="205.0" y="88" width="12" height="5" fill="#E67E22"/><path d="M276 80 Q301.0 58 326 80 Q301.0 102 276 80" fill="none" stroke="#333" stroke-width="1.4"/><rect x="295.0" y="67" width="12" height="5" fill="#E67E22"/><rect x="295.0" y="88" width="12" height="5" fill="#E67E22"/><line x1="286" y1="70" x2="316" y2="70" stroke="#C0392B" stroke-width="2"/><line x1="286" y1="90" x2="316" y2="90" stroke="#C0392B" stroke-width="2"/><line x1="64" y1="80" x2="92" y2="80" stroke="#555" stroke-width="1.4" marker-end="url(#hva)"/><text x="78.0" y="120" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#333">ヘリカーゼ</text><text x="78.0" y="130" text-anchor="middle" style="font-size:6px;font-weight:400;fill:#666">2本鎖をほどく</text><line x1="150" y1="80" x2="182" y2="80" stroke="#555" stroke-width="1.4" marker-end="url(#hva)"/><text x="166.0" y="120" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#333">プライマーゼ</text><text x="166.0" y="130" text-anchor="middle" style="font-size:6px;font-weight:400;fill:#666">RNAプライマー合成</text><line x1="240" y1="80" x2="272" y2="80" stroke="#555" stroke-width="1.4" marker-end="url(#hva)"/><text x="256.0" y="120" text-anchor="middle" style="font-size:7px;font-weight:700;fill:#333">DNAポリメラーゼ</text><text x="256.0" y="130" text-anchor="middle" style="font-size:6px;font-weight:400;fill:#666">DNA鎖伸長</text><path d="M73 75 l10 10 M83 75 l-10 10" stroke="#C0392B" stroke-width="2.2"/><path d="M161 75 l10 10 M171 75 l-10 10" stroke="#C0392B" stroke-width="2.2"/><path d="M251 75 l10 10 M261 75 l-10 10" stroke="#C0392B" stroke-width="2.2"/><rect x="88" y="6" width="96" height="16" rx="4" fill="#DFF0C8"/><text x="136" y="17" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#2E6B2E">アメナメビル</text><path d="M110 22 Q92 40 80 70" stroke="#5E9E3E" stroke-width="1.4" fill="none" marker-end="url(#hva)"/><path d="M160 22 Q166 40 166 70" stroke="#5E9E3E" stroke-width="1.4" fill="none" marker-end="url(#hva)"/><rect x="214" y="6" width="84" height="16" rx="4" fill="#FCE1C8"/><text x="256" y="17" text-anchor="middle" style="font-size:8px;font-weight:700;fill:#B9560F">アシクロビル</text><path d="M256 22 V70" stroke="#E08A3A" stroke-width="1.4" fill="none" marker-end="url(#hva)"/><text x="306" y="52" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">半保存的</text><text x="306" y="60" text-anchor="middle" style="font-size:6.5px;font-weight:400;fill:#555">複製</text></svg></section>
+    <section class="panel"><h3>〇 ビダラビン</h3>
+    <p><span class="dg">ビダラビン</span></p>
+    <p><b>・作用機序</b></p>
+    <p><b>三リン酸化体</b>となり<br>→ DNA依存性DNAポリメラーゼ阻害</p>
+    <p><b>・適応</b></p>
+    <p>単純疱疹・帯状疱疹</p></section>
+    <section class="panel"><h3>〇 ガンシクロビル</h3>
+    <p><span class="dg">ガンシクロビル</span>・<span class="dg">バルガンシクロビル</span></p>
+    <p class="small muted">〇ガンシクロビル＝サイトメ〇ガロウイルス<br>バルガンシクロビル：ガンシクロビルのプロドラッグ・バル＝バリン</p>
+    <p><b>・作用機序</b></p>
+    <p><b>三リン酸化体</b>となり<br>→ DNA依存性DNAポリメラーゼ阻害</p>
+    <p><b>・適応</b></p>
+    <p><b>サイトメガロウイルス</b>感染症</p></section>
+    <section class="panel"><h3>〇 ホスカルネット</h3>
+    <p><span class="dg">ホスカルネット</span></p>
+    <p class="small muted">ホス〇カルネット＝サイトメ〇ガロウイルス</p>
+    <p><b>・作用機序</b></p>
+    <p>DNA依存性DNAポリメラーゼの<b>ピロリン酸結合部位</b>に直接作用（<b>非競合</b>）<br>→ DNAポリメラーゼ阻害</p>
+    <p><b>リン酸化不要</b><br>→ 三リン酸化体にならない<br>→ サイトメガロウイルスにも使える</p>
+    <p><b>・適応</b></p>
+    <p><b>サイトメガロウイルス</b>感染症</p></section>
+    <section class="panel"><h3>〇 レテルモビル</h3>
+    <p><span class="dg">レテルモビル</span></p>
+    <p><b>・作用機序</b></p>
+    <p>サイトメガロウイルスの<b>DNAターミナーゼ複合体</b>を阻害<br>→ ウイルスDNAの切断・パッケージングを阻害<br>→ 成熟ウイルス粒子の形成を抑制</p>
+    <p class="small muted">DNA合成自体は止めない<br>CYP3A4で代謝</p>
+    <p><b>・適応</b></p>
+    <p>同種造血幹細胞移植（臓器移植）後の<b>サイトメガロウイルス</b>感染症の発症抑制</p>
+    <p class="small muted">メリット：骨髄抑制を起こさない<br>副作用：消化器症状・肝障害</p></section>` }
 ];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
