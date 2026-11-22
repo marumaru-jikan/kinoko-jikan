@@ -3372,11 +3372,19 @@ Object.assign(POOL, {
     ['生薬','授乳中の婦人に慎重投与とされる生薬は？','ダイオウ',['カンゾウ','マオウ','ブシ'],'妊婦には投与しないことが望ましい'],
   ],
   phc1:[
+    ['OTC成分','鎮暈薬に配合される抗めまい成分は？','ジフェニドール',['アセトアミノフェン','クロルフェニラミン','硫酸亜鉛'],'抗コリン作用もある'],
     ['OTC成分','15歳未満に使用できない解熱鎮痛成分は？','アスピリン',['アセトアミノフェン','カフェイン','エテンザミド以外すべて'],'ライ症候群'],
     ['OTC成分','小児にも使える解熱鎮痛成分は？','アセトアミノフェン',['アスピリン','イブプロフェン','ロキソプロフェン'],'大量で肝障害'],
     ['OTC成分','依存性に注意が必要な催眠鎮静成分は？','ブロモバレリル尿素',['ジフェンヒドラミン','カノコソウ','カフェイン'],'濫用のおそれ'],
     ['OTC成分','乗り物酔い薬の抗コリン成分は？','スコポラミン',['メクリジン','カフェイン','ジメンヒドリナート'],'緑内障・排尿障害に注意'],
     ['OTC成分','一時的な不眠の緩和に用いる抗ヒスタミン成分は？','ジフェンヒドラミン',['クロルフェニラミン','メクリジン','フェキソフェナジン'],'15歳未満 ×'],
+  ],
+  phc3:[
+    ['OTC成分','じんましん・湿疹に用いる抗ヒスタミン成分は？','クロルフェニラミン',['硫酸亜鉛','リボフラビン','炭酸水素ナトリウム'],'眠気に注意'],
+    ['OTC成分','鎮暈薬に配合される制酸成分は？','炭酸水素ナトリウム',['l-メントール','ジフェニドール','硫酸亜鉛'],'l-メントールは清涼感'],
+    ['OTC成分','点眼薬の収れん成分は？','硫酸亜鉛',['クロルフェニラミン','リボフラビン','炭酸水素ナトリウム'],'紫外線による眼炎など'],
+    ['OTC成分','リボフラビンはどのビタミン？','ビタミンB₂',['ビタミンB₁','ビタミンB₆','ビタミンC'],'ピリドキシンはB₆'],
+    ['OTC成分','ピリドキシンはどのビタミン？','ビタミンB₆',['ビタミンB₂','ビタミンB₁₂','ビタミンE'],'皮膚・粘膜の健康維持'],
   ],
   phc2:[
     ['かぜ薬','12歳未満に禁忌のかぜ薬の成分は？','ジヒドロコデイン',['デキストロメトルファン','アセトアミノフェン','グアイフェネシン'],'呼吸抑制'],
@@ -5315,7 +5323,7 @@ const PHC_LESSONS = [
     ${ktbl([['抗ヒスタミン薬','<span class="dg">ジフェンヒドラミン</span><br><span class="small muted">一時的な不眠の緩和・15歳未満 ×</span>'],['ブロム系','<span class="dg">ブロモバレリル尿素</span><br><span class="small muted">依存性・濫用に注意</span>'],['生薬','カノコソウ・チャボトケイソウなど']]).replace('tbl ktbl','tbl ktbl kw')}
     <p class="small muted">眠気 → 服用後の運転 ×・アルコールで作用⬆</p></section>
     <section class="panel"><h3>〇 鎮暈薬（乗り物酔い）</h3>
-    ${ktbl([['抗ヒスタミン薬','<span class="dg">ジメンヒドリナート</span>・<span class="dg">メクリジン</span>'],['抗コリン薬','<span class="dg">スコポラミン</span>'],['中枢興奮薬','<span class="dg">カフェイン</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    ${ktbl([['抗ヒスタミン薬','<span class="dg">ジメンヒドリナート</span>・<span class="dg">メクリジン</span>'],['抗コリン薬','<span class="dg">スコポラミン</span>'],['抗めまい薬','<span class="dg">ジフェニドール</span><br><span class="small muted">内耳の血流改善・前庭神経の調整・抗コリン作用</span>'],['中枢興奮薬','<span class="dg">カフェイン</span>'],['鎮静薬','<span class="dg">ブロモバレリル尿素</span>'],['その他','<span class="dg">l-メントール</span>（清涼感・吐き気を抑える）<br><span class="dg">炭酸水素ナトリウム</span>（制酸）']]).replace('tbl ktbl','tbl ktbl kw')}
     <p class="small muted">抗コリン作用 → 閉塞隅角緑内障・前立腺肥大による排尿障害に注意<br>眠気 → 運転 ×</p></section>
     <section class="panel"><h3>〇 解熱鎮痛薬</h3>
     ${ktbl([['サリチル酸系','<span class="dg">アスピリン</span>・<span class="dg">エテンザミド</span><br><span class="small muted">アスピリン：15歳未満 ×（ライ症候群）</span>'],['アニリン系','<span class="dg">アセトアミノフェン</span><br><span class="small muted">小児にも使える・大量で肝障害</span>'],['プロピオン酸系','<span class="dg">イブプロフェン</span>・<span class="dg">ロキソプロフェン</span><br><span class="small muted">イブプロフェン：15歳未満 ×</span>']]).replace('tbl ktbl','tbl ktbl kw')}
@@ -5328,7 +5336,14 @@ const PHC_LESSONS = [
     <p><b>濫用</b>のおそれ：<span class="dg">ジヒドロコデイン</span>・<span class="dg">メチルエフェドリン</span>など</p>
     <p>抗ヒスタミン・抗コリン<br>→ 閉塞隅角緑内障・前立腺肥大に注意<br>→ 眠気 → 運転 ×</p>
     <p><span class="dg">メチルエフェドリン</span><br>→ 高血圧・心疾患・甲状腺機能亢進症・糖尿病に注意</p>
-    <p class="small muted">かぜ薬は対症療法（ウイルスを治すものではない）</p></section>` }
+    <p class="small muted">かぜ薬は対症療法（ウイルスを治すものではない）</p></section>` },
+  { id:'2-3', t:'点眼薬・抗アレルギー薬', sub:'硫酸亜鉛・クロルフェニラミン＋ビタミン', plan:['phc3','phc3','phc3','phc3','phc3'], body:()=>`
+    <section class="panel"><h3>〇 点眼薬</h3>
+    ${ktbl([['収れん薬','<span class="dg">硫酸亜鉛</span><br><span class="small muted">目の炎症（紫外線による眼炎など）</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">収れん：タンパク質と結合して組織を引き締め、炎症を抑える</p></section>
+    <section class="panel"><h3>〇 抗アレルギー薬</h3>
+    ${ktbl([['抗ヒスタミン薬','<span class="dg">クロルフェニラミン</span>'],['ビタミン類','<span class="dg">リボフラビン</span>（ビタミンB<sub>2</sub>）<br><span class="dg">ピリドキシン</span>（ビタミンB<sub>6</sub>）<br><span class="dg">パントテン酸カルシウム</span>']]).replace('tbl ktbl','tbl ktbl kw')}
+    <p class="small muted">じんましん・湿疹・かゆみなど<br>ビタミンB群：皮膚・粘膜の健康維持<br>眠気 → 運転 ×</p></section>` }
 ];
 const LPRO_LESSONS = [
   { id:'5-1', t:'前立腺の検査', sub:'直腸診・PSA・IPSS・グリソンスコア', plan:['lpro','lpro','lpro','lpro','lpro'], body:()=>`
