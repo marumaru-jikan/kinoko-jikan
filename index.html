@@ -3558,6 +3558,23 @@ Object.assign(POOL, {
     ['腺がん','CEA・CA19-9が上昇するがんはどれ？','子宮体がん',['子宮頸がん','食道がん','肺小細胞がん'],'子宮体がんは腺がん、子宮頸がんは扁平上皮がん'],
     ['腺がん','CEA・CA19-9が上昇するがんはどれ？','肺腺がん',['肺扁平上皮がん','肺小細胞がん','食道がん'],'肺腺がん：CEA・CA19-9'],
   ],
+  tmk2:[
+    ['膵臓がん','膵臓がんのマーカーはどれ？','Span-1',['PSA','AFP','NSE'],'ほかにCEA・CA19-9・エラスターゼ1'],
+    ['膵臓がん','膵臓がんのマーカーはどれ？','エラスターゼ1',['AFP','PAP','NSE'],'エラスターゼ1：すい臓がん'],
+    ['膵臓がん','覚え方「水泳でそのスパンで海いくの？」で、スパンは？','Span-1',['PSA','NSE','PAP'],'海いく＝CEA・CA19-9'],
+    ['小細胞肺がん','小細胞肺がんのマーカーの組み合わせは？','Pro-GRP・NSE',['SCC・シフラ','AFP・PIVKA-Ⅱ','PSA・PAP'],'覚え方：小さいプロのナース'],
+    ['小細胞肺がん','NSEが上昇するがんはどれ？','小細胞肺がん',['扁平上皮肺がん','肝細胞がん','前立腺がん'],'NSE：小細胞肺がん'],
+    ['小細胞肺がん','肺小細胞がんのマーカーはどれ？','Pro-GRP',['SCC','シフラ','AFP'],'Pro-GRP：小細胞肺がん'],
+    ['肝細胞がん','肝細胞がんのマーカーの組み合わせは？','AFP・PIVKA-Ⅱ',['Pro-GRP・NSE','PSA・PAP','CA15-3・CA125'],'覚え方：アフロピカン'],
+    ['肝細胞がん','PIVKA-Ⅱが上昇するがんは？','肝細胞がん',['膵臓がん','乳がん','卵巣がん'],'AFP・PIVKA-Ⅱ'],
+    ['前立腺がん','前立腺がんのマーカーの組み合わせは？','PSA・PAP',['Pro-GRP・NSE','AFP・PIVKA-Ⅱ','CA15-3・CA125'],'覚え方：パパは前立腺がん'],
+    ['前立腺がん','PAPが上昇するがんは？','前立腺がん',['乳がん','卵巣がん','膵臓がん'],'PSA・PAP：前立腺がん'],
+    ['乳がん','乳がんのマーカーはどれ？','CA15-3',['CA125','PSA','AFP'],'ほかにCEA'],
+    ['乳がん','シアリルLeˣ（CSLEX）が上昇するがんは？','乳がん',['卵巣がん','前立腺がん','膵臓がん'],'覚え方：いちごミルクをシリアルへ'],
+    ['乳がん','乳がんで評価されるホルモン受容体は？','エストロゲン受容体（ER）',['PAP','NSE','PIVKA-Ⅱ'],'ER：乳がん'],
+    ['卵巣がん','卵巣がんのマーカーはどれ？','CA125',['CA15-3','PSA','AFP'],'覚え方：いい双子は女の子（1・2・5）'],
+    ['卵巣がん','覚え方「いい双子」の数字から導かれるマーカーは？','CA125',['CA153','CA199','CA215'],'1・2・5 → CA125'],
+  ],
   lpro:[
     ['前立腺の検査','直腸診で石様硬・表面不整の前立腺を触れたら疑うのは？','前立腺がん',['前立腺肥大症','前立腺炎','膀胱炎'],'肥大症は弾性硬・表面平滑'],
     ['前立腺の検査','PSAの基準値は？','4.0 ng/mL以下',['10 ng/mL以下','1.0 ng/mL以下','40 ng/mL以下'],'4.0〜10はグレーゾーン'],
@@ -4099,7 +4116,26 @@ const TMK_LESSONS = [
     <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_hen.png" alt="扁平上皮がんの覚え方。軽食は変な寿司。軽＝子宮頸がん、食＝食道がん、は＝肺扁平上皮がん、変な＝扁平上皮がん、寿司＝SCC。★扁平上皮肺がんはCYFRA 21-1も" loading="lazy"></section>
     <section class="panel"><h3>〇 腺がん</h3>
     ${fk([['CEA<br>CA19-9','胃がん<br>大腸がん<br>膵がん<br>子宮体がん<br>肺腺がん']])}
-    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_sen.png" alt="腺がんの覚え方。医大生、海に行くと衰退・敗戦。医＝胃がん、大＝大腸がん、海＝CEA、行く＝CA19-9、衰＝膵がん、退＝子宮体がん、敗＝肺腺がん" loading="lazy"></section>` }
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_sen.png" alt="腺がんの覚え方。医大生、海に行くと衰退・敗戦。医＝胃がん、大＝大腸がん、海＝CEA、行く＝CA19-9、衰＝膵がん、退＝子宮体がん、敗＝肺腺がん" loading="lazy"></section>` },
+  { id:'11-2', t:'腫瘍マーカー②', sub:'膵臓がん・小細胞肺がん・肝細胞がん・前立腺がん・乳がん・卵巣がん', plan:['tmk2','tmk2','tmk2','tmk2','tmk2'], body:()=>`
+    <section class="panel"><h3>〇 膵臓がん</h3>
+    ${fk([['Span-1<br>CEA<br>CA19-9<br>エラスターゼ1','膵臓がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_sui.png" alt="膵臓がんの覚え方。水泳でそのスパンで海いくの？水泳＝膵臓がん、スパン＝Span-1、海いく＝CEA・CA19-9" loading="lazy"></section>
+    <section class="panel"><h3>〇 小細胞肺がん</h3>
+    ${fk([['Pro-GRP<br>NSE','小細胞肺がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_shou.png" alt="小細胞肺がんの覚え方。小さいプロのナース。小＝小細胞肺がん、プロ＝Pro-GRP、ナース＝NSE" loading="lazy"></section>
+    <section class="panel"><h3>〇 肝細胞がん</h3>
+    ${fk([['AFP<br>PIVKA-Ⅱ','肝細胞がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_kan.png" alt="肝細胞がんの覚え方。アフロピカン。アフロ＝AFP、ピカン＝PIVKA-Ⅱ、肝細胞がん" loading="lazy"></section>
+    <section class="panel"><h3>〇 前立腺がん</h3>
+    ${fk([['PSA<br>PAP','前立腺がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_zen.png" alt="前立腺がんの覚え方。パパは前立腺がん。パ＝PSA、パ＝PAP" loading="lazy"></section>
+    <section class="panel"><h3>〇 乳がん</h3>
+    ${fk([['CA15-3<br>CEA<br>シアリルLeˣ（CSLEX）<br>エストロゲン受容体（ER）','乳がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_nyu.png" alt="乳がんの覚え方。いちごミルクをシリアルへ。いちご＝CA15-3、ミルク＝乳がん、シリアル＝シアリルLeˣ（CSLEX）、へ＝エストロゲン受容体（ER）" loading="lazy"></section>
+    <section class="panel"><h3>〇 卵巣がん</h3>
+    ${fk([['CA125','卵巣がん<br>子宮がん']])}
+    <p><b>覚え方</b></p><img class="goro-img" src="goro/tm_ran.png" alt="卵巣がんの覚え方。いい双子は女の子。いい＝1、双＝2、子＝5でCA125、女の子＝卵巣。★CA125" loading="lazy"></section>` }
 ];
 const ONC5_LESSONS = [
   { id:'5-1', t:'ホルモン療法', wip:true, plan:[], body:()=>'' },
