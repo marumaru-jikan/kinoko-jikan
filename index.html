@@ -7911,7 +7911,7 @@ function vRecord(){
 function vSky(){
   const s=skyInit(), g=growOf(s.fed), got=new Set(s.born.map(t=>t.sp)), b=S.born?spOf(S.born):null, nextG=GROW.find(x=>x.at>s.fed);
   return `<div class="stack"><div class="hello"><div class="eyebrow">森</div><h1>胞子を飛ばして蕈を育てよう</h1></div>
-  <div class="skybox"><div class="nightscroll">${nightSVG(s.born)}</div>${s.born.length>12?'<p class="skyhint">← 横にスクロールして森を見わたせる</p>':''}<div class="skycount"><span>森のきのこ <b class="num">${s.born.length}</b> 本</span><span>きのこ図鑑 <b class="num">${got.size}</b> / ${SP.length}</span></div></div>
+  <div class="skybox"><div class="nightscroll">${nightSVG(s.born)}</div>${s.born.length>12?'<p class="skyhint">← 横にスクロールして森を見わたせる</p>':''}<div class="skycount"><span>森のきのこ <b class="num">${s.born.length}</b> 本</span></div></div>
   ${b?`<div class="panel born pop"><svg viewBox="0 0 120 120" class="bsv">${mushG(b,60,104,2.6)}</svg><div><p class="small muted">きのこが生えました！</p><h3>${b.name}</h3><p class="small">${b.note}</p></div></div>`:''}
   <div class="panel grow"><div class="growtop"><div><p class="small muted">いま育てているきのこ</p><h3>${g.n}</h3><p class="small">${g.d}</p></div>${stageSVG(s.fed)}</div>
     <div class="meter"><i style="width:${s.fed/SKY_NEED*100}%"></i></div>
